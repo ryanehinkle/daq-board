@@ -1263,15 +1263,39 @@
             ? saved.backgrounds.filter(item => item && item.id && item.url && item.type)
             : cloneDefaultBackgrounds();
 
-          // Rename the two presets created by the previous settings version.
-          backgrounds = backgrounds.map(item => ({
-            ...item,
-            name: item.name === "Image Background"
-              ? "Mountain Night Sky"
-              : item.name === "YouTube Background"
-                ? "Neon Sunset Drive"
-                : item.name
-          }));
+          // Clean up only the known old built-in values. Custom presets stay untouched.
+          backgrounds = backgrounds.map(item => {
+            if (
+              item.id === "default-image" &&
+              item.url === DEFAULT_BACKGROUND_URL
+            ) {
+              return { ...item, name: "Mountain Night Sky", type: "image", url: DEFAULT_BACKGROUND_URL };
+            }
+
+            if (
+              item.id === "default-video" &&
+              (
+                item.url === "https://www.youtube.com/watch?v=i3gUonr3d9U" ||
+                item.url === "https://www.youtube.com/watch?v=i3qUonr3d9U"
+              )
+            ) {
+              return {
+                ...item,
+                name: "Neon Sunset Drive",
+                type: "video",
+                url: "https://www.youtube.com/watch?v=i3qUonr3d9U"
+              };
+            }
+
+            return {
+              ...item,
+              name: item.name === "Image Background"
+                ? "Mountain Night Sky"
+                : item.name === "YouTube Background"
+                  ? "Neon Sunset Drive"
+                  : item.name
+            };
+          });
 
           let selectedBackgroundId = hasPresetList
             ? (saved.selectedBackgroundId || "")
