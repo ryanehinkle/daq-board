@@ -1248,31 +1248,20 @@
 
       function loadSettings() {
         try {
-          const saved = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-          let backgrounds = Array.isArray(saved.backgrounds)
-            ? saved.backgrounds.filter(item => item && item.id && item.url && item.type)
-            : [];
-
-          // Migrate the earlier image + YouTube URL settings into presets.
-          if (!backgrounds.length) {
-            if (saved.backgroundUrl) {
-              backgrounds.push({
-                id: "migrated-image",
-                name: "Image Background",
-                type: "image",
-                url: saved.backgroundUrl
-              });
-            }
-            if (saved.youtubeUrl) {
-              backgrounds.push({
-                id: "migrated-video",
-                name: "YouTube Background",
-                type: "video",
-                url: saved.youtubeUrl
-              });
-            }
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) {
+            return {
+              ...DEFAULTS,
+              backgrounds: cloneDefaultBackgrounds(),
+              music: []
+            };
           }
-          if (!backgrounds.length) backgrounds = cloneDefaultBackgrounds();
+
+          const saved = JSON.parse(raw) || {};
+          const hasPresetList = Array.isArray(saved.backgrounds);
+          let backgrounds = hasPresetList
+            ? saved.backgrounds.filter(item => item && item.id && item.url && item.type)
+            : cloneDefaultBackgrounds();
 
           // Rename the two presets created by the previous settings version.
           backgrounds = backgrounds.map(item => ({
@@ -1284,11 +1273,11 @@
                 : item.name
           }));
 
-          let selectedBackgroundId = saved.selectedBackgroundId;
+          let selectedBackgroundId = hasPresetList
+            ? (saved.selectedBackgroundId || "")
+            : "default-video";
           if (!backgrounds.some(item => item.id === selectedBackgroundId)) {
-            selectedBackgroundId = saved.youtubeUrl && backgrounds.some(item => item.id === "migrated-video")
-              ? "migrated-video"
-              : backgrounds[0]?.id || "";
+            selectedBackgroundId = "";
           }
 
           const music = Array.isArray(saved.music)
