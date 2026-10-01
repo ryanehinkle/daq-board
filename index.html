@@ -59,7 +59,32 @@
       width: 102%;
       height: 102%;
       border: 0;
-      pointer-events: none;
+      pointer-events: auto;
+    }
+
+    /*
+      Keep the YouTube player non-interactive everywhere except the small
+      bottom-right rectangle where YouTube places the Skip ad button.
+      The transparent shields sit above the iframe and absorb clicks; the
+      uncovered corner passes clicks straight through to YouTube.
+    */
+    .youtube-hit-shield {
+      position: absolute;
+      z-index: 2;
+      background: transparent;
+      pointer-events: auto;
+    }
+    .youtube-hit-shield.top {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 11.5%;
+    }
+    .youtube-hit-shield.bottom-left {
+      left: 0;
+      bottom: 0;
+      width: 87.5%;
+      height: 11.5%;
     }
     #board::before {
       content: "";
@@ -924,6 +949,8 @@
         referrerpolicy="strict-origin-when-cross-origin"
         tabindex="-1"
       ></iframe>
+      <div class="youtube-hit-shield top" aria-hidden="true"></div>
+      <div class="youtube-hit-shield bottom-left" aria-hidden="true"></div>
     </div>
 
     <iframe
