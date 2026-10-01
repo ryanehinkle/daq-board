@@ -236,6 +236,7 @@
     }
 
     #settings {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       position: absolute;
       inset: 0;
       z-index: 20;
@@ -491,6 +492,63 @@
       max-height: 285px;
       overflow-y: auto;
     }
+    #music-menu {
+      max-height: 0;
+      overflow-y: hidden;
+    }
+    #music-select.open #music-menu {
+      max-height: 285px;
+      overflow-y: auto;
+    }
+    .music-menu-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      display: flex;
+      justify-content: flex-end;
+      padding: 5px 4px 8px;
+      background: rgba(30,32,39,.98);
+    }
+    .music-editor {
+      max-height: 0;
+      margin-top: 0;
+      padding: 0 12px;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-7px) scale(.985);
+      transform-origin: top center;
+      border: 1px solid rgba(255,255,255,0);
+      border-radius: 12px;
+      background: rgba(255,255,255,.055);
+      box-shadow: inset 0 1px rgba(255,255,255,.035);
+      transition:
+        max-height .25s cubic-bezier(.2,.8,.25,1),
+        margin-top .2s ease,
+        padding .2s ease,
+        opacity .16s ease,
+        transform .22s cubic-bezier(.2,.8,.25,1),
+        border-color .2s ease,
+        visibility 0s linear .25s;
+    }
+    .music-editor.open {
+      max-height: 190px;
+      margin-top: 8px;
+      padding: 12px;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+      border-color: rgba(255,255,255,.13);
+      transition:
+        max-height .25s cubic-bezier(.2,.8,.25,1),
+        margin-top .2s ease,
+        padding .2s ease,
+        opacity .17s ease,
+        transform .23s cubic-bezier(.2,.8,.25,1),
+        border-color .2s ease,
+        visibility 0s;
+    }
+    .music-editor input + input { margin-top: 8px; }
     .background-filter {
       position: sticky;
       top: 0;
@@ -865,6 +923,16 @@
       ></iframe>
     </div>
 
+    <iframe
+      id="youtube-music-frame"
+      title="YouTube music"
+      allow="autoplay; encrypted-media"
+      referrerpolicy="strict-origin-when-cross-origin"
+      tabindex="-1"
+      aria-hidden="true"
+      style="position:absolute;width:1px;height:1px;left:-9999px;top:-9999px;opacity:0;pointer-events:none;border:0"
+    ></iframe>
+
     <section class="clock-block" aria-label="Clock">
       <div class="time-row">
         <span id="clock-main">2:37</span><span id="clock-seconds">31</span>
@@ -902,11 +970,11 @@
           <label>Weather source</label>
           <div class="custom-select" id="weather-source-select">
             <button class="custom-select-button" id="weather-source-button" type="button">
-              <span id="weather-source-label">Best Match — automatic</span>
+              <span id="weather-source-label">Phone Match — smart blend</span>
               <span class="chevron" aria-hidden="true"></span>
             </button>
             <div class="custom-select-menu" id="weather-source-menu">
-              <button class="custom-option" type="button" data-value="best_match">Best Match — automatic</button>
+              <button class="custom-option" type="button" data-value="best_match">Phone Match — smart blend</button>
               <button class="custom-option" type="button" data-value="nws">NOAA / National Weather Service</button>
               <button class="custom-option" type="button" data-value="nbm">NOAA NBM — 2.5 km blend</button>
               <button class="custom-option" type="button" data-value="gfs">NOAA HRRR + GFS — seamless</button>
@@ -945,6 +1013,30 @@
             <div class="background-editor-actions">
               <button id="cancel-background" type="button">Cancel</button>
               <button id="confirm-background" type="button">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Music</label>
+
+          <div class="custom-select" id="music-select">
+            <button class="custom-select-button background-button" id="music-button" type="button">
+              <span class="background-current" id="music-current"></span>
+              <span class="chevron" aria-hidden="true"></span>
+            </button>
+            <div class="custom-select-menu" id="music-menu"></div>
+          </div>
+
+          <div class="music-editor" id="music-editor">
+            <div class="background-editor-title">
+              <span id="music-editor-title">Add music</span>
+            </div>
+            <input id="music-name" type="text" maxlength="60" placeholder="Name" />
+            <input id="music-url" type="url" placeholder="YouTube URL" />
+            <div class="background-editor-actions">
+              <button id="cancel-music" type="button">Cancel</button>
+              <button id="confirm-music" type="button">Add</button>
             </div>
           </div>
         </div>
@@ -1049,11 +1141,13 @@
           { id: "default-image", name: "Mountain Night Sky", type: "image", url: DEFAULT_BACKGROUND_URL },
           { id: "default-video", name: "Neon Sunset Drive", type: "video", url: "https://www.youtube.com/watch?v=i3gUonr3d9U" }
         ],
-        selectedBackgroundId: "default-video"
+        selectedBackgroundId: "default-video",
+        music: [],
+        selectedMusicId: ""
       };
 
       const WEATHER_SOURCES = {
-        best_match: { label: "Best Match — automatic" },
+        best_match: { label: "Phone Match — smart blend" },
         nws: { label: "NOAA / National Weather Service" },
         nbm: { label: "NOAA NBM — 2.5 km blend" },
         gfs: { label: "NOAA HRRR + GFS — seamless" },
@@ -1117,6 +1211,17 @@
       const backgroundNewUrlInput = document.getElementById("background-new-url");
       const cancelBackgroundButton = document.getElementById("cancel-background");
       const confirmBackgroundButton = document.getElementById("confirm-background");
+      const musicFrame = document.getElementById("youtube-music-frame");
+      const musicSelect = document.getElementById("music-select");
+      const musicButton = document.getElementById("music-button");
+      const musicCurrent = document.getElementById("music-current");
+      const musicMenu = document.getElementById("music-menu");
+      const musicEditor = document.getElementById("music-editor");
+      const musicEditorTitle = document.getElementById("music-editor-title");
+      const musicNameInput = document.getElementById("music-name");
+      const musicUrlInput = document.getElementById("music-url");
+      const cancelMusicButton = document.getElementById("cancel-music");
+      const confirmMusicButton = document.getElementById("confirm-music");
       const animationSelect = document.getElementById("animation-select");
       const animationButton = document.getElementById("animation-button");
       const animationLabel = document.getElementById("animation-label");
@@ -1186,6 +1291,12 @@
               : backgrounds[0]?.id || "";
           }
 
+          const music = Array.isArray(saved.music)
+            ? saved.music.filter(item => item && item.id && item.name && item.url)
+            : [];
+          let selectedMusicId = saved.selectedMusicId || "";
+          if (!music.some(item => item.id === selectedMusicId)) selectedMusicId = "";
+
           const savedCoordinates = saved.coordinates || DEFAULTS.coordinates;
           return {
             coordinates: savedCoordinates === "41.79722, -88.17000"
@@ -1196,7 +1307,9 @@
             clockAnimation: CLOCK_ANIMATIONS[saved.clockAnimation] ? saved.clockAnimation : DEFAULTS.clockAnimation,
             font: FONT_OPTIONS[saved.font] ? saved.font : DEFAULTS.font,
             backgrounds,
-            selectedBackgroundId
+            selectedBackgroundId,
+            music,
+            selectedMusicId
           };
         } catch {
           return {
