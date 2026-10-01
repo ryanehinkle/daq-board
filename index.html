@@ -1139,7 +1139,7 @@
         font: "helvetica",
         backgrounds: [
           { id: "default-image", name: "Mountain Night Sky", type: "image", url: DEFAULT_BACKGROUND_URL },
-          { id: "default-video", name: "Neon Sunset Drive", type: "video", url: "https://www.youtube.com/watch?v=i3gUonr3d9U" }
+          { id: "default-video", name: "Neon Sunset Drive", type: "video", url: "https://www.youtube.com/watch?v=i3qUonr3d9U" }
         ],
         selectedBackgroundId: "default-video",
         music: [],
@@ -2444,7 +2444,7 @@
           const id = remove.dataset.removeId;
           settings.backgrounds = settings.backgrounds.filter(item => item.id !== id);
           if (settings.selectedBackgroundId === id) {
-            settings.selectedBackgroundId = settings.backgrounds[0]?.id || "";
+            settings.selectedBackgroundId = "";
           }
           persistSettings();
           renderBackgroundPicker({ animateRows: true });
