@@ -260,7 +260,8 @@
       color: rgba(255,255,255,.72);
       font-weight: 600;
     }
-    .field input {
+    .field input,
+    .field select {
       width: 100%;
       height: 42px;
       border: 1px solid rgba(255,255,255,.15);
@@ -270,7 +271,12 @@
       color: white;
       background: rgba(255,255,255,.08);
     }
-    .field input:focus {
+    .field select {
+      color-scheme: dark;
+      cursor: pointer;
+    }
+    .field input:focus,
+    .field select:focus {
       border-color: rgba(255,255,255,.48);
       background: rgba(255,255,255,.11);
     }
@@ -397,8 +403,20 @@
 
         <div class="field">
           <label for="zip">ZIP code</label>
-          <input id="zip" inputmode="numeric" maxlength="10" placeholder="e.g. 60540" autocomplete="postal-code" />
+          <input id="zip" inputmode="numeric" maxlength="10" placeholder="e.g. 60563" autocomplete="postal-code" />
           <div class="settings-help">One ZIP code sets both the weather location and the dashboard time zone.</div>
+        </div>
+
+        <div class="field">
+          <label for="weather-source">Weather source</label>
+          <select id="weather-source">
+            <option value="best_match">Best Match — automatic</option>
+            <option value="nws">NOAA / National Weather Service</option>
+            <option value="nbm">NOAA NBM — 2.5 km blend</option>
+            <option value="gfs">NOAA HRRR + GFS — seamless</option>
+            <option value="ecmwf">ECMWF IFS — high resolution</option>
+          </select>
+          <div class="settings-help" id="weather-source-help">Automatically chooses the strongest high-resolution model available for the ZIP code.</div>
         </div>
 
         <div class="field">
@@ -429,9 +447,33 @@
     (() => {
       const STORAGE_KEY = "daq-board-settings-v1";
       const DEFAULTS = {
-        zip: "10001",
+        zip: "60563",
+        weatherSource: "best_match",
         backgroundUrl: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2400&q=90",
         youtubeUrl: ""
+      };
+
+      const WEATHER_SOURCES = {
+        best_match: {
+          label: "Best Match",
+          help: "Automatically chooses the strongest high-resolution model available for the ZIP code."
+        },
+        nws: {
+          label: "NOAA / National Weather Service",
+          help: "Official U.S. National Weather Service point forecast for the ZIP code."
+        },
+        nbm: {
+          label: "NOAA NBM",
+          help: "NOAA National Blend of Models at high resolution across the continental U.S."
+        },
+        gfs: {
+          label: "NOAA HRRR + GFS",
+          help: "Rapid-refresh HRRR near-term data blended seamlessly into NOAA GFS for later days."
+        },
+        ecmwf: {
+          label: "ECMWF IFS",
+          help: "ECMWF's high-resolution global forecast model."
+        }
       };
 
       const board = document.getElementById("board");
@@ -446,6 +488,8 @@
       const settingsButton = document.getElementById("settings-button");
       const settingsEl = document.getElementById("settings");
       const zipInput = document.getElementById("zip");
+      const weatherSourceInput = document.getElementById("weather-source");
+      const weatherSourceHelp = document.getElementById("weather-source-help");
       const backgroundInput = document.getElementById("background-url");
       const youtubeInput = document.getElementById("youtube-url");
       const metaEl = document.getElementById("settings-meta");
@@ -630,7 +674,7 @@
         ).join("");
       }
 
-      async function fetchWeather(zip) {
+      async function geocodeZip(zip) {
         const cleaned = String(zip || "").trim();
         if (!/^\d{5}(?:-\d{4})?$/.test(cleaned)) {
           throw new Error("Enter a valid U.S. ZIP code.");
@@ -642,10 +686,14 @@
         const place = zipData.places && zipData.places[0];
         if (!place) throw new Error("That ZIP code could not be found.");
 
-        const lat = Number(place.latitude);
-        const lon = Number(place.longitude);
-        locationName = [place["place name"], place["state abbreviation"]].filter(Boolean).join(", ");
+        return {
+          lat: Number(place.latitude),
+          lon: Number(place.longitude),
+          name: [place["place name"], place["state abbreviation"]].filter(Boolean).join(", ")
+        };
+      }
 
+      async function fetchOpenMeteoWeather(lat, lon, source) {
         const params = new URLSearchParams({
           latitude: String(lat),
           longitude: String(lon),
@@ -656,33 +704,181 @@
           forecast_days: "4"
         });
 
-        const wxRes = await fetch("https://api.open-meteo.com/v1/forecast?" + params.toString());
-        if (!wxRes.ok) throw new Error("Weather service is unavailable right now.");
+        let endpoint = "https://api.open-meteo.com/v1/forecast";
+        if (source === "nbm") {
+          endpoint = "https://api.open-meteo.com/v1/gfs";
+          params.set("models", "nbm_conus");
+        } else if (source === "gfs") {
+          endpoint = "https://api.open-meteo.com/v1/gfs";
+          params.set("models", "gfs_seamless");
+        } else if (source === "ecmwf") {
+          endpoint = "https://api.open-meteo.com/v1/ecmwf";
+        }
+
+        const wxRes = await fetch(endpoint + "?" + params.toString());
+        if (!wxRes.ok) throw new Error("Selected weather source is unavailable right now.");
         const data = await wxRes.json();
+
+        if (!data.current || !data.daily) {
+          throw new Error("Selected weather source did not return a complete forecast.");
+        }
+        return data;
+      }
+
+      function nwsKind(text) {
+        const value = String(text || "").toLowerCase();
+        if (/thunder|t-storm|storm/.test(value)) return "storm";
+        if (/snow|sleet|ice|freezing/.test(value)) return "snow";
+        if (/rain|shower|drizzle/.test(value)) return "rain";
+        if (/fog|haze|mist/.test(value)) return "fog";
+        if (/partly|mostly sunny|mostly clear/.test(value)) return "partly";
+        if (/cloud|overcast/.test(value)) return "cloud";
+        if (/sunny|clear/.test(value)) return "sun";
+        return "cloud";
+      }
+
+      function nwsCodeFromText(text) {
+        const kind = nwsKind(text);
+        return {
+          sun: 0,
+          partly: 2,
+          cloud: 3,
+          fog: 45,
+          rain: 61,
+          snow: 71,
+          storm: 95
+        }[kind] ?? 3;
+      }
+
+      function dateInTimezone(value, tz) {
+        return new Intl.DateTimeFormat("en-CA", {
+          timeZone: tz,
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit"
+        }).format(new Date(value));
+      }
+
+      async function fetchNwsWeather(lat, lon) {
+        const headers = { Accept: "application/geo+json" };
+        const pointRes = await fetch(
+          "https://api.weather.gov/points/" + lat.toFixed(4) + "," + lon.toFixed(4),
+          { headers }
+        );
+        if (!pointRes.ok) throw new Error("National Weather Service is unavailable right now.");
+        const pointData = await pointRes.json();
+        const props = pointData.properties || {};
+        if (!props.forecast || !props.forecastHourly) {
+          throw new Error("National Weather Service has no forecast for this ZIP code.");
+        }
+
+        const [forecastRes, hourlyRes] = await Promise.all([
+          fetch(props.forecast, { headers }),
+          fetch(props.forecastHourly, { headers })
+        ]);
+        if (!forecastRes.ok || !hourlyRes.ok) {
+          throw new Error("National Weather Service forecast is unavailable right now.");
+        }
+
+        const forecastData = await forecastRes.json();
+        const hourlyData = await hourlyRes.json();
+        const periods = forecastData.properties?.periods || [];
+        const hourlyPeriods = hourlyData.properties?.periods || [];
+        const currentPeriod = hourlyPeriods[0] || periods[0];
+        const nwsTimezone = props.timeZone || timezone;
+        if (!currentPeriod) throw new Error("National Weather Service returned no forecast periods.");
+
+        const grouped = new Map();
+        periods.forEach(period => {
+          const date = dateInTimezone(period.startTime, nwsTimezone);
+          if (!grouped.has(date)) grouped.set(date, { time: date, high: null, low: null, code: null });
+          const day = grouped.get(date);
+          if (period.isDaytime) {
+            day.high = period.temperature;
+            day.code = nwsCodeFromText(period.shortForecast);
+          } else {
+            day.low = period.temperature;
+            if (day.code == null) day.code = nwsCodeFromText(period.shortForecast);
+          }
+        });
+
+        const days = Array.from(grouped.values()).slice(0, 4);
+        // Fill an occasional missing high/low at the edge of the NWS 12-hour period list.
+        for (let i = 0; i < days.length; i++) {
+          if (days[i].high == null) days[i].high = days[i - 1]?.high ?? currentPeriod.temperature;
+          if (days[i].low == null) days[i].low = days[i + 1]?.low ?? days[i].high;
+          if (days[i].code == null) days[i].code = nwsCodeFromText(currentPeriod.shortForecast);
+        }
+
+        return {
+          timezone: nwsTimezone,
+          current: {
+            temperature_2m: Number(currentPeriod.temperature),
+            weather_code: nwsCodeFromText(currentPeriod.shortForecast)
+          },
+          daily: {
+            time: days.map(day => day.time),
+            temperature_2m_max: days.map(day => Number(day.high)),
+            temperature_2m_min: days.map(day => Number(day.low)),
+            weather_code: days.map(day => day.code)
+          }
+        };
+      }
+
+      async function fetchWeather(zip, source = settings.weatherSource || "best_match") {
+        const location = await geocodeZip(zip);
+        locationName = location.name;
+
+        const data = source === "nws"
+          ? await fetchNwsWeather(location.lat, location.lon)
+          : await fetchOpenMeteoWeather(location.lat, location.lon, source);
 
         if (data.timezone) timezone = data.timezone;
         renderForecast(data);
         updateClock();
-        metaEl.textContent = locationName + " • " + timezone;
+
+        const sourceLabel = WEATHER_SOURCES[source]?.label || "Best Match";
+        metaEl.textContent = locationName + " • " + sourceLabel + " • " + timezone;
         return data;
       }
 
       async function refreshWeather({ quiet = false } = {}) {
+        const selectedSource = settings.weatherSource || "best_match";
         try {
-          await fetchWeather(settings.zip);
+          await fetchWeather(settings.zip, selectedSource);
           if (!quiet) showStatus("Weather updated");
         } catch (error) {
+          // Keep the dashboard useful if a specific upstream model has a temporary outage.
+          if (selectedSource !== "best_match") {
+            try {
+              await fetchWeather(settings.zip, "best_match");
+              const selectedLabel = WEATHER_SOURCES[selectedSource]?.label || "Selected source";
+              metaEl.textContent = locationName + " • " + selectedLabel + " unavailable; showing Best Match";
+              if (!quiet) showStatus(selectedLabel + " unavailable — using Best Match");
+              return;
+            } catch {}
+          }
+
           renderWeatherFallback();
           metaEl.textContent = error.message || "Could not load weather.";
           if (!quiet) showStatus(error.message || "Could not load weather");
         }
       }
 
+      function updateWeatherSourceHelp() {
+        const source = WEATHER_SOURCES[weatherSourceInput.value] || WEATHER_SOURCES.best_match;
+        weatherSourceHelp.textContent = source.help;
+      }
+
       function openSettings() {
         zipInput.value = settings.zip || "";
+        weatherSourceInput.value = settings.weatherSource || "best_match";
+        updateWeatherSourceHelp();
         backgroundInput.value = settings.backgroundUrl || "";
         youtubeInput.value = settings.youtubeUrl || "";
-        metaEl.textContent = locationName ? locationName + " • " + timezone : "ZIP controls weather and time zone.";
+        metaEl.textContent = locationName
+          ? locationName + " • " + (WEATHER_SOURCES[settings.weatherSource || "best_match"]?.label || "Best Match") + " • " + timezone
+          : "ZIP controls weather and time zone.";
         settingsEl.classList.add("open");
         settingsEl.setAttribute("aria-hidden", "false");
         setTimeout(() => zipInput.focus(), 0);
@@ -694,6 +890,7 @@
       }
 
       settingsButton.addEventListener("click", openSettings);
+      weatherSourceInput.addEventListener("change", updateWeatherSourceHelp);
       cancelSettings.addEventListener("click", closeSettings);
       settingsEl.addEventListener("click", e => {
         if (e.target === settingsEl) closeSettings();
@@ -716,6 +913,7 @@
 
       saveSettings.addEventListener("click", async () => {
         const nextZip = zipInput.value.trim();
+        const nextWeatherSource = weatherSourceInput.value;
         const nextBackground = backgroundInput.value.trim();
         const nextYoutube = youtubeInput.value.trim();
 
@@ -730,6 +928,7 @@
 
         settings = {
           zip: nextZip,
+          weatherSource: WEATHER_SOURCES[nextWeatherSource] ? nextWeatherSource : "best_match",
           backgroundUrl: nextBackground || DEFAULTS.backgroundUrl,
           youtubeUrl: nextYoutube
         };
