@@ -202,8 +202,16 @@
       color: #34404d;
       background: rgba(242,242,242,.82);
       box-shadow: 0 2px 8px rgba(0,0,0,.18);
-      transition: transform .16s ease, background .16s ease;
+      transition: opacity .16s ease, transform .16s ease, background .16s ease;
       z-index: 5;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    #settings-button.visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
     }
     #settings-button:hover {
       transform: scale(1.05);
@@ -449,6 +457,7 @@
       let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
       let locationName = "";
       let statusTimer = null;
+      let lastShiftPress = 0;
 
       function loadSettings() {
         try {
@@ -691,6 +700,18 @@
       });
       document.addEventListener("keydown", e => {
         if (e.key === "Escape") closeSettings();
+
+        if (e.key === "Shift" && !e.repeat) {
+          const now = performance.now();
+          if (now - lastShiftPress <= 450) {
+            const willShow = !settingsButton.classList.contains("visible");
+            settingsButton.classList.toggle("visible", willShow);
+            if (!willShow) closeSettings();
+            lastShiftPress = 0;
+          } else {
+            lastShiftPress = now;
+          }
+        }
       });
 
       saveSettings.addEventListener("click", async () => {
