@@ -54,33 +54,11 @@
     #youtube-background.active { display: block; }
     #youtube-background iframe {
       position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 118%;
-      height: 118%;
-      transform: translate(-50%, -50%) scale(1.08);
+      inset: -1%;
+      width: 102%;
+      height: 102%;
       border: 0;
-      opacity: 0;
       pointer-events: none;
-      transition: opacity .7s ease;
-    }
-    #youtube-background.video-ready iframe {
-      opacity: 1;
-    }
-    #youtube-cover {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      opacity: 0;
-      visibility: hidden;
-      background: #000 center / cover no-repeat;
-      transition: opacity .7s ease, visibility 0s linear .7s;
-      pointer-events: none;
-    }
-    #youtube-cover.show {
-      opacity: 1;
-      visibility: visible;
-      transition: opacity .12s ease;
     }
     #board::before {
       content: "";
@@ -380,7 +358,6 @@
         referrerpolicy="strict-origin-when-cross-origin"
         tabindex="-1"
       ></iframe>
-      <div id="youtube-cover" aria-hidden="true"></div>
     </div>
 
     <section class="clock-block" aria-label="Clock">
@@ -452,7 +429,6 @@
       const board = document.getElementById("board");
       const youtubeBackground = document.getElementById("youtube-background");
       const youtubeFrame = document.getElementById("youtube-frame");
-      const youtubeCover = document.getElementById("youtube-cover");
       const clockMain = document.getElementById("clock-main");
       const clockSeconds = document.getElementById("clock-seconds");
       const dateLine = document.getElementById("date-line");
@@ -473,7 +449,6 @@
       let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
       let locationName = "";
       let statusTimer = null;
-      let youtubeRevealTimer = null;
 
       function loadSettings() {
         try {
@@ -522,25 +497,11 @@
 
       function applyYouTubeBackground(url) {
         const id = youtubeVideoId(url);
-        clearTimeout(youtubeRevealTimer);
-
         if (!id) {
-          youtubeCover.classList.remove("show");
-          youtubeCover.style.backgroundImage = "";
-          youtubeBackground.classList.remove("active", "video-ready");
+          youtubeBackground.classList.remove("active");
           youtubeFrame.removeAttribute("src");
           return;
         }
-
-        // Keep the iframe completely invisible while YouTube shows its startup
-        // title / play controls / logo. The video's thumbnail is shown instead,
-        // so refreshes look like a clean still frame rather than a YouTube player.
-        youtubeBackground.classList.remove("video-ready");
-        youtubeCover.style.backgroundImage =
-          'url("https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg"),' +
-          'url("https://i.ytimg.com/vi/' + id + '/hqdefault.jpg")';
-        youtubeCover.classList.add("show");
-        youtubeBackground.classList.add("active");
 
         const params = new URLSearchParams({
           autoplay: "1",
@@ -553,27 +514,12 @@
           iv_load_policy: "3",
           rel: "0",
           playsinline: "1",
-          cc_load_policy: "0",
-          modestbranding: "1"
+          cc_load_policy: "0"
         });
 
         const nextSrc = "https://www.youtube-nocookie.com/embed/" + id + "?" + params.toString();
-
-        const revealCleanVideo = () => {
-          clearTimeout(youtubeRevealTimer);
-          youtubeRevealTimer = setTimeout(() => {
-            youtubeBackground.classList.add("video-ready");
-            requestAnimationFrame(() => youtubeCover.classList.remove("show"));
-          }, 8000);
-        };
-
-        youtubeFrame.onload = revealCleanVideo;
-
-        if (youtubeFrame.src !== nextSrc) {
-          youtubeFrame.src = nextSrc;
-        } else {
-          revealCleanVideo();
-        }
+        if (youtubeFrame.src !== nextSrc) youtubeFrame.src = nextSrc;
+        youtubeBackground.classList.add("active");
       }
 
       function applyBackgroundMedia(imageUrl, youtubeUrl) {
