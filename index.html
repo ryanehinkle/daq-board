@@ -2130,6 +2130,18 @@
         return canonicalCode(best);
       }
 
+      function distanceKm(lat1, lon1, lat2, lon2) {
+        const toRad = value => value * Math.PI / 180;
+        const earthKm = 6371;
+        const dLat = toRad(lat2 - lat1);
+        const dLon = toRad(lon2 - lon1);
+        const a =
+          Math.sin(dLat / 2) ** 2 +
+          Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+          Math.sin(dLon / 2) ** 2;
+        return earthKm * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      }
+
       async function fetchNwsObservation(lat, lon) {
         const headers = { Accept: "application/geo+json" };
         const pointRes = await fetch(
@@ -2150,25 +2162,47 @@
         const stationsRes = await fetch(stationsUrl, { headers });
         if (!stationsRes.ok) throw new Error("NWS station list unavailable.");
         const stationsData = await stationsRes.json();
-        const stationIds = (stationsData.features || [])
-          .slice(0, 5)
-          .map(feature => feature.id || feature.properties?.["@id"])
-          .filter(Boolean);
-        if (!stationIds.length) throw new Error("No nearby NWS observation stations.");
+
+        const stations = (stationsData.features || [])
+          .map(feature => {
+            const stationUrl = feature.id || feature.properties?.["@id"];
+            const coords = feature.geometry?.coordinates || [];
+            const stationLon = Number(coords[0]);
+            const stationLat = Number(coords[1]);
+            if (!stationUrl || !Number.isFinite(stationLat) || !Number.isFinite(stationLon)) return null;
+            return {
+              url: stationUrl,
+              distance: distanceKm(lat, lon, stationLat, stationLon)
+            };
+          })
+          .filter(Boolean)
+          .sort((a, b) => a.distance - b.distance)
+          .slice(0, 5);
+
+        if (!stations.length) throw new Error("No nearby NWS observation stations.");
 
         const observations = await Promise.allSettled(
-          stationIds.map(async stationUrl => {
-            const obsRes = await fetch(stationUrl.replace(/\/$/, "") + "/observations/latest", { headers });
+          stations.map(async station => {
+            const obsRes = await fetch(station.url.replace(/\/$/, "") + "/observations/latest", { headers });
             if (!obsRes.ok) throw new Error("Station observation unavailable.");
             const obsData = await obsRes.json();
             const p = obsData.properties || {};
             const celsius = Number(p.temperature?.value);
             if (!Number.isFinite(celsius)) throw new Error("Observation temperature missing.");
+
             const timestamp = p.timestamp ? new Date(p.timestamp).getTime() : 0;
+            const ageMinutes = timestamp ? Math.max(0, (Date.now() - timestamp) / 60000) : 999;
+            if (ageMinutes > 90) throw new Error("Station observation is stale.");
+
+            // Strongly favor the closest station while gently penalizing older reports.
+            const distanceWeight = 1 / Math.max(1, station.distance) ** 1.6;
+            const freshnessWeight = Math.exp(-ageMinutes / 75);
             return {
               temperature_2m: celsius * 9 / 5 + 32,
               weather_code: p.textDescription ? nwsCodeFromText(p.textDescription) : null,
-              timestamp
+              distance: station.distance,
+              timestamp,
+              weight: distanceWeight * freshnessWeight
             };
           })
         );
@@ -2176,14 +2210,26 @@
         const valid = observations
           .filter(result => result.status === "fulfilled")
           .map(result => result.value)
-          .sort((a, b) => b.timestamp - a.timestamp);
+          .filter(item => Number.isFinite(item.temperature_2m) && item.weight > 0);
+
         if (!valid.length) throw new Error("No usable NWS observation.");
 
-        const freshest = valid[0];
-        if (freshest.timestamp && Date.now() - freshest.timestamp > 90 * 60 * 1000) {
-          throw new Error("Nearest observation is stale.");
-        }
-        return freshest;
+        const totalWeight = valid.reduce((sum, item) => sum + item.weight, 0);
+        const temperature = valid.reduce(
+          (sum, item) => sum + item.temperature_2m * item.weight,
+          0
+        ) / totalWeight;
+
+        // Use the most locally representative condition description, not a distant station.
+        const conditionSource = [...valid]
+          .filter(item => Number.isFinite(item.weather_code))
+          .sort((a, b) => b.weight - a.weight)[0];
+
+        return {
+          temperature_2m: temperature,
+          weather_code: conditionSource?.weather_code ?? null,
+          timestamp: Math.max(...valid.map(item => item.timestamp || 0))
+        };
       }
 
       function blendForecastDatasets(datasets) {
