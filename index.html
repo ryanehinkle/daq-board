@@ -1536,8 +1536,106 @@
         applySelectedBackground();
       }
 
-      function makePresetId() {
-        return "bg-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2,7);
+      function makePresetId(prefix = "bg") {
+        return prefix + "-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2,7);
+      }
+
+      function selectedMusic() {
+        return settings.music.find(item => item.id === settings.selectedMusicId) || null;
+      }
+
+      function stopMusic() {
+        musicFrame.removeAttribute("src");
+      }
+
+      function applySelectedMusic(forceReload = false) {
+        const item = selectedMusic();
+        if (!item) {
+          stopMusic();
+          return;
+        }
+
+        const id = youtubeVideoId(item.url);
+        if (!id) {
+          stopMusic();
+          return;
+        }
+
+        const params = new URLSearchParams({
+          autoplay: "1",
+          loop: "1",
+          playlist: id,
+          controls: "0",
+          disablekb: "1",
+          fs: "0",
+          iv_load_policy: "3",
+          rel: "0",
+          playsinline: "1",
+          cc_load_policy: "0",
+          enablejsapi: "1"
+        });
+        const nextSrc = "https://www.youtube-nocookie.com/embed/" + id + "?" + params.toString();
+        if (forceReload || musicFrame.src !== nextSrc) musicFrame.src = nextSrc;
+      }
+
+      function renderMusicPicker({ animateRows = false } = {}) {
+        const current = selectedMusic();
+        const thumb = current ? backgroundThumbnail({ type: "video", url: current.url }) : "";
+
+        musicCurrent.innerHTML = current
+          ? '<span class="background-thumb" style="background-image:url(&quot;' + escapeHtml(thumb) + '&quot;)"></span>' +
+            '<span class="background-title">' + escapeHtml(current.name) + '</span>'
+          : '<span class="background-title">No music</span>';
+
+        const toolbar =
+          '<div class="music-menu-toolbar">' +
+            '<button class="background-menu-add" type="button" data-add-music aria-label="Add music" title="Add music">+</button>' +
+          '</div>';
+
+        const noneRow =
+          '<div class="background-option' + (!current ? ' selected' : '') + '" data-music-none>' +
+            '<span class="background-thumb video-generic">♪</span>' +
+            '<span class="background-title">No music</span>' +
+          '</div>';
+
+        const rows = settings.music.map(item => {
+          const itemThumb = backgroundThumbnail({ type: "video", url: item.url });
+          const selected = item.id === settings.selectedMusicId ? " selected" : "";
+          return '<div class="background-option' + selected + '" data-music-id="' + escapeHtml(item.id) + '">' +
+            '<span class="background-thumb" style="background-image:url(&quot;' + escapeHtml(itemThumb) + '&quot;)"></span>' +
+            '<span class="background-title">' + escapeHtml(item.name) + '</span>' +
+            '<span class="background-row-actions">' +
+              '<button class="edit-background" type="button" data-edit-music-id="' + escapeHtml(item.id) + '" aria-label="Edit music" title="Edit">' +
+                '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25Zm17.71-10.04a1.003 1.003 0 0 0 0-1.42l-2.5-2.5a1.003 1.003 0 0 0-1.42 0l-1.96 1.96 3.75 3.75 2.13-1.79Z"/></svg>' +
+              '</button>' +
+              '<button class="remove-background" type="button" data-remove-music-id="' + escapeHtml(item.id) + '" aria-label="Remove music" title="Remove">×</button>' +
+            '</span>' +
+          '</div>';
+        }).join("");
+
+        musicMenu.innerHTML = toolbar + noneRow + rows;
+
+        if (animateRows) {
+          requestAnimationFrame(() => {
+            Array.from(musicMenu.querySelectorAll(".background-option")).forEach((row, index) => {
+              row.animate([
+                { opacity: 0, transform: "translateY(5px) scale(.985)" },
+                { opacity: 1, transform: "translateY(0) scale(1)" }
+              ], {
+                duration: 150,
+                delay: Math.min(index * 20, 100),
+                easing: "cubic-bezier(.2,.8,.25,1)"
+              });
+            });
+          });
+        }
+      }
+
+      function setSelectedMusic(id) {
+        settings.selectedMusicId = settings.music.some(item => item.id === id) ? id : "";
+        persistSettings();
+        renderMusicPicker();
+        applySelectedMusic(true);
       }
 
       function clockFrames(mode) {
@@ -1926,7 +2024,7 @@
         const pointData = await pointRes.json();
         const props = pointData.properties || {};
         if (!props.forecast || !props.forecastHourly) {
-          throw new Error("National Weather Service has no forecast for this ZIP code.");
+          throw new Error("National Weather Service has no forecast for these coordinates.");
         }
 
         const [forecastRes, hourlyRes] = await Promise.all([
@@ -1982,15 +2080,194 @@
         };
       }
 
+      function median(values) {
+        const nums = values.filter(Number.isFinite).sort((a, b) => a - b);
+        if (!nums.length) return NaN;
+        const mid = Math.floor(nums.length / 2);
+        return nums.length % 2 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+      }
+
+      function canonicalCode(kind) {
+        return {
+          sun: 0,
+          partly: 2,
+          cloud: 3,
+          fog: 45,
+          rain: 61,
+          snow: 71,
+          storm: 95
+        }[kind] ?? 3;
+      }
+
+      function consensusWeatherCode(codes) {
+        const kinds = codes.filter(Number.isFinite).map(weatherKind);
+        if (!kinds.length) return 3;
+        const counts = new Map();
+        kinds.forEach(kind => counts.set(kind, (counts.get(kind) || 0) + 1));
+        const priority = ["storm", "snow", "rain", "fog", "partly", "cloud", "sun"];
+        let best = kinds[0];
+        let bestCount = 0;
+        priority.forEach(kind => {
+          const count = counts.get(kind) || 0;
+          if (count > bestCount) {
+            best = kind;
+            bestCount = count;
+          }
+        });
+        return canonicalCode(best);
+      }
+
+      async function fetchNwsObservation(lat, lon) {
+        const headers = { Accept: "application/geo+json" };
+        const pointRes = await fetch(
+          "https://api.weather.gov/points/" + lat.toFixed(4) + "," + lon.toFixed(4),
+          { headers }
+        );
+        if (!pointRes.ok) throw new Error("NWS observation lookup failed.");
+        const pointData = await pointRes.json();
+        const props = pointData.properties || {};
+
+        let stationsUrl = props.observationStations;
+        if (!stationsUrl && props.gridId != null && props.gridX != null && props.gridY != null) {
+          stationsUrl = "https://api.weather.gov/gridpoints/" +
+            props.gridId + "/" + props.gridX + "," + props.gridY + "/stations";
+        }
+        if (!stationsUrl) throw new Error("No nearby NWS observation stations.");
+
+        const stationsRes = await fetch(stationsUrl, { headers });
+        if (!stationsRes.ok) throw new Error("NWS station list unavailable.");
+        const stationsData = await stationsRes.json();
+        const stationIds = (stationsData.features || [])
+          .slice(0, 5)
+          .map(feature => feature.id || feature.properties?.["@id"])
+          .filter(Boolean);
+        if (!stationIds.length) throw new Error("No nearby NWS observation stations.");
+
+        const observations = await Promise.allSettled(
+          stationIds.map(async stationUrl => {
+            const obsRes = await fetch(stationUrl.replace(/\/$/, "") + "/observations/latest", { headers });
+            if (!obsRes.ok) throw new Error("Station observation unavailable.");
+            const obsData = await obsRes.json();
+            const p = obsData.properties || {};
+            const celsius = Number(p.temperature?.value);
+            if (!Number.isFinite(celsius)) throw new Error("Observation temperature missing.");
+            const timestamp = p.timestamp ? new Date(p.timestamp).getTime() : 0;
+            return {
+              temperature_2m: celsius * 9 / 5 + 32,
+              weather_code: p.textDescription ? nwsCodeFromText(p.textDescription) : null,
+              timestamp
+            };
+          })
+        );
+
+        const valid = observations
+          .filter(result => result.status === "fulfilled")
+          .map(result => result.value)
+          .sort((a, b) => b.timestamp - a.timestamp);
+        if (!valid.length) throw new Error("No usable NWS observation.");
+
+        const freshest = valid[0];
+        if (freshest.timestamp && Date.now() - freshest.timestamp > 90 * 60 * 1000) {
+          throw new Error("Nearest observation is stale.");
+        }
+        return freshest;
+      }
+
+      function blendForecastDatasets(datasets) {
+        const usable = datasets.filter(Boolean);
+        if (!usable.length) throw new Error("No forecast data available.");
+
+        const dates = [];
+        usable.forEach(data => {
+          (data.daily?.time || []).forEach(date => {
+            if (!dates.includes(date)) dates.push(date);
+          });
+        });
+        dates.sort();
+        const firstFour = dates.slice(0, 4);
+
+        const pickForDate = (data, date, key) => {
+          const i = data.daily?.time?.indexOf(date) ?? -1;
+          return i >= 0 ? Number(data.daily[key]?.[i]) : NaN;
+        };
+
+        return {
+          timezone: usable.find(data => data.timezone)?.timezone || timezone,
+          current: {
+            temperature_2m: median(usable.map(data => Number(data.current?.temperature_2m))),
+            weather_code: consensusWeatherCode(usable.map(data => Number(data.current?.weather_code)))
+          },
+          daily: {
+            time: firstFour,
+            temperature_2m_max: firstFour.map(date =>
+              median(usable.map(data => pickForDate(data, date, "temperature_2m_max")))
+            ),
+            temperature_2m_min: firstFour.map(date =>
+              median(usable.map(data => pickForDate(data, date, "temperature_2m_min")))
+            ),
+            weather_code: firstFour.map(date =>
+              consensusWeatherCode(usable.map(data => pickForDate(data, date, "weather_code")))
+            )
+          }
+        };
+      }
+
+      async function fetchPhoneMatchWeather(lat, lon) {
+        // Apple Weather itself blends multiple model and station sources. For the
+        // U.S., this mirrors that idea: official NWS point forecasts + NOAA blend
+        // + ECMWF, with the nearest fresh NWS station observation used for "now".
+        const results = await Promise.allSettled([
+          fetchNwsWeather(lat, lon),
+          fetchOpenMeteoWeather(lat, lon, "nbm"),
+          fetchOpenMeteoWeather(lat, lon, "ecmwf"),
+          fetchOpenMeteoWeather(lat, lon, "best_match")
+        ]);
+        const datasets = results
+          .filter(result => result.status === "fulfilled")
+          .map(result => result.value);
+        if (!datasets.length) throw new Error("Phone Match weather is unavailable.");
+
+        const blended = blendForecastDatasets(datasets);
+        try {
+          const observation = await fetchNwsObservation(lat, lon);
+          blended.current.temperature_2m = observation.temperature_2m;
+          if (Number.isFinite(observation.weather_code)) {
+            blended.current.weather_code = observation.weather_code;
+          }
+        } catch {}
+        return blended;
+      }
+
       async function fetchWeather(coordinateText, source = settings.weatherSource || "best_match") {
         const location = parseCoordinates(coordinateText);
         locationName = formatCoordinates(location);
 
-        const data = source === "nws"
-          ? await fetchNwsWeather(location.lat, location.lon)
-          : source === "google"
-            ? await fetchGoogleWeather(location.lat, location.lon, settings.googleWeatherApiKey)
-            : await fetchOpenMeteoWeather(location.lat, location.lon, source);
+        let data = source === "best_match"
+          ? await fetchPhoneMatchWeather(location.lat, location.lon)
+          : source === "nws"
+            ? await fetchNwsWeather(location.lat, location.lon)
+            : source === "google"
+              ? await fetchGoogleWeather(location.lat, location.lon, settings.googleWeatherApiKey)
+              : await fetchOpenMeteoWeather(location.lat, location.lon, source);
+
+        // Model feeds can be a few degrees away from what a phone reports "right now".
+        // For U.S. non-Google sources, replace only the current conditions with the
+        // nearest recent quality-controlled NWS station observation.
+        if (source !== "best_match" && source !== "google") {
+          try {
+            const observation = await fetchNwsObservation(location.lat, location.lon);
+            data = {
+              ...data,
+              current: {
+                ...data.current,
+                temperature_2m: observation.temperature_2m,
+                weather_code: Number.isFinite(observation.weather_code)
+                  ? observation.weather_code
+                  : data.current.weather_code
+              }
+            };
+          } catch {}
+        }
 
         if (data.timezone) timezone = data.timezone;
         renderForecast(data);
@@ -2009,8 +2286,8 @@
             try {
               await fetchWeather(settings.coordinates, "best_match");
               const selectedLabel = WEATHER_SOURCES[selectedSource]?.label || "Selected source";
-              metaEl.textContent = locationName + " • " + selectedLabel + " unavailable; showing Best Match";
-              if (!quiet) showStatus(selectedLabel + " unavailable — using Best Match");
+              metaEl.textContent = locationName + " • " + selectedLabel + " unavailable; showing Phone Match";
+              if (!quiet) showStatus(selectedLabel + " unavailable — using Phone Match");
               return;
             } catch {}
           }
