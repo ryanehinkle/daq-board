@@ -54,11 +54,18 @@
     #youtube-background.active { display: block; }
     #youtube-background iframe {
       position: absolute;
-      inset: -1%;
-      width: 102%;
-      height: 102%;
+      left: 50%;
+      top: 50%;
+      width: 118%;
+      height: 118%;
+      transform: translate(-50%, -50%) scale(1.08);
       border: 0;
+      opacity: 0;
       pointer-events: none;
+      transition: opacity .7s ease;
+    }
+    #youtube-background.video-ready iframe {
+      opacity: 1;
     }
     #youtube-cover {
       position: absolute;
@@ -67,7 +74,7 @@
       opacity: 0;
       visibility: hidden;
       background: #000 center / cover no-repeat;
-      transition: opacity .45s ease, visibility 0s linear .45s;
+      transition: opacity .7s ease, visibility 0s linear .7s;
       pointer-events: none;
     }
     #youtube-cover.show {
@@ -520,14 +527,15 @@
         if (!id) {
           youtubeCover.classList.remove("show");
           youtubeCover.style.backgroundImage = "";
-          youtubeBackground.classList.remove("active");
+          youtubeBackground.classList.remove("active", "video-ready");
           youtubeFrame.removeAttribute("src");
           return;
         }
 
-        // Cover YouTube's startup chrome (title, play/pause controls, logo, etc.)
-        // with the video's own thumbnail until the autoplaying video has had time
-        // to settle. The dashboard UI remains visible above this layer.
+        // Keep the iframe completely invisible while YouTube shows its startup
+        // title / play controls / logo. The video's thumbnail is shown instead,
+        // so refreshes look like a clean still frame rather than a YouTube player.
+        youtubeBackground.classList.remove("video-ready");
         youtubeCover.style.backgroundImage =
           'url("https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg"),' +
           'url("https://i.ytimg.com/vi/' + id + '/hqdefault.jpg")';
@@ -551,19 +559,20 @@
 
         const nextSrc = "https://www.youtube-nocookie.com/embed/" + id + "?" + params.toString();
 
-        youtubeFrame.onload = () => {
+        const revealCleanVideo = () => {
           clearTimeout(youtubeRevealTimer);
           youtubeRevealTimer = setTimeout(() => {
-            youtubeCover.classList.remove("show");
-          }, 3200);
+            youtubeBackground.classList.add("video-ready");
+            requestAnimationFrame(() => youtubeCover.classList.remove("show"));
+          }, 8000);
         };
+
+        youtubeFrame.onload = revealCleanVideo;
 
         if (youtubeFrame.src !== nextSrc) {
           youtubeFrame.src = nextSrc;
         } else {
-          youtubeRevealTimer = setTimeout(() => {
-            youtubeCover.classList.remove("show");
-          }, 1200);
+          revealCleanVideo();
         }
       }
 
