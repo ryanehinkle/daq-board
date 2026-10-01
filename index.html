@@ -1054,12 +1054,19 @@
             '</span><span class="background-title">' + escapeHtml(current.name) + '</span>'
           : '<span class="background-title">No background</span>';
 
-        if (!settings.backgrounds.length) {
-          backgroundMenu.innerHTML = '<div class="empty-backgrounds">No saved backgrounds</div>';
+        const filterHtml =
+          '<div class="background-filter">' +
+            '<button type="button" data-bg-filter="image" class="' + (backgroundTypeFilter.image ? 'active' : '') + '">Image</button>' +
+            '<button type="button" data-bg-filter="video" class="' + (backgroundTypeFilter.video ? 'active' : '') + '">Video</button>' +
+          '</div>';
+
+        const visible = settings.backgrounds.filter(item => backgroundTypeFilter[item.type] !== false);
+        if (!visible.length) {
+          backgroundMenu.innerHTML = filterHtml + '<div class="empty-backgrounds">No matching backgrounds</div>';
           return;
         }
 
-        backgroundMenu.innerHTML = settings.backgrounds.map(item => {
+        backgroundMenu.innerHTML = filterHtml + visible.map(item => {
           const itemThumb = backgroundThumbnail(item);
           const selected = item.id === settings.selectedBackgroundId ? " selected" : "";
           return '<div class="background-option' + selected + '" data-id="' + escapeHtml(item.id) + '">' +
@@ -1085,6 +1092,40 @@
         return "bg-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2,7);
       }
 
+      function animateClockText(el, nextText) {
+        if (el.textContent === nextText) return;
+
+        const mode = settings.clockAnimation || "fade";
+        el.getAnimations?.().forEach(animation => animation.cancel());
+        el.textContent = nextText;
+        if (mode === "none" || !el.animate) return;
+
+        const frames = {
+          fade: [
+            { opacity: .28 },
+            { opacity: 1 }
+          ],
+          slide: [
+            { opacity: .15, transform: "translateY(9px)" },
+            { opacity: 1, transform: "translateY(0)" }
+          ],
+          flip: [
+            { opacity: .18, transform: "perspective(420px) rotateX(62deg)" },
+            { opacity: 1, transform: "perspective(420px) rotateX(0deg)" }
+          ],
+          scale: [
+            { opacity: .3, transform: "scale(.94)" },
+            { opacity: 1, transform: "scale(1)" }
+          ]
+        };
+
+        el.animate(frames[mode] || frames.fade, {
+          duration: mode === "flip" ? 320 : 250,
+          easing: "cubic-bezier(.2,.8,.25,1)",
+          fill: "none"
+        });
+      }
+
       function updateClock() {
         const now = new Date();
         try {
@@ -1097,15 +1138,15 @@
           }).formatToParts(now);
 
           const get = type => timeParts.find(p => p.type === type)?.value || "";
-          clockMain.textContent = get("hour") + ":" + get("minute");
-          clockSeconds.textContent = get("second");
+          animateClockText(clockMain, get("hour") + ":" + get("minute"));
+          animateClockText(clockSeconds, get("second"));
 
-          dateLine.textContent = new Intl.DateTimeFormat("en-US", {
+          animateClockText(dateLine, new Intl.DateTimeFormat("en-US", {
             timeZone: timezone,
             weekday: "long",
             month: "long",
             day: "numeric"
-          }).format(now);
+          }).format(now));
         } catch {
           timezone = "UTC";
         }
@@ -1279,6 +1320,79 @@
         return data;
       }
 
+      function googleWeatherCode(type) {
+        const value = String(type || "").toUpperCase();
+        if (/THUNDER|STORM/.test(value)) return 95;
+        if (/SNOW|SLEET|ICE|FREEZ/.test(value)) return 71;
+        if (/RAIN|SHOWER|DRIZZLE|HAIL/.test(value)) return 61;
+        if (/FOG|HAZE|MIST/.test(value)) return 45;
+        if (/PARTLY|MOSTLY_CLEAR|MOSTLY_SUNNY/.test(value)) return 2;
+        if (/CLOUD|OVERCAST/.test(value)) return 3;
+        if (/CLEAR|SUNNY/.test(value)) return 0;
+        return 3;
+      }
+
+      async function fetchGoogleWeather(lat, lon, apiKey) {
+        const key = String(apiKey || "").trim();
+        if (!key) throw new Error("Google Weather needs an API key.");
+
+        const common = new URLSearchParams({
+          key,
+          "location.latitude": String(lat),
+          "location.longitude": String(lon),
+          unitsSystem: "IMPERIAL"
+        });
+
+        const dailyParams = new URLSearchParams(common);
+        dailyParams.set("days", "4");
+        dailyParams.set("pageSize", "4");
+
+        const [currentRes, dailyRes] = await Promise.all([
+          fetch("https://weather.googleapis.com/v1/currentConditions:lookup?" + common.toString()),
+          fetch("https://weather.googleapis.com/v1/forecast/days:lookup?" + dailyParams.toString())
+        ]);
+
+        if (!currentRes.ok || !dailyRes.ok) {
+          let detail = "";
+          try {
+            const body = !currentRes.ok ? await currentRes.json() : await dailyRes.json();
+            detail = body?.error?.message ? " " + body.error.message : "";
+          } catch {}
+          throw new Error("Google Weather is unavailable." + detail);
+        }
+
+        const currentData = await currentRes.json();
+        const dailyData = await dailyRes.json();
+        const days = (dailyData.forecastDays || []).slice(0, 4);
+        if (!currentData.temperature || !days.length) {
+          throw new Error("Google Weather returned an incomplete forecast.");
+        }
+
+        return {
+          timezone: currentData.timeZone?.id || dailyData.timeZone?.id || timezone,
+          current: {
+            temperature_2m: Number(currentData.temperature.degrees),
+            weather_code: googleWeatherCode(currentData.weatherCondition?.type)
+          },
+          daily: {
+            time: days.map(day => {
+              const d = day.displayDate || {};
+              return String(d.year).padStart(4, "0") + "-" +
+                String(d.month).padStart(2, "0") + "-" +
+                String(d.day).padStart(2, "0");
+            }),
+            temperature_2m_max: days.map(day => Number(day.maxTemperature?.degrees)),
+            temperature_2m_min: days.map(day => Number(day.minTemperature?.degrees)),
+            weather_code: days.map(day =>
+              googleWeatherCode(
+                day.daytimeForecast?.weatherCondition?.type ||
+                day.nighttimeForecast?.weatherCondition?.type
+              )
+            )
+          }
+        };
+      }
+
       function nwsKind(text) {
         const value = String(text || "").toLowerCase();
         if (/thunder|t-storm|storm/.test(value)) return "storm";
@@ -1385,7 +1499,9 @@
 
         const data = source === "nws"
           ? await fetchNwsWeather(location.lat, location.lon)
-          : await fetchOpenMeteoWeather(location.lat, location.lon, source);
+          : source === "google"
+            ? await fetchGoogleWeather(location.lat, location.lon, settings.googleWeatherApiKey)
+            : await fetchOpenMeteoWeather(location.lat, location.lon, source);
 
         if (data.timezone) timezone = data.timezone;
         renderForecast(data);
@@ -1422,15 +1538,27 @@
         weatherSourceMenu.querySelectorAll(".custom-option").forEach(option => {
           option.classList.toggle("selected", option.dataset.value === value);
         });
+        googleWeatherKeyField.hidden = value !== "google";
+        googleWeatherKeyInput.value = settings.googleWeatherApiKey || "";
+      }
+
+      function syncAnimationUI() {
+        const value = CLOCK_ANIMATIONS[settings.clockAnimation] ? settings.clockAnimation : "fade";
+        animationLabel.textContent = CLOCK_ANIMATIONS[value];
+        animationMenu.querySelectorAll(".custom-option").forEach(option => {
+          option.classList.toggle("selected", option.dataset.value === value);
+        });
       }
 
       function openSettings() {
         coordinatesInput.value = settings.coordinates || DEFAULTS.coordinates;
         syncWeatherSourceUI();
+        syncAnimationUI();
         renderBackgroundPicker();
         backgroundEditor.classList.remove("open");
         weatherSourceSelect.classList.remove("open");
         backgroundSelect.classList.remove("open");
+        animationSelect.classList.remove("open");
         settingsEl.classList.add("open");
         settingsEl.setAttribute("aria-hidden", "false");
         setTimeout(() => coordinatesInput.focus(), 0);
@@ -1439,6 +1567,7 @@
       function closeSettings() {
         weatherSourceSelect.classList.remove("open");
         backgroundSelect.classList.remove("open");
+        animationSelect.classList.remove("open");
         backgroundEditor.classList.remove("open");
         settingsEl.classList.remove("open");
         settingsEl.setAttribute("aria-hidden", "true");
@@ -1455,6 +1584,7 @@
       weatherSourceButton.addEventListener("click", () => {
         weatherSourceSelect.classList.toggle("open");
         backgroundSelect.classList.remove("open");
+        animationSelect.classList.remove("open");
       });
       weatherSourceMenu.addEventListener("click", e => {
         const option = e.target.closest(".custom-option");
@@ -1464,11 +1594,36 @@
         weatherSourceSelect.classList.remove("open");
       });
 
+      animationButton.addEventListener("click", () => {
+        animationSelect.classList.toggle("open");
+        weatherSourceSelect.classList.remove("open");
+        backgroundSelect.classList.remove("open");
+      });
+      animationMenu.addEventListener("click", e => {
+        const option = e.target.closest(".custom-option");
+        if (!option) return;
+        settings.clockAnimation = option.dataset.value;
+        syncAnimationUI();
+        animationSelect.classList.remove("open");
+      });
+
       backgroundButton.addEventListener("click", () => {
         backgroundSelect.classList.toggle("open");
         weatherSourceSelect.classList.remove("open");
+        animationSelect.classList.remove("open");
       });
       backgroundMenu.addEventListener("click", e => {
+        const filter = e.target.closest("[data-bg-filter]");
+        if (filter) {
+          e.stopPropagation();
+          const type = filter.dataset.bgFilter;
+          const other = type === "image" ? "video" : "image";
+          if (backgroundTypeFilter[type] && !backgroundTypeFilter[other]) return;
+          backgroundTypeFilter[type] = !backgroundTypeFilter[type];
+          renderBackgroundPicker();
+          return;
+        }
+
         const remove = e.target.closest("[data-remove-id]");
         if (remove) {
           e.stopPropagation();
@@ -1503,6 +1658,7 @@
         backgroundEditor.classList.toggle("open");
         backgroundSelect.classList.remove("open");
         weatherSourceSelect.classList.remove("open");
+        animationSelect.classList.remove("open");
         if (backgroundEditor.classList.contains("open")) {
           setNewBackgroundType("image");
           backgroundNameInput.value = "";
@@ -1565,12 +1721,14 @@
       document.addEventListener("click", e => {
         if (!weatherSourceSelect.contains(e.target)) weatherSourceSelect.classList.remove("open");
         if (!backgroundSelect.contains(e.target)) backgroundSelect.classList.remove("open");
+        if (!animationSelect.contains(e.target)) animationSelect.classList.remove("open");
       });
 
       document.addEventListener("keydown", e => {
         if (e.key === "Escape") {
           weatherSourceSelect.classList.remove("open");
           backgroundSelect.classList.remove("open");
+          animationSelect.classList.remove("open");
           if (backgroundEditor.classList.contains("open")) {
             backgroundEditor.classList.remove("open");
           } else {
@@ -1603,6 +1761,15 @@
 
         settings.coordinates = formatCoordinates(coords);
         settings.weatherSource = WEATHER_SOURCES[settings.weatherSource] ? settings.weatherSource : "best_match";
+        settings.googleWeatherApiKey = googleWeatherKeyInput.value.trim();
+        settings.clockAnimation = CLOCK_ANIMATIONS[settings.clockAnimation] ? settings.clockAnimation : "fade";
+
+        if (settings.weatherSource === "google" && !settings.googleWeatherApiKey) {
+          showStatus("Google Weather needs an API key");
+          googleWeatherKeyInput.focus();
+          return;
+        }
+
         persistSettings();
 
         coordinatesInput.value = settings.coordinates;
