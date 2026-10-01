@@ -8,7 +8,8 @@
   <style>
     :root {
       color-scheme: dark;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --app-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: var(--app-font);
       --text: rgba(255,255,255,.97);
       --muted: rgba(255,255,255,.72);
       --line: rgba(255,255,255,.28);
@@ -500,8 +501,12 @@
       padding: 5px 4px 9px;
       background: rgba(30,32,39,.98);
     }
+    .field label.background-filter-check {
+      display: inline-flex;
+      margin-bottom: 0;
+    }
     .background-filter-check {
-      min-width: 88px;
+      min-width: 98px;
       height: 34px;
       padding: 0 12px;
       display: inline-flex;
@@ -516,6 +521,7 @@
       font-size: 12px;
       font-weight: 700;
       user-select: none;
+      white-space: nowrap;
       transition:
         background .15s ease,
         color .15s ease,
@@ -735,6 +741,34 @@
       font-weight: 700;
     }
 
+    #font-menu {
+      max-height: 0;
+      overflow-y: hidden;
+    }
+    #font-select.open #font-menu {
+      max-height: 355px;
+      overflow-y: auto;
+    }
+    .font-option {
+      min-height: 46px;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .font-option-name {
+      font-weight: 650;
+    }
+    .font-option-preview {
+      margin-left: auto;
+      color: rgba(255,255,255,.62);
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+    .font-option.selected .font-option-preview {
+      color: rgba(255,255,255,.88);
+    }
+
     .field[hidden] { display: none !important; }
 
     .settings-help {
@@ -919,7 +953,7 @@
           <label>Animation</label>
           <div class="custom-select" id="animation-select">
             <button class="custom-select-button" id="animation-button" type="button">
-              <span id="animation-label">Fade</span>
+              <span id="animation-label">Drop In</span>
               <span class="chevron" aria-hidden="true"></span>
             </button>
             <div class="custom-select-menu" id="animation-menu">
@@ -933,6 +967,58 @@
               <button class="custom-option" type="button" data-value="tilt">Tilt Settle</button>
               <button class="custom-option" type="button" data-value="pulse">Quick Pulse</button>
               <button class="custom-option" type="button" data-value="glow">Glow</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Font</label>
+          <div class="custom-select" id="font-select">
+            <button class="custom-select-button" id="font-button" type="button">
+              <span id="font-label">Helvetica Neue</span>
+              <span class="chevron" aria-hidden="true"></span>
+            </button>
+            <div class="custom-select-menu" id="font-menu">
+              <button class="custom-option font-option" type="button" data-value="helvetica">
+                <span class="font-option-name">Helvetica Neue</span>
+                <span class="font-option-preview" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">Aa 12:34</span>
+              </button>
+              <button class="custom-option font-option" type="button" data-value="segoe">
+                <span class="font-option-name">Segoe UI</span>
+                <span class="font-option-preview" style="font-family:'Segoe UI',Arial,sans-serif">Aa 12:34</span>
+              </button>
+              <button class="custom-option font-option" type="button" data-value="arial">
+                <span class="font-option-name">Arial</span>
+                <span class="font-option-preview" style="font-family:Arial,Helvetica,sans-serif">Aa 12:34</span>
+              </button>
+              <button class="custom-option font-option" type="button" data-value="trebuchet">
+                <span class="font-option-name">Trebuchet MS</span>
+                <span class="font-option-preview" style="font-family:'Trebuchet MS',Arial,sans-serif">Aa 12:34</span>
+              </button>
+              <button class="custom-option font-option" type="button" data-value="verdana">
+                <span class="font-option-name">Verdana</span>
+                <span class="font-option-preview" style="font-family:Verdana,Geneva,sans-serif">Aa 12:34</span>
+              </button>
+              <button class="custom-option font-option" type="button" data-value="tahoma">
+                <span class="font-option-name">Tahoma</span>
+                <span class="font-option-preview" style="font-family:Tahoma,Verdana,sans-serif">Aa 12:34</span>
+              </button>
+              <button class="custom-option font-option" type="button" data-value="georgia">
+                <span class="font-option-name">Georgia</span>
+                <span class="font-option-preview" style="font-family:Georgia,'Times New Roman',serif">Aa 12:34</span>
+              </button>
+              <button class="custom-option font-option" type="button" data-value="palatino">
+                <span class="font-option-name">Palatino</span>
+                <span class="font-option-preview" style="font-family:Palatino,'Palatino Linotype',Georgia,serif">Aa 12:34</span>
+              </button>
+              <button class="custom-option font-option" type="button" data-value="courier">
+                <span class="font-option-name">Courier New</span>
+                <span class="font-option-preview" style="font-family:'Courier New',Courier,monospace">Aa 12:34</span>
+              </button>
+              <button class="custom-option font-option" type="button" data-value="impact">
+                <span class="font-option-name">Impact</span>
+                <span class="font-option-preview" style="font-family:Impact,Haettenschweiler,'Arial Narrow Bold',sans-serif">Aa 12:34</span>
+              </button>
             </div>
           </div>
         </div>
@@ -957,11 +1043,13 @@
         coordinates: "41.80803, -88.20902",
         weatherSource: "best_match",
         googleWeatherApiKey: "",
-        clockAnimation: "fade",
+        clockAnimation: "drop",
+        font: "helvetica",
         backgrounds: [
-          { id: "default-image", name: "Mountain Night Sky", type: "image", url: DEFAULT_BACKGROUND_URL }
+          { id: "default-image", name: "Mountain Night Sky", type: "image", url: DEFAULT_BACKGROUND_URL },
+          { id: "default-video", name: "Neon Sunset Drive", type: "video", url: "https://www.youtube.com/watch?v=i3gUonr3d9U" }
         ],
-        selectedBackgroundId: "default-image"
+        selectedBackgroundId: "default-video"
       };
 
       const WEATHER_SOURCES = {
@@ -984,6 +1072,19 @@
         tilt: "Tilt Settle",
         pulse: "Quick Pulse",
         glow: "Glow"
+      };
+
+      const FONT_OPTIONS = {
+        helvetica: { label: "Helvetica Neue", stack: '"Helvetica Neue", Helvetica, Arial, sans-serif' },
+        segoe: { label: "Segoe UI", stack: '"Segoe UI", Arial, sans-serif' },
+        arial: { label: "Arial", stack: 'Arial, Helvetica, sans-serif' },
+        trebuchet: { label: "Trebuchet MS", stack: '"Trebuchet MS", Arial, sans-serif' },
+        verdana: { label: "Verdana", stack: 'Verdana, Geneva, sans-serif' },
+        tahoma: { label: "Tahoma", stack: 'Tahoma, Verdana, sans-serif' },
+        georgia: { label: "Georgia", stack: 'Georgia, "Times New Roman", serif' },
+        palatino: { label: "Palatino", stack: 'Palatino, "Palatino Linotype", Georgia, serif' },
+        courier: { label: "Courier New", stack: '"Courier New", Courier, monospace' },
+        impact: { label: "Impact", stack: 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif' }
       };
 
       const board = document.getElementById("board");
@@ -1020,6 +1121,10 @@
       const animationButton = document.getElementById("animation-button");
       const animationLabel = document.getElementById("animation-label");
       const animationMenu = document.getElementById("animation-menu");
+      const fontSelect = document.getElementById("font-select");
+      const fontButton = document.getElementById("font-button");
+      const fontLabel = document.getElementById("font-label");
+      const fontMenu = document.getElementById("font-menu");
       const metaEl = document.getElementById("settings-meta");
       const saveSettings = document.getElementById("save-settings");
       const cancelSettings = document.getElementById("cancel-settings");
@@ -1089,6 +1194,7 @@
             weatherSource: WEATHER_SOURCES[saved.weatherSource] ? saved.weatherSource : DEFAULTS.weatherSource,
             googleWeatherApiKey: saved.googleWeatherApiKey || "",
             clockAnimation: CLOCK_ANIMATIONS[saved.clockAnimation] ? saved.clockAnimation : DEFAULTS.clockAnimation,
+            font: FONT_OPTIONS[saved.font] ? saved.font : DEFAULTS.font,
             backgrounds,
             selectedBackgroundId
           };
@@ -1813,9 +1919,22 @@
       }
 
       function syncAnimationUI() {
-        const value = CLOCK_ANIMATIONS[settings.clockAnimation] ? settings.clockAnimation : "fade";
+        const value = CLOCK_ANIMATIONS[settings.clockAnimation] ? settings.clockAnimation : DEFAULTS.clockAnimation;
         animationLabel.textContent = CLOCK_ANIMATIONS[value];
         animationMenu.querySelectorAll(".custom-option").forEach(option => {
+          option.classList.toggle("selected", option.dataset.value === value);
+        });
+      }
+
+      function applyFont() {
+        const value = FONT_OPTIONS[settings.font] ? settings.font : DEFAULTS.font;
+        document.documentElement.style.setProperty("--app-font", FONT_OPTIONS[value].stack);
+      }
+
+      function syncFontUI() {
+        const value = FONT_OPTIONS[settings.font] ? settings.font : DEFAULTS.font;
+        fontLabel.textContent = FONT_OPTIONS[value].label;
+        fontMenu.querySelectorAll(".font-option").forEach(option => {
           option.classList.toggle("selected", option.dataset.value === value);
         });
       }
@@ -1824,11 +1943,13 @@
         coordinatesInput.value = settings.coordinates || DEFAULTS.coordinates;
         syncWeatherSourceUI();
         syncAnimationUI();
+        syncFontUI();
         renderBackgroundPicker();
         backgroundEditor.classList.remove("open");
         weatherSourceSelect.classList.remove("open");
         backgroundSelect.classList.remove("open");
         animationSelect.classList.remove("open");
+        fontSelect.classList.remove("open");
         settingsEl.classList.add("open");
         settingsEl.setAttribute("aria-hidden", "false");
         setTimeout(() => coordinatesInput.focus(), 0);
@@ -1838,6 +1959,7 @@
         weatherSourceSelect.classList.remove("open");
         backgroundSelect.classList.remove("open");
         animationSelect.classList.remove("open");
+        fontSelect.classList.remove("open");
         backgroundEditor.classList.remove("open");
         settingsEl.classList.remove("open");
         settingsEl.setAttribute("aria-hidden", "true");
@@ -1848,6 +1970,7 @@
         // Discard unsaved coordinate/weather-source changes. Background preset
         // changes are intentionally immediate and are already persisted.
         settings = loadSettings();
+        applyFont();
         closeSettings();
       });
 
@@ -1855,6 +1978,7 @@
         weatherSourceSelect.classList.toggle("open");
         backgroundSelect.classList.remove("open");
         animationSelect.classList.remove("open");
+        fontSelect.classList.remove("open");
       });
       weatherSourceMenu.addEventListener("click", e => {
         const option = e.target.closest(".custom-option");
@@ -1868,6 +1992,7 @@
         animationSelect.classList.toggle("open");
         weatherSourceSelect.classList.remove("open");
         backgroundSelect.classList.remove("open");
+        fontSelect.classList.remove("open");
       });
       animationMenu.addEventListener("click", e => {
         const option = e.target.closest(".custom-option");
@@ -1877,10 +2002,26 @@
         animationSelect.classList.remove("open");
       });
 
+      fontButton.addEventListener("click", () => {
+        fontSelect.classList.toggle("open");
+        weatherSourceSelect.classList.remove("open");
+        backgroundSelect.classList.remove("open");
+        animationSelect.classList.remove("open");
+      });
+      fontMenu.addEventListener("click", e => {
+        const option = e.target.closest(".font-option");
+        if (!option) return;
+        settings.font = option.dataset.value;
+        applyFont();
+        syncFontUI();
+        fontSelect.classList.remove("open");
+      });
+
       backgroundButton.addEventListener("click", () => {
         backgroundSelect.classList.toggle("open");
         weatherSourceSelect.classList.remove("open");
         animationSelect.classList.remove("open");
+        fontSelect.classList.remove("open");
       });
       backgroundMenu.addEventListener("click", e => {
         const add = e.target.closest("[data-add-background]");
@@ -1950,6 +2091,7 @@
         backgroundSelect.classList.remove("open");
         weatherSourceSelect.classList.remove("open");
         animationSelect.classList.remove("open");
+        fontSelect.classList.remove("open");
         setTimeout(() => backgroundNameInput.focus(), 70);
       }
 
@@ -2026,6 +2168,7 @@
         if (!weatherSourceSelect.contains(e.target)) weatherSourceSelect.classList.remove("open");
         if (!backgroundSelect.contains(e.target)) backgroundSelect.classList.remove("open");
         if (!animationSelect.contains(e.target)) animationSelect.classList.remove("open");
+        if (!fontSelect.contains(e.target)) fontSelect.classList.remove("open");
       });
 
       document.addEventListener("keydown", e => {
@@ -2033,6 +2176,7 @@
           weatherSourceSelect.classList.remove("open");
           backgroundSelect.classList.remove("open");
           animationSelect.classList.remove("open");
+          fontSelect.classList.remove("open");
           if (backgroundEditor.classList.contains("open")) {
             backgroundEditor.classList.remove("open");
           } else {
@@ -2066,7 +2210,8 @@
         settings.coordinates = formatCoordinates(coords);
         settings.weatherSource = WEATHER_SOURCES[settings.weatherSource] ? settings.weatherSource : "best_match";
         settings.googleWeatherApiKey = googleWeatherKeyInput.value.trim();
-        settings.clockAnimation = CLOCK_ANIMATIONS[settings.clockAnimation] ? settings.clockAnimation : "fade";
+        settings.clockAnimation = CLOCK_ANIMATIONS[settings.clockAnimation] ? settings.clockAnimation : DEFAULTS.clockAnimation;
+        settings.font = FONT_OPTIONS[settings.font] ? settings.font : DEFAULTS.font;
 
         if (settings.weatherSource === "google" && !settings.googleWeatherApiKey) {
           showStatus("Google Weather needs an API key");
@@ -2084,6 +2229,7 @@
       });
 
       // Initial paint.
+      applyFont();
       renderBackgroundPicker();
       applySelectedBackground();
       renderWeatherFallback();
