@@ -2216,7 +2216,7 @@
         throw new Error("No fresh nearby NWS observation.");
       }
 
-      function blendForecastDatasets      function blendForecastDatasets(datasets) {
+      function blendForecastDatasets(datasets) {
         const usable = datasets.filter(Boolean);
         if (!usable.length) throw new Error("No forecast data available.");
 
@@ -2295,7 +2295,7 @@
         return forecast;
       }
 
-      async function fetchWeather(coordinateText      async function fetchWeather(coordinateText, source = settings.weatherSource || "best_match") {
+      async function fetchWeather(coordinateText, source = settings.weatherSource || "best_match") {
         const location = parseCoordinates(coordinateText);
         locationName = formatCoordinates(location);
 
