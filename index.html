@@ -484,6 +484,9 @@
       white-space: nowrap;
       font-weight: 600;
     }
+    .custom-select-button .background-title {
+      font-weight: 400;
+    }
     #background-menu {
       max-height: 0;
       overflow-y: hidden;
@@ -1598,7 +1601,8 @@
         musicCurrent.innerHTML = current
           ? '<span class="background-thumb" style="background-image:url(&quot;' + escapeHtml(thumb) + '&quot;)"></span>' +
             '<span class="background-title">' + escapeHtml(current.name) + '</span>'
-          : '<span class="background-title">No music</span>';
+          : '<span class="background-thumb video-generic">♪</span>' +
+            '<span class="background-title">No music</span>';
 
         const toolbar =
           '<div class="music-menu-toolbar">' +
