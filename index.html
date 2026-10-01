@@ -60,6 +60,21 @@
       border: 0;
       pointer-events: none;
     }
+    #youtube-cover {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      opacity: 0;
+      visibility: hidden;
+      background: #000 center / cover no-repeat;
+      transition: opacity .45s ease, visibility 0s linear .45s;
+      pointer-events: none;
+    }
+    #youtube-cover.show {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity .12s ease;
+    }
     #board::before {
       content: "";
       position: absolute;
@@ -358,6 +373,7 @@
         referrerpolicy="strict-origin-when-cross-origin"
         tabindex="-1"
       ></iframe>
+      <div id="youtube-cover" aria-hidden="true"></div>
     </div>
 
     <section class="clock-block" aria-label="Clock">
@@ -429,6 +445,7 @@
       const board = document.getElementById("board");
       const youtubeBackground = document.getElementById("youtube-background");
       const youtubeFrame = document.getElementById("youtube-frame");
+      const youtubeCover = document.getElementById("youtube-cover");
       const clockMain = document.getElementById("clock-main");
       const clockSeconds = document.getElementById("clock-seconds");
       const dateLine = document.getElementById("date-line");
@@ -449,6 +466,7 @@
       let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
       let locationName = "";
       let statusTimer = null;
+      let youtubeRevealTimer = null;
 
       function loadSettings() {
         try {
@@ -497,11 +515,24 @@
 
       function applyYouTubeBackground(url) {
         const id = youtubeVideoId(url);
+        clearTimeout(youtubeRevealTimer);
+
         if (!id) {
+          youtubeCover.classList.remove("show");
+          youtubeCover.style.backgroundImage = "";
           youtubeBackground.classList.remove("active");
           youtubeFrame.removeAttribute("src");
           return;
         }
+
+        // Cover YouTube's startup chrome (title, play/pause controls, logo, etc.)
+        // with the video's own thumbnail until the autoplaying video has had time
+        // to settle. The dashboard UI remains visible above this layer.
+        youtubeCover.style.backgroundImage =
+          'url("https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg"),' +
+          'url("https://i.ytimg.com/vi/' + id + '/hqdefault.jpg")';
+        youtubeCover.classList.add("show");
+        youtubeBackground.classList.add("active");
 
         const params = new URLSearchParams({
           autoplay: "1",
@@ -514,12 +545,26 @@
           iv_load_policy: "3",
           rel: "0",
           playsinline: "1",
-          cc_load_policy: "0"
+          cc_load_policy: "0",
+          modestbranding: "1"
         });
 
         const nextSrc = "https://www.youtube-nocookie.com/embed/" + id + "?" + params.toString();
-        if (youtubeFrame.src !== nextSrc) youtubeFrame.src = nextSrc;
-        youtubeBackground.classList.add("active");
+
+        youtubeFrame.onload = () => {
+          clearTimeout(youtubeRevealTimer);
+          youtubeRevealTimer = setTimeout(() => {
+            youtubeCover.classList.remove("show");
+          }, 3200);
+        };
+
+        if (youtubeFrame.src !== nextSrc) {
+          youtubeFrame.src = nextSrc;
+        } else {
+          youtubeRevealTimer = setTimeout(() => {
+            youtubeCover.classList.remove("show");
+          }, 1200);
+        }
       }
 
       function applyBackgroundMedia(imageUrl, youtubeUrl) {
