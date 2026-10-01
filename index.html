@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#111111" />
+  <title>DAQ Board</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --text: rgba(255,255,255,.97);
+      --muted: rgba(255,255,255,.72);
+      --line: rgba(255,255,255,.28);
+      --pill: rgba(215,215,220,.42);
+      --panel: rgba(20,22,28,.86);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: #050505;
+    }
+    body {
+      display: grid;
+      place-items: center;
+    }
+    button, input {
+      font: inherit;
+    }
+
+    /* The dashboard itself always remains 16:9 and letterboxes on other screens. */
+    #board {
+      position: relative;
+      width: min(100vw, 177.777777vh);
+      height: min(100vh, 56.25vw);
+      overflow: hidden;
+      isolation: isolate;
+      background: #222 center / cover no-repeat;
+      color: var(--text);
+      text-shadow: 0 1px 3px rgba(0,0,0,.18);
+    }
+    #board::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(180deg, rgba(10,12,18,.22), rgba(10,12,18,.12) 55%, rgba(10,12,18,.18));
+      pointer-events: none;
+    }
+
+    .clock-block {
+      position: absolute;
+      left: 9.8%;
+      top: 19.4%;
+      width: 44%;
+      user-select: none;
+    }
+    .time-row {
+      display: flex;
+      align-items: flex-start;
+      gap: .1em;
+      line-height: .78;
+      white-space: nowrap;
+      font-weight: 200;
+      letter-spacing: -.055em;
+    }
+    #clock-main {
+      font-size: clamp(76px, 8.2vw, 158px);
+    }
+    #clock-seconds {
+      margin-top: .02em;
+      font-size: clamp(34px, 3.35vw, 68px);
+      font-weight: 300;
+      letter-spacing: -.04em;
+    }
+    #date-line {
+      margin-top: 4.6%;
+      font-size: clamp(24px, 2.05vw, 40px);
+      font-weight: 400;
+      letter-spacing: -.02em;
+    }
+
+    .weather-block {
+      position: absolute;
+      right: 9.6%;
+      top: 17.8%;
+      width: 28%;
+      min-width: 390px;
+      user-select: none;
+    }
+    .current-weather {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 14px;
+      min-height: 84px;
+      padding-right: 1%;
+    }
+    #current-temp {
+      font-size: clamp(46px, 4.2vw, 82px);
+      font-weight: 300;
+      letter-spacing: -.05em;
+      line-height: 1;
+    }
+    #current-icon {
+      width: clamp(62px, 4.75vw, 92px);
+      height: clamp(62px, 4.75vw, 92px);
+      display: grid;
+      place-items: center;
+    }
+
+    #forecast {
+      margin-top: 6.8%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      align-items: start;
+    }
+    .day {
+      text-align: center;
+      min-width: 0;
+    }
+    .day-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 74px;
+      height: 33px;
+      padding: 0 13px;
+      border-radius: 999px;
+      background: var(--pill);
+      font-size: clamp(16px, 1.07vw, 22px);
+      font-weight: 650;
+      line-height: 1;
+      text-shadow: none;
+      letter-spacing: .01em;
+    }
+    .day-icon {
+      width: clamp(46px, 3.1vw, 62px);
+      height: clamp(46px, 3.1vw, 62px);
+      display: grid;
+      place-items: center;
+      margin: 8px auto 0;
+    }
+    .temps {
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+      gap: 13px;
+      font-size: clamp(19px, 1.35vw, 27px);
+      line-height: 1;
+      font-weight: 400;
+    }
+    .temps span:last-child { opacity: .9; }
+
+    .divider {
+      position: absolute;
+      left: 9.8%;
+      right: 9.8%;
+      top: 50.7%;
+      height: 1px;
+      background: var(--line);
+      box-shadow: 0 1px rgba(0,0,0,.08);
+    }
+
+    #settings-button {
+      position: absolute;
+      top: 1.1%;
+      right: .7%;
+      width: clamp(39px, 2.4vw, 48px);
+      height: clamp(39px, 2.4vw, 48px);
+      border: 0;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      color: #34404d;
+      background: rgba(242,242,242,.82);
+      box-shadow: 0 2px 8px rgba(0,0,0,.18);
+      transition: transform .16s ease, background .16s ease;
+      z-index: 5;
+    }
+    #settings-button:hover {
+      transform: scale(1.05);
+      background: rgba(255,255,255,.95);
+    }
+    #settings-button svg {
+      width: 58%;
+      height: 58%;
+      fill: currentColor;
+    }
+
+    #settings {
+      position: absolute;
+      inset: 0;
+      z-index: 20;
+      display: none;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 4.9% 1.1% 0 0;
+      background: rgba(0,0,0,.16);
+    }
+    #settings.open { display: flex; }
+    .settings-card {
+      width: min(420px, 32vw);
+      min-width: 350px;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 18px;
+      background: var(--panel);
+      box-shadow: 0 18px 50px rgba(0,0,0,.34);
+      backdrop-filter: blur(18px);
+      text-shadow: none;
+    }
+    .settings-title {
+      font-size: 21px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .field {
+      margin-top: 15px;
+    }
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 13px;
+      color: rgba(255,255,255,.72);
+      font-weight: 600;
+    }
+    .field input {
+      width: 100%;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 10px;
+      padding: 0 12px;
+      outline: none;
+      color: white;
+      background: rgba(255,255,255,.08);
+    }
+    .field input:focus {
+      border-color: rgba(255,255,255,.48);
+      background: rgba(255,255,255,.11);
+    }
+    .settings-help {
+      margin-top: 8px;
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .settings-meta {
+      margin-top: 15px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.7);
+      font-size: 12px;
+      line-height: 1.45;
+      min-height: 36px;
+    }
+    .settings-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 9px;
+      margin-top: 18px;
+    }
+    .settings-actions button {
+      height: 38px;
+      border-radius: 9px;
+      padding: 0 15px;
+      border: 1px solid rgba(255,255,255,.15);
+      cursor: pointer;
+      color: white;
+      background: rgba(255,255,255,.09);
+    }
+    #save-settings {
+      color: #17191c;
+      background: rgba(255,255,255,.93);
+      border-color: transparent;
+      font-weight: 700;
+    }
+    #status {
+      position: absolute;
+      left: 50%;
+      bottom: 2.4%;
+      transform: translateX(-50%) translateY(16px);
+      z-index: 30;
+      opacity: 0;
+      pointer-events: none;
+      padding: 9px 14px;
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(15,17,22,.80);
+      backdrop-filter: blur(10px);
+      font-size: 13px;
+      transition: opacity .2s ease, transform .2s ease;
+      text-shadow: none;
+    }
+    #status.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .wx-svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+    .wx-stroke {
+      stroke: #fff;
+      stroke-width: 4.2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .wx-fill { fill: #fff; }
+
+    @media (max-width: 900px), (max-height: 520px) {
+      .weather-block { min-width: 0; width: 31%; }
+      #forecast { gap: 7px; }
+      .day-label { min-width: 56px; height: 26px; padding: 0 8px; }
+      .settings-card { min-width: 300px; }
+    }
+  </style>
+</head>
+<body>
+  <main id="board" aria-label="Dashboard">
+    <section class="clock-block" aria-label="Clock">
+      <div class="time-row">
+        <span id="clock-main">2:37</span><span id="clock-seconds">31</span>
+      </div>
+      <div id="date-line">Thursday, October 1</div>
+    </section>
+
+    <section class="weather-block" aria-label="Weather">
+      <div class="current-weather">
+        <div id="current-temp">--°</div>
+        <div id="current-icon" aria-hidden="true"></div>
+      </div>
+      <div id="forecast"></div>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <button id="settings-button" type="button" aria-label="Open settings" title="Settings">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M19.43 12.98c.04-.32.07-.65.07-.98s-.03-.66-.08-.98l2.11-1.65a.51.51 0 0 0 .12-.64l-2-3.46a.5.5 0 0 0-.61-.22l-2.49 1a7.26 7.26 0 0 0-1.69-.98L14.5 2.42A.49.49 0 0 0 14 2h-4a.49.49 0 0 0-.49.42l-.38 2.65c-.61.25-1.17.58-1.69.98l-2.49-1a.5.5 0 0 0-.61.22l-2 3.46a.5.5 0 0 0 .12.64l2.11 1.65c-.05.32-.09.66-.09.98s.03.66.08.98l-2.11 1.65a.51.51 0 0 0-.12.64l2 3.46a.5.5 0 0 0 .61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65A.49.49 0 0 0 10 22h4a.49.49 0 0 0 .49-.42l.38-2.65c.61-.25 1.17-.58 1.69-.98l2.49 1a.5.5 0 0 0 .61-.22l2-3.46a.5.5 0 0 0-.12-.64l-2.11-1.65ZM12 15.5A3.5 3.5 0 1 1 12 8a3.5 3.5 0 0 1 0 7.5Z"/>
+      </svg>
+    </button>
+
+    <div id="settings" aria-hidden="true">
+      <div class="settings-card" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+        <div class="settings-title" id="settings-title">Dashboard settings</div>
+
+        <div class="field">
+          <label for="zip">ZIP code</label>
+          <input id="zip" inputmode="numeric" maxlength="10" placeholder="e.g. 60540" autocomplete="postal-code" />
+          <div class="settings-help">One ZIP code sets both the weather location and the dashboard time zone.</div>
+        </div>
+
+        <div class="field">
+          <label for="background-url">Background image URL</label>
+          <input id="background-url" type="url" placeholder="https://example.com/photo.jpg" />
+          <div class="settings-help">Use a direct image URL. The image fills the 16:9 board with cover cropping.</div>
+        </div>
+
+        <div class="settings-meta" id="settings-meta">Enter a ZIP code and save to load local weather.</div>
+
+        <div class="settings-actions">
+          <button id="cancel-settings" type="button">Cancel</button>
+          <button id="save-settings" type="button">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="status" role="status" aria-live="polite"></div>
+  </main>
+
+  <script>
+    (() => {
+      const STORAGE_KEY = "daq-board-settings-v1";
+      const DEFAULTS = {
+        zip: "10001",
+        backgroundUrl: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2400&q=90"
+      };
+
+      const board = document.getElementById("board");
+      const clockMain = document.getElementById("clock-main");
+      const clockSeconds = document.getElementById("clock-seconds");
+      const dateLine = document.getElementById("date-line");
+      const currentTemp = document.getElementById("current-temp");
+      const currentIcon = document.getElementById("current-icon");
+      const forecastEl = document.getElementById("forecast");
+      const settingsButton = document.getElementById("settings-button");
+      const settingsEl = document.getElementById("settings");
+      const zipInput = document.getElementById("zip");
+      const backgroundInput = document.getElementById("background-url");
+      const metaEl = document.getElementById("settings-meta");
+      const saveSettings = document.getElementById("save-settings");
+      const cancelSettings = document.getElementById("cancel-settings");
+      const statusEl = document.getElementById("status");
+
+      let settings = loadSettings();
+      let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
+      let locationName = "";
+      let statusTimer = null;
+
+      function loadSettings() {
+        try {
+          return { ...DEFAULTS, ...(JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}) };
+        } catch {
+          return { ...DEFAULTS };
+        }
+      }
+
+      function persistSettings() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+      }
+
+      function showStatus(message) {
+        statusEl.textContent = message;
+        statusEl.classList.add("show");
+        clearTimeout(statusTimer);
+        statusTimer = setTimeout(() => statusEl.classList.remove("show"), 2200);
+      }
+
+      function applyBackground(url) {
+        if (!url) {
+          board.style.backgroundImage = "linear-gradient(145deg,#303747,#0d1018)";
+          return;
+        }
+        board.style.backgroundImage =
+          'linear-gradient(180deg,rgba(10,12,18,.05),rgba(10,12,18,.02)),url("' +
+          url.replace(/"/g, "%22") + '")';
+      }
+
+      function updateClock() {
+        const now = new Date();
+        try {
+          const timeParts = new Intl.DateTimeFormat("en-US", {
+            timeZone: timezone,
+            hour: "numeric",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: true
+          }).formatToParts(now);
+
+          const get = type => timeParts.find(p => p.type === type)?.value || "";
+          clockMain.textContent = get("hour") + ":" + get("minute");
+          clockSeconds.textContent = get("second");
+
+          dateLine.textContent = new Intl.DateTimeFormat("en-US", {
+            timeZone: timezone,
+            weekday: "long",
+            month: "long",
+            day: "numeric"
+          }).format(now);
+        } catch {
+          timezone = "UTC";
+        }
+      }
+
+      function iconSvg(kind) {
+        const sun = '<circle class="wx-stroke" cx="32" cy="32" r="11"/>' +
+          '<path class="wx-stroke" d="M32 7v7M32 50v7M7 32h7M50 32h7M14.3 14.3l5 5M44.7 44.7l5 5M49.7 14.3l-5 5M19.3 44.7l-5 5"/>';
+        const cloud = '<path class="wx-fill" d="M20 47h28.5c7.5 0 13.5-5.8 13.5-13 0-6.8-5.4-12.4-12.3-13-2-7.3-8.8-12-16.4-12-9 0-16.5 6.6-17.6 15.2C8.9 25.6 4 30.6 4 36.5 4 42.3 9.1 47 15.4 47H20Z"/>';
+        const cloudStroke = '<path class="wx-stroke" d="M17 44h31c6.6 0 12-5.1 12-11.5S54.6 21 48 21h-1.2C44.7 13.9 38.3 9 31 9c-9 0-16.4 6.6-17.5 15.2C7.6 25.1 3 29.7 3 35.5 3 40.2 7.6 44 13.2 44H17Z"/>';
+        const rain = '<path class="wx-stroke" d="M18 53l-2 6M31 53l-2 6M44 53l-2 6"/>';
+        const snow = '<path class="wx-stroke" d="M18 52v7M14.5 55.5h7M31 52v7M27.5 55.5h7M44 52v7M40.5 55.5h7"/>';
+        const bolt = '<path class="wx-fill" d="M30 47h12l-9 15 2-11H24l10-17-4 13Z"/>';
+        const fog = '<path class="wx-stroke" d="M10 48h44M14 55h36"/>';
+
+        let content = cloudStroke;
+        if (kind === "sun") content = sun;
+        if (kind === "partly") content = '<g transform="translate(-4,-5) scale(.72)">' + sun + '</g>' + cloud;
+        if (kind === "cloud") content = cloudStroke;
+        if (kind === "rain") content = cloud + rain;
+        if (kind === "storm") content = cloud + bolt;
+        if (kind === "snow") content = cloud + snow;
+        if (kind === "fog") content = cloudStroke + fog;
+
+        return '<svg class="wx-svg" viewBox="0 0 64 64" aria-hidden="true">' + content + '</svg>';
+      }
+
+      function weatherKind(code) {
+        if (code === 0) return "sun";
+        if ([1,2].includes(code)) return "partly";
+        if (code === 3) return "cloud";
+        if ([45,48].includes(code)) return "fog";
+        if ([51,53,55,56,57,61,63,65,66,67,80,81,82].includes(code)) return "rain";
+        if ([71,73,75,77,85,86].includes(code)) return "snow";
+        if ([95,96,99].includes(code)) return "storm";
+        return "cloud";
+      }
+
+      function dayLabel(dateString, index) {
+        if (index === 0) return "TODAY";
+        const d = new Date(dateString + "T12:00:00");
+        return new Intl.DateTimeFormat("en-US", {
+          timeZone: timezone,
+          weekday: "short"
+        }).format(d).toUpperCase();
+      }
+
+      function renderForecast(data) {
+        currentTemp.textContent = Math.round(data.current.temperature_2m) + "°";
+        currentIcon.innerHTML = iconSvg(weatherKind(data.current.weather_code));
+
+        forecastEl.innerHTML = data.daily.time.slice(0,4).map((date, i) => {
+          const hi = Math.round(data.daily.temperature_2m_max[i]);
+          const lo = Math.round(data.daily.temperature_2m_min[i]);
+          const kind = weatherKind(data.daily.weather_code[i]);
+          return '<div class="day">' +
+            '<div class="day-label">' + dayLabel(date, i) + '</div>' +
+            '<div class="day-icon">' + iconSvg(kind) + '</div>' +
+            '<div class="temps"><span>' + hi + '</span><span>' + lo + '</span></div>' +
+          '</div>';
+        }).join("");
+      }
+
+      function renderWeatherFallback() {
+        currentTemp.textContent = "--°";
+        currentIcon.innerHTML = iconSvg("cloud");
+        forecastEl.innerHTML = Array.from({ length: 4 }, (_, i) =>
+          '<div class="day"><div class="day-label">' + (i === 0 ? "TODAY" : "---") +
+          '</div><div class="day-icon">' + iconSvg("cloud") +
+          '</div><div class="temps"><span>--</span><span>--</span></div></div>'
+        ).join("");
+      }
+
+      async function fetchWeather(zip) {
+        const cleaned = String(zip || "").trim();
+        if (!/^\d{5}(?:-\d{4})?$/.test(cleaned)) {
+          throw new Error("Enter a valid U.S. ZIP code.");
+        }
+
+        const zipRes = await fetch("https://api.zippopotam.us/us/" + encodeURIComponent(cleaned));
+        if (!zipRes.ok) throw new Error("That ZIP code could not be found.");
+        const zipData = await zipRes.json();
+        const place = zipData.places && zipData.places[0];
+        if (!place) throw new Error("That ZIP code could not be found.");
+
+        const lat = Number(place.latitude);
+        const lon = Number(place.longitude);
+        locationName = [place["place name"], place["state abbreviation"]].filter(Boolean).join(", ");
+
+        const params = new URLSearchParams({
+          latitude: String(lat),
+          longitude: String(lon),
+          current: "temperature_2m,weather_code",
+          daily: "weather_code,temperature_2m_max,temperature_2m_min",
+          temperature_unit: "fahrenheit",
+          timezone: "auto",
+          forecast_days: "4"
+        });
+
+        const wxRes = await fetch("https://api.open-meteo.com/v1/forecast?" + params.toString());
+        if (!wxRes.ok) throw new Error("Weather service is unavailable right now.");
+        const data = await wxRes.json();
+
+        if (data.timezone) timezone = data.timezone;
+        renderForecast(data);
+        updateClock();
+        metaEl.textContent = locationName + " • " + timezone;
+        return data;
+      }
+
+      async function refreshWeather({ quiet = false } = {}) {
+        try {
+          await fetchWeather(settings.zip);
+          if (!quiet) showStatus("Weather updated");
+        } catch (error) {
+          renderWeatherFallback();
+          metaEl.textContent = error.message || "Could not load weather.";
+          if (!quiet) showStatus(error.message || "Could not load weather");
+        }
+      }
+
+      function openSettings() {
+        zipInput.value = settings.zip || "";
+        backgroundInput.value = settings.backgroundUrl || "";
+        metaEl.textContent = locationName ? locationName + " • " + timezone : "ZIP controls weather and time zone.";
+        settingsEl.classList.add("open");
+        settingsEl.setAttribute("aria-hidden", "false");
+        setTimeout(() => zipInput.focus(), 0);
+      }
+
+      function closeSettings() {
+        settingsEl.classList.remove("open");
+        settingsEl.setAttribute("aria-hidden", "true");
+      }
+
+      settingsButton.addEventListener("click", openSettings);
+      cancelSettings.addEventListener("click", closeSettings);
+      settingsEl.addEventListener("click", e => {
+        if (e.target === settingsEl) closeSettings();
+      });
+      document.addEventListener("keydown", e => {
+        if (e.key === "Escape") closeSettings();
+      });
+
+      saveSettings.addEventListener("click", async () => {
+        const nextZip = zipInput.value.trim();
+        const nextBackground = backgroundInput.value.trim();
+
+        if (!/^\d{5}(?:-\d{4})?$/.test(nextZip)) {
+          metaEl.textContent = "Please enter a valid 5-digit U.S. ZIP code.";
+          return;
+        }
+
+        settings = {
+          zip: nextZip,
+          backgroundUrl: nextBackground || DEFAULTS.backgroundUrl
+        };
+        persistSettings();
+        applyBackground(settings.backgroundUrl);
+        metaEl.textContent = "Loading weather…";
+        await refreshWeather({ quiet: true });
+        closeSettings();
+        showStatus("Settings saved");
+      });
+
+      // Initial paint.
+      applyBackground(settings.backgroundUrl);
+      renderWeatherFallback();
+      updateClock();
+      refreshWeather({ quiet: true });
+
+      // Time stays live; weather refreshes automatically every 15 minutes.
+      setInterval(updateClock, 250);
+      setInterval(() => refreshWeather({ quiet: true }), 15 * 60 * 1000);
+    })();
+  </script>
+</body>
+</html>
