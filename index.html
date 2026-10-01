@@ -1312,12 +1312,20 @@
       }
 
       function closeSettings() {
+        weatherSourceSelect.classList.remove("open");
+        backgroundSelect.classList.remove("open");
+        backgroundEditor.classList.remove("open");
         settingsEl.classList.remove("open");
         settingsEl.setAttribute("aria-hidden", "true");
       }
 
       settingsButton.addEventListener("click", openSettings);
-      cancelSettings.addEventListener("click", closeSettings);
+      cancelSettings.addEventListener("click", () => {
+        // Discard unsaved coordinate/weather-source changes. Background preset
+        // changes are intentionally immediate and are already persisted.
+        settings = loadSettings();
+        closeSettings();
+      });
 
       weatherSourceButton.addEventListener("click", () => {
         weatherSourceSelect.classList.toggle("open");
