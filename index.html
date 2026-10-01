@@ -2181,62 +2181,42 @@
           })
           .filter(Boolean)
           .sort((a, b) => a.distance - b.distance)
-          .slice(0, 5);
+          .slice(0, 8);
 
         if (!stations.length) throw new Error("No nearby NWS observation stations.");
 
-        const observations = await Promise.allSettled(
-          stations.map(async station => {
-            const obsRes = await fetch(station.url.replace(/\/$/, "") + "/observations/latest", { headers });
-            if (!obsRes.ok) throw new Error("Station observation unavailable.");
+        // Walk outward from the exact coordinates and take the closest station
+        // with a fresh, usable observation. Do not average distant stations.
+        for (const station of stations) {
+          try {
+            const obsRes = await fetch(
+              station.url.replace(/\/$/, "") + "/observations/latest",
+              { headers }
+            );
+            if (!obsRes.ok) continue;
+
             const obsData = await obsRes.json();
             const p = obsData.properties || {};
             const celsius = Number(p.temperature?.value);
-            if (!Number.isFinite(celsius)) throw new Error("Observation temperature missing.");
+            if (!Number.isFinite(celsius)) continue;
 
             const timestamp = p.timestamp ? new Date(p.timestamp).getTime() : 0;
             const ageMinutes = timestamp ? Math.max(0, (Date.now() - timestamp) / 60000) : 999;
-            if (ageMinutes > 90) throw new Error("Station observation is stale.");
+            if (ageMinutes > 90) continue;
 
-            // Strongly favor the closest station while gently penalizing older reports.
-            const distanceWeight = 1 / Math.max(1, station.distance) ** 1.6;
-            const freshnessWeight = Math.exp(-ageMinutes / 75);
             return {
               temperature_2m: celsius * 9 / 5 + 32,
               weather_code: p.textDescription ? nwsCodeFromText(p.textDescription) : null,
-              distance: station.distance,
               timestamp,
-              weight: distanceWeight * freshnessWeight
+              stationDistanceKm: station.distance
             };
-          })
-        );
+          } catch {}
+        }
 
-        const valid = observations
-          .filter(result => result.status === "fulfilled")
-          .map(result => result.value)
-          .filter(item => Number.isFinite(item.temperature_2m) && item.weight > 0);
-
-        if (!valid.length) throw new Error("No usable NWS observation.");
-
-        const totalWeight = valid.reduce((sum, item) => sum + item.weight, 0);
-        const temperature = valid.reduce(
-          (sum, item) => sum + item.temperature_2m * item.weight,
-          0
-        ) / totalWeight;
-
-        // Use the most locally representative condition description, not a distant station.
-        const conditionSource = [...valid]
-          .filter(item => Number.isFinite(item.weather_code))
-          .sort((a, b) => b.weight - a.weight)[0];
-
-        return {
-          temperature_2m: temperature,
-          weather_code: conditionSource?.weather_code ?? null,
-          timestamp: Math.max(...valid.map(item => item.timestamp || 0))
-        };
+        throw new Error("No fresh nearby NWS observation.");
       }
 
-      function blendForecastDatasets(datasets) {
+      function blendForecastDatasets      function blendForecastDatasets(datasets) {
         const usable = datasets.filter(Boolean);
         if (!usable.length) throw new Error("No forecast data available.");
 
@@ -2276,32 +2256,46 @@
       }
 
       async function fetchPhoneMatchWeather(lat, lon) {
-        // Apple Weather itself blends multiple model and station sources. For the
-        // U.S., this mirrors that idea: official NWS point forecasts + NOAA blend
-        // + ECMWF, with the nearest fresh NWS station observation used for "now".
-        const results = await Promise.allSettled([
-          fetchNwsWeather(lat, lon),
-          fetchOpenMeteoWeather(lat, lon, "nbm"),
-          fetchOpenMeteoWeather(lat, lon, "ecmwf"),
-          fetchOpenMeteoWeather(lat, lon, "best_match")
-        ]);
-        const datasets = results
-          .filter(result => result.status === "fulfilled")
-          .map(result => result.value);
-        if (!datasets.length) throw new Error("Phone Match weather is unavailable.");
+        let forecast = null;
 
-        const blended = blendForecastDatasets(datasets);
+        // In the U.S. Apple Weather lists NOAA/NWS among its underlying sources.
+        // Use the exact NWS point forecast first because it is location-specific,
+        // then fall back to NBM / Open-Meteo only if NWS is unavailable.
+        try {
+          forecast = await fetchNwsWeather(lat, lon);
+        } catch {}
+
+        if (!forecast) {
+          try {
+            forecast = await fetchOpenMeteoWeather(lat, lon, "nbm");
+          } catch {}
+        }
+
+        if (!forecast) {
+          forecast = await fetchOpenMeteoWeather(lat, lon, "best_match");
+        }
+
+        // For current conditions, use the closest fresh official observation.
+        // This is much closer to what consumer phone weather apps show for "now"
+        // than averaging several stations or using an hourly model value.
         try {
           const observation = await fetchNwsObservation(lat, lon);
-          blended.current.temperature_2m = observation.temperature_2m;
-          if (Number.isFinite(observation.weather_code)) {
-            blended.current.weather_code = observation.weather_code;
-          }
+          forecast = {
+            ...forecast,
+            current: {
+              ...forecast.current,
+              temperature_2m: observation.temperature_2m,
+              weather_code: Number.isFinite(observation.weather_code)
+                ? observation.weather_code
+                : forecast.current.weather_code
+            }
+          };
         } catch {}
-        return blended;
+
+        return forecast;
       }
 
-      async function fetchWeather(coordinateText, source = settings.weatherSource || "best_match") {
+      async function fetchWeather(coordinateText      async function fetchWeather(coordinateText, source = settings.weatherSource || "best_match") {
         const location = parseCoordinates(coordinateText);
         locationName = formatCoordinates(location);
 
