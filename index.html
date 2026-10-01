@@ -42,11 +42,29 @@
       color: var(--text);
       text-shadow: 0 1px 3px rgba(0,0,0,.18);
     }
+    #youtube-background {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      display: none;
+      overflow: hidden;
+      background: #000;
+      pointer-events: none;
+    }
+    #youtube-background.active { display: block; }
+    #youtube-background iframe {
+      position: absolute;
+      inset: -1%;
+      width: 102%;
+      height: 102%;
+      border: 0;
+      pointer-events: none;
+    }
     #board::before {
       content: "";
       position: absolute;
       inset: 0;
-      z-index: -1;
+      z-index: 1;
       background:
         linear-gradient(180deg, rgba(10,12,18,.22), rgba(10,12,18,.12) 55%, rgba(10,12,18,.18));
       pointer-events: none;
@@ -54,6 +72,7 @@
 
     .clock-block {
       position: absolute;
+      z-index: 2;
       left: 9.8%;
       top: 19.4%;
       width: 44%;
@@ -86,6 +105,7 @@
 
     .weather-block {
       position: absolute;
+      z-index: 2;
       right: 9.6%;
       top: 17.8%;
       width: 28%;
@@ -159,6 +179,7 @@
 
     .divider {
       position: absolute;
+      z-index: 2;
       left: 9.8%;
       right: 9.8%;
       top: 50.7%;
@@ -329,6 +350,16 @@
 </head>
 <body>
   <main id="board" aria-label="Dashboard">
+    <div id="youtube-background" aria-hidden="true">
+      <iframe
+        id="youtube-frame"
+        title="YouTube background"
+        allow="autoplay; encrypted-media"
+        referrerpolicy="strict-origin-when-cross-origin"
+        tabindex="-1"
+      ></iframe>
+    </div>
+
     <section class="clock-block" aria-label="Clock">
       <div class="time-row">
         <span id="clock-main">2:37</span><span id="clock-seconds">31</span>
@@ -368,6 +399,12 @@
           <div class="settings-help">Use a direct image URL. The image fills the 16:9 board with cover cropping.</div>
         </div>
 
+        <div class="field">
+          <label for="youtube-url">YouTube background URL</label>
+          <input id="youtube-url" type="url" placeholder="https://www.youtube.com/watch?v=..." />
+          <div class="settings-help">Optional. Overrides the image background and plays muted, looping, autoplayed, and without controls.</div>
+        </div>
+
         <div class="settings-meta" id="settings-meta">Enter a ZIP code and save to load local weather.</div>
 
         <div class="settings-actions">
@@ -385,10 +422,13 @@
       const STORAGE_KEY = "daq-board-settings-v1";
       const DEFAULTS = {
         zip: "10001",
-        backgroundUrl: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2400&q=90"
+        backgroundUrl: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2400&q=90",
+        youtubeUrl: ""
       };
 
       const board = document.getElementById("board");
+      const youtubeBackground = document.getElementById("youtube-background");
+      const youtubeFrame = document.getElementById("youtube-frame");
       const clockMain = document.getElementById("clock-main");
       const clockSeconds = document.getElementById("clock-seconds");
       const dateLine = document.getElementById("date-line");
@@ -399,6 +439,7 @@
       const settingsEl = document.getElementById("settings");
       const zipInput = document.getElementById("zip");
       const backgroundInput = document.getElementById("background-url");
+      const youtubeInput = document.getElementById("youtube-url");
       const metaEl = document.getElementById("settings-meta");
       const saveSettings = document.getElementById("save-settings");
       const cancelSettings = document.getElementById("cancel-settings");
@@ -436,6 +477,54 @@
         board.style.backgroundImage =
           'linear-gradient(180deg,rgba(10,12,18,.05),rgba(10,12,18,.02)),url("' +
           url.replace(/"/g, "%22") + '")';
+      }
+
+      function youtubeVideoId(value) {
+        const raw = String(value || "").trim();
+        if (!raw) return "";
+        try {
+          const url = new URL(raw);
+          const host = url.hostname.replace(/^www\./, "").toLowerCase();
+          if (host === "youtu.be") return url.pathname.split("/").filter(Boolean)[0] || "";
+          if (host === "youtube.com" || host === "m.youtube.com" || host === "music.youtube.com") {
+            if (url.pathname === "/watch") return url.searchParams.get("v") || "";
+            const parts = url.pathname.split("/").filter(Boolean);
+            if (["embed", "shorts", "live"].includes(parts[0])) return parts[1] || "";
+          }
+        } catch {}
+        return /^[A-Za-z0-9_-]{11}$/.test(raw) ? raw : "";
+      }
+
+      function applyYouTubeBackground(url) {
+        const id = youtubeVideoId(url);
+        if (!id) {
+          youtubeBackground.classList.remove("active");
+          youtubeFrame.removeAttribute("src");
+          return;
+        }
+
+        const params = new URLSearchParams({
+          autoplay: "1",
+          mute: "1",
+          loop: "1",
+          playlist: id,
+          controls: "0",
+          disablekb: "1",
+          fs: "0",
+          iv_load_policy: "3",
+          rel: "0",
+          playsinline: "1",
+          cc_load_policy: "0"
+        });
+
+        const nextSrc = "https://www.youtube-nocookie.com/embed/" + id + "?" + params.toString();
+        if (youtubeFrame.src !== nextSrc) youtubeFrame.src = nextSrc;
+        youtubeBackground.classList.add("active");
+      }
+
+      function applyBackgroundMedia(imageUrl, youtubeUrl) {
+        applyBackground(imageUrl);
+        applyYouTubeBackground(youtubeUrl);
       }
 
       function updateClock() {
@@ -583,6 +672,7 @@
       function openSettings() {
         zipInput.value = settings.zip || "";
         backgroundInput.value = settings.backgroundUrl || "";
+        youtubeInput.value = settings.youtubeUrl || "";
         metaEl.textContent = locationName ? locationName + " • " + timezone : "ZIP controls weather and time zone.";
         settingsEl.classList.add("open");
         settingsEl.setAttribute("aria-hidden", "false");
@@ -606,18 +696,24 @@
       saveSettings.addEventListener("click", async () => {
         const nextZip = zipInput.value.trim();
         const nextBackground = backgroundInput.value.trim();
+        const nextYoutube = youtubeInput.value.trim();
 
         if (!/^\d{5}(?:-\d{4})?$/.test(nextZip)) {
           metaEl.textContent = "Please enter a valid 5-digit U.S. ZIP code.";
           return;
         }
+        if (nextYoutube && !youtubeVideoId(nextYoutube)) {
+          metaEl.textContent = "That does not look like a valid YouTube video URL.";
+          return;
+        }
 
         settings = {
           zip: nextZip,
-          backgroundUrl: nextBackground || DEFAULTS.backgroundUrl
+          backgroundUrl: nextBackground || DEFAULTS.backgroundUrl,
+          youtubeUrl: nextYoutube
         };
         persistSettings();
-        applyBackground(settings.backgroundUrl);
+        applyBackgroundMedia(settings.backgroundUrl, settings.youtubeUrl);
         metaEl.textContent = "Loading weather…";
         await refreshWeather({ quiet: true });
         closeSettings();
@@ -625,7 +721,7 @@
       });
 
       // Initial paint.
-      applyBackground(settings.backgroundUrl);
+      applyBackgroundMedia(settings.backgroundUrl, settings.youtubeUrl);
       renderWeatherFallback();
       updateClock();
       refreshWeather({ quiet: true });
