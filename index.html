@@ -2348,9 +2348,12 @@
         syncAnimationUI();
         syncFontUI();
         renderBackgroundPicker();
+        renderMusicPicker();
         backgroundEditor.classList.remove("open");
+        musicEditor.classList.remove("open");
         weatherSourceSelect.classList.remove("open");
         backgroundSelect.classList.remove("open");
+        musicSelect.classList.remove("open");
         animationSelect.classList.remove("open");
         fontSelect.classList.remove("open");
         settingsEl.classList.add("open");
@@ -2361,9 +2364,11 @@
       function closeSettings() {
         weatherSourceSelect.classList.remove("open");
         backgroundSelect.classList.remove("open");
+        musicSelect.classList.remove("open");
         animationSelect.classList.remove("open");
         fontSelect.classList.remove("open");
         backgroundEditor.classList.remove("open");
+        musicEditor.classList.remove("open");
         settingsEl.classList.remove("open");
         settingsEl.setAttribute("aria-hidden", "true");
       }
@@ -2380,6 +2385,7 @@
       weatherSourceButton.addEventListener("click", () => {
         weatherSourceSelect.classList.toggle("open");
         backgroundSelect.classList.remove("open");
+        musicSelect.classList.remove("open");
         animationSelect.classList.remove("open");
         fontSelect.classList.remove("open");
       });
@@ -2395,6 +2401,7 @@
         animationSelect.classList.toggle("open");
         weatherSourceSelect.classList.remove("open");
         backgroundSelect.classList.remove("open");
+        musicSelect.classList.remove("open");
         fontSelect.classList.remove("open");
       });
       animationMenu.addEventListener("click", e => {
@@ -2409,6 +2416,7 @@
         fontSelect.classList.toggle("open");
         weatherSourceSelect.classList.remove("open");
         backgroundSelect.classList.remove("open");
+        musicSelect.classList.remove("open");
         animationSelect.classList.remove("open");
       });
       fontMenu.addEventListener("click", e => {
@@ -2423,6 +2431,7 @@
       backgroundButton.addEventListener("click", () => {
         backgroundSelect.classList.toggle("open");
         weatherSourceSelect.classList.remove("open");
+        musicSelect.classList.remove("open");
         animationSelect.classList.remove("open");
         fontSelect.classList.remove("open");
       });
@@ -2491,7 +2500,9 @@
         backgroundNameInput.value = item?.name || "";
         backgroundNewUrlInput.value = item?.url || "";
         backgroundEditor.classList.add("open");
+        musicEditor.classList.remove("open");
         backgroundSelect.classList.remove("open");
+        musicSelect.classList.remove("open");
         weatherSourceSelect.classList.remove("open");
         animationSelect.classList.remove("open");
         fontSelect.classList.remove("open");
@@ -2563,6 +2574,109 @@
         editingBackgroundId = null;
       });
 
+      let editingMusicId = null;
+
+      function openMusicEditor(item = null) {
+        editingMusicId = item?.id || null;
+        musicEditorTitle.textContent = editingMusicId ? "Edit music" : "Add music";
+        confirmMusicButton.textContent = editingMusicId ? "Save" : "Add";
+        musicNameInput.value = item?.name || "";
+        musicUrlInput.value = item?.url || "";
+        musicEditor.classList.add("open");
+        backgroundEditor.classList.remove("open");
+        musicSelect.classList.remove("open");
+        backgroundSelect.classList.remove("open");
+        weatherSourceSelect.classList.remove("open");
+        animationSelect.classList.remove("open");
+        fontSelect.classList.remove("open");
+        setTimeout(() => musicNameInput.focus(), 70);
+      }
+
+      musicButton.addEventListener("click", () => {
+        musicSelect.classList.toggle("open");
+        weatherSourceSelect.classList.remove("open");
+        backgroundSelect.classList.remove("open");
+        animationSelect.classList.remove("open");
+        fontSelect.classList.remove("open");
+      });
+
+      musicMenu.addEventListener("click", e => {
+        const add = e.target.closest("[data-add-music]");
+        if (add) {
+          e.stopPropagation();
+          openMusicEditor();
+          return;
+        }
+
+        const edit = e.target.closest("[data-edit-music-id]");
+        if (edit) {
+          e.stopPropagation();
+          const item = settings.music.find(track => track.id === edit.dataset.editMusicId);
+          if (item) openMusicEditor(item);
+          return;
+        }
+
+        const remove = e.target.closest("[data-remove-music-id]");
+        if (remove) {
+          e.stopPropagation();
+          const id = remove.dataset.removeMusicId;
+          settings.music = settings.music.filter(item => item.id !== id);
+          if (settings.selectedMusicId === id) settings.selectedMusicId = "";
+          persistSettings();
+          renderMusicPicker({ animateRows: true });
+          applySelectedMusic(true);
+          return;
+        }
+
+        if (e.target.closest("[data-music-none]")) {
+          setSelectedMusic("");
+          musicSelect.classList.remove("open");
+          return;
+        }
+
+        const option = e.target.closest("[data-music-id]");
+        if (!option) return;
+        setSelectedMusic(option.dataset.musicId);
+        musicSelect.classList.remove("open");
+      });
+
+      cancelMusicButton.addEventListener("click", () => {
+        editingMusicId = null;
+        musicEditor.classList.remove("open");
+      });
+
+      confirmMusicButton.addEventListener("click", () => {
+        const name = musicNameInput.value.trim();
+        const url = musicUrlInput.value.trim();
+
+        if (!name) {
+          showStatus("Give the music a name");
+          musicNameInput.focus();
+          return;
+        }
+        if (!youtubeVideoId(url)) {
+          showStatus("Use a valid YouTube URL");
+          musicUrlInput.focus();
+          return;
+        }
+
+        if (editingMusicId) {
+          const index = settings.music.findIndex(item => item.id === editingMusicId);
+          if (index >= 0) settings.music[index] = { ...settings.music[index], name, url };
+        } else {
+          const item = { id: makePresetId("music"), name, url };
+          settings.music.push(item);
+          settings.selectedMusicId = item.id;
+        }
+
+        persistSettings();
+        renderMusicPicker({ animateRows: true });
+        applySelectedMusic(true);
+        musicEditor.classList.remove("open");
+        showStatus(editingMusicId ? "Music updated" : "Music added");
+        editingMusicId = null;
+      });
+
       settingsEl.addEventListener("click", e => {
         if (e.target === settingsEl) closeSettings();
       });
@@ -2570,6 +2684,7 @@
       document.addEventListener("click", e => {
         if (!weatherSourceSelect.contains(e.target)) weatherSourceSelect.classList.remove("open");
         if (!backgroundSelect.contains(e.target)) backgroundSelect.classList.remove("open");
+        if (!musicSelect.contains(e.target)) musicSelect.classList.remove("open");
         if (!animationSelect.contains(e.target)) animationSelect.classList.remove("open");
         if (!fontSelect.contains(e.target)) fontSelect.classList.remove("open");
       });
@@ -2578,10 +2693,13 @@
         if (e.key === "Escape") {
           weatherSourceSelect.classList.remove("open");
           backgroundSelect.classList.remove("open");
+          musicSelect.classList.remove("open");
           animationSelect.classList.remove("open");
           fontSelect.classList.remove("open");
           if (backgroundEditor.classList.contains("open")) {
             backgroundEditor.classList.remove("open");
+          } else if (musicEditor.classList.contains("open")) {
+            musicEditor.classList.remove("open");
           } else {
             closeSettings();
           }
@@ -2635,9 +2753,21 @@
       applyFont();
       renderBackgroundPicker();
       applySelectedBackground();
+      renderMusicPicker();
+      applySelectedMusic();
       renderWeatherFallback();
       scheduleClockTick();
       refreshWeather({ quiet: true });
+
+      // If the browser blocks audible autoplay, the first real user gesture re-arms it.
+      let musicUnlocked = false;
+      const unlockMusic = () => {
+        if (musicUnlocked) return;
+        musicUnlocked = true;
+        if (settings.selectedMusicId) applySelectedMusic(true);
+      };
+      document.addEventListener("pointerdown", unlockMusic, { once: true, passive: true });
+      document.addEventListener("keydown", unlockMusic, { once: true });
 
       // Clock ticks are aligned to the next real second; weather refreshes every 15 minutes.
       setInterval(() => refreshWeather({ quiet: true }), 15 * 60 * 1000);
