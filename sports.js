@@ -889,7 +889,16 @@
       /\bpreview\b/i,
       /\bexpert picks?\b/i,
       /\bhow to watch\b/i,
-      /\bstreaming\b/i
+      /\bstreaming\b/i,
+      /\bcricket\b/i,
+      /\bpremier league\b/i,
+      /\bchampions league\b/i,
+      /\bfifa\b/i,
+      /\bformula 1\b/i,
+      /\bf1\b/i,
+      /\btennis\b/i,
+      /\bgolf\b/i,
+      /\brugby\b/i
     ];
     return !reject.some(pattern => pattern.test(text));
   }
