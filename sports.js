@@ -69,6 +69,7 @@
     expanded: false,
     appearance: "monotone",
     showBoxes: true,
+    scoreboardAnimation: "soft",
     headlineMode: "scroll",
     leagues: {
       nfl: { enabled: true, mode: "cycle", cycleSeconds: 15, watchTeams: [] },
@@ -105,6 +106,9 @@
       base.expanded = false;
       base.appearance = raw.appearance === "color" ? "color" : "monotone";
       base.showBoxes = raw.showBoxes !== false;
+      base.scoreboardAnimation = ["soft", "fade", "wipe"].includes(raw.scoreboardAnimation)
+        ? raw.scoreboardAnimation
+        : "soft";
       base.headlineMode = raw.headlineMode === "static" ? "static" : "scroll";
       for (const key of Object.keys(LEAGUES)) {
         const saved = raw.leagues?.[key] || {};
@@ -735,10 +739,13 @@
       '<div class="sports-module-foot">' + pageDots(index, games.length) + '</div>';
 
     if (changedGame) {
-      module.classList.remove("switching");
+      module.classList.remove("switching", "switching-soft", "switching-fade", "switching-wipe");
       void module.offsetWidth;
-      module.classList.add("switching");
-      setTimeout(() => module.classList.remove("switching"), 380);
+      module.classList.add("switching", "switching-" + config.scoreboardAnimation);
+      const duration = config.scoreboardAnimation === "wipe" ? 520 : 380;
+      setTimeout(() => {
+        module.classList.remove("switching", "switching-soft", "switching-fade", "switching-wipe");
+      }, duration);
     }
   }
 
@@ -1265,6 +1272,14 @@
             '</div>' +
           '</div>' +
           '<div class="sports-style-setting">' +
+            '<span class="sports-setting-label">Scoreboard animation</span>' +
+            '<div class="sports-segmented sports-animation-segmented">' +
+              '<button type="button" data-scoreboard-animation="soft" class="' + (config.scoreboardAnimation === "soft" ? 'active' : '') + '">Soft</button>' +
+              '<button type="button" data-scoreboard-animation="fade" class="' + (config.scoreboardAnimation === "fade" ? 'active' : '') + '">Fade</button>' +
+              '<button type="button" data-scoreboard-animation="wipe" class="' + (config.scoreboardAnimation === "wipe" ? 'active' : '') + '">Wipe</button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="sports-style-setting">' +
             '<span class="sports-setting-label">Headlines</span>' +
             '<div class="sports-segmented">' +
               '<button type="button" data-headline-mode="scroll" class="' + (config.headlineMode === "scroll" ? 'active' : '') + '">Scroll</button>' +
@@ -1304,6 +1319,15 @@
     if (boxes) {
       config.showBoxes = boxes.dataset.sportsBoxes !== "hide";
       afterConfigChange();
+      return;
+    }
+
+    const scoreboardAnimation = event.target.closest("[data-scoreboard-animation]");
+    if (scoreboardAnimation) {
+      const value = scoreboardAnimation.dataset.scoreboardAnimation;
+      config.scoreboardAnimation = ["soft", "fade", "wipe"].includes(value) ? value : "soft";
+      saveSettings();
+      renderSettings();
       return;
     }
 
