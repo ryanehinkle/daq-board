@@ -10,6 +10,8 @@
   align-items: center;
   overflow: hidden;
   pointer-events: none;
+  transform: scale(var(--display-scale));
+  transform-origin: center center;
   color: rgba(255,255,255,.94);
   text-shadow: 0 1px 3px rgba(0,0,0,.34);
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
