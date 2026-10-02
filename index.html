@@ -15,6 +15,7 @@
       --line: rgba(255,255,255,.28);
       --pill: rgba(215,215,220,.42);
       --panel: rgba(20,22,28,.86);
+      --display-scale: 1;
     }
     * { box-sizing: border-box; }
     html, body {
@@ -115,6 +116,8 @@
       top: 19.4%;
       width: 44%;
       user-select: none;
+      transform: scale(var(--display-scale));
+      transform-origin: top left;
     }
     .time-row {
       display: flex;
@@ -149,6 +152,8 @@
       width: 28%;
       min-width: 390px;
       user-select: none;
+      transform: scale(var(--display-scale));
+      transform-origin: top right;
     }
     .current-weather {
       display: flex;
@@ -501,6 +506,37 @@
       color: #fff;
       border-color: rgba(255,255,255,.28);
       background: rgba(255,255,255,.16);
+    }
+
+    .display-size-control {
+      margin-top: 9px;
+      padding: 9px 11px 8px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      background: rgba(255,255,255,.045);
+    }
+    .display-size-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 5px;
+      color: rgba(255,255,255,.7);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    #display-size-value {
+      color: rgba(255,255,255,.92);
+      font-variant-numeric: tabular-nums;
+    }
+    #display-size-slider {
+      width: 100%;
+      height: 18px;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+      accent-color: #fff;
+      background: transparent !important;
     }
 
     .custom-select {
@@ -1320,6 +1356,14 @@
               </button>
             </div>
           </div>
+
+          <div class="display-size-control">
+            <div class="display-size-head">
+              <span>Display size</span>
+              <span id="display-size-value">100%</span>
+            </div>
+            <input id="display-size-slider" type="range" min="80" max="120" step="1" value="100" aria-label="Display size" />
+          </div>
         </div>
 
         <div id="settings-meta" hidden></div>
@@ -1445,6 +1489,8 @@
       const fontButton = document.getElementById("font-button");
       const fontLabel = document.getElementById("font-label");
       const fontMenu = document.getElementById("font-menu");
+      const displaySizeSlider = document.getElementById("display-size-slider");
+      const displaySizeValue = document.getElementById("display-size-value");
       const metaEl = document.getElementById("settings-meta");
       const statusEl = document.getElementById("status");
 
@@ -3083,6 +3129,13 @@
         document.documentElement.style.setProperty("--app-font", FONT_OPTIONS[value].stack);
       }
 
+      function applyDisplaySize(value) {
+        const percent = Math.min(120, Math.max(80, Number(value) || 100));
+        document.documentElement.style.setProperty("--display-scale", (percent / 100).toFixed(2));
+        displaySizeSlider.value = String(percent);
+        displaySizeValue.textContent = Math.round(percent) + "%";
+      }
+
       function syncFontUI() {
         const value = FONT_OPTIONS[settings.font] ? settings.font : DEFAULTS.font;
         fontLabel.textContent = FONT_OPTIONS[value].label;
@@ -3108,7 +3161,6 @@
         fontSelect.classList.remove("open");
         settingsEl.classList.add("open");
         settingsEl.setAttribute("aria-hidden", "false");
-        setTimeout(() => coordinatesInput.focus(), 0);
       }
 
       function closeSettings() {
@@ -3181,6 +3233,10 @@
         syncFontUI();
         fontSelect.classList.remove("open");
         persistSettings();
+      });
+
+      displaySizeSlider.addEventListener("input", () => {
+        applyDisplaySize(displaySizeSlider.value);
       });
 
       backgroundModeStatic.addEventListener("click", () => setBackgroundMode("static"));
@@ -3586,6 +3642,7 @@
       // public JSON store; each device keeps only its current selections locally.
       await bootstrapSharedPresets();
       applyFont();
+      applyDisplaySize(100);
       syncBackgroundModeUI();
       renderBackgroundPicker();
       applySelectedBackground({ fade: false });
