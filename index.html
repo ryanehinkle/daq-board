@@ -1001,18 +1001,23 @@
           <label>Weather source</label>
           <div class="custom-select" id="weather-source-select">
             <button class="custom-select-button" id="weather-source-button" type="button">
-              <span id="weather-source-label">Phone Match — smart blend</span>
+              <span id="weather-source-label">AccuWeather</span>
               <span class="chevron" aria-hidden="true"></span>
             </button>
             <div class="custom-select-menu" id="weather-source-menu">
-              <button class="custom-option" type="button" data-value="best_match">Phone Match — smart blend</button>
+              <button class="custom-option" type="button" data-value="accuweather">AccuWeather</button>
               <button class="custom-option" type="button" data-value="nws">NOAA / National Weather Service</button>
-              <button class="custom-option" type="button" data-value="nbm">NOAA NBM — 2.5 km blend</button>
-              <button class="custom-option" type="button" data-value="gfs">NOAA HRRR + GFS — seamless</button>
-              <button class="custom-option" type="button" data-value="ecmwf">ECMWF IFS — high resolution</button>
+              <button class="custom-option" type="button" data-value="nbm">NOAA NBM</button>
+              <button class="custom-option" type="button" data-value="gfs">NOAA HRRR + GFS</button>
+              <button class="custom-option" type="button" data-value="ecmwf">ECMWF IFS</button>
               <button class="custom-option" type="button" data-value="google">Google Weather</button>
             </div>
           </div>
+        </div>
+
+        <div class="field" id="accuweather-key-field" hidden>
+          <label for="accuweather-key">AccuWeather API key</label>
+          <input id="accuweather-key" type="password" autocomplete="off" spellcheck="false" />
         </div>
 
         <div class="field" id="google-weather-key-field" hidden>
@@ -1151,9 +1156,6 @@
       </div>
     </div>
 
-    <div id="status"      </div>
-    </div>
-
     <div id="status" role="status" aria-live="polite"></div>
   </main>
 
@@ -1165,7 +1167,8 @@
       const DEFAULT_BACKGROUND_URL = "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2400&q=90";
       const DEFAULTS = {
         coordinates: "41.80803, -88.20902",
-        weatherSource: "best_match",
+        weatherSource: "accuweather",
+        accuWeatherApiKey: "",
         googleWeatherApiKey: "",
         clockAnimation: "drop",
         font: "helvetica",
@@ -1179,11 +1182,11 @@
       };
 
       const WEATHER_SOURCES = {
-        best_match: { label: "Phone Match — smart blend" },
+        accuweather: { label: "AccuWeather" },
         nws: { label: "NOAA / National Weather Service" },
-        nbm: { label: "NOAA NBM — 2.5 km blend" },
-        gfs: { label: "NOAA HRRR + GFS — seamless" },
-        ecmwf: { label: "ECMWF IFS — high resolution" },
+        nbm: { label: "NOAA NBM" },
+        gfs: { label: "NOAA HRRR + GFS" },
+        ecmwf: { label: "ECMWF IFS" },
         google: { label: "Google Weather" }
       };
 
