@@ -43,17 +43,20 @@
       color: var(--text);
       text-shadow: 0 1px 3px rgba(0,0,0,.18);
     }
-    #youtube-background {
+    .background-slot {
       position: absolute;
       inset: 0;
       z-index: 0;
-      display: none;
       overflow: hidden;
-      background: #000;
+      opacity: 0;
+      background: #000 center / cover no-repeat;
       pointer-events: none;
+      transition: opacity .95s ease;
+      will-change: opacity;
     }
-    #youtube-background.active { display: block; }
-    #youtube-background iframe {
+    .background-slot.active { opacity: 1; }
+    .background-slot.youtube-active { pointer-events: auto; }
+    .background-slot iframe {
       position: absolute;
       inset: -1%;
       width: 102%;
@@ -61,19 +64,28 @@
       border: 0;
       pointer-events: auto;
     }
+    .background-slot video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 0;
+      pointer-events: none;
+    }
 
     /*
-      Keep the YouTube player non-interactive everywhere except the small
-      bottom-right rectangle where YouTube places the Skip ad button.
-      The transparent shields sit above the iframe and absorb clicks; the
-      uncovered corner passes clicks straight through to YouTube.
+      Keep an active YouTube background non-interactive everywhere except the
+      small bottom-right rectangle where YouTube places the Skip ad button.
     */
     .youtube-hit-shield {
       position: absolute;
-      z-index: 2;
+      z-index: 4;
+      display: none;
       background: transparent;
       pointer-events: auto;
     }
+    .youtube-hit-shield.enabled { display: block; }
     .youtube-hit-shield.top {
       top: 0;
       left: 0;
@@ -425,6 +437,40 @@
       line-height: 1;
     }
     .icon-button:hover { background: rgba(255,255,255,.15); }
+
+    .background-mode-toggle {
+      display: inline-flex;
+      padding: 2px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 9px;
+      background: rgba(255,255,255,.045);
+    }
+    .background-mode-toggle button {
+      height: 26px;
+      min-width: 58px;
+      padding: 0 10px;
+      border: 0;
+      border-radius: 7px;
+      cursor: pointer;
+      color: rgba(255,255,255,.58);
+      background: transparent;
+      font-size: 11px;
+      font-weight: 650;
+      transition: color .14s ease, background .14s ease, transform .14s ease;
+    }
+    .background-mode-toggle button:hover {
+      color: rgba(255,255,255,.9);
+    }
+    .background-mode-toggle button.active {
+      color: #fff;
+      background: rgba(255,255,255,.15);
+    }
+    .background-cycle-field {
+      margin-top: 10px;
+    }
+    .background-cycle-field[hidden] {
+      display: none;
+    }
 
     .custom-select {
       position: relative;
@@ -986,17 +1032,10 @@
 </head>
 <body>
   <main id="board" aria-label="Dashboard">
-    <div id="youtube-background" aria-hidden="true">
-      <iframe
-        id="youtube-frame"
-        title="YouTube background"
-        allow="autoplay; encrypted-media"
-        referrerpolicy="strict-origin-when-cross-origin"
-        tabindex="-1"
-      ></iframe>
-      <div class="youtube-hit-shield top" aria-hidden="true"></div>
-      <div class="youtube-hit-shield bottom-left" aria-hidden="true"></div>
-    </div>
+    <div id="background-slot-a" class="background-slot active" aria-hidden="true"></div>
+    <div id="background-slot-b" class="background-slot" aria-hidden="true"></div>
+    <div class="youtube-hit-shield top" aria-hidden="true"></div>
+    <div class="youtube-hit-shield bottom-left" aria-hidden="true"></div>
 
     <iframe
       id="youtube-music-frame"
@@ -1091,7 +1130,13 @@
         </div>
 
         <div class="field">
-          <label>Backgrounds</label>
+          <div class="field-label-row">
+            <label>Backgrounds</label>
+            <div class="background-mode-toggle" role="group" aria-label="Background mode">
+              <button id="background-mode-static" class="active" type="button">Static</button>
+              <button id="background-mode-rotate" type="button">Rotate</button>
+            </div>
+          </div>
 
           <div class="custom-select" id="background-select">
             <button class="custom-select-button background-button" id="background-button" type="button">
@@ -1114,6 +1159,24 @@
             <div class="background-editor-actions">
               <button id="cancel-background" type="button">Cancel</button>
               <button id="confirm-background" type="button">Add</button>
+            </div>
+          </div>
+
+          <div class="background-cycle-field" id="background-cycle-field" hidden>
+            <label>Cycle time</label>
+            <div class="custom-select" id="background-cycle-select">
+              <button class="custom-select-button" id="background-cycle-button" type="button">
+                <span id="background-cycle-label">15 minutes</span>
+                <span class="chevron" aria-hidden="true"></span>
+              </button>
+              <div class="custom-select-menu" id="background-cycle-menu">
+                <button class="custom-option" type="button" data-minutes="15">15 minutes</button>
+                <button class="custom-option" type="button" data-minutes="30">30 minutes</button>
+                <button class="custom-option" type="button" data-minutes="45">45 minutes</button>
+                <button class="custom-option" type="button" data-minutes="60">1 hour</button>
+                <button class="custom-option" type="button" data-minutes="90">1 hour 30 minutes</button>
+                <button class="custom-option" type="button" data-minutes="120">2 hours</button>
+              </div>
             </div>
           </div>
         </div>
@@ -1221,9 +1284,6 @@
       </div>
     </div>
 
-    <div id="status"      </div>
-    </div>
-
     <div id="status" role="status" aria-live="polite"></div>
   </main>
 
@@ -1244,6 +1304,9 @@
           { id: "default-video", name: "Neon Sunset Drive", type: "video", url: "https://www.youtube.com/watch?v=i3qUonr3d9U" }
         ],
         selectedBackgroundId: "default-video",
+        backgroundMode: "static",
+        selectedBackgroundIds: ["default-video"],
+        backgroundCycleMinutes: 15,
         music: [],
         selectedMusicId: ""
       };
@@ -1284,8 +1347,9 @@
       };
 
       const board = document.getElementById("board");
-      const youtubeBackground = document.getElementById("youtube-background");
-      const youtubeFrame = document.getElementById("youtube-frame");
+      const backgroundSlotA = document.getElementById("background-slot-a");
+      const backgroundSlotB = document.getElementById("background-slot-b");
+      const youtubeHitShields = Array.from(document.querySelectorAll(".youtube-hit-shield"));
       const clockMain = document.getElementById("clock-main");
       const clockSeconds = document.getElementById("clock-seconds");
       const dateLine = document.getElementById("date-line");
@@ -1303,6 +1367,8 @@
       const weatherSourceMenu = document.getElementById("weather-source-menu");
       const googleWeatherKeyField = document.getElementById("google-weather-key-field");
       const googleWeatherKeyInput = document.getElementById("google-weather-key");
+      const backgroundModeStatic = document.getElementById("background-mode-static");
+      const backgroundModeRotate = document.getElementById("background-mode-rotate");
       const backgroundSelect = document.getElementById("background-select");
       const backgroundButton = document.getElementById("background-button");
       const backgroundCurrent = document.getElementById("background-current");
@@ -1315,6 +1381,11 @@
       const backgroundNewUrlInput = document.getElementById("background-new-url");
       const cancelBackgroundButton = document.getElementById("cancel-background");
       const confirmBackgroundButton = document.getElementById("confirm-background");
+      const backgroundCycleField = document.getElementById("background-cycle-field");
+      const backgroundCycleSelect = document.getElementById("background-cycle-select");
+      const backgroundCycleButton = document.getElementById("background-cycle-button");
+      const backgroundCycleLabel = document.getElementById("background-cycle-label");
+      const backgroundCycleMenu = document.getElementById("background-cycle-menu");
       const musicFrame = document.getElementById("youtube-music-frame");
       const musicSelect = document.getElementById("music-select");
       const musicButton = document.getElementById("music-button");
@@ -1345,6 +1416,10 @@
       let coordinateSaveTimer = null;
       let googleKeySaveTimer = null;
       let activeBackgroundKey = null;
+      let activeBackgroundSlot = backgroundSlotA;
+      let backgroundTransitionToken = 0;
+      let backgroundCycleTimer = null;
+      let backgroundShuffleQueue = [];
       const backgroundTypeFilter = { image: true, video: true };
 
       function cloneDefaultBackgrounds() {
@@ -1409,6 +1484,23 @@
             selectedBackgroundId = "";
           }
 
+          const backgroundMode = saved.backgroundMode === "rotate" ? "rotate" : "static";
+          let selectedBackgroundIds = Array.isArray(saved.selectedBackgroundIds)
+            ? Array.from(new Set(saved.selectedBackgroundIds)).filter(id => backgrounds.some(item => item.id === id))
+            : (selectedBackgroundId ? [selectedBackgroundId] : []);
+
+          if (backgroundMode === "static") {
+            selectedBackgroundIds = selectedBackgroundId ? [selectedBackgroundId] : [];
+          } else if (!selectedBackgroundId || !selectedBackgroundIds.includes(selectedBackgroundId)) {
+            selectedBackgroundId = selectedBackgroundIds[0] || "";
+          }
+
+          const allowedCycleMinutes = [15, 30, 45, 60, 90, 120];
+          const savedCycleMinutes = Number(saved.backgroundCycleMinutes);
+          const backgroundCycleMinutes = allowedCycleMinutes.includes(savedCycleMinutes)
+            ? savedCycleMinutes
+            : DEFAULTS.backgroundCycleMinutes;
+
           const music = Array.isArray(saved.music)
             ? saved.music.filter(item => item && item.id && item.name && item.url)
             : [];
@@ -1428,6 +1520,9 @@
             font: FONT_OPTIONS[saved.font] ? saved.font : DEFAULTS.font,
             backgrounds,
             selectedBackgroundId,
+            backgroundMode,
+            selectedBackgroundIds,
+            backgroundCycleMinutes,
             music,
             selectedMusicId
           };
@@ -1501,9 +1596,20 @@
         settings.backgrounds = clean.backgrounds;
         settings.music = clean.music;
 
+        settings.selectedBackgroundIds = (settings.selectedBackgroundIds || [])
+          .filter(id => settings.backgrounds.some(item => item.id === id));
+
         if (!settings.backgrounds.some(item => item.id === settings.selectedBackgroundId)) {
-          settings.selectedBackgroundId = "";
+          settings.selectedBackgroundId = settings.backgroundMode === "rotate"
+            ? (settings.selectedBackgroundIds[0] || "")
+            : "";
         }
+        if (settings.backgroundMode === "static") {
+          settings.selectedBackgroundIds = settings.selectedBackgroundId
+            ? [settings.selectedBackgroundId]
+            : [];
+        }
+
         if (!settings.music.some(item => item.id === settings.selectedMusicId)) {
           settings.selectedMusicId = "";
         }
