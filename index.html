@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#111111" />
   <title>DAQ Board</title>
-  <link rel="stylesheet" href="sports.css?v=8" />
-  <script src="sports.js?v=11" defer></script>
+  <link rel="stylesheet" href="sports.css?v=9" />
+  <script src="sports.js?v=12" defer></script>
   <style>
     :root {
       color-scheme: dark;
@@ -1215,8 +1215,6 @@
           <input id="google-weather-key" type="password" autocomplete="off" spellcheck="false" />
         </div>
 
-        <div class="field" id="sports-settings-root"></div>
-
         <div class="field">
           <div class="field-label-row">
             <label>Backgrounds</label>
@@ -1371,6 +1369,8 @@
             <input id="display-size-slider" type="range" min="67" max="133" step="1" value="100" aria-label="Display size" />
           </div>
         </div>
+
+        <div class="field" id="sports-settings-root"></div>
 
         <div id="settings-meta" hidden></div>
 
@@ -1997,31 +1997,46 @@
         const token = ++backgroundTransitionToken;
         const nextSlot = activeBackgroundSlot === backgroundSlotA ? backgroundSlotB : backgroundSlotA;
         const oldSlot = activeBackgroundSlot;
+        const isInitialLoad = activeBackgroundKey === null;
+
+        // Match the original dashboard behavior on startup: show the media slot
+        // as soon as it is created instead of leaving a black board while we wait
+        // for YouTube/video readiness. Later rotations still preload and crossfade.
+        if (isInitialLoad) {
+          nextSlot.style.transition = "none";
+          oldSlot.style.transition = "none";
+          oldSlot.classList.remove("active");
+          nextSlot.classList.add("active");
+          activeBackgroundSlot = nextSlot;
+        }
+
         try {
           await prepareBackgroundInSlot(nextSlot, item);
         } catch {
-          clearBackgroundSlot(nextSlot);
+          if (!isInitialLoad) clearBackgroundSlot(nextSlot);
           return false;
         }
 
         if (token !== backgroundTransitionToken) {
-          clearBackgroundSlot(nextSlot);
+          if (!isInitialLoad) clearBackgroundSlot(nextSlot);
           return false;
         }
 
-        const shouldFade = fade && activeBackgroundKey !== null;
-        if (!shouldFade) {
-          nextSlot.style.transition = "none";
-          oldSlot.style.transition = "none";
-        } else {
-          nextSlot.style.transition = "opacity .95s ease";
-          oldSlot.style.transition = "opacity .95s ease";
+        const shouldFade = fade && !isInitialLoad && activeBackgroundKey !== null;
+        if (!isInitialLoad) {
+          if (!shouldFade) {
+            nextSlot.style.transition = "none";
+            oldSlot.style.transition = "none";
+          } else {
+            nextSlot.style.transition = "opacity .95s ease";
+            oldSlot.style.transition = "opacity .95s ease";
+          }
+
+          nextSlot.classList.add("active");
+          oldSlot.classList.remove("active");
+          activeBackgroundSlot = nextSlot;
         }
 
-        nextSlot.classList.add("active");
-        oldSlot.classList.remove("active");
-
-        activeBackgroundSlot = nextSlot;
         activeBackgroundKey = nextKey;
         updateYoutubeHitArea();
 
