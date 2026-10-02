@@ -1,0 +1,100 @@
+name: Refresh ESPN Top Headlines
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Scrape exact ESPN Top Headlines box
+        run: |
+          python3 - <<'PY'
+          import html
+          import json
+          import re
+          import urllib.request
+          from pathlib import Path
+
+          url = "https://www.espn.com/"
+          req = urllib.request.Request(
+              url,
+              headers={
+                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/154 Safari/537.36",
+                  "Accept-Language": "en-US,en;q=0.9",
+              },
+          )
+          with urllib.request.urlopen(req, timeout=25) as response:
+              page = response.read().decode("utf-8", "ignore")
+
+          start = page.find('<section data-id="45672706"')
+          if start < 0:
+              raise SystemExit("ESPN Top Headlines section 45672706 not found")
+
+          end = page.find('<div class="ad-slot-inview', start)
+          if end < 0:
+              raise SystemExit("Could not find end of ESPN Top Headlines section")
+
+          block = page[start:end]
+          pattern = re.compile(
+              r'<a\\b[^>]*href="(/(nfl|mlb|nhl|nba)/[^"]*)"[^>]*data-mpType="headline"[^>]*>(.*?)</a>',
+              re.I | re.S,
+          )
+
+          items = []
+          seen = set()
+          for href, league, title in pattern.findall(block):
+              title = re.sub(r"<[^>]+>", "", title)
+              title = html.unescape(re.sub(r"\\s+", " ", title)).strip()
+              key = (league.lower(), title.lower())
+              if not title or key in seen:
+                  continue
+              seen.add(key)
+              items.append({
+                  "league": league.upper(),
+                  "headline": title,
+                  "href": href,
+              })
+
+          if not items:
+              raise SystemExit("No NFL/MLB/NHL/NBA headlines found in ESPN Top Headlines box")
+
+          path = Path("headlines.json")
+          old_items = []
+          if path.exists():
+              try:
+                  old_items = json.loads(path.read_text(encoding="utf-8")).get("items", [])
+              except Exception:
+                  pass
+
+          if old_items == items:
+              print("ESPN Top Headlines unchanged")
+              raise SystemExit(0)
+
+          payload = {
+              "source": "ESPN Top Headlines",
+              "sectionId": "45672706",
+              "items": items,
+          }
+          path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\\n", encoding="utf-8")
+          print(f"Updated {len(items)} exact ESPN Top Headlines")
+          PY
+
+      - name: Commit updated headlines
+        run: |
+          if git diff --quiet -- headlines.json; then
+            echo "No headline changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add headlines.json
+          git commit -m "Refresh ESPN Top Headlines"
+          git push
