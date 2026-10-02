@@ -898,9 +898,35 @@
       /\bf1\b/i,
       /\btennis\b/i,
       /\bgolf\b/i,
-      /\brugby\b/i
+      /\brugby\b/i,
+      /\bwhere to watch\b/i,
+      /\bhow to watch\b/i,
+      /\bwatch .* live\b/i,
+      /\bbreaks? down\b/i,
+      /\bexplains?\b/i,
+      /\bweighs? in\b/i,
+      /\breacts?\b/i,
+      /\bwhat to know\b/i,
+      /\bwhat you need to know\b/i,
+      /\beverything you need to know\b/i,
+      /\bguide to\b/i,
+      /\bpreviewing\b/i,
+      /\bpreview:\b/i,
+      /\bpredictions?\b/i,
+      /\bpicks?\b/i,
+      /\bkeys? to\b/i,
+      /\bwhy .* matters\b/i,
+      /\bhow .* came to be\b/i,
+      /\bhow .* happened\b/i,
+      /\binside .* deal\b/i,
+      /\bbehind .* deal\b/i,
+      /\btop \d+\b/i,
+      /\broundtable\b/i,
+      /\bmailbag\b/i
     ];
-    return !reject.some(pattern => pattern.test(text));
+    if (reject.some(pattern => pattern.test(text))) return false;
+    if (/\?$/.test(text)) return false;
+    return true;
   }
 
   function normalizedLeagueHeadline(article, league) {
@@ -993,6 +1019,11 @@
       const headline = String(node.pzncon_content_title || node.headline || "").trim();
       const isExactHeadlineRecord =
         inTopCollection &&
+        collectionType === "TOP HEADLINES" &&
+        (
+          ids.includes(TOP_HEADLINES_COLLECTION_ID) ||
+          ids.includes("45672706")
+        ) &&
         /HeadlineNews/i.test(presentation) &&
         isTopHeadlineStyle(headline);
 
@@ -1009,9 +1040,9 @@
       for (const value of Object.values(node)) {
         if (!value || typeof value !== "object") continue;
         if (Array.isArray(value)) {
-          for (const child of value) visit(child, inTopCollection);
+          for (const child of value) visit(child, false);
         } else {
-          visit(value, inTopCollection);
+          visit(value, false);
         }
       }
     }
