@@ -46,7 +46,7 @@
   padding: 0 .85cqw;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: .5cqw;
   border-bottom: 1px solid rgba(255,255,255,.11);
   background: rgba(255,255,255,.045);
@@ -103,7 +103,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: grayscale(1) brightness(0) invert(1) drop-shadow(0 1px 2px rgba(0,0,0,.22));
+  filter: grayscale(1) brightness(.32) contrast(1.08) invert(1) drop-shadow(0 1px 2px rgba(0,0,0,.22));
   opacity: .96;
 }
 .sports-team-main { min-width: 0; }
@@ -118,6 +118,15 @@
   font-weight: 760;
   line-height: 1;
   letter-spacing: .025em;
+}
+.sports-winner-arrow {
+  width: 0;
+  height: 0;
+  margin-left: -.08cqw;
+  border-top: .31cqw solid transparent;
+  border-bottom: .31cqw solid transparent;
+  border-left: .44cqw solid rgba(255,255,255,.9);
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.28));
 }
 .sports-team-name {
   margin-top: .16cqw;
@@ -270,6 +279,56 @@
 }
 .sports-page-dot.active { background: rgba(255,255,255,.9); }
 
+/* Color mode keeps the same layout but restores team identity throughout. */
+.sports-zone.color-mode .sports-team-logo img {
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.28));
+  opacity: 1;
+}
+.sports-zone.color-mode .sports-module-head {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(var(--away-rgb,142,149,163),.24),
+      rgba(255,255,255,.035) 47%,
+      rgba(255,255,255,.035) 53%,
+      rgba(var(--home-rgb,142,149,163),.24)
+    );
+}
+.sports-zone.color-mode .sports-team-row {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(var(--team-rgb,142,149,163),.19),
+      rgba(var(--team-rgb,142,149,163),.055) 42%,
+      transparent 82%
+    );
+  box-shadow: inset .16cqw 0 0 var(--team-color, #8e95a3);
+}
+.sports-zone.color-mode .sports-team-row.winner {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(var(--team-rgb,142,149,163),.28),
+      rgba(var(--team-rgb,142,149,163),.08) 48%,
+      transparent 86%
+    );
+}
+.sports-zone.color-mode .sports-winner-arrow {
+  border-left-color: var(--team-color, #fff);
+}
+.sports-zone.color-mode .sports-state.live::before {
+  background: #ff5365;
+  box-shadow: 0 0 .48cqw rgba(255,83,101,.78);
+}
+.sports-zone.color-mode .sports-base.on {
+  background: #f5c451;
+  border-color: #f5c451;
+}
+.sports-zone.color-mode .sports-chip {
+  background: rgba(255,255,255,.11);
+  border-color: rgba(255,255,255,.24);
+}
+
 .sports-empty {
   min-height: 10.7cqw;
   padding: 1.4cqw;
@@ -374,6 +433,18 @@
   max-height: 1500px;
   opacity: 1;
   padding: 3px 9px 10px;
+}
+.sports-style-setting {
+  min-height: 41px;
+  padding: 7px 8px 9px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9px;
+  border-bottom: 1px solid rgba(255,255,255,.09);
+}
+.sports-style-setting .sports-segmented button {
+  min-width: 68px;
 }
 .sports-league-settings {
   padding: 9px 8px;
