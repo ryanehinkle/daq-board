@@ -78,20 +78,6 @@
       border: 0;
       pointer-events: none;
     }
-    .audio-visualizer {
-      position: absolute;
-      z-index: 2;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 17.2%;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .22s ease;
-    }
-    .audio-visualizer.active {
-      opacity: .88;
-    }
     .background-cycle-progress {
       position: absolute;
       z-index: 40;
@@ -579,46 +565,6 @@
       color: #fff;
       border-color: rgba(255,255,255,.28);
       background: rgba(255,255,255,.16);
-    }
-
-    .music-visualizer-setting {
-      margin-top: 12px;
-      padding-top: 11px;
-      border-top: 1px solid rgba(255,255,255,.09);
-    }
-    .music-visualizer-setting .field-label-row {
-      margin-bottom: 8px;
-    }
-    .visualizer-style-options {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 5px;
-    }
-    .visualizer-style-option {
-      min-width: 0;
-      height: 32px;
-      padding: 0 8px;
-      border: 1px solid rgba(255,255,255,.13);
-      border-radius: 8px;
-      cursor: pointer;
-      color: rgba(255,255,255,.66);
-      background: rgba(255,255,255,.045);
-      font: inherit;
-      font-size: 11px;
-      font-weight: 650;
-      transition: color .14s ease, background .14s ease, border-color .14s ease;
-    }
-    .visualizer-style-option:hover {
-      color: #fff;
-      background: rgba(255,255,255,.09);
-    }
-    .visualizer-style-option.selected {
-      color: #fff;
-      border-color: rgba(255,255,255,.28);
-      background: rgba(255,255,255,.16);
-    }
-    .visualizer-style-options[hidden] {
-      display: none;
     }
 
     .display-size-control {
@@ -1239,7 +1185,6 @@
       style="position:absolute;width:1px;height:1px;left:-9999px;top:-9999px;opacity:0;pointer-events:none;border:0"
     ></iframe>
 
-    <canvas id="audio-visualizer" class="audio-visualizer" aria-hidden="true"></canvas>
     <div id="background-cycle-progress" class="background-cycle-progress" aria-hidden="true">
       <div id="background-cycle-progress-fill" class="background-cycle-progress-fill"></div>
     </div>
@@ -1404,20 +1349,6 @@
             </div>
           </div>
 
-          <div class="music-visualizer-setting">
-            <div class="field-label-row">
-              <label>Audio visualizer</label>
-              <div class="background-mode-toggle" role="group" aria-label="Audio visualizer">
-                <button id="visualizer-off" type="button">Off</button>
-                <button id="visualizer-on" type="button">On</button>
-              </div>
-            </div>
-            <div id="visualizer-style-options" class="visualizer-style-options">
-              <button class="visualizer-style-option" type="button" data-visualizer-style="bars">Bars</button>
-              <button class="visualizer-style-option" type="button" data-visualizer-style="smooth">Smooth</button>
-              <button class="visualizer-style-option" type="button" data-visualizer-style="mirror">Mirror</button>
-            </div>
-          </div>
         </div>
 
         <div class="field">
@@ -1533,9 +1464,7 @@
         selectedBackgroundIds: ["default-video"],
         backgroundCycleMinutes: 15,
         music: [],
-        selectedMusicId: "",
-        visualizerEnabled: true,
-        visualizerStyle: "bars"
+        selectedMusicId: ""
       };
 
       const WEATHER_SOURCES = {
@@ -1613,10 +1542,6 @@
       const backgroundCycleField = document.getElementById("background-cycle-field");
       const backgroundCycleMenu = document.getElementById("background-cycle-menu");
       const musicFrame = document.getElementById("youtube-music-frame");
-      const audioVisualizer = document.getElementById("audio-visualizer");
-      const visualizerOffButton = document.getElementById("visualizer-off");
-      const visualizerOnButton = document.getElementById("visualizer-on");
-      const visualizerStyleOptions = document.getElementById("visualizer-style-options");
       const backgroundCycleProgress = document.getElementById("background-cycle-progress");
       const backgroundCycleProgressFill = document.getElementById("background-cycle-progress-fill");
       const musicSelect = document.getElementById("music-select");
@@ -1656,9 +1581,6 @@
       let backgroundCycleStartedAt = 0;
       let backgroundCycleEndsAt = 0;
       let backgroundProgressFrame = 0;
-      let musicPlaybackActive = false;
-      let visualizerFrame = 0;
-      let visualizerLevels = [];
       let backgroundShuffleQueue = [];
       const backgroundTypeFilter = { image: true, video: true };
 
@@ -1765,11 +1687,7 @@
             selectedBackgroundIds,
             backgroundCycleMinutes,
             music,
-            selectedMusicId,
-            visualizerEnabled: saved.visualizerEnabled !== false,
-            visualizerStyle: ["bars", "smooth", "mirror"].includes(saved.visualizerStyle)
-              ? saved.visualizerStyle
-              : DEFAULTS.visualizerStyle
+            selectedMusicId
           };
         } catch {
           return {
@@ -2586,140 +2504,12 @@
         return prefix + "-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2,7);
       }
 
-      function syncVisualizerSettingsUI() {
-        const enabled = settings.visualizerEnabled !== false;
-        visualizerOffButton?.classList.toggle("active", !enabled);
-        visualizerOnButton?.classList.toggle("active", enabled);
-        visualizerStyleOptions.hidden = !enabled;
-        visualizerStyleOptions.querySelectorAll("[data-visualizer-style]").forEach(button => {
-          button.classList.toggle("selected", button.dataset.visualizerStyle === settings.visualizerStyle);
-        });
-        updateVisualizerVisibility();
-      }
-
-      function updateVisualizerVisibility() {
-        const visible = settings.visualizerEnabled !== false && !!selectedMusic();
-        audioVisualizer?.classList.toggle("active", visible);
-        if (visible && !visualizerFrame) {
-          visualizerFrame = requestAnimationFrame(drawAudioVisualizer);
-        }
-        if (!visible) {
-          const context = audioVisualizer?.getContext("2d");
-          if (context) context.clearRect(0, 0, audioVisualizer.width, audioVisualizer.height);
-        }
-      }
-
-      function resizeVisualizerCanvas() {
-        if (!audioVisualizer) return null;
-        const rect = audioVisualizer.getBoundingClientRect();
-        const ratio = Math.min(2, window.devicePixelRatio || 1);
-        const width = Math.max(1, Math.round(rect.width * ratio));
-        const height = Math.max(1, Math.round(rect.height * ratio));
-        if (audioVisualizer.width !== width || audioVisualizer.height !== height) {
-          audioVisualizer.width = width;
-          audioVisualizer.height = height;
-        }
-        const context = audioVisualizer.getContext("2d");
-        if (context) context.setTransform(ratio, 0, 0, ratio, 0, 0);
-        return { context, width: rect.width, height: rect.height };
-      }
-
-      function syntheticVisualizerLevels(count, timeSeconds) {
-        if (visualizerLevels.length !== count) {
-          visualizerLevels = Array.from({ length: count }, () => 0.18);
-        }
-
-        const energy = musicPlaybackActive ? 1 : 0.62;
-        return visualizerLevels.map((previous, index) => {
-          const x = index / Math.max(1, count - 1);
-          const bass = Math.abs(Math.sin(timeSeconds * 3.15 + index * 0.37));
-          const mids = Math.abs(Math.sin(timeSeconds * 5.4 + index * 0.91 + Math.sin(index)));
-          const shimmer = Math.abs(Math.sin(timeSeconds * 8.8 + index * 1.73));
-          const envelope = 0.45 + 0.55 * Math.sin(Math.PI * x);
-          const target = energy * envelope * (0.18 + bass * 0.42 + mids * 0.25 + shimmer * 0.15);
-          const next = previous * 0.72 + target * 0.28;
-          visualizerLevels[index] = next;
-          return next;
-        });
-      }
-
-      function drawAudioVisualizer(now = performance.now()) {
-        visualizerFrame = 0;
-        if (!audioVisualizer || settings.visualizerEnabled === false || !selectedMusic()) {
-          updateVisualizerVisibility();
-          return;
-        }
-
-        const canvas = resizeVisualizerCanvas();
-        if (!canvas?.context) return;
-        const { context, width, height } = canvas;
-        context.clearRect(0, 0, width, height);
-        context.strokeStyle = "rgba(255,255,255,.9)";
-        context.fillStyle = "rgba(255,255,255,.88)";
-        context.lineWidth = Math.max(1, width / 1920);
-        context.lineCap = "round";
-        context.lineJoin = "round";
-
-        const t = now / 1000;
-        const style = settings.visualizerStyle || "bars";
-        const count = style === "smooth" ? 72 : 54;
-        const levels = syntheticVisualizerLevels(count, t);
-        const padX = width * 0.018;
-        const usableW = width - padX * 2;
-
-        if (style === "smooth") {
-          const centerY = height * 0.57;
-          const amplitude = height * 0.34;
-          context.beginPath();
-          levels.forEach((level, index) => {
-            const x = padX + usableW * (index / (levels.length - 1));
-            const wave = Math.sin(index * 0.34 + t * 2.8) * 0.42 +
-              Math.sin(index * 0.13 - t * 4.1) * 0.22;
-            const y = centerY - wave * level * amplitude;
-            if (index === 0) context.moveTo(x, y);
-            else context.lineTo(x, y);
-          });
-          context.stroke();
-        } else {
-          const gap = usableW / count;
-          const barWidth = Math.max(1, gap * 0.24);
-
-          if (style === "mirror") {
-            const centerY = height * 0.5;
-            const maxHalf = height * 0.38;
-            levels.forEach((level, index) => {
-              const x = padX + index * gap + gap * 0.5;
-              const h = Math.max(1, level * maxHalf);
-              context.fillRect(x - barWidth / 2, centerY - h, barWidth, h * 2);
-            });
-          } else {
-            const baseline = height * 0.92;
-            const maxHeight = height * 0.78;
-            levels.forEach((level, index) => {
-              const x = padX + index * gap + gap * 0.5;
-              const h = Math.max(1, level * maxHeight);
-              context.fillRect(x - barWidth / 2, baseline - h, barWidth, h);
-            });
-          }
-        }
-
-        visualizerFrame = requestAnimationFrame(drawAudioVisualizer);
-      }
-
-      window.addEventListener("resize", () => {
-        if (settings.visualizerEnabled !== false && selectedMusic()) {
-          resizeVisualizerCanvas();
-        }
-      });
-
       function selectedMusic() {
         return settings.music.find(item => item.id === settings.selectedMusicId) || null;
       }
 
       function stopMusic() {
-        musicPlaybackActive = false;
         musicFrame.removeAttribute("src");
-        updateVisualizerVisibility();
       }
 
       function normalizeMusicPlayback() {
@@ -2736,27 +2526,9 @@
           } catch {}
         };
 
-        try {
-          target.postMessage(JSON.stringify({ event: "listening", id: "daq-music-player" }), "*");
-        } catch {}
-        send("addEventListener", ["onStateChange"]);
         send("unMute");
         send("setVolume", [100]);
       }
-
-      window.addEventListener("message", event => {
-        if (event.source !== musicFrame.contentWindow) return;
-        let data = event.data;
-        try {
-          if (typeof data === "string") data = JSON.parse(data);
-        } catch {}
-        if (!data || typeof data !== "object") return;
-        if (data.event === "onStateChange") {
-          const state = Number(data.info);
-          musicPlaybackActive = state === 1;
-          updateVisualizerVisibility();
-        }
-      });
 
       musicFrame.addEventListener("load", () => {
         [250, 750, 1500, 3000].forEach(delay => {
@@ -2793,8 +2565,6 @@
           origin: window.location.origin
         });
         const nextSrc = "https://www.youtube.com/embed/" + id + "?" + params.toString();
-        musicPlaybackActive = true;
-        updateVisualizerVisibility();
         if (forceReload || musicFrame.src !== nextSrc) musicFrame.src = nextSrc;
       }
 
@@ -3706,27 +3476,6 @@
         applyDisplaySize(displaySizeSlider.value);
       });
 
-      visualizerOffButton.addEventListener("click", () => {
-        settings.visualizerEnabled = false;
-        persistSettings();
-        syncVisualizerSettingsUI();
-      });
-      visualizerOnButton.addEventListener("click", () => {
-        settings.visualizerEnabled = true;
-        persistSettings();
-        syncVisualizerSettingsUI();
-      });
-      visualizerStyleOptions.addEventListener("click", event => {
-        const option = event.target.closest("[data-visualizer-style]");
-        if (!option) return;
-        const style = option.dataset.visualizerStyle;
-        if (!["bars", "smooth", "mirror"].includes(style)) return;
-        settings.visualizerStyle = style;
-        visualizerLevels = [];
-        persistSettings();
-        syncVisualizerSettingsUI();
-      });
-
       backgroundModeStatic.addEventListener("click", () => setBackgroundMode("static"));
       backgroundModeRotate.addEventListener("click", () => setBackgroundMode("rotate"));
 
@@ -4155,7 +3904,6 @@
       renderBackgroundPicker();
       stopMusic();
       renderMusicPicker();
-      syncVisualizerSettingsUI();
       await applySelectedBackground({ force: true, fade: false });
       renderWeatherFallback();
       scheduleClockTick();
