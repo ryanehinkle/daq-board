@@ -1,5 +1,6 @@
 /* Live ESPN headline ticker ---------------------------------------------- */
 .sports-headline-ticker {
+  --sports-headline-font-size: 1.78cqw;
   position: absolute;
   z-index: 2;
   left: 9.8%;
@@ -60,11 +61,13 @@
   min-width: 0;
   flex: 0 1 auto;
   color: rgba(255,255,255,.96);
-  font-size: 1.78cqw;
+  font-size: var(--sports-headline-font-size);
   font-weight: 560;
   letter-spacing: .008em;
   line-height: 1.05;
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 @keyframes sports-headline-static-in {
   from { opacity: 0; transform: translateY(.18cqw); }
@@ -82,7 +85,7 @@
   align-items: center;
   gap: .52cqw;
   margin-right: 2.05cqw;
-  font-size: 1.78cqw;
+  font-size: var(--sports-headline-font-size);
   font-weight: 560;
   letter-spacing: .008em;
 }
