@@ -38,13 +38,7 @@ jobs:
           location="$(awk 'BEGIN{IGNORECASE=1} /^Location:/ {gsub("\r","",$2); print $2}' "$headers" | tail -n 1)"
 
           if [ -z "$location" ]; then
-            id="$(python - "$body" <<'PY'
-import json, sys
-with open(sys.argv[1], "r", encoding="utf-8") as f:
-    data = json.load(f)
-print(data.get("id", ""))
-PY
-)"
+            id="$(python -c 'import json,sys; print(json.load(open(sys.argv[1])).get("id",""))' "$body")"
             if [ -z "$id" ]; then
               echo "Could not determine shared store id."
               cat "$body"
@@ -59,12 +53,7 @@ PY
             url="https://superjsonblob.com$location"
           fi
 
-          python - "$url" <<'PY'
-import json, sys
-with open("shared-store.json", "w", encoding="utf-8") as f:
-    json.dump({"url": sys.argv[1]}, f, indent=2)
-    f.write("\n")
-PY
+          printf '{\n  "url": "%s"\n}\n' "$url" > shared-store.json
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
