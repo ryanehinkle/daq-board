@@ -1072,6 +1072,26 @@
     staticHeadlineTimer = null;
   }
 
+  function fitStaticHeadlineToOneLine() {
+    if (!ticker || !tickerTrack || config.headlineMode !== "static") return;
+    const row = tickerTrack.querySelector(".sports-headline-static");
+    const textNode = tickerTrack.querySelector(".sports-headline-static-text");
+    if (!row || !textNode) return;
+
+    // Start each headline at the exact same size used by scrolling mode.
+    textNode.style.fontSize = "";
+    const baseSize = parseFloat(getComputedStyle(textNode).fontSize) || 28;
+    const minSize = baseSize * 0.52;
+    let size = baseSize;
+    const maxWidth = ticker.clientWidth * 0.965;
+
+    // Only shrink this individual headline when it cannot fit on one line.
+    while (row.scrollWidth > maxWidth && size > minSize) {
+      size -= 0.5;
+      textNode.style.fontSize = size.toFixed(1) + "px";
+    }
+  }
+
   function renderStaticHeadline() {
     clearStaticHeadlineTimer();
     if (!ticker || !tickerTrack || !headlineItems.length || !config.enabled) {
@@ -1092,6 +1112,7 @@
     ticker.hidden = false;
 
     requestAnimationFrame(() => {
+      fitStaticHeadlineToOneLine();
       const row = tickerTrack.querySelector(".sports-headline-static");
       if (row) {
         row.classList.remove("entering");
