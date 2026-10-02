@@ -1172,10 +1172,28 @@
   }
 
   function renderHeadlines(items) {
-    const signature = items.map(item => item.league + ":" + item.headline).join("|");
+    // Final safety gate: nothing reaches the screen unless it passes the
+    // straight-news filter, even if an ESPN feed changes shape or a fallback
+    // endpoint starts mixing feature/article titles into its results.
+    const cleanItems = (Array.isArray(items) ? items : [])
+      .filter(item =>
+        item &&
+        ["NFL", "MLB", "NHL", "NBA", "ESPN"].includes(item.league) &&
+        isTopHeadlineStyle(item.headline)
+      )
+      .slice(0, 14);
+
+    const signature = cleanItems.map(item => item.league + ":" + item.headline).join("|");
     const changed = signature !== headlineSignature;
     headlineSignature = signature;
-    headlineItems = items;
+    headlineItems = cleanItems;
+
+    if (!cleanItems.length) {
+      clearStaticHeadlineTimer();
+      if (ticker) ticker.hidden = true;
+      if (tickerTrack) tickerTrack.innerHTML = "";
+      return;
+    }
 
     if (changed) {
       staticHeadlineIndex = 0;
