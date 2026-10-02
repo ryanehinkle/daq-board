@@ -904,7 +904,7 @@
     ticker.hidden = false;
 
     const totalChars = unique.reduce((sum, item) => sum + item.headline.length + 8, 0);
-    const duration = Math.max(42, Math.min(115, totalChars * 0.18));
+    const duration = Math.max(48, Math.min(130, totalChars * 0.21));
     tickerTrack.style.setProperty("--headline-duration", duration.toFixed(1) + "s");
 
     tickerTrack.classList.remove("running");
