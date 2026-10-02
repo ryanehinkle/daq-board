@@ -1448,7 +1448,8 @@
             return {
               ...DEFAULTS,
               backgrounds: cloneDefaultBackgrounds(),
-              music: []
+              music: [],
+              selectedMusicId: ""
             };
           }
 
@@ -3254,9 +3255,7 @@
         const option = e.target.closest(".background-option");
         if (!option) return;
         setSelectedBackground(option.dataset.id);
-        if (settings.backgroundMode !== "rotate") {
-          backgroundSelect.classList.remove("open");
-        }
+        // Keep the dropdown open after selection in both Static and Rotate.
       });
 
       let newBackgroundType = "image";
