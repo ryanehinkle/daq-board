@@ -1071,12 +1071,12 @@
           <label>Weather source</label>
           <div class="custom-select" id="weather-source-select">
             <button class="custom-select-button" id="weather-source-button" type="button">
-              <span id="weather-source-label">NOAA NBM</span>
+              <span id="weather-source-label">NOAA / National Weather Service</span>
               <span class="chevron" aria-hidden="true"></span>
             </button>
             <div class="custom-select-menu" id="weather-source-menu">
-              <button class="custom-option" type="button" data-value="openmeteo">Open-Meteo</button>
               <button class="custom-option" type="button" data-value="nws">NOAA / National Weather Service</button>
+              <button class="custom-option" type="button" data-value="openmeteo">Open-Meteo</button>
               <button class="custom-option" type="button" data-value="nbm">NOAA NBM</button>
               <button class="custom-option" type="button" data-value="gfs">NOAA HRRR + GFS</button>
               <button class="custom-option" type="button" data-value="ecmwf">ECMWF IFS</button>
@@ -1235,7 +1235,7 @@
       const DEFAULT_BACKGROUND_URL = "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2400&q=90";
       const DEFAULTS = {
         coordinates: "41.80803, -88.20902",
-        weatherSource: "nbm",
+        weatherSource: "nws",
         googleWeatherApiKey: "",
         clockAnimation: "drop",
         font: "helvetica",
@@ -1420,7 +1420,9 @@
             coordinates: savedCoordinates === "41.79722, -88.17000"
               ? DEFAULTS.coordinates
               : savedCoordinates,
-            weatherSource: WEATHER_SOURCES[saved.weatherSource] ? saved.weatherSource : DEFAULTS.weatherSource,
+            weatherSource: (saved.weatherSource === "nbm" || saved.weatherSource === "best_match")
+              ? "nws"
+              : (WEATHER_SOURCES[saved.weatherSource] ? saved.weatherSource : DEFAULTS.weatherSource),
             googleWeatherApiKey: saved.googleWeatherApiKey || "",
             clockAnimation: CLOCK_ANIMATIONS[saved.clockAnimation] ? saved.clockAnimation : DEFAULTS.clockAnimation,
             font: FONT_OPTIONS[saved.font] ? saved.font : DEFAULTS.font,
@@ -2383,8 +2385,8 @@
       async function fetchNwsWeather(lat, lon) {
         const headers = { Accept: "application/geo+json" };
         const pointRes = await fetch(
-          "https://api.weather.gov/points/" + lat.toFixed(4) + "," + lon.toFixed(4),
-          { headers }
+          "https://api.weather.gov/points/" + lat.toFixed(5) + "," + lon.toFixed(5),
+          { headers, cache: "no-store" }
         );
         if (!pointRes.ok) throw new Error("National Weather Service is unavailable right now.");
         const pointData = await pointRes.json();
@@ -2394,8 +2396,8 @@
         }
 
         const [forecastRes, hourlyRes] = await Promise.all([
-          fetch(props.forecast, { headers }),
-          fetch(props.forecastHourly, { headers })
+          fetch(props.forecast, { headers, cache: "no-store" }),
+          fetch(props.forecastHourly, { headers, cache: "no-store" })
         ]);
         if (!forecastRes.ok || !hourlyRes.ok) {
           throw new Error("National Weather Service forecast is unavailable right now.");
@@ -2620,17 +2622,15 @@
         return fetchNwsWeather(lat, lon);
       }
 
-      async function fetchWeather(coordinateText, source = settings.weatherSource || "best_match") {
+      async function fetchWeather(coordinateText, source = settings.weatherSource || DEFAULTS.weatherSource) {
         const location = parseCoordinates(coordinateText);
         locationName = formatCoordinates(location);
 
-        let data = source === "best_match"
-          ? await fetchPhoneMatchWeather(location.lat, location.lon)
-          : source === "nws"
-            ? await fetchNwsWeather(location.lat, location.lon)
-            : source === "google"
-              ? await fetchGoogleWeather(location.lat, location.lon, settings.googleWeatherApiKey)
-              : await fetchOpenMeteoWeather(location.lat, location.lon, source);
+        let data = source === "nws"
+          ? await fetchNwsWeather(location.lat, location.lon)
+          : source === "google"
+            ? await fetchGoogleWeather(location.lat, location.lon, settings.googleWeatherApiKey)
+            : await fetchOpenMeteoWeather(location.lat, location.lon, source);
 
         // Keep model sources interpolated at the exact coordinates. Airport station
         // observations can differ by several degrees from neighborhood conditions.
@@ -2651,18 +2651,19 @@
       }
 
       async function refreshWeather({ quiet = false } = {}) {
-        const selectedSource = settings.weatherSource || "best_match";
+        const selectedSource = settings.weatherSource || DEFAULTS.weatherSource;
         try {
           await fetchWeather(settings.coordinates, selectedSource);
           if (!quiet) showStatus("Weather updated");
         } catch (error) {
-          // Keep the dashboard useful if a specific upstream model has a temporary outage.
-          if (selectedSource !== "best_match") {
+          // Other providers fall back to NWS. If NWS itself is selected and unavailable,
+          // do not silently substitute a different model under the NWS label.
+          if (selectedSource !== "nws") {
             try {
-              await fetchWeather(settings.coordinates, "best_match");
+              await fetchWeather(settings.coordinates, "nws");
               const selectedLabel = WEATHER_SOURCES[selectedSource]?.label || "Selected source";
-              metaEl.textContent = locationName + " • " + selectedLabel + " unavailable; showing Phone Match";
-              if (!quiet) showStatus(selectedLabel + " unavailable — using Phone Match");
+              metaEl.textContent = locationName + " • " + selectedLabel + " unavailable; showing NOAA / National Weather Service";
+              if (!quiet) showStatus(selectedLabel + " unavailable — using NWS");
               return;
             } catch {}
           }
@@ -2674,7 +2675,7 @@
       }
 
       function syncWeatherSourceUI() {
-        const value = WEATHER_SOURCES[settings.weatherSource] ? settings.weatherSource : "best_match";
+        const value = WEATHER_SOURCES[settings.weatherSource] ? settings.weatherSource : DEFAULTS.weatherSource;
         weatherSourceLabel.textContent = WEATHER_SOURCES[value].label;
         weatherSourceMenu.querySelectorAll(".custom-option").forEach(option => {
           option.classList.toggle("selected", option.dataset.value === value);
