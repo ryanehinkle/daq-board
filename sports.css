@@ -4,8 +4,9 @@
   z-index: 2;
   left: 9.8%;
   right: 9.8%;
-  top: 47.7%;
-  height: 5.2cqw;
+  top: auto;
+  bottom: 2.2%;
+  height: 3.9cqw;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -41,8 +42,8 @@
   align-items: center;
   gap: .52cqw;
   margin-right: 2.05cqw;
-  font-size: .82cqw;
-  font-weight: 520;
+  font-size: .94cqw;
+  font-weight: 540;
   letter-spacing: .008em;
 }
 .sports-headline-league {
@@ -52,7 +53,7 @@
   border-radius: 999px;
   background: rgba(12,14,20,.28);
   color: rgba(255,255,255,.7);
-  font-size: .52cqw;
+  font-size: .56cqw;
   font-weight: 760;
   letter-spacing: .07em;
 }
@@ -78,10 +79,10 @@
   z-index: 2;
   left: 9.8%;
   right: 9.8%;
-  top: 54.7%;
-  bottom: 4.6%;
+  top: 49.0%;
+  bottom: 15.5%;
   display: grid;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   gap: 1.15cqw;
   pointer-events: none;
@@ -176,6 +177,17 @@
 }
 .sports-team-row + .sports-team-row { margin-top: .18cqw; }
 .sports-team-row.winner { background: rgba(255,255,255,.055); }
+.sports-team-row.loser {
+  color: rgba(255,255,255,.42);
+}
+.sports-team-row.loser .sports-team-name,
+.sports-team-row.loser .sports-record,
+.sports-team-row.loser .sports-score {
+  color: rgba(255,255,255,.38);
+}
+.sports-team-row.loser .sports-team-logo img {
+  filter: grayscale(1) brightness(.55) contrast(.9) opacity(.48);
+}
 .sports-team-logo {
   width: 1.88cqw;
   height: 1.88cqw;
@@ -206,11 +218,11 @@
 .sports-winner-arrow {
   width: 0;
   height: 0;
-  margin-left: -.08cqw;
-  border-top: .31cqw solid transparent;
-  border-bottom: .31cqw solid transparent;
-  border-left: .44cqw solid rgba(255,255,255,.9);
-  filter: drop-shadow(0 1px 1px rgba(0,0,0,.28));
+  margin-left: .02cqw;
+  border-top: .43cqw solid transparent;
+  border-bottom: .43cqw solid transparent;
+  border-right: .62cqw solid rgba(255,255,255,.96);
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.3));
 }
 .sports-team-name {
   margin-top: .16cqw;
@@ -399,7 +411,7 @@
     );
 }
 .sports-zone.color-mode .sports-winner-arrow {
-  border-left-color: var(--team-color, #fff);
+  border-right-color: var(--team-color, #fff);
 }
 .sports-zone.color-mode .sports-state.live::before {
   background: #ff5365;
@@ -412,6 +424,38 @@
 .sports-zone.color-mode .sports-chip {
   background: rgba(255,255,255,.11);
   border-color: rgba(255,255,255,.24);
+}
+
+.sports-zone.color-mode .sports-team-row.loser {
+  background: linear-gradient(90deg, rgba(255,255,255,.07), rgba(255,255,255,.02) 48%, transparent 86%);
+  box-shadow: inset .16cqw 0 0 rgba(255,255,255,.16);
+}
+.sports-zone.color-mode .sports-team-row.loser .sports-team-logo img {
+  filter: grayscale(1) brightness(.72) contrast(.88);
+  opacity: .48;
+}
+
+
+.sports-zone.boxes-hidden .sports-module {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.sports-zone.boxes-hidden .sports-module-head {
+  border-bottom-color: transparent;
+  background: transparent !important;
+}
+.sports-zone.boxes-hidden .sports-module-foot {
+  border-top-color: transparent;
+}
+.sports-zone.boxes-hidden .sports-team-row,
+.sports-zone.boxes-hidden.color-mode .sports-team-row,
+.sports-zone.boxes-hidden.color-mode .sports-team-row.winner,
+.sports-zone.boxes-hidden.color-mode .sports-team-row.loser {
+  background: transparent;
+  box-shadow: none;
 }
 
 .sports-empty {
