@@ -69,6 +69,7 @@
     expanded: true,
     appearance: "monotone",
     showBoxes: true,
+    headlineMode: "scroll",
     leagues: {
       nfl: { enabled: true, mode: "cycle", cycleSeconds: 15, watchTeams: [] },
       mlb: { enabled: true, mode: "cycle", cycleSeconds: 15, watchTeams: [] },
@@ -104,6 +105,7 @@
       base.expanded = raw.expanded !== false;
       base.appearance = raw.appearance === "color" ? "color" : "monotone";
       base.showBoxes = raw.showBoxes !== false;
+      base.headlineMode = raw.headlineMode === "static" ? "static" : "scroll";
       for (const key of Object.keys(LEAGUES)) {
         const saved = raw.leagues?.[key] || {};
         const target = base.leagues[key];
@@ -778,12 +780,51 @@
     });
   }
 
-  const TOP_HEADLINES_URL =
-    "https://now.core.api.espn.com/v1/sports/news?limit=50";
+  const TOP_HEADLINES_COLLECTION_ID = "1-45672706";
+  const HEADLINE_SWID_STORAGE_KEY = "daq-board-espn-headlines-swid-v1";
 
   let headlineTimer = null;
   let headlineFetching = false;
   let headlineSignature = "";
+  let headlineItems = [];
+  let staticHeadlineIndex = 0;
+  let staticHeadlineTimer = null;
+
+  function headlineSwid() {
+    try {
+      const saved = localStorage.getItem(HEADLINE_SWID_STORAGE_KEY);
+      if (saved) return saved;
+      const value = crypto?.randomUUID?.() ||
+        ("xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx").replace(/[xy]/g, char => {
+          const random = Math.random() * 16 | 0;
+          const value = char === "x" ? random : (random & 3 | 8);
+          return value.toString(16);
+        });
+      localStorage.setItem(HEADLINE_SWID_STORAGE_KEY, value);
+      return value;
+    } catch {
+      return "00000000-0000-4000-8000-000000000000";
+    }
+  }
+
+  function topHeadlinesUrl() {
+    const swid = "%7B" + encodeURIComponent(headlineSwid()) + "%7D";
+    const query = new URLSearchParams({
+      limit: "20",
+      offset: "0",
+      type: "hybrid",
+      sport: "top",
+      lang: "en",
+      region: "us",
+      locale: "us",
+      device: "desktop",
+      pubkey: "espn-en-frontpage-index",
+      source: "ESPN.com - FAM",
+      version: "3"
+    });
+    return "https://onefeed.fan.api.espn.com/apis/v3/contentEngine/" +
+      swid + "/oneFeed?" + query.toString();
+  }
 
   function articleTimestamp(article) {
     const values = [
@@ -791,7 +832,9 @@
       article?.lastModified,
       article?.date,
       article?.story?.published,
-      article?.story?.lastModified
+      article?.story?.lastModified,
+      article?.pzncon_originally_published,
+      article?.pzncon_last_modified
     ];
     for (const value of values) {
       const time = new Date(value || "").getTime();
@@ -803,95 +846,184 @@
   function headlineLeague(article) {
     let blob = "";
     try { blob = JSON.stringify(article || {}).toLowerCase(); } catch {}
-
     if (blob.includes("/football/nfl") || /(^|[^a-z])nfl([^a-z]|$)/.test(blob)) return "NFL";
     if (blob.includes("/baseball/mlb") || /(^|[^a-z])mlb([^a-z]|$)/.test(blob)) return "MLB";
     if (blob.includes("/hockey/nhl") || /(^|[^a-z])nhl([^a-z]|$)/.test(blob)) return "NHL";
     if (blob.includes("/basketball/nba") || /(^|[^a-z])nba([^a-z]|$)/.test(blob)) return "NBA";
     if (blob.includes("college-football") || /(^|[^a-z])ncaaf([^a-z]|$)/.test(blob)) return "NCAAF";
+    if (blob.includes("mens-college-basketball")) return "NCAAM";
+    if (blob.includes("/wnba/") || /(^|[^a-z])wnba([^a-z]|$)/.test(blob)) return "WNBA";
     return "ESPN";
   }
 
-  function isTopHeadlineStyle(headline) {
-    const text = String(headline || "").trim();
-    if (!text) return false;
-
-    // ESPN's league news feeds mix in fantasy/rankings/features. The homepage
-    // Top Headlines rail is straight news, so strip those article types out.
-    const reject = [
-      /\bfantasy\b/i,
-      /\brankings?\b/i,
-      /\bpower rankings?\b/i,
-      /\bprojections?\b/i,
-      /\bwaiver(?: wire)?\b/i,
-      /\bsleepers?\b/i,
-      /\bdfs\b/i,
-      /\bstart ['’]?em\b/i,
-      /\bsit ['’]?em\b/i,
-      /\blineup advice\b/i,
-      /\bbest bets?\b/i,
-      /\bbetting guide\b/i,
-      /\bprop bets?\b/i,
-      /\bpicks against the spread\b/i,
-      /\bmock draft\b/i,
-      /\bd\/st\b/i,
-      /\bidp\b/i,
-      /\bfantasy football buzz\b/i,
-      /\bwhat to watch\b/i,
-      /\bhow will .* affect\b/i
-    ];
-    return !reject.some(pattern => pattern.test(text));
+  function slotNumber(value) {
+    const text = String(value || "");
+    const match = text.match(/(?:^|,)(\d+)$/);
+    return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
   }
 
-  function normalizedHeadline(article) {
-    const headline = String(
-      article?.headline ||
-      article?.story?.headline ||
-      article?.title ||
-      article?.story?.title ||
-      ""
-    ).trim();
+  function extractHomepageTopHeadlines(payload) {
+    const rows = [];
+    const seenObjects = new Set();
+    let order = 0;
 
-    if (!isTopHeadlineStyle(headline)) return null;
+    function visit(node, insideTopCollection = false) {
+      if (!node || typeof node !== "object" || seenObjects.has(node)) return;
+      seenObjects.add(node);
 
-    return {
-      league: headlineLeague(article),
-      headline,
-      timestamp: articleTimestamp(article)
-    };
-  }
+      const collectionType = String(
+        node.pzncon_collection_id_type ||
+        node.collectionType ||
+        node.header?.title ||
+        node.title ||
+        ""
+      ).trim().toUpperCase();
 
-  function renderHeadlines(items) {
-    if (!ticker || !tickerTrack) return;
+      const ids = [
+        node.pzncon_collection_id,
+        node.pzncol_collection_id,
+        node.nowId,
+        node.id
+      ].map(value => String(value ?? ""));
 
-    if (!config.enabled) {
-      ticker.hidden = true;
-      return;
+      const isTopContainer =
+        insideTopCollection ||
+        collectionType === "TOP HEADLINES" ||
+        ids.includes(TOP_HEADLINES_COLLECTION_ID) ||
+        ids.includes("45672706");
+
+      const presentation = String(
+        node.pzncon_presentation_type ||
+        node.feedDisplayType ||
+        node.presentationType ||
+        ""
+      );
+
+      const headline = String(
+        node.headline ||
+        node.pzncon_content_title ||
+        node.story?.headline ||
+        ""
+      ).trim();
+
+      const isHeadlineItem =
+        isTopContainer &&
+        headline &&
+        !/^(top headlines|collection)$/i.test(headline) &&
+        (
+          /HeadlineNews/i.test(presentation) ||
+          String(node.contentType || "").toLowerCase() === "now" ||
+          insideTopCollection
+        );
+
+      if (isHeadlineItem) {
+        rows.push({
+          league: headlineLeague(node),
+          headline,
+          timestamp: articleTimestamp(node),
+          slot: slotNumber(node.pzncon_slot_position),
+          order: order++
+        });
+      }
+
+      for (const value of Object.values(node)) {
+        if (value && typeof value === "object") {
+          if (Array.isArray(value)) {
+            for (const child of value) visit(child, isTopContainer);
+          } else {
+            visit(value, isTopContainer);
+          }
+        }
+      }
     }
 
-    if (!items.length) {
-      ticker.hidden = true;
-      tickerTrack.innerHTML = "";
-      headlineSignature = "";
-      return;
-    }
+    visit(payload, false);
 
     const unique = [];
     const seen = new Set();
-    for (const item of items) {
-      const key = item.headline.toLowerCase();
-      if (seen.has(key)) continue;
-      seen.add(key);
-      unique.push(item);
-      if (unique.length >= 14) break;
+    rows
+      .sort((a, b) => a.slot - b.slot || a.order - b.order || b.timestamp - a.timestamp)
+      .forEach(item => {
+        const key = item.headline.toLowerCase();
+        if (seen.has(key)) return;
+        seen.add(key);
+        unique.push(item);
+      });
+
+    return unique.slice(0, 14);
+  }
+
+  function clearStaticHeadlineTimer() {
+    clearTimeout(staticHeadlineTimer);
+    staticHeadlineTimer = null;
+  }
+
+  function fitStaticHeadline() {
+    if (!ticker || !tickerTrack || config.headlineMode !== "static") return;
+    const row = tickerTrack.querySelector(".sports-headline-static");
+    const textNode = tickerTrack.querySelector(".sports-headline-static-text");
+    if (!row || !textNode) return;
+
+    textNode.style.fontSize = "";
+    const baseSize = parseFloat(getComputedStyle(textNode).fontSize) || 28;
+    const minSize = baseSize * 0.56;
+    let size = baseSize;
+    const maxWidth = ticker.clientWidth * 0.94;
+
+    while (row.scrollWidth > maxWidth && size > minSize) {
+      size -= 0.5;
+      textNode.style.fontSize = size.toFixed(1) + "px";
+    }
+  }
+
+  function renderStaticHeadline() {
+    clearStaticHeadlineTimer();
+    if (!ticker || !tickerTrack || !headlineItems.length || !config.enabled) {
+      if (ticker) ticker.hidden = true;
+      return;
     }
 
-    const signature = unique.map(item => item.league + ":" + item.headline).join("|");
-    if (signature === headlineSignature && !ticker.hidden) return;
-    headlineSignature = signature;
+    staticHeadlineIndex = Math.max(0, Math.min(staticHeadlineIndex, headlineItems.length - 1));
+    const item = headlineItems[staticHeadlineIndex];
+
+    ticker.classList.add("static-mode");
+    tickerTrack.classList.remove("running");
+    tickerTrack.innerHTML =
+      '<div class="sports-headline-static">' +
+        '<span class="sports-headline-league">' + escapeHtml(item.league) + '</span>' +
+        '<span class="sports-headline-static-text">' + escapeHtml(item.headline) + '</span>' +
+      '</div>';
+    ticker.hidden = false;
+
+    requestAnimationFrame(() => {
+      fitStaticHeadline();
+      const row = tickerTrack.querySelector(".sports-headline-static");
+      if (row) {
+        row.classList.remove("entering");
+        void row.offsetWidth;
+        row.classList.add("entering");
+      }
+    });
+
+    if (headlineItems.length > 1) {
+      staticHeadlineTimer = setTimeout(() => {
+        staticHeadlineIndex = (staticHeadlineIndex + 1) % headlineItems.length;
+        renderStaticHeadline();
+      }, 5000);
+    }
+  }
+
+  function renderScrollingHeadlines() {
+    clearStaticHeadlineTimer();
+    if (!ticker || !tickerTrack || !headlineItems.length || !config.enabled) {
+      if (ticker) ticker.hidden = true;
+      return;
+    }
+
+    ticker.classList.remove("static-mode");
 
     const groupHtml = '<div class="sports-headline-group">' +
-      unique.map(item =>
+      headlineItems.map(item =>
         '<span class="sports-headline-item">' +
           '<span class="sports-headline-league">' + escapeHtml(item.league) + '</span>' +
           '<span class="sports-headline-text">' + escapeHtml(item.headline) + '</span>' +
@@ -903,7 +1035,7 @@
     tickerTrack.innerHTML = groupHtml + groupHtml;
     ticker.hidden = false;
 
-    const totalChars = unique.reduce((sum, item) => sum + item.headline.length + 8, 0);
+    const totalChars = headlineItems.reduce((sum, item) => sum + item.headline.length + 8, 0);
     const duration = Math.max(48, Math.min(130, totalChars * 0.21));
     tickerTrack.style.setProperty("--headline-duration", duration.toFixed(1) + "s");
 
@@ -912,11 +1044,37 @@
     tickerTrack.classList.add("running");
   }
 
+  function renderHeadlineMode() {
+    if (!ticker || !tickerTrack) return;
+    if (!config.enabled || !headlineItems.length) {
+      ticker.hidden = true;
+      clearStaticHeadlineTimer();
+      return;
+    }
+    if (config.headlineMode === "static") renderStaticHeadline();
+    else renderScrollingHeadlines();
+  }
+
+  function renderHeadlines(items) {
+    const signature = items.map(item => item.league + ":" + item.headline).join("|");
+    const changed = signature !== headlineSignature;
+    headlineSignature = signature;
+    headlineItems = items;
+
+    if (changed) {
+      staticHeadlineIndex = 0;
+      renderHeadlineMode();
+    } else if (ticker?.hidden && config.enabled) {
+      renderHeadlineMode();
+    }
+  }
+
   async function refreshHeadlines() {
     clearTimeout(headlineTimer);
 
     if (!config.enabled) {
       if (ticker) ticker.hidden = true;
+      clearStaticHeadlineTimer();
       return;
     }
 
@@ -924,27 +1082,19 @@
     headlineFetching = true;
 
     try {
-      const response = await fetch(TOP_HEADLINES_URL, {
+      const response = await fetch(topHeadlinesUrl(), {
         cache: "no-store",
         credentials: "omit"
       });
       if (!response.ok) throw new Error("HTTP " + response.status);
 
       const payload = await response.json();
-      const sourceItems = Array.isArray(payload?.headlines)
-        ? payload.headlines
-        : Array.isArray(payload?.articles)
-          ? payload.articles
-          : [];
+      const headlines = extractHomepageTopHeadlines(payload);
 
-      const headlines = sourceItems
-        .map(normalizedHeadline)
-        .filter(Boolean)
-        .sort((a, b) => b.timestamp - a.timestamp);
-
-      renderHeadlines(headlines);
+      // Exact homepage collection only. Never substitute generic ESPN article feeds.
+      if (headlines.length) renderHeadlines(headlines);
     } catch {
-      // Preserve the last good ticker through a temporary ESPN/API hiccup.
+      // Keep the last good exact Top Headlines set through a temporary feed hiccup.
     } finally {
       headlineFetching = false;
       if (config.enabled) {
@@ -1132,6 +1282,13 @@
               '<button type="button" data-sports-boxes="hide" class="' + (!config.showBoxes ? 'active' : '') + '">Hide</button>' +
             '</div>' +
           '</div>' +
+          '<div class="sports-style-setting">' +
+            '<span class="sports-setting-label">Headlines</span>' +
+            '<div class="sports-segmented">' +
+              '<button type="button" data-headline-mode="scroll" class="' + (config.headlineMode === "scroll" ? 'active' : '') + '">Scroll</button>' +
+              '<button type="button" data-headline-mode="static" class="' + (config.headlineMode === "static" ? 'active' : '') + '">Static</button>' +
+            '</div>' +
+          '</div>' +
           Object.keys(LEAGUES).map(leagueSettingsHtml).join("") +
         '</div>' +
       '</div>';
@@ -1168,6 +1325,15 @@
       return;
     }
 
+    const headlineMode = event.target.closest("[data-headline-mode]");
+    if (headlineMode) {
+      config.headlineMode = headlineMode.dataset.headlineMode === "static" ? "static" : "scroll";
+      saveSettings();
+      renderSettings();
+      renderHeadlineMode();
+      return;
+    }
+
     const mode = event.target.closest("[data-sports-mode]");
     if (mode) {
       const league = mode.dataset.sportsMode;
@@ -1201,6 +1367,7 @@
       config.enabled = event.target.checked;
       if (!config.enabled) {
         clearTimeout(headlineTimer);
+        clearStaticHeadlineTimer();
         if (ticker) ticker.hidden = true;
       }
       afterConfigChange({ refresh: config.enabled });
