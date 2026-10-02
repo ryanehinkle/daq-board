@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111111" />
   <title>DAQ Board</title>
   <link rel="stylesheet" href="sports.css?v=9" />
-  <script src="sports.js?v=13" defer></script>
+  <script src="sports.js?v=14" defer></script>
   <style>
     :root {
       color-scheme: dark;
@@ -77,6 +77,37 @@
       object-fit: cover;
       border: 0;
       pointer-events: none;
+    }
+    .background-loading {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      background: rgba(5,5,7,.92);
+      transition: opacity .18s ease, visibility 0s linear .2s;
+    }
+    .background-loading.visible {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity .18s ease, visibility 0s;
+    }
+    .background-loading-spinner {
+      width: 2.05cqw;
+      height: 2.05cqw;
+      min-width: 22px;
+      min-height: 22px;
+      border: .18cqw solid rgba(255,255,255,.22);
+      border-top-color: rgba(255,255,255,.96);
+      border-radius: 50%;
+      animation: background-loading-spin .72s linear infinite;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,.28));
+    }
+    @keyframes background-loading-spin {
+      to { transform: rotate(360deg); }
     }
 
     /*
@@ -1112,6 +1143,9 @@
 </head>
 <body>
   <main id="board" aria-label="Dashboard">
+    <div id="background-loading" class="background-loading" aria-hidden="true">
+      <span class="background-loading-spinner"></span>
+    </div>
     <div id="background-slot-a" class="background-slot active" aria-hidden="true"></div>
     <div id="background-slot-b" class="background-slot" aria-hidden="true"></div>
     <div class="youtube-hit-shield top" aria-hidden="true"></div>
@@ -1441,6 +1475,7 @@
 
       const board = document.getElementById("board");
 
+      const backgroundLoading = document.getElementById("background-loading");
       const backgroundSlotA = document.getElementById("background-slot-a");
       const backgroundSlotB = document.getElementById("background-slot-b");
       const youtubeHitShields = Array.from(document.querySelectorAll(".youtube-hit-shield"));
@@ -1878,6 +1913,46 @@
         });
       }
 
+      function setBackgroundLoading(visible) {
+        if (!backgroundLoading) return;
+        backgroundLoading.classList.toggle("visible", !!visible);
+      }
+
+      function waitForYoutubePlaying(iframe, timeoutMs = 15000) {
+        return new Promise(resolve => {
+          let done = false;
+          const finish = success => {
+            if (done) return;
+            done = true;
+            clearTimeout(timer);
+            window.removeEventListener("message", onMessage);
+            resolve(success);
+          };
+          const onMessage = event => {
+            if (event.source !== iframe.contentWindow) return;
+            let data = event.data;
+            try {
+              if (typeof data === "string") data = JSON.parse(data);
+            } catch {}
+            if (!data || typeof data !== "object") return;
+            if (data.event === "onStateChange" && Number(data.info) === 1) finish(true);
+          };
+          const timer = setTimeout(() => finish(false), timeoutMs);
+          window.addEventListener("message", onMessage);
+          try {
+            iframe.contentWindow?.postMessage(JSON.stringify({
+              event: "listening",
+              id: "background-player"
+            }), "*");
+            iframe.contentWindow?.postMessage(JSON.stringify({
+              event: "command",
+              func: "addEventListener",
+              args: ["onStateChange"]
+            }), "*");
+          } catch {}
+        });
+      }
+
       function youtubeBackgroundSrc(url) {
         const id = youtubeVideoId(url);
         if (!id) return "";
@@ -1951,6 +2026,8 @@
           const loaded = await waitForMediaEvent(iframe, "load", 6500);
           if (!loaded) throw new Error("YouTube preload timed out");
 
+          const playingPromise = waitForYoutubePlaying(iframe, 15000);
+
           const disableCaptions = () => {
             try {
               iframe.contentWindow?.postMessage(JSON.stringify({
@@ -1967,7 +2044,10 @@
           };
           [150, 500, 1000, 1800].forEach(delay => setTimeout(disableCaptions, delay));
 
-          await new Promise(resolve => setTimeout(resolve, 1100));
+          await Promise.race([
+            playingPromise,
+            new Promise(resolve => setTimeout(resolve, 15000))
+          ]);
           slot.dataset.mediaType = "youtube";
           slot.dataset.backgroundKey = backgroundKey(item);
           return;
@@ -2014,6 +2094,7 @@
         const nextKey = backgroundKey(item);
         if (!force && activeBackgroundKey === nextKey) return false;
 
+        setBackgroundLoading(true);
         const token = ++backgroundTransitionToken;
         const nextSlot = activeBackgroundSlot === backgroundSlotA ? backgroundSlotB : backgroundSlotA;
         const oldSlot = activeBackgroundSlot;
@@ -2034,11 +2115,13 @@
           await prepareBackgroundInSlot(nextSlot, item);
         } catch {
           if (!isInitialLoad) clearBackgroundSlot(nextSlot);
+          setBackgroundLoading(false);
           return false;
         }
 
         if (token !== backgroundTransitionToken) {
           if (!isInitialLoad) clearBackgroundSlot(nextSlot);
+          setBackgroundLoading(false);
           return false;
         }
 
@@ -2069,6 +2152,7 @@
           oldSlot.style.transition = "opacity .95s ease";
           nextSlot.style.transition = "opacity .95s ease";
         }
+        setBackgroundLoading(false);
         return true;
       }
 
