@@ -857,6 +857,16 @@
 
     .field[hidden] { display: none !important; }
 
+    .sync-status {
+      margin-top: 7px;
+      font-size: 11px;
+      line-height: 1.35;
+      color: rgba(255,255,255,.52);
+    }
+    .sync-status.ok { color: rgba(190,255,205,.72); }
+    .sync-status.warn { color: rgba(255,220,150,.78); }
+    .sync-status.error { color: rgba(255,165,165,.82); }
+
     .settings-help {
       margin-top: 8px;
       color: rgba(255,255,255,.55);
@@ -1148,6 +1158,7 @@
         <div class="field">
           <label for="github-sync-token">Shared preset sync</label>
           <input id="github-sync-token" type="password" autocomplete="off" spellcheck="false" placeholder="Fine-grained GitHub token" />
+          <div class="sync-status" id="sync-status">Reading shared presets from GitHub</div>
         </div>
 
         <div id="settings-meta" hidden></div>
@@ -1167,7 +1178,6 @@
       const STORAGE_KEY = "daq-board-settings-v1";
       const GITHUB_SYNC_TOKEN_KEY = "daq-board-github-sync-token";
       const SHARED_PRESETS_DIRTY_KEY = "daq-board-shared-presets-dirty";
-      const SHARED_PRESETS_RAW_URL = "https://raw.githubusercontent.com/ryanehinkle/daq-board/main/presets.json";
       const SHARED_PRESETS_API_URL = "https://api.github.com/repos/ryanehinkle/daq-board/contents/presets.json";
       const DEFAULT_BACKGROUND_URL = "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2400&q=90";
       const DEFAULTS = {
@@ -1270,6 +1280,7 @@
       const fontLabel = document.getElementById("font-label");
       const fontMenu = document.getElementById("font-menu");
       const githubSyncTokenInput = document.getElementById("github-sync-token");
+      const syncStatusEl = document.getElementById("sync-status");
       const metaEl = document.getElementById("settings-meta");
       const saveSettings = document.getElementById("save-settings");
       const cancelSettings = document.getElementById("cancel-settings");
@@ -1382,17 +1393,48 @@
           Array.isArray(data.music);
       }
 
-      async function loadSharedPresets() {
-        // Never wipe an unsynced local add/edit/delete on reload.
-        if (localStorage.getItem(SHARED_PRESETS_DIRTY_KEY) === "1") return false;
+      function base64ToUtf8(value) {
+        const binary = atob(String(value || "").replace(/\s/g, ""));
+        const bytes = Uint8Array.from(binary, ch => ch.charCodeAt(0));
+        return new TextDecoder().decode(bytes);
+      }
+
+      function setSyncStatus(message, state = "") {
+        syncStatusEl.textContent = message;
+        syncStatusEl.className = "sync-status" + (state ? " " + state : "");
+      }
+
+      async function loadSharedPresets({ force = false } = {}) {
+        const dirty = localStorage.getItem(SHARED_PRESETS_DIRTY_KEY) === "1";
+        const token = localStorage.getItem(GITHUB_SYNC_TOKEN_KEY) || "";
+
+        // If this device has unpublished changes, never overwrite them. If it has
+        // credentials, try to finish the pending publish instead.
+        if (dirty && !force) {
+          if (token) {
+            await publishSharedPresets("Sync pending dashboard presets");
+          } else {
+            setSyncStatus("Local changes not shared yet — connect GitHub sync", "warn");
+          }
+          return false;
+        }
 
         try {
-          const res = await fetch(SHARED_PRESETS_RAW_URL + "?t=" + Date.now(), {
-            cache: "no-store"
-          });
-          if (!res.ok) return false;
-          const data = await res.json();
-          if (!validSharedPresetPayload(data)) return false;
+          const headers = {
+            Accept: "application/vnd.github+json",
+            "X-GitHub-Api-Version": "2022-11-28"
+          };
+          if (token) headers.Authorization = "Bearer " + token;
+
+          const res = await fetch(
+            SHARED_PRESETS_API_URL + "?ref=main&t=" + Date.now(),
+            { headers, cache: "no-store" }
+          );
+          if (!res.ok) throw new Error("GitHub returned " + res.status);
+
+          const file = await res.json();
+          const data = JSON.parse(base64ToUtf8(file.content));
+          if (!validSharedPresetPayload(data)) throw new Error("Shared preset file is invalid");
 
           settings.backgrounds = data.backgrounds.filter(
             item => item && item.id && item.name && item.type && item.url
@@ -1409,8 +1451,13 @@
           }
 
           persistSettings();
+          setSyncStatus(
+            token ? "Connected — shared presets sync across devices" : "Shared presets loaded — connect GitHub sync to edit globally",
+            token ? "ok" : ""
+          );
           return true;
-        } catch {
+        } catch (error) {
+          setSyncStatus("Could not load shared presets from GitHub", "error");
           return false;
         }
       }
@@ -1425,7 +1472,9 @@
       async function publishSharedPresets(message = "Update shared dashboard presets") {
         const token = localStorage.getItem(GITHUB_SYNC_TOKEN_KEY) || "";
         if (!token) {
-          showStatus("Saved here — add a sync token to share everywhere");
+          localStorage.setItem(SHARED_PRESETS_DIRTY_KEY, "1");
+          setSyncStatus("Local only — connect GitHub sync to share this change", "warn");
+          showStatus("Saved on this device only");
           return false;
         }
 
@@ -1476,12 +1525,28 @@
             res = await write(current.sha);
           }
 
-          if (!res.ok) throw new Error("GitHub sync failed");
+          if (!res.ok) {
+            let detail = "";
+            try {
+              const body = await res.json();
+              detail = body?.message ? ": " + body.message : "";
+            } catch {}
+            throw new Error("GitHub sync failed" + detail);
+          }
+
           localStorage.removeItem(SHARED_PRESETS_DIRTY_KEY);
+          setSyncStatus("Connected — shared presets sync across devices", "ok");
           showStatus("Shared everywhere");
           return true;
-        } catch {
-          showStatus("Saved here — GitHub sync failed");
+        } catch (error) {
+          localStorage.setItem(SHARED_PRESETS_DIRTY_KEY, "1");
+          setSyncStatus(
+            error?.message?.includes("401") || error?.message?.includes("Bad credentials")
+              ? "GitHub token rejected — check the token"
+              : "Could not publish to GitHub — still saved locally",
+            "error"
+          );
+          showStatus("Saved locally — sync failed");
           return false;
         }
       }
@@ -2504,7 +2569,19 @@
         syncWeatherSourceUI();
         syncAnimationUI();
         syncFontUI();
-        githubSyncTokenInput.value = localStorage.getItem(GITHUB_SYNC_TOKEN_KEY) || "";
+        const savedSyncToken = localStorage.getItem(GITHUB_SYNC_TOKEN_KEY) || "";
+        githubSyncTokenInput.value = savedSyncToken;
+        if (localStorage.getItem(SHARED_PRESETS_DIRTY_KEY) === "1") {
+          setSyncStatus(
+            savedSyncToken ? "Pending local changes — Save to retry sync" : "Local changes not shared yet — add a GitHub token",
+            "warn"
+          );
+        } else {
+          setSyncStatus(
+            savedSyncToken ? "Connected — shared presets sync across devices" : "Shared presets are read-only until GitHub sync is connected",
+            savedSyncToken ? "ok" : ""
+          );
+        }
         renderBackgroundPicker();
         renderMusicPicker();
         backgroundEditor.classList.remove("open");
@@ -2906,7 +2983,13 @@
         }
 
         persistSettings();
-        if (syncToken) publishSharedPresets("Enable shared preset sync");
+        if (syncToken) {
+          await publishSharedPresets(
+            localStorage.getItem(SHARED_PRESETS_DIRTY_KEY) === "1"
+              ? "Publish pending shared presets"
+              : "Enable shared preset sync"
+          );
+        }
 
         coordinatesInput.value = settings.coordinates;
         showStatus("Loading weather…");
@@ -2936,6 +3019,22 @@
       };
       document.addEventListener("pointerdown", unlockMusic, { once: true, passive: true });
       document.addEventListener("keydown", unlockMusic, { once: true });
+
+      // Pull shared presets again when this display becomes active, plus periodically.
+      const refreshSharedLists = async () => {
+        const changed = await loadSharedPresets();
+        if (changed) {
+          renderBackgroundPicker();
+          renderMusicPicker();
+          applySelectedBackground();
+          applySelectedMusic();
+        }
+      };
+      window.addEventListener("focus", refreshSharedLists);
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) refreshSharedLists();
+      });
+      setInterval(refreshSharedLists, 2 * 60 * 1000);
 
       // Clock ticks are aligned to the next real second; weather refreshes every 5 minutes.
       setInterval(() => refreshWeather({ quiet: true }), 5 * 60 * 1000);
