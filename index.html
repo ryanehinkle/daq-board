@@ -1508,6 +1508,7 @@
       let backgroundPreloadTimer = null;
       let backgroundPreloadToken = 0;
       let backgroundShuffleQueue = [];
+      const backgroundPreparation = new WeakMap();
       const backgroundTypeFilter = { image: true, video: true };
 
       function cloneDefaultBackgrounds() {
@@ -1889,9 +1890,79 @@
           iv_load_policy: "3",
           rel: "0",
           playsinline: "1",
-          cc_load_policy: "0"
+          cc_load_policy: "0",
+          enablejsapi: "1",
+          origin: window.location.origin
         });
         return "https://www.youtube.com/embed/" + id + "?" + params.toString();
+      }
+
+      function waitForYouTubeContentReady(iframe, expectedVideoId, timeoutMs = 75000) {
+        return new Promise(resolve => {
+          let finished = false;
+
+          const finish = ready => {
+            if (finished) return;
+            finished = true;
+            clearTimeout(timeout);
+            clearInterval(poll);
+            window.removeEventListener("message", onMessage);
+            resolve(ready);
+          };
+
+          const onMessage = event => {
+            if (event.source !== iframe.contentWindow) return;
+
+            let payload = event.data;
+            if (typeof payload === "string") {
+              try { payload = JSON.parse(payload); } catch { return; }
+            }
+            if (!payload || typeof payload !== "object") return;
+
+            const info = payload.info && typeof payload.info === "object"
+              ? payload.info
+              : {};
+            const currentTime = Number(info.currentTime);
+            const playerState = Number(info.playerState);
+            const reportedVideoId =
+              info.videoData?.video_id ||
+              info.videoData?.videoId ||
+              "";
+
+            // The real background video is configured to start at 120 seconds.
+            // Do not reveal the hidden iframe while an ad/pre-roll is running.
+            const atRequestedStart = Number.isFinite(currentTime) && currentTime >= 119;
+            const playingOrBuffered =
+              !Number.isFinite(playerState) ||
+              playerState === 1 ||
+              playerState === 3;
+            const correctVideo = !reportedVideoId || reportedVideoId === expectedVideoId;
+
+            if (atRequestedStart && playingOrBuffered && correctVideo) {
+              finish(true);
+            }
+          };
+
+          const askPlayer = () => {
+            try {
+              const target = iframe.contentWindow;
+              if (!target) return;
+              target.postMessage(JSON.stringify({ event: "listening", id: "daq-background" }), "*");
+              ["getCurrentTime", "getPlayerState", "getVideoData"].forEach(func => {
+                target.postMessage(JSON.stringify({
+                  event: "command",
+                  func,
+                  args: []
+                }), "*");
+              });
+            } catch {}
+          };
+
+          window.addEventListener("message", onMessage);
+          const poll = setInterval(askPlayer, 350);
+          const timeout = setTimeout(() => finish(false), timeoutMs);
+          askPlayer();
+        });
       }
 
       async function prepareBackgroundInSlot(slot, item) {
@@ -1937,11 +2008,16 @@
           iframe.src = youtubeSrc;
           slot.appendChild(iframe);
 
-          // Load the next player while the current background is still fully visible.
-          // Give YouTube a short extra buffer after the iframe itself reports loaded.
-          const loaded = await waitForMediaEvent(iframe, "load", 6500);
+          // Keep this slot completely hidden while YouTube loads. If YouTube serves
+          // an ad first, it can run here without ever replacing the visible background.
+          const loaded = await waitForMediaEvent(iframe, "load", 10000);
           if (!loaded) throw new Error("YouTube preload timed out");
-          await new Promise(resolve => setTimeout(resolve, 1100));
+
+          const contentReady = await waitForYouTubeContentReady(iframe, id);
+          if (!contentReady) throw new Error("YouTube content did not become ready");
+
+          // Give the actual video a moment to render a clean frame before crossfading.
+          await new Promise(resolve => setTimeout(resolve, 700));
           slot.dataset.mediaType = "youtube";
           slot.dataset.backgroundKey = backgroundKey(item);
           return;
@@ -1976,6 +2052,21 @@
         slot.dataset.backgroundKey = backgroundKey(item);
       }
 
+      function ensureBackgroundPrepared(slot, item) {
+        const key = backgroundKey(item);
+        const existing = backgroundPreparation.get(slot);
+        if (existing?.key === key) return existing.promise;
+
+        const promise = prepareBackgroundInSlot(slot, item)
+          .finally(() => {
+            const current = backgroundPreparation.get(slot);
+            if (current?.promise === promise) backgroundPreparation.delete(slot);
+          });
+
+        backgroundPreparation.set(slot, { key, promise });
+        return promise;
+      }
+
       function updateYoutubeHitArea() {
         const isYoutube = activeBackgroundSlot?.dataset.mediaType === "youtube";
         activeBackgroundSlot?.classList.toggle("youtube-active", isYoutube);
@@ -1995,7 +2086,7 @@
 
         if (!alreadyPrepared) {
           try {
-            await prepareBackgroundInSlot(nextSlot, item);
+            await ensureBackgroundPrepared(nextSlot, item);
           } catch {
             clearBackgroundSlot(nextSlot);
             return false;
@@ -2098,7 +2189,7 @@
           const nextSlot = activeBackgroundSlot === backgroundSlotA ? backgroundSlotB : backgroundSlotA;
 
           try {
-            await prepareBackgroundInSlot(nextSlot, nextItem);
+            await ensureBackgroundPrepared(nextSlot, nextItem);
           } catch {
             clearBackgroundSlot(nextSlot);
             return;
