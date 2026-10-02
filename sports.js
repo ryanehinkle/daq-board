@@ -777,6 +777,7 @@
 
   let headlineTimer = null;
   let headlineFetching = false;
+  let headlineSignature = "";
 
   function articleTimestamp(article) {
     const values = [
@@ -824,6 +825,10 @@
       unique.push(item);
       if (unique.length >= 14) break;
     }
+
+    const signature = unique.map(item => item.league + ":" + item.headline).join("|");
+    if (signature === headlineSignature && !ticker.hidden) return;
+    headlineSignature = signature;
 
     const groupHtml = '<div class="sports-headline-group">' +
       unique.map(item =>
