@@ -3,8 +3,12 @@
 
   const STORAGE_KEY = "daq-board-sports-v1";
   const zone = document.getElementById("sports-zone");
+  const ticker = document.getElementById("sports-headline-ticker");
+  const tickerTrack = document.getElementById("sports-headline-track");
   const settingsRoot = document.getElementById("sports-settings-root");
   if (!zone || !settingsRoot) return;
+
+  const NFL_WEEK_STORAGE_KEY = "daq-board-nfl-active-week-v1";
 
   const LEAGUES = {
     nfl: {
@@ -195,27 +199,81 @@
     return Array.isArray(payload?.events) ? payload.events.filter(event => event?.id) : [];
   }
 
-  async function fetchLeagueEvents(league) {
-    if (league === "nfl") {
-      const payload = await fetchJsonFallback([
-        "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?limit=100"
-      ]);
-      return eventsFromPayload(payload);
+  function nflWeekMeta(payload) {
+    const season = payload?.season || {};
+    const week = payload?.week || {};
+    const first = eventsFromPayload(payload)[0] || {};
+    const eventSeason = first.season || {};
+    const eventWeek = first.week || {};
+    return {
+      year: safeNumber(season.year, safeNumber(eventSeason.year, new Date().getFullYear())),
+      seasonType: safeNumber(season.type, safeNumber(eventSeason.type, 2)),
+      week: safeNumber(week.number, safeNumber(eventWeek.number, 1))
+    };
+  }
+
+  function loadStoredNFLWeek() {
+    try {
+      const value = JSON.parse(localStorage.getItem(NFL_WEEK_STORAGE_KEY) || "null");
+      if (!value || !value.year || !value.week) return null;
+      return value;
+    } catch {
+      return null;
     }
+  }
+
+  function storeNFLWeek(info) {
+    try {
+      localStorage.setItem(NFL_WEEK_STORAGE_KEY, JSON.stringify(info));
+    } catch {}
+  }
+
+  async function fetchNFLWeek(info) {
+    const query = new URLSearchParams({
+      dates: String(info.year),
+      seasontype: String(info.seasonType || 2),
+      week: String(info.week),
+      limit: "100"
+    });
+    return fetchJsonFallback([
+      "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?" + query.toString()
+    ]);
+  }
+
+  async function fetchNFLEvents() {
+    const now = new Date();
+    const isTuesday = now.getDay() === 2;
+    const stored = loadStoredNFLWeek();
+
+    // Tuesday is the explicit week rollover. On every other day, keep using
+    // the stored active week so Monday finals remain visible all day.
+    if (stored && !isTuesday) {
+      const payload = await fetchNFLWeek(stored).catch(() => null);
+      if (payload && eventsFromPayload(payload).length) return eventsFromPayload(payload);
+    }
+
+    const current = await fetchJsonFallback([
+      "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?limit=100"
+    ]);
+    const info = nflWeekMeta(current);
+    storeNFLWeek(info);
+
+    const full = await fetchNFLWeek(info).catch(() => current);
+    return eventsFromPayload(full);
+  }
+
+  async function fetchLeagueEvents(league) {
+    if (league === "nfl") return fetchNFLEvents();
 
     const anchor = league === "mlb" ? baseballDate() : new Date();
-    const groups = [];
+    const groups = [
+      { day: addDays(anchor, -1), kind: "yesterday" }
+    ];
 
-    // Keep a possible late-night NHL game from yesterday available.
-    if (league === "nhl") {
-      groups.push({ day: addDays(anchor, -1), previous: true });
-    }
-
-    // Load the coming week into memory, then displayGames() chooses exactly one
-    // day after applying Watch filters. This lets a watched team jump to its next
-    // game even when other NHL/MLB teams are playing today.
+    // Keep yesterday plus today/the coming schedule in memory. displayGames()
+    // chooses yesterday + exactly one current/future slate after Watch filtering.
     for (let offset = 0; offset <= 14; offset++) {
-      groups.push({ day: addDays(anchor, offset), previous: false });
+      groups.push({ day: addDays(anchor, offset), kind: offset === 0 ? "today" : "future" });
     }
 
     const payloads = await Promise.all(groups.map(async group => ({
@@ -231,12 +289,7 @@
     for (const row of payloads) {
       if (!row.payload) continue;
       hadSuccessfulRequest = true;
-
       for (const event of eventsFromPayload(row.payload)) {
-        if (row.previous) {
-          const comp = pickCompetition(event);
-          if (normalizeState(comp.status || event.status || {}) !== "in") continue;
-        }
         byId.set(String(event.id), event);
       }
     }
@@ -366,31 +419,35 @@
     return dateKey(date);
   }
 
-  function oneDaySlate(league, games) {
-    if (league === "nfl" || games.length <= 1) return games;
-
-    const liveGames = games.filter(game => game.state === "in");
-    if (liveGames.length) {
-      const liveDay = localDayKey(liveGames[0].date);
-      return games.filter(game => localDayKey(game.date) === liveDay);
-    }
+  function yesterdayAndCurrentSlate(league, games) {
+    if (league === "nfl" || !games.length) return games;
 
     const anchor = league === "mlb" ? baseballDate() : new Date();
-    const anchorKey = dateKey(anchor);
-    const todayGames = games.filter(game => localDayKey(game.date) === anchorKey);
-    if (todayGames.length) return todayGames;
+    const todayKey = dateKey(anchor);
+    const yesterdayKey = dateKey(addDays(anchor, -1));
 
-    const futureKeys = Array.from(new Set(
-      games
-        .map(game => localDayKey(game.date))
-        .filter(key => key && key > anchorKey)
-    )).sort();
+    const yesterday = games.filter(game => localDayKey(game.date) === yesterdayKey);
+    const today = games.filter(game => localDayKey(game.date) === todayKey);
 
-    const chosen = futureKeys[0] || Array.from(new Set(
-      games.map(game => localDayKey(game.date)).filter(Boolean)
-    )).sort().at(-1);
+    let current = today;
+    if (!current.length) {
+      const futureKeys = Array.from(new Set(
+        games
+          .map(game => localDayKey(game.date))
+          .filter(key => key && key > todayKey)
+      )).sort();
+      const nextKey = futureKeys[0] || "";
+      current = nextKey
+        ? games.filter(game => localDayKey(game.date) === nextKey)
+        : [];
+    }
 
-    return chosen ? games.filter(game => localDayKey(game.date) === chosen) : games;
+    const ids = new Set();
+    return [...yesterday, ...current].filter(game => {
+      if (ids.has(game.id)) return false;
+      ids.add(game.id);
+      return true;
+    });
   }
 
   function displayGames(league) {
@@ -401,7 +458,7 @@
       if (!selected.size) return [];
       games = games.filter(game => selected.has(game.away.code) || selected.has(game.home.code));
     }
-    games = oneDaySlate(league, games);
+    games = yesterdayAndCurrentSlate(league, games);
     return sortGames(games);
   }
 
@@ -712,6 +769,111 @@
     });
   }
 
+  const NEWS_FEEDS = [
+    { league: "NFL", url: "https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?limit=15" },
+    { league: "MLB", url: "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/news?limit=15" },
+    { league: "NHL", url: "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/news?limit=15" }
+  ];
+
+  let headlineTimer = null;
+  let headlineFetching = false;
+
+  function articleTimestamp(article) {
+    const values = [
+      article?.published,
+      article?.lastModified,
+      article?.date,
+      article?.story?.published
+    ];
+    for (const value of values) {
+      const time = new Date(value || "").getTime();
+      if (Number.isFinite(time)) return time;
+    }
+    return 0;
+  }
+
+  function normalizedHeadline(article, league) {
+    const headline = String(
+      article?.headline ||
+      article?.story?.headline ||
+      article?.title ||
+      ""
+    ).trim();
+    if (!headline) return null;
+    return {
+      league,
+      headline,
+      timestamp: articleTimestamp(article)
+    };
+  }
+
+  function renderHeadlines(items) {
+    if (!ticker || !tickerTrack) return;
+    if (!items.length) {
+      ticker.hidden = true;
+      tickerTrack.innerHTML = "";
+      return;
+    }
+
+    const unique = [];
+    const seen = new Set();
+    for (const item of items) {
+      const key = item.headline.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      unique.push(item);
+      if (unique.length >= 14) break;
+    }
+
+    const groupHtml = '<div class="sports-headline-group">' +
+      unique.map(item =>
+        '<span class="sports-headline-item">' +
+          '<span class="sports-headline-league">' + escapeHtml(item.league) + '</span>' +
+          '<span class="sports-headline-text">' + escapeHtml(item.headline) + '</span>' +
+          '<span class="sports-headline-separator" aria-hidden="true">•</span>' +
+        '</span>'
+      ).join("") +
+    '</div>';
+
+    tickerTrack.innerHTML = groupHtml + groupHtml;
+    ticker.hidden = false;
+
+    const totalChars = unique.reduce((sum, item) => sum + item.headline.length + 8, 0);
+    const duration = Math.max(42, Math.min(115, totalChars * 0.18));
+    tickerTrack.style.setProperty("--headline-duration", duration.toFixed(1) + "s");
+
+    // Restart cleanly when the live headline set changes.
+    tickerTrack.classList.remove("running");
+    void tickerTrack.offsetWidth;
+    tickerTrack.classList.add("running");
+  }
+
+  async function refreshHeadlines() {
+    if (headlineFetching) return;
+    headlineFetching = true;
+    try {
+      const rows = await Promise.all(NEWS_FEEDS.map(async feed => {
+        try {
+          const response = await fetch(feed.url, { cache: "no-store", credentials: "omit" });
+          if (!response.ok) throw new Error("HTTP " + response.status);
+          const payload = await response.json();
+          return (payload?.articles || [])
+            .map(article => normalizedHeadline(article, feed.league))
+            .filter(Boolean);
+        } catch {
+          return [];
+        }
+      }));
+
+      const merged = rows.flat().sort((a,b) => b.timestamp - a.timestamp);
+      renderHeadlines(merged);
+    } finally {
+      headlineFetching = false;
+      clearTimeout(headlineTimer);
+      headlineTimer = setTimeout(refreshHeadlines, 60 * 1000);
+    }
+  }
+
   function leagueHasActiveGame(league) {
     const now = Date.now();
     return runtime[league].games.some(game => {
@@ -959,14 +1121,19 @@
 
   window.addEventListener("focus", () => {
     if (config.enabled) reconcilePolling({ immediate: true });
+    refreshHeadlines();
   });
   document.addEventListener("visibilitychange", () => {
-    if (!document.hidden && config.enabled) reconcilePolling({ immediate: true });
+    if (!document.hidden) {
+      if (config.enabled) reconcilePolling({ immediate: true });
+      refreshHeadlines();
+    }
   });
 
   renderSettings();
   renderAllModules();
   reconcilePolling({ immediate: true });
+  refreshHeadlines();
 
   window.DAQSports = {
     refresh: () => reconcilePolling({ immediate: true }),
