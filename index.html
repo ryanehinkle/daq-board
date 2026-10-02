@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#111111" />
   <title>DAQ Board</title>
-  <link rel="stylesheet" href="sports.css?v=9" />
-  <script src="sports.js?v=14" defer></script>
+  <link rel="stylesheet" href="sports.css?v=10" />
+  <script src="sports.js?v=15" defer></script>
   <style>
     :root {
       color-scheme: dark;
@@ -3806,13 +3806,33 @@
       // Initial paint. Background/music lists are shared through one anonymous
       // public JSON store; each device keeps only its current selections locally.
       await bootstrapSharedPresets();
+
+      // Every full page load starts from a known clean state.
+      // Keep custom/shared options available, but explicitly select the built-in
+      // Neon Sunset Drive background and No music.
+      const canonicalSunset = {
+        id: "default-video",
+        name: "Neon Sunset Drive",
+        type: "video",
+        url: "https://www.youtube.com/watch?v=i3qUonr3d9U"
+      };
+      const sunsetIndex = settings.backgrounds.findIndex(item => item.id === canonicalSunset.id);
+      if (sunsetIndex >= 0) settings.backgrounds[sunsetIndex] = canonicalSunset;
+      else settings.backgrounds.unshift(canonicalSunset);
+
+      settings.backgroundMode = "static";
+      settings.selectedBackgroundId = "default-video";
+      settings.selectedBackgroundIds = ["default-video"];
+      settings.selectedMusicId = "";
+      persistSettings();
+
       applyFont();
       applyDisplaySize(100);
       syncBackgroundModeUI();
       renderBackgroundPicker();
-      applySelectedBackground({ fade: false });
+      stopMusic();
       renderMusicPicker();
-      applySelectedMusic();
+      await applySelectedBackground({ force: true, fade: false });
       renderWeatherFallback();
       scheduleClockTick();
       refreshWeather({ quiet: true });
