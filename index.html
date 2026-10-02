@@ -1601,6 +1601,7 @@
           mute: "1",
           loop: "1",
           playlist: id,
+          start: "30",
           controls: "0",
           disablekb: "1",
           fs: "0",
@@ -1620,10 +1621,25 @@
         video.src = url;
         video.autoplay = true;
         video.muted = true;
-        video.loop = true;
+        video.loop = false;
         video.playsInline = true;
         video.preload = "auto";
         video.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none;";
+
+        const startAtIntroSkip = () => {
+          if (Number.isFinite(video.duration) && video.duration > 31) {
+            video.currentTime = 30;
+          }
+        };
+        video.addEventListener("loadedmetadata", () => {
+          startAtIntroSkip();
+          video.play().catch(() => {});
+        }, { once: true });
+        video.addEventListener("ended", () => {
+          startAtIntroSkip();
+          video.play().catch(() => {});
+        });
+
         board.insertBefore(video, board.firstChild);
         video.play().catch(() => {});
       }
@@ -1802,6 +1818,7 @@
           autoplay: "1",
           loop: "1",
           playlist: id,
+          start: "30",
           controls: "0",
           disablekb: "1",
           fs: "0",
