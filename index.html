@@ -1502,10 +1502,7 @@
       let activeBackgroundSlot = backgroundSlotA;
       let backgroundTransitionToken = 0;
       let backgroundCycleTimer = null;
-      let backgroundPreloadTimer = null;
-      let backgroundPreloadToken = 0;
       let backgroundShuffleQueue = [];
-      const backgroundPreparation = new WeakMap();
       const backgroundTypeFilter = { image: true, video: true };
 
       function cloneDefaultBackgrounds() {
@@ -1975,21 +1972,6 @@
         slot.dataset.backgroundKey = backgroundKey(item);
       }
 
-      function ensureBackgroundPrepared(slot, item) {
-        const key = backgroundKey(item);
-        const existing = backgroundPreparation.get(slot);
-        if (existing?.key === key) return existing.promise;
-
-        const promise = prepareBackgroundInSlot(slot, item)
-          .finally(() => {
-            const current = backgroundPreparation.get(slot);
-            if (current?.promise === promise) backgroundPreparation.delete(slot);
-          });
-
-        backgroundPreparation.set(slot, { key, promise });
-        return promise;
-      }
-
       function updateYoutubeHitArea() {
         const isYoutube = activeBackgroundSlot?.dataset.mediaType === "youtube";
         activeBackgroundSlot?.classList.toggle("youtube-active", isYoutube);
@@ -2005,15 +1987,11 @@
         const token = ++backgroundTransitionToken;
         const nextSlot = activeBackgroundSlot === backgroundSlotA ? backgroundSlotB : backgroundSlotA;
         const oldSlot = activeBackgroundSlot;
-        const alreadyPrepared = nextSlot.dataset.backgroundKey === nextKey;
-
-        if (!alreadyPrepared) {
-          try {
-            await ensureBackgroundPrepared(nextSlot, item);
-          } catch {
-            clearBackgroundSlot(nextSlot);
-            return false;
-          }
+        try {
+          await prepareBackgroundInSlot(nextSlot, item);
+        } catch {
+          clearBackgroundSlot(nextSlot);
+          return false;
         }
 
         if (token !== backgroundTransitionToken) {
@@ -2091,60 +2069,33 @@
 
       function scheduleBackgroundCycle() {
         clearTimeout(backgroundCycleTimer);
-        clearTimeout(backgroundPreloadTimer);
         backgroundCycleTimer = null;
-        backgroundPreloadTimer = null;
 
         const ids = rotatingBackgroundIds();
         if (settings.backgroundMode !== "rotate" || ids.length < 2) return;
 
         const minutes = Number(settings.backgroundCycleMinutes) || 15;
-        const cycleMs = minutes * 60 * 1000;
-        const nextId = nextRotatingBackgroundId();
-        const nextItem = settings.backgrounds.find(item => item.id === nextId) || null;
-        if (!nextItem) return;
-
-        const preloadToken = ++backgroundPreloadToken;
-        const preloadLeadMs = Math.min(15000, Math.max(1000, cycleMs - 1000));
-        const preloadDelay = Math.max(0, cycleMs - preloadLeadMs);
-
-        backgroundPreloadTimer = setTimeout(async () => {
-          const nextSlot = activeBackgroundSlot === backgroundSlotA ? backgroundSlotB : backgroundSlotA;
-
-          try {
-            await ensureBackgroundPrepared(nextSlot, nextItem);
-          } catch {
-            clearBackgroundSlot(nextSlot);
-            return;
-          }
-
-          if (preloadToken !== backgroundPreloadToken || nextSlot === activeBackgroundSlot) {
-            clearBackgroundSlot(nextSlot);
-          }
-        }, preloadDelay);
-
         backgroundCycleTimer = setTimeout(async () => {
-          const currentNextItem = settings.backgrounds.find(item => item.id === nextId) || null;
-          if (!currentNextItem) {
-            scheduleBackgroundCycle();
-            return;
-          }
+          const nextId = nextRotatingBackgroundId();
+          if (!nextId) return;
 
           const previousId = settings.selectedBackgroundId;
-          const shown = await showBackgroundItem(currentNextItem, { fade: true });
+          settings.selectedBackgroundId = nextId;
+          persistSettings();
+          renderBackgroundPicker();
 
-          if (shown || activeBackgroundKey === backgroundKey(currentNextItem)) {
-            settings.selectedBackgroundId = nextId;
-            persistSettings();
-            renderBackgroundPicker();
-          } else {
+          const nextItem = selectedBackground();
+          const alreadyShowingSameMedia = activeBackgroundKey === backgroundKey(nextItem);
+          const shown = await showBackgroundItem(nextItem, { fade: true });
+
+          if (!shown && !alreadyShowingSameMedia) {
             settings.selectedBackgroundId = previousId;
             persistSettings();
             renderBackgroundPicker();
           }
 
           scheduleBackgroundCycle();
-        }, cycleMs);
+        }, minutes * 60 * 1000);
       }
 
       async function applySelectedBackground({ force = false, fade = true } = {}) {
@@ -2360,6 +2311,30 @@
         musicFrame.removeAttribute("src");
       }
 
+      function normalizeMusicPlayback() {
+        const target = musicFrame.contentWindow;
+        if (!target) return;
+
+        const send = (func, args = []) => {
+          try {
+            target.postMessage(JSON.stringify({
+              event: "command",
+              func,
+              args
+            }), "*");
+          } catch {}
+        };
+
+        send("unMute");
+        send("setVolume", [100]);
+      }
+
+      musicFrame.addEventListener("load", () => {
+        [250, 750, 1500, 3000].forEach(delay => {
+          setTimeout(normalizeMusicPlayback, delay);
+        });
+      });
+
       function applySelectedMusic(forceReload = false) {
         const item = selectedMusic();
         if (!item) {
@@ -2385,7 +2360,8 @@
           rel: "0",
           playsinline: "1",
           cc_load_policy: "0",
-          enablejsapi: "1"
+          enablejsapi: "1",
+          origin: window.location.origin
         });
         const nextSrc = "https://www.youtube.com/embed/" + id + "?" + params.toString();
         if (forceReload || musicFrame.src !== nextSrc) musicFrame.src = nextSrc;
@@ -2748,7 +2724,7 @@
           endpoint = "https://api.open-meteo.com/v1/ecmwf";
         }
 
-        const wxRes = await fetch(endpoint + "?" + params.toString());
+        const wxRes = await fetch(endpoint + "?" + params.toString(), { cache: "no-store" });
         if (!wxRes.ok) throw new Error("Selected weather source is unavailable right now.");
         const data = await wxRes.json();
 
@@ -2786,8 +2762,8 @@
         dailyParams.set("pageSize", "4");
 
         const [currentRes, dailyRes] = await Promise.all([
-          fetch("https://weather.googleapis.com/v1/currentConditions:lookup?" + common.toString()),
-          fetch("https://weather.googleapis.com/v1/forecast/days:lookup?" + dailyParams.toString())
+          fetch("https://weather.googleapis.com/v1/currentConditions:lookup?" + common.toString(), { cache: "no-store" }),
+          fetch("https://weather.googleapis.com/v1/forecast/days:lookup?" + dailyParams.toString(), { cache: "no-store" })
         ]);
 
         if (!currentRes.ok || !dailyRes.ok) {
@@ -2891,6 +2867,10 @@
         const periods = forecastData.properties?.periods || [];
         const hourlyPeriods = hourlyData.properties?.periods || [];
         const currentPeriod = hourlyPeriods[0] || periods[0];
+        let liveObservation = null;
+        try {
+          liveObservation = await fetchNwsObservation(lat, lon);
+        } catch {}
         const nwsTimezone = props.timeZone || timezone;
         if (!currentPeriod) throw new Error("National Weather Service returned no forecast periods.");
 
@@ -2919,8 +2899,12 @@
         return {
           timezone: nwsTimezone,
           current: {
-            temperature_2m: Number(currentPeriod.temperature),
-            weather_code: nwsCodeFromText(currentPeriod.shortForecast)
+            temperature_2m: Number.isFinite(liveObservation?.temperature_2m)
+              ? liveObservation.temperature_2m
+              : Number(currentPeriod.temperature),
+            weather_code: Number.isFinite(liveObservation?.weather_code)
+              ? liveObservation.weather_code
+              : nwsCodeFromText(currentPeriod.shortForecast)
           },
           daily: {
             time: days.map(day => day.time),
@@ -2983,8 +2967,8 @@
       async function fetchNwsObservation(lat, lon) {
         const headers = { Accept: "application/geo+json" };
         const pointRes = await fetch(
-          "https://api.weather.gov/points/" + lat.toFixed(4) + "," + lon.toFixed(4),
-          { headers }
+          "https://api.weather.gov/points/" + lat.toFixed(5) + "," + lon.toFixed(5),
+          { headers, cache: "no-store" }
         );
         if (!pointRes.ok) throw new Error("NWS observation lookup failed.");
         const pointData = await pointRes.json();
@@ -2997,7 +2981,7 @@
         }
         if (!stationsUrl) throw new Error("No nearby NWS observation stations.");
 
-        const stationsRes = await fetch(stationsUrl, { headers });
+        const stationsRes = await fetch(stationsUrl, { headers, cache: "no-store" });
         if (!stationsRes.ok) throw new Error("NWS station list unavailable.");
         const stationsData = await stationsRes.json();
 
@@ -3025,7 +3009,7 @@
           try {
             const obsRes = await fetch(
               station.url.replace(/\/$/, "") + "/observations/latest",
-              { headers }
+              { headers, cache: "no-store" }
             );
             if (!obsRes.ok) continue;
 
@@ -3750,14 +3734,21 @@
           }
         }
       };
-      window.addEventListener("focus", refreshSharedLists);
+      window.addEventListener("focus", () => {
+        refreshSharedLists();
+        refreshWeather({ quiet: true });
+      });
       document.addEventListener("visibilitychange", () => {
-        if (!document.hidden) refreshSharedLists();
+        if (!document.hidden) {
+          refreshSharedLists();
+          refreshWeather({ quiet: true });
+        }
       });
       setInterval(refreshSharedLists, 30 * 1000);
 
-      // Clock ticks are aligned to the next real second; weather refreshes every 5 minutes.
-      setInterval(() => refreshWeather({ quiet: true }), 5 * 60 * 1000);
+      // Re-check live weather every minute. Providers may publish less frequently,
+      // but the dashboard always requests the freshest available data with no cache.
+      setInterval(() => refreshWeather({ quiet: true }), 60 * 1000);
     })();
   </script>
 </body>
