@@ -1990,10 +1990,21 @@
           const nextId = nextRotatingBackgroundId();
           if (!nextId) return;
 
+          const previousId = settings.selectedBackgroundId;
           settings.selectedBackgroundId = nextId;
           persistSettings();
           renderBackgroundPicker();
-          await showBackgroundItem(selectedBackground(), { fade: true });
+
+          const nextItem = selectedBackground();
+          const alreadyShowingSameMedia = activeBackgroundKey === backgroundKey(nextItem);
+          const shown = await showBackgroundItem(nextItem, { fade: true });
+
+          if (!shown && !alreadyShowingSameMedia) {
+            settings.selectedBackgroundId = previousId;
+            persistSettings();
+            renderBackgroundPicker();
+          }
+
           scheduleBackgroundCycle();
         }, minutes * 60 * 1000);
       }
@@ -2131,6 +2142,8 @@
         const rotate = settings.backgroundMode === "rotate";
         backgroundModeStatic.classList.toggle("active", !rotate);
         backgroundModeRotate.classList.toggle("active", rotate);
+        backgroundModeStatic.setAttribute("aria-pressed", String(!rotate));
+        backgroundModeRotate.setAttribute("aria-pressed", String(rotate));
         backgroundCycleField.hidden = !rotate;
 
         const minutes = Number(settings.backgroundCycleMinutes) || 15;
@@ -3070,6 +3083,7 @@
       function closeSettings() {
         weatherSourceSelect.classList.remove("open");
         backgroundSelect.classList.remove("open");
+        backgroundCycleSelect.classList.remove("open");
         musicSelect.classList.remove("open");
         animationSelect.classList.remove("open");
         fontSelect.classList.remove("open");
