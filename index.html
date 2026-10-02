@@ -1160,8 +1160,8 @@
   <script>
     (async () => {
       const STORAGE_KEY = "daq-board-settings-v1";
-      const SHARED_STORE_CONFIG_URL = "./shared-store.json";
-      const SHARED_STORE_MIGRATION_KEY = "daq-board-shared-store-v2-migrated";
+      const SHARED_STORE_URL = "https://mantledb.sh/v2/ryanehinkle-daq-board/presets";
+      const SHARED_STORE_MIGRATION_KEY = "daq-board-shared-store-v3-migrated";
       const DEFAULT_BACKGROUND_URL = "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2400&q=90";
       const DEFAULTS = {
         coordinates: "41.80803, -88.20902",
@@ -1272,7 +1272,6 @@
       let lastShiftPress = 0;
       let coordinateSaveTimer = null;
       let googleKeySaveTimer = null;
-      let sharedStoreUrl = "";
       const backgroundTypeFilter = { image: true, video: true };
 
       function cloneDefaultBackgrounds() {
@@ -1437,48 +1436,21 @@
         persistSettings();
       }
 
-      async function ensureSharedStoreUrl() {
-        if (sharedStoreUrl) return sharedStoreUrl;
-
-        try {
-          const res = await fetch(
-            SHARED_STORE_CONFIG_URL + "?t=" + Date.now(),
-            { cache: "no-store" }
-          );
-          if (!res.ok) throw new Error("Shared store config unavailable");
-          const config = await res.json();
-          if (!/^https:\/\//i.test(String(config.url || ""))) {
-            throw new Error("Shared store config is invalid");
-          }
-          sharedStoreUrl = String(config.url);
-          return sharedStoreUrl;
-        } catch {
-          return "";
-        }
-      }
-
       async function fetchSharedPresetStore() {
-        const url = await ensureSharedStoreUrl();
-        if (!url) throw new Error("Shared preset store is not ready");
-
-        const res = await fetch(url + "?t=" + Date.now(), {
+        const res = await fetch(SHARED_STORE_URL + "?t=" + Date.now(), {
           cache: "no-store",
           headers: { Accept: "application/json" }
         });
         if (!res.ok) throw new Error("Could not load shared presets");
-
         return sanitizeSharedPresets(await res.json());
       }
 
       async function putSharedPresetStore(data) {
-        const url = await ensureSharedStoreUrl();
-        if (!url) throw new Error("Shared preset store is not ready");
-
         const clean = sanitizeSharedPresets(data);
         clean.version = Math.max(1, Number(clean.version) || 1) + 1;
 
-        const res = await fetch(url, {
-          method: "PUT",
+        const res = await fetch(SHARED_STORE_URL, {
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json"
