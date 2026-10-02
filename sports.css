@@ -221,7 +221,7 @@
   margin-left: .02cqw;
   border-top: .43cqw solid transparent;
   border-bottom: .43cqw solid transparent;
-  border-right: .62cqw solid rgba(255,255,255,.96);
+  border-right: .62cqw solid rgba(255,255,255,.98) !important;
   filter: drop-shadow(0 1px 1px rgba(0,0,0,.3));
 }
 .sports-team-name {
@@ -411,7 +411,7 @@
     );
 }
 .sports-zone.color-mode .sports-winner-arrow {
-  border-right-color: rgba(255,255,255,.96);
+  border-right-color: rgba(255,255,255,.98) !important;
 }
 .sports-zone.color-mode .sports-state.live::before {
   background: #ff5365;
