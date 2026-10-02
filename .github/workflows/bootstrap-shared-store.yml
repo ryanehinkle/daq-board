@@ -1,0 +1,73 @@
+name: Bootstrap shared preset store
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/bootstrap-shared-store.yml"
+      - "presets.json"
+      - "shared-store.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Create anonymous shared JSON store if missing
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -f shared-store.json ]; then
+            echo "shared-store.json already exists; nothing to do."
+            exit 0
+          fi
+
+          echo "Creating shared anonymous preset store..."
+          headers="$(mktemp)"
+          body="$(mktemp)"
+
+          curl --fail-with-body --silent --show-error             -D "$headers"             -o "$body"             -X POST "https://superjsonblob.com/api/jsonBlob"             -H "Content-Type: application/json"             --data-binary @presets.json
+
+          location="$(awk 'BEGIN{IGNORECASE=1} /^Location:/ {gsub("\r","",$2); print $2}' "$headers" | tail -n 1)"
+
+          if [ -z "$location" ]; then
+            id="$(python - "$body" <<'PY'
+import json, sys
+with open(sys.argv[1], "r", encoding="utf-8") as f:
+    data = json.load(f)
+print(data.get("id", ""))
+PY
+)"
+            if [ -z "$id" ]; then
+              echo "Could not determine shared store id."
+              cat "$body"
+              exit 1
+            fi
+            location="/api/jsonBlob/$id"
+          fi
+
+          if [[ "$location" == http* ]]; then
+            url="$location"
+          else
+            url="https://superjsonblob.com$location"
+          fi
+
+          python - "$url" <<'PY'
+import json, sys
+with open("shared-store.json", "w", encoding="utf-8") as f:
+    json.dump({"url": sys.argv[1]}, f, indent=2)
+    f.write("\n")
+PY
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add shared-store.json
+          git commit -m "Bootstrap shared preset store [skip ci]"
+          git push
