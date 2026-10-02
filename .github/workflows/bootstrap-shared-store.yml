@@ -1,4 +1,4 @@
-name: Test anonymous shared store
+name: Seed shared preset store
 
 on:
   push:
@@ -7,22 +7,14 @@ on:
       - ".github/workflows/bootstrap-shared-store.yml"
 
 jobs:
-  test:
+  seed:
     runs-on: ubuntu-latest
     steps:
-      - name: Test MantleDB browser access
+      - uses: actions/checkout@v4
+      - name: Seed canonical presets
         shell: bash
         run: |
           set -euo pipefail
-          url="https://mantledb.sh/v2/ryanehinkle-daq-board/presets"
-          curl -sS -D /tmp/post-headers -o /tmp/post-body -X POST "$url"             -H "Origin: https://ryanehinkle.github.io"             -H "Content-Type: application/json"             --data '{"version":1,"backgrounds":[],"music":[]}'
-          echo "--- POST HEADERS ---"
-          cat /tmp/post-headers
-          echo "--- POST BODY ---"
-          cat /tmp/post-body
+          curl --fail-with-body --silent --show-error             -X POST "https://mantledb.sh/v2/ryanehinkle-daq-board/presets"             -H "Content-Type: application/json"             --data-binary @presets.json
           echo
-          echo "--- OPTIONS ---"
-          curl -sS -D - -o /dev/null -X OPTIONS "$url"             -H "Origin: https://ryanehinkle.github.io"             -H "Access-Control-Request-Method: POST"             -H "Access-Control-Request-Headers: content-type"
-          echo "--- GET ---"
-          curl -sS -D - -o /tmp/get-body "$url"             -H "Origin: https://ryanehinkle.github.io"
-          cat /tmp/get-body
+          curl --fail-with-body --silent --show-error             "https://mantledb.sh/v2/ryanehinkle-daq-board/presets"
