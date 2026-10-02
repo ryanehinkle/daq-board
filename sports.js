@@ -782,6 +782,7 @@
 
   const TOP_HEADLINES_COLLECTION_ID = "1-45672706";
   const HEADLINE_SWID_STORAGE_KEY = "daq-board-espn-headlines-swid-v1";
+  const HEADLINE_CACHE_KEY = "daq-board-espn-top-headlines-v1";
 
   let headlineTimer = null;
   let headlineFetching = false;
@@ -856,119 +857,27 @@
     return "ESPN";
   }
 
-  const FALLBACK_HEADLINE_URLS = [
-    ["NFL", "https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?limit=12"],
-    ["MLB", "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/news?limit=12"],
-    ["NHL", "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/news?limit=12"],
-    ["NBA", "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/news?limit=12"]
-  ];
-
-  function isTopHeadlineStyle(headline) {
-    const text = String(headline || "").trim();
-    if (!text || text.length < 12) return false;
-
-    const reject = [
-      /\bfantasy\b/i,
-      /\brankings?\b/i,
-      /\bpower rankings?\b/i,
-      /\bprojections?\b/i,
-      /\bwaiver(?: wire)?\b/i,
-      /\bsleepers?\b/i,
-      /\bdfs\b/i,
-      /\bstart ['’]?em\b/i,
-      /\bsit ['’]?em\b/i,
-      /\blineup advice\b/i,
-      /\bbest bets?\b/i,
-      /\bbetting guide\b/i,
-      /\bprop bets?\b/i,
-      /\bpicks against the spread\b/i,
-      /\bmock draft\b/i,
-      /\bd\/st\b/i,
-      /\bidp\b/i,
-      /\bwhat to watch\b/i,
-      /\bpreview\b/i,
-      /\bexpert picks?\b/i,
-      /\bhow to watch\b/i,
-      /\bstreaming\b/i,
-      /\bcricket\b/i,
-      /\bpremier league\b/i,
-      /\bchampions league\b/i,
-      /\bfifa\b/i,
-      /\bformula 1\b/i,
-      /\bf1\b/i,
-      /\btennis\b/i,
-      /\bgolf\b/i,
-      /\brugby\b/i,
-      /\bwhere to watch\b/i,
-      /\bhow to watch\b/i,
-      /\bwatch .* live\b/i,
-      /\bbreaks? down\b/i,
-      /\bexplains?\b/i,
-      /\bweighs? in\b/i,
-      /\breacts?\b/i,
-      /\bwhat to know\b/i,
-      /\bwhat you need to know\b/i,
-      /\beverything you need to know\b/i,
-      /\bguide to\b/i,
-      /\bpreviewing\b/i,
-      /\bpreview:\b/i,
-      /\bpredictions?\b/i,
-      /\bpicks?\b/i,
-      /\bkeys? to\b/i,
-      /\bwhy .* matters\b/i,
-      /\bhow .* came to be\b/i,
-      /\bhow .* happened\b/i,
-      /\binside .* deal\b/i,
-      /\bbehind .* deal\b/i,
-      /\btop \d+\b/i,
-      /\broundtable\b/i,
-      /\bmailbag\b/i
-    ];
-    if (reject.some(pattern => pattern.test(text))) return false;
-    if (/\?$/.test(text)) return false;
-    return true;
-  }
-
-  function normalizedLeagueHeadline(article, league) {
-    const headline = String(article?.headline || article?.story?.headline || "").trim();
-    if (!isTopHeadlineStyle(headline)) return null;
-    return {
-      league,
-      headline,
-      timestamp: articleTimestamp(article)
-    };
-  }
-
-  async function fetchFallbackHeadlines() {
-    const settled = await Promise.allSettled(
-      FALLBACK_HEADLINE_URLS.map(async ([league, url]) => {
-        const response = await fetch(url, { cache: "no-store", credentials: "omit" });
-        if (!response.ok) throw new Error(league + " HTTP " + response.status);
-        const payload = await response.json();
-        const items = Array.isArray(payload?.articles)
-          ? payload.articles
-          : Array.isArray(payload?.headlines)
-            ? payload.headlines
-            : [];
-        return items.map(article => normalizedLeagueHeadline(article, league)).filter(Boolean);
-      })
-    );
-
-    const rows = settled
-      .filter(result => result.status === "fulfilled")
-      .flatMap(result => result.value)
-      .sort((a, b) => b.timestamp - a.timestamp);
-
-    const unique = [];
-    const seen = new Set();
-    for (const item of rows) {
-      const key = item.headline.toLowerCase();
-      if (seen.has(key)) continue;
-      seen.add(key);
-      unique.push(item);
-      if (unique.length >= 14) break;
+  function loadCachedTopHeadlines() {
+    try {
+      const cached = JSON.parse(localStorage.getItem(HEADLINE_CACHE_KEY) || "null");
+      if (!cached || !Array.isArray(cached.items)) return [];
+      return cached.items.filter(item =>
+        item &&
+        typeof item.headline === "string" &&
+        ["NFL", "MLB", "NHL", "NBA", "ESPN"].includes(item.league)
+      ).slice(0, 14);
+    } catch {
+      return [];
     }
-    return unique;
+  }
+
+  function saveCachedTopHeadlines(items) {
+    try {
+      localStorage.setItem(HEADLINE_CACHE_KEY, JSON.stringify({
+        savedAt: Date.now(),
+        items: items.slice(0, 14)
+      }));
+    } catch {}
   }
 
   function slotNumber(value) {
@@ -1060,11 +969,12 @@
         unique.push(item);
       });
 
-    // Put the four leagues this board is built around first. Keep only a few
-    // genuine homepage-wide stories after those; never pull cricket/soccer/etc.
+    // These rows already came from ESPN's literal Top Headlines collection.
+    // Prefer the four leagues this dashboard follows, while still allowing a
+    // small number of genuinely major ESPN-wide Top Headlines.
     const core = unique.filter(item => ["NFL", "MLB", "NHL", "NBA"].includes(item.league));
-    const broad = unique.filter(item => item.league === "ESPN").slice(0, 3);
-    return [...core, ...broad].slice(0, 14);
+    const majorOther = unique.filter(item => item.league === "ESPN").slice(0, 2);
+    return [...core, ...majorOther].slice(0, 14);
   }
 
   function clearStaticHeadlineTimer() {
@@ -1172,14 +1082,12 @@
   }
 
   function renderHeadlines(items) {
-    // Final safety gate: nothing reaches the screen unless it passes the
-    // straight-news filter, even if an ESPN feed changes shape or a fallback
-    // endpoint starts mixing feature/article titles into its results.
     const cleanItems = (Array.isArray(items) ? items : [])
       .filter(item =>
         item &&
-        ["NFL", "MLB", "NHL", "NBA", "ESPN"].includes(item.league) &&
-        isTopHeadlineStyle(item.headline)
+        typeof item.headline === "string" &&
+        item.headline.trim() &&
+        ["NFL", "MLB", "NHL", "NBA", "ESPN"].includes(item.league)
       )
       .slice(0, 14);
 
@@ -1216,35 +1124,36 @@
     headlineFetching = true;
 
     try {
-      let headlines = [];
+      const response = await fetch(topHeadlinesUrl(), {
+        cache: "no-store",
+        credentials: "omit"
+      });
+      if (!response.ok) throw new Error("HTTP " + response.status);
 
-      try {
-        const response = await fetch(topHeadlinesUrl(), {
-          cache: "no-store",
-          credentials: "omit"
-        });
-        if (!response.ok) throw new Error("HTTP " + response.status);
+      const payload = await response.json();
+      const headlines = extractHomepageTopHeadlines(payload);
 
-        const payload = await response.json();
-        headlines = extractHomepageTopHeadlines(payload);
-      } catch {
-        // The personalized homepage endpoint can be blocked by embedded browsers/CORS.
+      // Only accept a non-empty literal ESPN Top Headlines collection.
+      // Never substitute league article feeds, previews, watch guides, fantasy,
+      // betting, analysis cards, or generic ESPN content.
+      if (headlines.length) {
+        saveCachedTopHeadlines(headlines);
+        renderHeadlines(headlines);
+      } else if (!headlineItems.length) {
+        const cached = loadCachedTopHeadlines();
+        if (cached.length) renderHeadlines(cached);
       }
-
-      // Never leave the ticker blank on a fresh load. If ESPN's exact homepage
-      // collection is unavailable, fall back to the reliable news endpoint and
-      // keep only straight-news headline styles (no fantasy/rankings/betting filler).
-      if (!headlines.length) {
-        headlines = await fetchFallbackHeadlines();
-      }
-
-      if (headlines.length) renderHeadlines(headlines);
     } catch {
-      // Preserve the last good set through a temporary ESPN/API hiccup.
+      // ESPN can occasionally block/timeout in embedded browsers. Keep the last
+      // known-good Top Headlines set instead of falling back to article feeds.
+      if (!headlineItems.length) {
+        const cached = loadCachedTopHeadlines();
+        if (cached.length) renderHeadlines(cached);
+      }
     } finally {
       headlineFetching = false;
       if (config.enabled) {
-        headlineTimer = setTimeout(refreshHeadlines, 60 * 1000);
+        headlineTimer = setTimeout(refreshHeadlines, 30 * 1000);
       }
     }
   }
@@ -1560,7 +1469,11 @@
   renderSettings();
   renderAllModules();
   reconcilePolling({ immediate: true });
-  if (config.enabled) refreshHeadlines();
+  if (config.enabled) {
+    const cachedHeadlines = loadCachedTopHeadlines();
+    if (cachedHeadlines.length) renderHeadlines(cachedHeadlines);
+    refreshHeadlines();
+  }
 
   window.DAQSports = {
     refresh: () => reconcilePolling({ immediate: true }),
