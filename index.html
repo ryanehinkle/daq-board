@@ -1894,7 +1894,10 @@
           iv_load_policy: "3",
           rel: "0",
           playsinline: "1",
-          cc_load_policy: "0"
+          cc_load_policy: "0",
+          cc_lang_pref: "en",
+          enablejsapi: "1",
+          origin: window.location.origin
         });
         return "https://www.youtube.com/embed/" + id + "?" + params.toString();
       }
@@ -1947,6 +1950,23 @@
           // has loaded and had a brief moment to begin playback.
           const loaded = await waitForMediaEvent(iframe, "load", 6500);
           if (!loaded) throw new Error("YouTube preload timed out");
+
+          const disableCaptions = () => {
+            try {
+              iframe.contentWindow?.postMessage(JSON.stringify({
+                event: "command",
+                func: "unloadModule",
+                args: ["captions"]
+              }), "*");
+              iframe.contentWindow?.postMessage(JSON.stringify({
+                event: "command",
+                func: "unloadModule",
+                args: ["cc"]
+              }), "*");
+            } catch {}
+          };
+          [150, 500, 1000, 1800].forEach(delay => setTimeout(disableCaptions, delay));
+
           await new Promise(resolve => setTimeout(resolve, 1100));
           slot.dataset.mediaType = "youtube";
           slot.dataset.backgroundKey = backgroundKey(item);
