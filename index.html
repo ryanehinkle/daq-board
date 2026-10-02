@@ -1505,6 +1505,8 @@
       let activeBackgroundSlot = backgroundSlotA;
       let backgroundTransitionToken = 0;
       let backgroundCycleTimer = null;
+      let backgroundPreloadTimer = null;
+      let backgroundPreloadToken = 0;
       let backgroundShuffleQueue = [];
       const backgroundTypeFilter = { image: true, video: true };
 
@@ -1846,6 +1848,7 @@
       function clearBackgroundSlot(slot) {
         slot.classList.remove("youtube-active");
         slot.dataset.mediaType = "";
+        slot.dataset.backgroundKey = "";
         slot.style.backgroundImage = "";
         slot.style.backgroundColor = "#000";
         Array.from(slot.querySelectorAll("video")).forEach(video => {
@@ -1897,6 +1900,7 @@
         if (!item) {
           slot.style.backgroundImage = "linear-gradient(145deg,#303747,#0d1018)";
           slot.dataset.mediaType = "none";
+          slot.dataset.backgroundKey = backgroundKey(item);
           return;
         }
 
@@ -1919,6 +1923,7 @@
             'linear-gradient(180deg,rgba(10,12,18,.05),rgba(10,12,18,.02)),url("' +
             item.url.replace(/"/g, "%22") + '")';
           slot.dataset.mediaType = "image";
+          slot.dataset.backgroundKey = backgroundKey(item);
           return;
         }
 
@@ -1938,6 +1943,7 @@
           if (!loaded) throw new Error("YouTube preload timed out");
           await new Promise(resolve => setTimeout(resolve, 1100));
           slot.dataset.mediaType = "youtube";
+          slot.dataset.backgroundKey = backgroundKey(item);
           return;
         }
 
@@ -1967,6 +1973,7 @@
         startAtIntroSkip();
         video.play().catch(() => {});
         slot.dataset.mediaType = "video";
+        slot.dataset.backgroundKey = backgroundKey(item);
       }
 
       function updateYoutubeHitArea() {
@@ -1984,12 +1991,15 @@
         const token = ++backgroundTransitionToken;
         const nextSlot = activeBackgroundSlot === backgroundSlotA ? backgroundSlotB : backgroundSlotA;
         const oldSlot = activeBackgroundSlot;
+        const alreadyPrepared = nextSlot.dataset.backgroundKey === nextKey;
 
-        try {
-          await prepareBackgroundInSlot(nextSlot, item);
-        } catch {
-          clearBackgroundSlot(nextSlot);
-          return false;
+        if (!alreadyPrepared) {
+          try {
+            await prepareBackgroundInSlot(nextSlot, item);
+          } catch {
+            clearBackgroundSlot(nextSlot);
+            return false;
+          }
         }
 
         if (token !== backgroundTransitionToken) {
@@ -2067,33 +2077,60 @@
 
       function scheduleBackgroundCycle() {
         clearTimeout(backgroundCycleTimer);
+        clearTimeout(backgroundPreloadTimer);
         backgroundCycleTimer = null;
+        backgroundPreloadTimer = null;
 
         const ids = rotatingBackgroundIds();
         if (settings.backgroundMode !== "rotate" || ids.length < 2) return;
 
         const minutes = Number(settings.backgroundCycleMinutes) || 15;
+        const cycleMs = minutes * 60 * 1000;
+        const nextId = nextRotatingBackgroundId();
+        const nextItem = settings.backgrounds.find(item => item.id === nextId) || null;
+        if (!nextItem) return;
+
+        const preloadToken = ++backgroundPreloadToken;
+        const preloadLeadMs = Math.min(15000, Math.max(1000, cycleMs - 1000));
+        const preloadDelay = Math.max(0, cycleMs - preloadLeadMs);
+
+        backgroundPreloadTimer = setTimeout(async () => {
+          const nextSlot = activeBackgroundSlot === backgroundSlotA ? backgroundSlotB : backgroundSlotA;
+
+          try {
+            await prepareBackgroundInSlot(nextSlot, nextItem);
+          } catch {
+            clearBackgroundSlot(nextSlot);
+            return;
+          }
+
+          if (preloadToken !== backgroundPreloadToken || nextSlot === activeBackgroundSlot) {
+            clearBackgroundSlot(nextSlot);
+          }
+        }, preloadDelay);
+
         backgroundCycleTimer = setTimeout(async () => {
-          const nextId = nextRotatingBackgroundId();
-          if (!nextId) return;
+          const currentNextItem = settings.backgrounds.find(item => item.id === nextId) || null;
+          if (!currentNextItem) {
+            scheduleBackgroundCycle();
+            return;
+          }
 
           const previousId = settings.selectedBackgroundId;
-          settings.selectedBackgroundId = nextId;
-          persistSettings();
-          renderBackgroundPicker();
+          const shown = await showBackgroundItem(currentNextItem, { fade: true });
 
-          const nextItem = selectedBackground();
-          const alreadyShowingSameMedia = activeBackgroundKey === backgroundKey(nextItem);
-          const shown = await showBackgroundItem(nextItem, { fade: true });
-
-          if (!shown && !alreadyShowingSameMedia) {
+          if (shown || activeBackgroundKey === backgroundKey(currentNextItem)) {
+            settings.selectedBackgroundId = nextId;
+            persistSettings();
+            renderBackgroundPicker();
+          } else {
             settings.selectedBackgroundId = previousId;
             persistSettings();
             renderBackgroundPicker();
           }
 
           scheduleBackgroundCycle();
-        }, minutes * 60 * 1000);
+        }, cycleMs);
       }
 
       async function applySelectedBackground({ force = false, fade = true } = {}) {
@@ -3668,6 +3705,7 @@
         const beforeBackgroundKey = beforeBackground
           ? beforeBackground.type + ":" + beforeBackground.url
           : "none";
+        const beforeRotateIds = JSON.stringify(rotatingBackgroundIds());
         const beforeMusic = selectedMusic();
         const beforeMusicKey = beforeMusic ? beforeMusic.url : "none";
 
@@ -3680,11 +3718,15 @@
           const afterBackgroundKey = afterBackground
             ? afterBackground.type + ":" + afterBackground.url
             : "none";
-          resetBackgroundShuffle();
+          const afterRotateIds = JSON.stringify(rotatingBackgroundIds());
+
+          if (afterRotateIds !== beforeRotateIds) {
+            resetBackgroundShuffle();
+            scheduleBackgroundCycle();
+          }
+
           if (afterBackgroundKey !== beforeBackgroundKey) {
             applySelectedBackground({ fade: true });
-          } else {
-            scheduleBackgroundCycle();
           }
 
           const afterMusic = selectedMusic();
