@@ -1005,6 +1005,7 @@
               <span class="chevron" aria-hidden="true"></span>
             </button>
             <div class="custom-select-menu" id="weather-source-menu">
+              <button class="custom-option" type="button" data-value="openmeteo">Open-Meteo</button>
               <button class="custom-option" type="button" data-value="nws">NOAA / National Weather Service</button>
               <button class="custom-option" type="button" data-value="nbm">NOAA NBM</button>
               <button class="custom-option" type="button" data-value="gfs">NOAA HRRR + GFS</button>
@@ -1178,6 +1179,7 @@
       };
 
       const WEATHER_SOURCES = {
+        openmeteo: { label: "Open-Meteo" },
         nws: { label: "NOAA / National Weather Service" },
         nbm: { label: "NOAA NBM" },
         gfs: { label: "NOAA HRRR + GFS" },
