@@ -1,10 +1,82 @@
+/* Live ESPN headline ticker ---------------------------------------------- */
+.sports-headline-ticker {
+  position: absolute;
+  z-index: 2;
+  left: 9.8%;
+  right: 9.8%;
+  top: 47.7%;
+  height: 5.2cqw;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  pointer-events: none;
+  color: rgba(255,255,255,.94);
+  text-shadow: 0 1px 3px rgba(0,0,0,.34);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+}
+.sports-headline-ticker[hidden] { display: none; }
+
+.sports-headline-track {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+}
+.sports-headline-track.running {
+  animation: sports-headline-scroll var(--headline-duration, 60s) linear infinite;
+}
+
+.sports-headline-group {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding-right: 4.4cqw;
+}
+.sports-headline-item {
+  display: inline-flex;
+  align-items: center;
+  gap: .52cqw;
+  margin-right: 2.05cqw;
+  font-size: .82cqw;
+  font-weight: 520;
+  letter-spacing: .008em;
+}
+.sports-headline-league {
+  flex: 0 0 auto;
+  padding: .16cqw .42cqw;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 999px;
+  background: rgba(12,14,20,.28);
+  color: rgba(255,255,255,.7);
+  font-size: .52cqw;
+  font-weight: 760;
+  letter-spacing: .07em;
+}
+.sports-headline-text {
+  color: rgba(255,255,255,.94);
+}
+.sports-headline-separator {
+  display: inline-block;
+  margin-left: 1.35cqw;
+  margin-right: .18cqw;
+  color: rgba(255,255,255,.34);
+  font-size: .72cqw;
+  line-height: 1;
+}
+@keyframes sports-headline-scroll {
+  from { transform: translate3d(0,0,0); }
+  to { transform: translate3d(-50%,0,0); }
+}
+
 /* Live sports modules ----------------------------------------------------- */
 .sports-zone {
   position: absolute;
   z-index: 2;
   left: 9.8%;
   right: 9.8%;
-  top: 53.4%;
+  top: 54.7%;
   bottom: 4.6%;
   display: grid;
   align-items: center;
