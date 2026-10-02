@@ -857,7 +857,7 @@
 
     .field[hidden] { display: none !important; }
 
-    .settings-help {    .settings-help {
+    .settings-help {
       margin-top: 8px;
       color: rgba(255,255,255,.55);
       font-size: 12px;
@@ -921,15 +921,16 @@
       width: 100%;
       height: 100%;
       overflow: visible;
+      color: #fff !important;
     }
     .wx-stroke {
-      stroke: #fff;
+      stroke: currentColor !important;
       stroke-width: 4.2;
-      fill: none;
+      fill: none !important;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-    .wx-fill { fill: #fff; }
+    .wx-fill { fill: currentColor !important; }
 
     @media (max-width: 900px), (max-height: 520px) {
       .weather-block { min-width: 0; width: 31%; }
@@ -1147,11 +1148,10 @@
 
         <div id="settings-meta" hidden></div>
 
-        <div class="settings-actions">
-          <button id="cancel-settings" type="button">Cancel</button>
-          <button id="save-settings" type="button">Save</button>
-        </div>
       </div>
+    </div>
+
+    <div id="status"      </div>
     </div>
 
     <div id="status" role="status" aria-live="polite"></div>
@@ -1263,8 +1263,6 @@
       const fontLabel = document.getElementById("font-label");
       const fontMenu = document.getElementById("font-menu");
       const metaEl = document.getElementById("settings-meta");
-      const saveSettings = document.getElementById("save-settings");
-      const cancelSettings = document.getElementById("cancel-settings");
       const statusEl = document.getElementById("status");
 
       let settings = loadSettings();
@@ -1272,6 +1270,8 @@
       let locationName = "";
       let statusTimer = null;
       let lastShiftPress = 0;
+      let coordinateSaveTimer = null;
+      let googleKeySaveTimer = null;
       let sharedStoreUrl = "";
       const backgroundTypeFilter = { image: true, video: true };
 
@@ -2012,7 +2012,7 @@
         if (kind === "snow") content = cloud + snow;
         if (kind === "fog") content = cloudStroke + fog;
 
-        return '<svg class="wx-svg" viewBox="0 0 64 64" aria-hidden="true">' + content + '</svg>';
+        return '<svg class="wx-svg" viewBox="0 0 64 64" aria-hidden="true" style="color:#fff">' + content + '</svg>';
       }
 
       function weatherKind(code) {
@@ -2615,13 +2615,6 @@
       }
 
       settingsButton.addEventListener("click", openSettings);
-      cancelSettings.addEventListener("click", () => {
-        // Discard unsaved coordinate/weather-source changes. Background preset
-        // changes are intentionally immediate and are already persisted.
-        settings = loadSettings();
-        applyFont();
-        closeSettings();
-      });
 
       weatherSourceButton.addEventListener("click", () => {
         weatherSourceSelect.classList.toggle("open");
@@ -2630,12 +2623,22 @@
         animationSelect.classList.remove("open");
         fontSelect.classList.remove("open");
       });
-      weatherSourceMenu.addEventListener("click", e => {
+      weatherSourceMenu.addEventListener("click", async e => {
         const option = e.target.closest(".custom-option");
         if (!option) return;
         settings.weatherSource = option.dataset.value;
         syncWeatherSourceUI();
         weatherSourceSelect.classList.remove("open");
+        persistSettings();
+
+        if (settings.weatherSource === "google" && !settings.googleWeatherApiKey) {
+          googleWeatherKeyInput.focus();
+          showStatus("Add Google Weather API key");
+          return;
+        }
+
+        await refreshWeather({ quiet: true });
+        showStatus("Weather source saved");
       });
 
       animationButton.addEventListener("click", () => {
@@ -2651,6 +2654,7 @@
         settings.clockAnimation = option.dataset.value;
         syncAnimationUI();
         animationSelect.classList.remove("open");
+        persistSettings();
       });
 
       fontButton.addEventListener("click", () => {
@@ -2667,6 +2671,7 @@
         applyFont();
         syncFontUI();
         fontSelect.classList.remove("open");
+        persistSettings();
       });
 
       backgroundButton.addEventListener("click", () => {
@@ -2983,35 +2988,60 @@
         }
       });
 
-      saveSettings.addEventListener("click", async () => {
+      async function saveCoordinatesNow({ notify = false } = {}) {
         let coords;
         try {
           coords = parseCoordinates(coordinatesInput.value);
-        } catch (error) {
-          showStatus(error.message || "Enter valid coordinates");
-          coordinatesInput.focus();
-          return;
+        } catch {
+          return false;
         }
 
-        settings.coordinates = formatCoordinates(coords);
-        settings.weatherSource = WEATHER_SOURCES[settings.weatherSource] ? settings.weatherSource : "best_match";
-        settings.googleWeatherApiKey = googleWeatherKeyInput.value.trim();
-        settings.clockAnimation = CLOCK_ANIMATIONS[settings.clockAnimation] ? settings.clockAnimation : DEFAULTS.clockAnimation;
-        settings.font = FONT_OPTIONS[settings.font] ? settings.font : DEFAULTS.font;
-
-        if (settings.weatherSource === "google" && !settings.googleWeatherApiKey) {
-          showStatus("Google Weather needs an API key");
-          googleWeatherKeyInput.focus();
-          return;
-        }
-
+        const formatted = formatCoordinates(coords);
+        settings.coordinates = formatted;
         persistSettings();
 
-        coordinatesInput.value = settings.coordinates;
-        showStatus("Loading weather…");
+        if (coordinatesInput.value.trim() !== formatted) {
+          coordinatesInput.value = formatted;
+        }
+
         await refreshWeather({ quiet: true });
-        closeSettings();
-        showStatus("Settings saved");
+        if (notify) showStatus("Location saved");
+        return true;
+      }
+
+      coordinatesInput.addEventListener("input", () => {
+        clearTimeout(coordinateSaveTimer);
+        coordinateSaveTimer = setTimeout(() => saveCoordinatesNow(), 650);
+      });
+      coordinatesInput.addEventListener("blur", () => {
+        clearTimeout(coordinateSaveTimer);
+        saveCoordinatesNow();
+      });
+      coordinatesInput.addEventListener("keydown", e => {
+        if (e.key === "Enter") {
+          clearTimeout(coordinateSaveTimer);
+          saveCoordinatesNow({ notify: true });
+          coordinatesInput.blur();
+        }
+      });
+
+      googleWeatherKeyInput.addEventListener("input", () => {
+        clearTimeout(googleKeySaveTimer);
+        googleKeySaveTimer = setTimeout(async () => {
+          settings.googleWeatherApiKey = googleWeatherKeyInput.value.trim();
+          persistSettings();
+          if (settings.weatherSource === "google" && settings.googleWeatherApiKey) {
+            await refreshWeather({ quiet: true });
+          }
+        }, 550);
+      });
+      googleWeatherKeyInput.addEventListener("blur", async () => {
+        clearTimeout(googleKeySaveTimer);
+        settings.googleWeatherApiKey = googleWeatherKeyInput.value.trim();
+        persistSettings();
+        if (settings.weatherSource === "google" && settings.googleWeatherApiKey) {
+          await refreshWeather({ quiet: true });
+        }
       });
 
       // Initial paint. Background/music lists are shared through one anonymous
