@@ -476,7 +476,7 @@
     }
     .background-cycle-options {
       display: grid;
-      grid-template-columns: repeat(8, minmax(0, 1fr));
+      grid-template-columns: repeat(9, minmax(0, 1fr));
       gap: 5px;
     }
     .background-cycle-option {
@@ -1211,6 +1211,7 @@
           <div class="background-cycle-field" id="background-cycle-field" hidden>
             <label>Cycle time (min)</label>
             <div class="background-cycle-options" id="background-cycle-menu">
+              <button class="background-cycle-option" type="button" data-minutes="0.5">30s</button>
               <button class="background-cycle-option" type="button" data-minutes="5">5</button>
               <button class="background-cycle-option" type="button" data-minutes="10">10</button>
               <button class="background-cycle-option selected" type="button" data-minutes="15">15</button>
@@ -1535,7 +1536,7 @@
             selectedBackgroundId = selectedBackgroundIds[0] || "";
           }
 
-          const allowedCycleMinutes = [5, 10, 15, 30, 45, 60, 90, 120];
+          const allowedCycleMinutes = [0.5, 5, 10, 15, 30, 45, 60, 90, 120];
           const savedCycleMinutes = Number(saved.backgroundCycleMinutes);
           const backgroundCycleMinutes = allowedCycleMinutes.includes(savedCycleMinutes)
             ? savedCycleMinutes
