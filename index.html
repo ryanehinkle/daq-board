@@ -1364,7 +1364,7 @@
               <span>Display size</span>
               <span id="display-size-value">100%</span>
             </div>
-            <input id="display-size-slider" type="range" min="80" max="120" step="1" value="100" aria-label="Display size" />
+            <input id="display-size-slider" type="range" min="67" max="133" step="1" value="100" aria-label="Display size" />
           </div>
         </div>
 
@@ -3171,8 +3171,9 @@
       }
 
       function applyDisplaySize(value) {
-        const percent = Math.min(120, Math.max(80, Number(value) || 100));
-        document.documentElement.style.setProperty("--display-scale", (percent / 100).toFixed(2));
+        const percent = Math.min(133, Math.max(67, Number(value) || 100));
+        const scale = (percent / 100) * 1.2;
+        document.documentElement.style.setProperty("--display-scale", scale.toFixed(3));
         displaySizeSlider.value = String(percent);
         displaySizeValue.textContent = Math.round(percent) + "%";
       }
