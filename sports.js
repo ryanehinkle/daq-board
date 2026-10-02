@@ -63,6 +63,7 @@
   const DEFAULTS = {
     enabled: true,
     expanded: true,
+    appearance: "monotone",
     leagues: {
       nfl: { enabled: true, mode: "cycle", cycleSeconds: 15, watchTeams: [] },
       mlb: { enabled: true, mode: "cycle", cycleSeconds: 15, watchTeams: [] },
@@ -96,6 +97,7 @@
       if (!raw || typeof raw !== "object") return base;
       base.enabled = raw.enabled !== false;
       base.expanded = raw.expanded !== false;
+      base.appearance = raw.appearance === "color" ? "color" : "monotone";
       for (const key of Object.keys(LEAGUES)) {
         const saved = raw.leagues?.[key] || {};
         const target = base.leagues[key];
@@ -162,33 +164,17 @@
     return d;
   }
 
-  function scoreboardUrls(league) {
-    if (league === "nfl") {
-      return [[
-        "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?limit=100"
-      ]];
-    }
-
+  function scoreboardUrlsForDate(league, date) {
+    const q = "?dates=" + dateKey(date) + "&limit=100";
     if (league === "mlb") {
-      const first = baseballDate();
-      const dates = [first, addDays(first, 1)];
-      return dates.map(day => {
-        const q = "?dates=" + dateKey(day) + "&limit=100";
-        return [
-          "https://site.web.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard" + q,
-          "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard" + q
-        ];
-      });
-    }
-
-    const today = new Date();
-    const dates = [addDays(today, -1), today, addDays(today, 1)];
-    return dates.map(day => {
-      const q = "?dates=" + dateKey(day) + "&limit=100";
       return [
-        "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard" + q
+        "https://site.web.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard" + q,
+        "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard" + q
       ];
-    });
+    }
+    return [
+      "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard" + q
+    ];
   }
 
   async function fetchJsonFallback(urls) {
@@ -205,21 +191,49 @@
     throw lastError || new Error("Score feed unavailable");
   }
 
-  async function fetchLeagueEvents(league) {
-    const payloads = await Promise.all(
-      scoreboardUrls(league).map(group => fetchJsonFallback(group).catch(() => null))
-    );
-    const validPayloads = payloads.filter(Boolean);
-    if (!validPayloads.length) throw new Error("Live score feed unavailable");
+  function eventsFromPayload(payload) {
+    return Array.isArray(payload?.events) ? payload.events.filter(event => event?.id) : [];
+  }
 
-    const byId = new Map();
-    for (const payload of validPayloads) {
-      for (const event of payload?.events || []) {
-        if (!event?.id) continue;
-        byId.set(String(event.id), event);
-      }
+  async function fetchLeagueEvents(league) {
+    if (league === "nfl") {
+      const payload = await fetchJsonFallback([
+        "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?limit=100"
+      ]);
+      return eventsFromPayload(payload);
     }
-    return Array.from(byId.values());
+
+    const anchor = league === "mlb" ? baseballDate() : new Date();
+
+    // NHL games can run past midnight. If yesterday still has a live game,
+    // keep that live slate visible instead of jumping ahead to today's schedule.
+    if (league === "nhl") {
+      const previousPayload = await fetchJsonFallback(
+        scoreboardUrlsForDate(league, addDays(anchor, -1))
+      ).catch(() => null);
+      const previousLive = eventsFromPayload(previousPayload).filter(event => {
+        const comp = pickCompetition(event);
+        return normalizeState(comp.status || event.status || {}) === "in";
+      });
+      if (previousLive.length) return previousLive;
+    }
+
+    // Only load/display one calendar slate at a time. Use today if it has games;
+    // otherwise walk forward until the next scheduled day (up to one week).
+    let hadSuccessfulRequest = false;
+    for (let offset = 0; offset <= 7; offset++) {
+      const day = addDays(anchor, offset);
+      const payload = await fetchJsonFallback(
+        scoreboardUrlsForDate(league, day)
+      ).catch(() => null);
+      if (!payload) continue;
+      hadSuccessfulRequest = true;
+      const events = eventsFromPayload(payload);
+      if (events.length) return events;
+    }
+
+    if (!hadSuccessfulRequest) throw new Error("Live score feed unavailable");
+    return [];
   }
 
   function pickCompetition(event) {
@@ -256,13 +270,33 @@
     return "";
   }
 
+  function cleanHexColor(value, fallback = "8e95a3") {
+    const raw = String(value || "").replace("#", "").trim();
+    return /^[0-9a-f]{6}$/i.test(raw) ? raw.toLowerCase() : fallback;
+  }
+
+  function hexRgb(value) {
+    const hex = cleanHexColor(value);
+    return [
+      parseInt(hex.slice(0,2), 16),
+      parseInt(hex.slice(2,4), 16),
+      parseInt(hex.slice(4,6), 16)
+    ].join(",");
+  }
+
   function normalizeCompetitor(league, competitor) {
     const team = competitor?.team || {};
+    const color = cleanHexColor(team.color || team.primaryColor || "8e95a3");
+    const alternateColor = cleanHexColor(team.alternateColor || team.secondaryColor || "d9dce3");
     return {
       id: String(team.id || competitor?.id || ""),
       code: normalizeCode(league, team.abbreviation || team.shortDisplayName || ""),
       name: team.shortDisplayName || team.displayName || team.name || "",
       logo: teamLogo(team),
+      color,
+      alternateColor,
+      colorRgb: hexRgb(color),
+      alternateRgb: hexRgb(alternateColor),
       score: safeNumber(competitor?.score, 0),
       winner: !!competitor?.winner,
       record: teamRecord(competitor),
@@ -317,6 +351,39 @@
     });
   }
 
+  function localDayKey(value) {
+    const date = value instanceof Date ? value : new Date(value);
+    if (!Number.isFinite(date.getTime())) return "";
+    return dateKey(date);
+  }
+
+  function oneDaySlate(league, games) {
+    if (league === "nfl" || games.length <= 1) return games;
+
+    const liveGames = games.filter(game => game.state === "in");
+    if (liveGames.length) {
+      const liveDay = localDayKey(liveGames[0].date);
+      return games.filter(game => localDayKey(game.date) === liveDay);
+    }
+
+    const anchor = league === "mlb" ? baseballDate() : new Date();
+    const anchorKey = dateKey(anchor);
+    const todayGames = games.filter(game => localDayKey(game.date) === anchorKey);
+    if (todayGames.length) return todayGames;
+
+    const futureKeys = Array.from(new Set(
+      games
+        .map(game => localDayKey(game.date))
+        .filter(key => key && key > anchorKey)
+    )).sort();
+
+    const chosen = futureKeys[0] || Array.from(new Set(
+      games.map(game => localDayKey(game.date)).filter(Boolean)
+    )).sort().at(-1);
+
+    return chosen ? games.filter(game => localDayKey(game.date) === chosen) : games;
+  }
+
   function displayGames(league) {
     const setting = config.leagues[league];
     let games = runtime[league].games;
@@ -325,6 +392,7 @@
       if (!selected.size) return [];
       games = games.filter(game => selected.has(game.away.code) || selected.has(game.home.code));
     }
+    games = oneDaySlate(league, games);
     return sortGames(games);
   }
 
@@ -405,14 +473,20 @@
     const scoreHtml = game.state === "pre"
       ? '<div class="sports-score future">—</div>'
       : '<div class="sports-score">' + escapeHtml(team.score) + '</div>';
-    return '<div class="sports-team-row' + (team.winner ? ' winner' : '') + '">' +
+    const winnerArrow = game.state === "post" && team.winner
+      ? '<span class="sports-winner-arrow" title="Winner" aria-label="Winner"></span>'
+      : "";
+    const rowStyle = '--team-color:#' + escapeAttr(team.color) +
+      ';--team-rgb:' + escapeAttr(team.colorRgb) +
+      ';--team-alt:#' + escapeAttr(team.alternateColor) + ';';
+    return '<div class="sports-team-row' + (team.winner ? ' winner' : '') + '" style="' + rowStyle + '">' +
       '<div class="sports-team-logo">' +
         (team.logo ? '<img src="' + escapeAttr(team.logo) + '" alt="" referrerpolicy="no-referrer">' : '') +
       '</div>' +
       '<div class="sports-team-main">' +
         '<div class="sports-team-code-line">' +
           '<span class="sports-team-code">' + escapeHtml(team.code || "—") + '</span>' +
-          possessionHtml + timeoutMarks +
+          winnerArrow + possessionHtml + timeoutMarks +
           (team.record ? '<span class="sports-record">' + escapeHtml(team.record) + '</span>' : '') +
         '</div>' +
         '<div class="sports-team-name">' + escapeHtml(team.name || "") + '</div>' +
@@ -519,16 +593,6 @@
     return "FINAL";
   }
 
-  function footerMode(league) {
-    const setting = config.leagues[league];
-    if (setting.mode === "watch") {
-      return setting.watchTeams.length
-        ? "WATCH • " + setting.watchTeams.join(", ")
-        : "WATCH";
-    }
-    return "CYCLE • " + setting.cycleSeconds + "s";
-  }
-
   function pageDots(index, total) {
     if (total <= 1) return "";
     if (total > 8) return '<span>' + (index + 1) + ' / ' + total + '</span>';
@@ -554,8 +618,7 @@
       module.dataset.gameId = "";
       module.innerHTML =
         '<div class="sports-module-head"><span class="sports-league-name">' + LEAGUES[league].label + '</span><span class="sports-state">—</span></div>' +
-        '<div class="sports-empty">' + escapeHtml(message) + '</div>' +
-        '<div class="sports-module-foot"><span>' + escapeHtml(footerMode(league)) + '</span><span></span></div>';
+        '<div class="sports-empty">' + escapeHtml(message) + '</div>';
       return;
     }
 
@@ -568,6 +631,8 @@
     const game = games[index];
     const changedGame = module.dataset.gameId && module.dataset.gameId !== game.id;
     module.dataset.gameId = game.id;
+    module.style.setProperty("--away-rgb", game.away.colorRgb || "142,149,163");
+    module.style.setProperty("--home-rgb", game.home.colorRgb || "142,149,163");
 
     let center = "";
     let detail = "";
@@ -594,10 +659,9 @@
         '<div class="sports-center-line">' + center + '</div>' +
         '<div class="sports-detail-line">' + detail + '</div>' +
       '</div>' +
-      '<div class="sports-module-foot">' +
-        '<span>' + escapeHtml(footerMode(league)) + '</span>' +
-        pageDots(index, games.length) +
-      '</div>';
+      (games.length > 1
+        ? '<div class="sports-module-foot">' + pageDots(index, games.length) + '</div>'
+        : '');
 
     if (changedGame) {
       module.classList.remove("switching");
@@ -616,6 +680,7 @@
     const enabled = enabledLeagueKeys();
     zone.hidden = enabled.length === 0;
     zone.dataset.count = String(enabled.length || 1);
+    zone.classList.toggle("color-mode", config.appearance === "color");
 
     for (const key of Object.keys(LEAGUES)) {
       let module = zone.querySelector('[data-sports-league="' + key + '"]');
@@ -799,6 +864,13 @@
           switchHtml("sports-master-enabled", config.enabled, "Show sports scores") +
         '</div>' +
         '<div class="sports-settings-panel">' +
+          '<div class="sports-style-setting">' +
+            '<span class="sports-setting-label">Style</span>' +
+            '<div class="sports-segmented">' +
+              '<button type="button" data-sports-appearance="monotone" class="' + (config.appearance === "monotone" ? 'active' : '') + '">Monotone</button>' +
+              '<button type="button" data-sports-appearance="color" class="' + (config.appearance === "color" ? 'active' : '') + '">Color</button>' +
+            '</div>' +
+          '</div>' +
           Object.keys(LEAGUES).map(leagueSettingsHtml).join("") +
         '</div>' +
       '</div>';
@@ -817,6 +889,13 @@
     const expand = event.target.closest("[data-sports-expand]");
     if (expand) {
       config.expanded = !config.expanded;
+      afterConfigChange();
+      return;
+    }
+
+    const appearance = event.target.closest("[data-sports-appearance]");
+    if (appearance) {
+      config.appearance = appearance.dataset.sportsAppearance === "color" ? "color" : "monotone";
       afterConfigChange();
       return;
     }
