@@ -214,7 +214,7 @@
     // Load the coming week into memory, then displayGames() chooses exactly one
     // day after applying Watch filters. This lets a watched team jump to its next
     // game even when other NHL/MLB teams are playing today.
-    for (let offset = 0; offset <= 7; offset++) {
+    for (let offset = 0; offset <= 14; offset++) {
       groups.push({ day: addDays(anchor, offset), previous: false });
     }
 
@@ -627,7 +627,8 @@
       module.dataset.gameId = "";
       module.innerHTML =
         '<div class="sports-module-head"><span class="sports-league-name">' + LEAGUES[league].label + '</span><span class="sports-state">—</span></div>' +
-        '<div class="sports-empty">' + escapeHtml(message) + '</div>';
+        '<div class="sports-empty">' + escapeHtml(message) + '</div>' +
+        '<div class="sports-module-foot"></div>';
       return;
     }
 
