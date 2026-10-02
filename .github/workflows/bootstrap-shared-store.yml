@@ -72,3 +72,14 @@ jobs:
           url="$(python -c 'import json; print(json.load(open("shared-store.json"))["url"])')"
           echo "Testing $url"
           curl -sS -D - -o /dev/null -X OPTIONS "$url"             -H "Origin: https://ryanehinkle.github.io"             -H "Access-Control-Request-Method: PUT"             -H "Access-Control-Request-Headers: content-type"
+
+      - name: Test jsonblob.com browser CORS
+        shell: bash
+        run: |
+          set -euo pipefail
+          headers="$(mktemp)"
+          body="$(mktemp)"
+          curl --fail-with-body --silent --show-error -D "$headers" -o "$body"             -X POST "https://jsonblob.com/api/jsonBlob"             -H "Content-Type: application/json"             --data '{"test":true}'
+          location="$(awk 'BEGIN{IGNORECASE=1} /^Location:/ {gsub("\r","",$2); print $2}' "$headers" | tail -n 1)"
+          echo "Location: $location"
+          curl -sS -D - -o /dev/null -X OPTIONS "$location"             -H "Origin: https://ryanehinkle.github.io"             -H "Access-Control-Request-Method: PUT"             -H "Access-Control-Request-Headers: content-type"
