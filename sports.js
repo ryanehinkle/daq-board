@@ -636,7 +636,7 @@
     if (index < 0) {
       index = 0;
       rt.currentGameId = games[0].id;
-      rt.nextCycleAt = Date.now() + config.leagues[league].cycleSeconds * 1000;
+      rt.nextCycleAt = nextCycleBoundary(config.leagues[league].cycleSeconds);
     }
     const game = games[index];
     const changedGame = module.dataset.gameId && module.dataset.gameId !== game.id;
@@ -776,10 +776,15 @@
     }
   }
 
+  function nextCycleBoundary(seconds, now = Date.now()) {
+    const period = Math.max(1, Number(seconds) || 15) * 1000;
+    return Math.floor(now / period) * period + period;
+  }
+
   function resetCycle(league, clearGame = false) {
     const rt = runtime[league];
     if (clearGame) rt.currentGameId = "";
-    rt.nextCycleAt = Date.now() + config.leagues[league].cycleSeconds * 1000;
+    rt.nextCycleAt = nextCycleBoundary(config.leagues[league].cycleSeconds);
     renderLeague(league);
   }
 
@@ -792,13 +797,13 @@
       const games = displayGames(league);
       if (games.length <= 1) continue;
       const rt = runtime[league];
-      if (!rt.nextCycleAt) rt.nextCycleAt = now + setting.cycleSeconds * 1000;
+      if (!rt.nextCycleAt) rt.nextCycleAt = nextCycleBoundary(setting.cycleSeconds, now);
       if (now < rt.nextCycleAt) continue;
       let index = games.findIndex(game => game.id === rt.currentGameId);
       if (index < 0) index = 0;
       index = (index + 1) % games.length;
       rt.currentGameId = games[index].id;
-      rt.nextCycleAt = now + setting.cycleSeconds * 1000;
+      rt.nextCycleAt = nextCycleBoundary(setting.cycleSeconds, now);
       renderLeague(league);
     }
   }, 350);
