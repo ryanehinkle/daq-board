@@ -618,14 +618,29 @@
       max-height: 285px;
       overflow-y: auto;
     }
-    .music-menu-toolbar {
+    .music-menu-top {
       position: sticky;
       top: 0;
       z-index: 3;
       display: flex;
-      justify-content: flex-end;
-      padding: 5px 4px 8px;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 4px 6px;
       background: rgba(30,32,39,.98);
+    }
+    .music-menu-top .background-option {
+      width: auto;
+      flex: 1 1 auto;
+      min-width: 0;
+      min-height: 44px;
+    }
+    .music-menu-top .background-thumb {
+      width: 54px;
+      height: 32px;
+    }
+    .music-menu-top .background-menu-add {
+      flex: 0 0 34px;
+      margin-left: 0;
     }
     .music-editor {
       max-height: 0;
@@ -2270,15 +2285,13 @@
           : '<span class="background-thumb video-generic">♪</span>' +
             '<span class="background-title">No music</span>';
 
-        const toolbar =
-          '<div class="music-menu-toolbar">' +
+        const topRow =
+          '<div class="music-menu-top">' +
+            '<div class="background-option' + (!current ? ' selected' : '') + '" data-music-none>' +
+              '<span class="background-thumb video-generic">♪</span>' +
+              '<span class="background-title">No music</span>' +
+            '</div>' +
             '<button class="background-menu-add" type="button" data-add-music aria-label="Add music" title="Add music">+</button>' +
-          '</div>';
-
-        const noneRow =
-          '<div class="background-option' + (!current ? ' selected' : '') + '" data-music-none>' +
-            '<span class="background-thumb video-generic">♪</span>' +
-            '<span class="background-title">No music</span>' +
           '</div>';
 
         const rows = settings.music.map(item => {
@@ -2296,7 +2309,7 @@
           '</div>';
         }).join("");
 
-        musicMenu.innerHTML = toolbar + noneRow + rows;
+        musicMenu.innerHTML = topRow + rows;
 
         if (animateRows) {
           requestAnimationFrame(() => {
