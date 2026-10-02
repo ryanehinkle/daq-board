@@ -66,7 +66,7 @@
 
   const DEFAULTS = {
     enabled: true,
-    expanded: true,
+    expanded: false,
     appearance: "monotone",
     showBoxes: true,
     headlineMode: "scroll",
@@ -102,7 +102,7 @@
       const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
       if (!raw || typeof raw !== "object") return base;
       base.enabled = raw.enabled !== false;
-      base.expanded = raw.expanded !== false;
+      base.expanded = false;
       base.appearance = raw.appearance === "color" ? "color" : "monotone";
       base.showBoxes = raw.showBoxes !== false;
       base.headlineMode = raw.headlineMode === "static" ? "static" : "scroll";
@@ -856,11 +856,16 @@
     return "ESPN";
   }
 
-  const FALLBACK_HEADLINES_URL = "https://now.core.api.espn.com/v1/sports/news?limit=50";
+  const FALLBACK_HEADLINE_URLS = [
+    ["NFL", "https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?limit=12"],
+    ["MLB", "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/news?limit=12"],
+    ["NHL", "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/news?limit=12"],
+    ["NBA", "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/news?limit=12"]
+  ];
 
   function isTopHeadlineStyle(headline) {
     const text = String(headline || "").trim();
-    if (!text) return false;
+    if (!text || text.length < 12) return false;
 
     const reject = [
       /\bfantasy\b/i,
@@ -880,58 +885,55 @@
       /\bmock draft\b/i,
       /\bd\/st\b/i,
       /\bidp\b/i,
-      /\bfantasy football buzz\b/i,
       /\bwhat to watch\b/i,
-      /\bhow will .* affect\b/i
+      /\bpreview\b/i,
+      /\bexpert picks?\b/i,
+      /\bhow to watch\b/i,
+      /\bstreaming\b/i
     ];
     return !reject.some(pattern => pattern.test(text));
   }
 
-  function normalizedFallbackHeadline(article) {
-    const headline = String(
-      article?.headline ||
-      article?.story?.headline ||
-      article?.title ||
-      article?.story?.title ||
-      ""
-    ).trim();
-
+  function normalizedLeagueHeadline(article, league) {
+    const headline = String(article?.headline || article?.story?.headline || "").trim();
     if (!isTopHeadlineStyle(headline)) return null;
     return {
-      league: headlineLeague(article),
+      league,
       headline,
       timestamp: articleTimestamp(article)
     };
   }
 
   async function fetchFallbackHeadlines() {
-    const response = await fetch(FALLBACK_HEADLINES_URL, {
-      cache: "no-store",
-      credentials: "omit"
-    });
-    if (!response.ok) throw new Error("Fallback HTTP " + response.status);
+    const settled = await Promise.allSettled(
+      FALLBACK_HEADLINE_URLS.map(async ([league, url]) => {
+        const response = await fetch(url, { cache: "no-store", credentials: "omit" });
+        if (!response.ok) throw new Error(league + " HTTP " + response.status);
+        const payload = await response.json();
+        const items = Array.isArray(payload?.articles)
+          ? payload.articles
+          : Array.isArray(payload?.headlines)
+            ? payload.headlines
+            : [];
+        return items.map(article => normalizedLeagueHeadline(article, league)).filter(Boolean);
+      })
+    );
 
-    const payload = await response.json();
-    const sourceItems = Array.isArray(payload?.headlines)
-      ? payload.headlines
-      : Array.isArray(payload?.articles)
-        ? payload.articles
-        : [];
+    const rows = settled
+      .filter(result => result.status === "fulfilled")
+      .flatMap(result => result.value)
+      .sort((a, b) => b.timestamp - a.timestamp);
 
     const unique = [];
     const seen = new Set();
-    sourceItems
-      .map(normalizedFallbackHeadline)
-      .filter(Boolean)
-      .sort((a, b) => b.timestamp - a.timestamp)
-      .forEach(item => {
-        const key = item.headline.toLowerCase();
-        if (seen.has(key)) return;
-        seen.add(key);
-        unique.push(item);
-      });
-
-    return unique.slice(0, 14);
+    for (const item of rows) {
+      const key = item.headline.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      unique.push(item);
+      if (unique.length >= 14) break;
+    }
+    return unique;
   }
 
   function slotNumber(value) {
@@ -953,7 +955,6 @@
         node.pzncon_collection_id_type ||
         node.collectionType ||
         node.header?.title ||
-        node.title ||
         ""
       ).trim().toUpperCase();
 
@@ -964,11 +965,11 @@
         node.id
       ].map(value => String(value ?? ""));
 
-      const isTopContainer =
-        insideTopCollection ||
+      const startsTopCollection =
         collectionType === "TOP HEADLINES" ||
         ids.includes(TOP_HEADLINES_COLLECTION_ID) ||
         ids.includes("45672706");
+      const inTopCollection = insideTopCollection || startsTopCollection;
 
       const presentation = String(
         node.pzncon_presentation_type ||
@@ -977,24 +978,16 @@
         ""
       );
 
-      const headline = String(
-        node.headline ||
-        node.pzncon_content_title ||
-        node.story?.headline ||
-        ""
-      ).trim();
+      // ESPN's homepage rail exposes the visible text as pzncon_content_title
+      // on HeadlineNews records. Do not fall through to generic node titles,
+      // article labels, navigation links, or nested story metadata.
+      const headline = String(node.pzncon_content_title || node.headline || "").trim();
+      const isExactHeadlineRecord =
+        inTopCollection &&
+        /HeadlineNews/i.test(presentation) &&
+        isTopHeadlineStyle(headline);
 
-      const isHeadlineItem =
-        isTopContainer &&
-        headline &&
-        !/^(top headlines|collection)$/i.test(headline) &&
-        (
-          /HeadlineNews/i.test(presentation) ||
-          String(node.contentType || "").toLowerCase() === "now" ||
-          insideTopCollection
-        );
-
-      if (isHeadlineItem) {
+      if (isExactHeadlineRecord) {
         rows.push({
           league: headlineLeague(node),
           headline,
@@ -1005,12 +998,11 @@
       }
 
       for (const value of Object.values(node)) {
-        if (value && typeof value === "object") {
-          if (Array.isArray(value)) {
-            for (const child of value) visit(child, isTopContainer);
-          } else {
-            visit(value, isTopContainer);
-          }
+        if (!value || typeof value !== "object") continue;
+        if (Array.isArray(value)) {
+          for (const child of value) visit(child, inTopCollection);
+        } else {
+          visit(value, inTopCollection);
         }
       }
     }
@@ -1028,30 +1020,16 @@
         unique.push(item);
       });
 
-    return unique.slice(0, 14);
+    // Put the four leagues this board is built around first. Keep only a few
+    // genuine homepage-wide stories after those; never pull cricket/soccer/etc.
+    const core = unique.filter(item => ["NFL", "MLB", "NHL", "NBA"].includes(item.league));
+    const broad = unique.filter(item => item.league === "ESPN").slice(0, 3);
+    return [...core, ...broad].slice(0, 14);
   }
 
   function clearStaticHeadlineTimer() {
     clearTimeout(staticHeadlineTimer);
     staticHeadlineTimer = null;
-  }
-
-  function fitStaticHeadline() {
-    if (!ticker || !tickerTrack || config.headlineMode !== "static") return;
-    const row = tickerTrack.querySelector(".sports-headline-static");
-    const textNode = tickerTrack.querySelector(".sports-headline-static-text");
-    if (!row || !textNode) return;
-
-    textNode.style.fontSize = "";
-    const baseSize = parseFloat(getComputedStyle(textNode).fontSize) || 28;
-    const minSize = baseSize * 0.56;
-    let size = baseSize;
-    const maxWidth = ticker.clientWidth * 0.94;
-
-    while (row.scrollWidth > maxWidth && size > minSize) {
-      size -= 0.5;
-      textNode.style.fontSize = size.toFixed(1) + "px";
-    }
   }
 
   function renderStaticHeadline() {
@@ -1074,7 +1052,6 @@
     ticker.hidden = false;
 
     requestAnimationFrame(() => {
-      fitStaticHeadline();
       const row = tickerTrack.querySelector(".sports-headline-static");
       if (row) {
         row.classList.remove("entering");
@@ -1353,7 +1330,7 @@
       '<div class="sports-settings-wrap' + (config.expanded ? ' expanded' : '') + '">' +
         '<div class="sports-settings-head">' +
           '<button type="button" class="sports-expand-button" data-sports-expand>' +
-            '<span>Show sports scores</span><span class="sports-expand-caret" aria-hidden="true"></span>' +
+            '<span>Sports settings</span><span class="sports-expand-caret" aria-hidden="true"></span>' +
           '</button>' +
           switchHtml("sports-master-enabled", config.enabled, "Show sports scores") +
         '</div>' +
@@ -1488,6 +1465,18 @@
       }
     }
   });
+
+  const dashboardSettings = document.getElementById("settings");
+  if (dashboardSettings) {
+    const settingsObserver = new MutationObserver(() => {
+      if (dashboardSettings.classList.contains("open") && config.expanded) {
+        config.expanded = false;
+        saveSettings();
+        renderSettings();
+      }
+    });
+    settingsObserver.observe(dashboardSettings, { attributes: true, attributeFilter: ["class"] });
+  }
 
   renderSettings();
   renderAllModules();
