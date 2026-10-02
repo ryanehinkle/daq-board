@@ -209,8 +209,11 @@
     const payloads = await Promise.all(
       scoreboardUrls(league).map(group => fetchJsonFallback(group).catch(() => null))
     );
+    const validPayloads = payloads.filter(Boolean);
+    if (!validPayloads.length) throw new Error("Live score feed unavailable");
+
     const byId = new Map();
-    for (const payload of payloads) {
+    for (const payload of validPayloads) {
       for (const event of payload?.events || []) {
         if (!event?.id) continue;
         byId.set(String(event.id), event);
