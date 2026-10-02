@@ -1,0 +1,29 @@
+name: Test AccuWeather public access
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/test-accu.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test public endpoints
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "=== DIRECT SEARCH ==="
+          curl -sS -L -A "Mozilla/5.0" -D /tmp/h1 -o /tmp/b1             "https://www.accuweather.com/en/search-locations?query=41.80803%2C-88.20902" || true
+          tail -n +1 /tmp/h1 | head -40
+          echo "BODY BYTES $(wc -c < /tmp/b1)"
+          head -c 1000 /tmp/b1 || true
+          echo
+          echo "=== ALLORIGINS ==="
+          target="https://www.accuweather.com/en/search-locations?query=41.80803%2C-88.20902"
+          enc="$(python -c 'import urllib.parse; print(urllib.parse.quote("'"$target"'", safe=""))')"
+          curl -sS -L -D /tmp/h2 -o /tmp/b2 "https://api.allorigins.win/raw?url=$enc" || true
+          tail -n +1 /tmp/h2 | head -40
+          echo "BODY BYTES $(wc -c < /tmp/b2)"
+          head -c 1000 /tmp/b2 || true
