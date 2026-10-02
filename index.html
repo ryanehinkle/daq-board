@@ -471,6 +471,37 @@
     .background-cycle-field[hidden] {
       display: none;
     }
+    .background-cycle-field > label {
+      margin-bottom: 6px;
+    }
+    .background-cycle-options {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      gap: 5px;
+    }
+    .background-cycle-option {
+      min-width: 0;
+      height: 32px;
+      padding: 0;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 8px;
+      cursor: pointer;
+      color: rgba(255,255,255,.66);
+      background: rgba(255,255,255,.045);
+      font: inherit;
+      font-size: 11px;
+      font-weight: 650;
+      transition: color .14s ease, background .14s ease, border-color .14s ease;
+    }
+    .background-cycle-option:hover {
+      color: #fff;
+      background: rgba(255,255,255,.09);
+    }
+    .background-cycle-option.selected {
+      color: #fff;
+      border-color: rgba(255,255,255,.28);
+      background: rgba(255,255,255,.16);
+    }
 
     .custom-select {
       position: relative;
@@ -1178,20 +1209,16 @@
           </div>
 
           <div class="background-cycle-field" id="background-cycle-field" hidden>
-            <label>Cycle time</label>
-            <div class="custom-select" id="background-cycle-select">
-              <button class="custom-select-button" id="background-cycle-button" type="button">
-                <span id="background-cycle-label">15 minutes</span>
-                <span class="chevron" aria-hidden="true"></span>
-              </button>
-              <div class="custom-select-menu" id="background-cycle-menu">
-                <button class="custom-option" type="button" data-minutes="15">15 minutes</button>
-                <button class="custom-option" type="button" data-minutes="30">30 minutes</button>
-                <button class="custom-option" type="button" data-minutes="45">45 minutes</button>
-                <button class="custom-option" type="button" data-minutes="60">1 hour</button>
-                <button class="custom-option" type="button" data-minutes="90">1 hour 30 minutes</button>
-                <button class="custom-option" type="button" data-minutes="120">2 hours</button>
-              </div>
+            <label>Cycle time (min)</label>
+            <div class="background-cycle-options" id="background-cycle-menu">
+              <button class="background-cycle-option" type="button" data-minutes="5">5</button>
+              <button class="background-cycle-option" type="button" data-minutes="10">10</button>
+              <button class="background-cycle-option selected" type="button" data-minutes="15">15</button>
+              <button class="background-cycle-option" type="button" data-minutes="30">30</button>
+              <button class="background-cycle-option" type="button" data-minutes="45">45</button>
+              <button class="background-cycle-option" type="button" data-minutes="60">60</button>
+              <button class="background-cycle-option" type="button" data-minutes="90">90</button>
+              <button class="background-cycle-option" type="button" data-minutes="120">120</button>
             </div>
           </div>
         </div>
@@ -1397,9 +1424,6 @@
       const cancelBackgroundButton = document.getElementById("cancel-background");
       const confirmBackgroundButton = document.getElementById("confirm-background");
       const backgroundCycleField = document.getElementById("background-cycle-field");
-      const backgroundCycleSelect = document.getElementById("background-cycle-select");
-      const backgroundCycleButton = document.getElementById("background-cycle-button");
-      const backgroundCycleLabel = document.getElementById("background-cycle-label");
       const backgroundCycleMenu = document.getElementById("background-cycle-menu");
       const musicFrame = document.getElementById("youtube-music-frame");
       const musicSelect = document.getElementById("music-select");
@@ -1511,7 +1535,7 @@
             selectedBackgroundId = selectedBackgroundIds[0] || "";
           }
 
-          const allowedCycleMinutes = [15, 30, 45, 60, 90, 120];
+          const allowedCycleMinutes = [5, 10, 15, 30, 45, 60, 90, 120];
           const savedCycleMinutes = Number(saved.backgroundCycleMinutes);
           const backgroundCycleMinutes = allowedCycleMinutes.includes(savedCycleMinutes)
             ? savedCycleMinutes
@@ -2146,14 +2170,6 @@
         });
       }
 
-      function formatBackgroundCycleLabel(minutes) {
-        const value = Number(minutes);
-        if (value === 60) return "1 hour";
-        if (value === 90) return "1 hour 30 minutes";
-        if (value === 120) return "2 hours";
-        return value + " minutes";
-      }
-
       function syncBackgroundModeUI() {
         const rotate = settings.backgroundMode === "rotate";
         backgroundModeStatic.classList.toggle("active", !rotate);
@@ -2163,9 +2179,10 @@
         backgroundCycleField.hidden = !rotate;
 
         const minutes = Number(settings.backgroundCycleMinutes) || 15;
-        backgroundCycleLabel.textContent = formatBackgroundCycleLabel(minutes);
         backgroundCycleMenu.querySelectorAll("[data-minutes]").forEach(option => {
-          option.classList.toggle("selected", Number(option.dataset.minutes) === minutes);
+          const selected = Number(option.dataset.minutes) === minutes;
+          option.classList.toggle("selected", selected);
+          option.setAttribute("aria-pressed", String(selected));
         });
       }
 
@@ -3085,7 +3102,6 @@
         musicEditor.classList.remove("open");
         weatherSourceSelect.classList.remove("open");
         backgroundSelect.classList.remove("open");
-        backgroundCycleSelect.classList.remove("open");
         musicSelect.classList.remove("open");
         animationSelect.classList.remove("open");
         fontSelect.classList.remove("open");
@@ -3097,7 +3113,6 @@
       function closeSettings() {
         weatherSourceSelect.classList.remove("open");
         backgroundSelect.classList.remove("open");
-        backgroundCycleSelect.classList.remove("open");
         musicSelect.classList.remove("open");
         animationSelect.classList.remove("open");
         fontSelect.classList.remove("open");
@@ -3170,15 +3185,6 @@
       backgroundModeStatic.addEventListener("click", () => setBackgroundMode("static"));
       backgroundModeRotate.addEventListener("click", () => setBackgroundMode("rotate"));
 
-      backgroundCycleButton.addEventListener("click", () => {
-        backgroundCycleSelect.classList.toggle("open");
-        backgroundSelect.classList.remove("open");
-        weatherSourceSelect.classList.remove("open");
-        musicSelect.classList.remove("open");
-        animationSelect.classList.remove("open");
-        fontSelect.classList.remove("open");
-      });
-
       backgroundCycleMenu.addEventListener("click", e => {
         const option = e.target.closest("[data-minutes]");
         if (!option) return;
@@ -3186,14 +3192,12 @@
         resetBackgroundShuffle();
         persistSettings();
         syncBackgroundModeUI();
-        backgroundCycleSelect.classList.remove("open");
         scheduleBackgroundCycle();
         showStatus("Cycle time saved");
       });
 
       backgroundButton.addEventListener("click", () => {
         backgroundSelect.classList.toggle("open");
-        backgroundCycleSelect.classList.remove("open");
         weatherSourceSelect.classList.remove("open");
         musicSelect.classList.remove("open");
         animationSelect.classList.remove("open");
@@ -3487,7 +3491,6 @@
       document.addEventListener("click", e => {
         if (!weatherSourceSelect.contains(e.target)) weatherSourceSelect.classList.remove("open");
         if (!backgroundSelect.contains(e.target)) backgroundSelect.classList.remove("open");
-        if (!backgroundCycleSelect.contains(e.target)) backgroundCycleSelect.classList.remove("open");
         if (!musicSelect.contains(e.target)) musicSelect.classList.remove("open");
         if (!animationSelect.contains(e.target)) animationSelect.classList.remove("open");
         if (!fontSelect.contains(e.target)) fontSelect.classList.remove("open");
@@ -3497,8 +3500,7 @@
         if (e.key === "Escape") {
           weatherSourceSelect.classList.remove("open");
           backgroundSelect.classList.remove("open");
-          backgroundCycleSelect.classList.remove("open");
-          musicSelect.classList.remove("open");
+            musicSelect.classList.remove("open");
           animationSelect.classList.remove("open");
           fontSelect.classList.remove("open");
           if (backgroundEditor.classList.contains("open")) {
