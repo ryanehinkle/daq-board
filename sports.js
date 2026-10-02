@@ -856,6 +856,84 @@
     return "ESPN";
   }
 
+  const FALLBACK_HEADLINES_URL = "https://now.core.api.espn.com/v1/sports/news?limit=50";
+
+  function isTopHeadlineStyle(headline) {
+    const text = String(headline || "").trim();
+    if (!text) return false;
+
+    const reject = [
+      /\bfantasy\b/i,
+      /\brankings?\b/i,
+      /\bpower rankings?\b/i,
+      /\bprojections?\b/i,
+      /\bwaiver(?: wire)?\b/i,
+      /\bsleepers?\b/i,
+      /\bdfs\b/i,
+      /\bstart ['’]?em\b/i,
+      /\bsit ['’]?em\b/i,
+      /\blineup advice\b/i,
+      /\bbest bets?\b/i,
+      /\bbetting guide\b/i,
+      /\bprop bets?\b/i,
+      /\bpicks against the spread\b/i,
+      /\bmock draft\b/i,
+      /\bd\/st\b/i,
+      /\bidp\b/i,
+      /\bfantasy football buzz\b/i,
+      /\bwhat to watch\b/i,
+      /\bhow will .* affect\b/i
+    ];
+    return !reject.some(pattern => pattern.test(text));
+  }
+
+  function normalizedFallbackHeadline(article) {
+    const headline = String(
+      article?.headline ||
+      article?.story?.headline ||
+      article?.title ||
+      article?.story?.title ||
+      ""
+    ).trim();
+
+    if (!isTopHeadlineStyle(headline)) return null;
+    return {
+      league: headlineLeague(article),
+      headline,
+      timestamp: articleTimestamp(article)
+    };
+  }
+
+  async function fetchFallbackHeadlines() {
+    const response = await fetch(FALLBACK_HEADLINES_URL, {
+      cache: "no-store",
+      credentials: "omit"
+    });
+    if (!response.ok) throw new Error("Fallback HTTP " + response.status);
+
+    const payload = await response.json();
+    const sourceItems = Array.isArray(payload?.headlines)
+      ? payload.headlines
+      : Array.isArray(payload?.articles)
+        ? payload.articles
+        : [];
+
+    const unique = [];
+    const seen = new Set();
+    sourceItems
+      .map(normalizedFallbackHeadline)
+      .filter(Boolean)
+      .sort((a, b) => b.timestamp - a.timestamp)
+      .forEach(item => {
+        const key = item.headline.toLowerCase();
+        if (seen.has(key)) return;
+        seen.add(key);
+        unique.push(item);
+      });
+
+    return unique.slice(0, 14);
+  }
+
   function slotNumber(value) {
     const text = String(value || "");
     const match = text.match(/(?:^|,)(\d+)$/);
@@ -1082,19 +1160,31 @@
     headlineFetching = true;
 
     try {
-      const response = await fetch(topHeadlinesUrl(), {
-        cache: "no-store",
-        credentials: "omit"
-      });
-      if (!response.ok) throw new Error("HTTP " + response.status);
+      let headlines = [];
 
-      const payload = await response.json();
-      const headlines = extractHomepageTopHeadlines(payload);
+      try {
+        const response = await fetch(topHeadlinesUrl(), {
+          cache: "no-store",
+          credentials: "omit"
+        });
+        if (!response.ok) throw new Error("HTTP " + response.status);
 
-      // Exact homepage collection only. Never substitute generic ESPN article feeds.
+        const payload = await response.json();
+        headlines = extractHomepageTopHeadlines(payload);
+      } catch {
+        // The personalized homepage endpoint can be blocked by embedded browsers/CORS.
+      }
+
+      // Never leave the ticker blank on a fresh load. If ESPN's exact homepage
+      // collection is unavailable, fall back to the reliable news endpoint and
+      // keep only straight-news headline styles (no fantasy/rankings/betting filler).
+      if (!headlines.length) {
+        headlines = await fetchFallbackHeadlines();
+      }
+
       if (headlines.length) renderHeadlines(headlines);
     } catch {
-      // Keep the last good exact Top Headlines set through a temporary feed hiccup.
+      // Preserve the last good set through a temporary ESPN/API hiccup.
     } finally {
       headlineFetching = false;
       if (config.enabled) {
