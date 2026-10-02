@@ -204,36 +204,45 @@
     }
 
     const anchor = league === "mlb" ? baseballDate() : new Date();
+    const groups = [];
 
-    // NHL games can run past midnight. If yesterday still has a live game,
-    // keep that live slate visible instead of jumping ahead to today's schedule.
+    // Keep a possible late-night NHL game from yesterday available.
     if (league === "nhl") {
-      const previousPayload = await fetchJsonFallback(
-        scoreboardUrlsForDate(league, addDays(anchor, -1))
-      ).catch(() => null);
-      const previousLive = eventsFromPayload(previousPayload).filter(event => {
-        const comp = pickCompetition(event);
-        return normalizeState(comp.status || event.status || {}) === "in";
-      });
-      if (previousLive.length) return previousLive;
+      groups.push({ day: addDays(anchor, -1), previous: true });
     }
 
-    // Only load/display one calendar slate at a time. Use today if it has games;
-    // otherwise walk forward until the next scheduled day (up to one week).
-    let hadSuccessfulRequest = false;
+    // Load the coming week into memory, then displayGames() chooses exactly one
+    // day after applying Watch filters. This lets a watched team jump to its next
+    // game even when other NHL/MLB teams are playing today.
     for (let offset = 0; offset <= 7; offset++) {
-      const day = addDays(anchor, offset);
-      const payload = await fetchJsonFallback(
-        scoreboardUrlsForDate(league, day)
-      ).catch(() => null);
-      if (!payload) continue;
+      groups.push({ day: addDays(anchor, offset), previous: false });
+    }
+
+    const payloads = await Promise.all(groups.map(async group => ({
+      ...group,
+      payload: await fetchJsonFallback(
+        scoreboardUrlsForDate(league, group.day)
+      ).catch(() => null)
+    })));
+
+    const byId = new Map();
+    let hadSuccessfulRequest = false;
+
+    for (const row of payloads) {
+      if (!row.payload) continue;
       hadSuccessfulRequest = true;
-      const events = eventsFromPayload(payload);
-      if (events.length) return events;
+
+      for (const event of eventsFromPayload(row.payload)) {
+        if (row.previous) {
+          const comp = pickCompetition(event);
+          if (normalizeState(comp.status || event.status || {}) !== "in") continue;
+        }
+        byId.set(String(event.id), event);
+      }
     }
 
     if (!hadSuccessfulRequest) throw new Error("Live score feed unavailable");
-    return [];
+    return Array.from(byId.values());
   }
 
   function pickCompetition(event) {
@@ -659,9 +668,7 @@
         '<div class="sports-center-line">' + center + '</div>' +
         '<div class="sports-detail-line">' + detail + '</div>' +
       '</div>' +
-      (games.length > 1
-        ? '<div class="sports-module-foot">' + pageDots(index, games.length) + '</div>'
-        : '');
+      '<div class="sports-module-foot">' + pageDots(index, games.length) + '</div>';
 
     if (changedGame) {
       module.classList.remove("switching");
