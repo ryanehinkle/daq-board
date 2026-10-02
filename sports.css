@@ -411,7 +411,7 @@
     );
 }
 .sports-zone.color-mode .sports-winner-arrow {
-  border-right-color: var(--team-color, #fff);
+  border-right-color: rgba(255,255,255,.96);
 }
 .sports-zone.color-mode .sports-state.live::before {
   background: #ff5365;
