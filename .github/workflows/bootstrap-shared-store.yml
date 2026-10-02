@@ -60,3 +60,15 @@ jobs:
           git add shared-store.json
           git commit -m "Bootstrap shared preset store [skip ci]"
           git push
+
+      - name: Verify browser CORS for shared store
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f shared-store.json ]; then
+            echo "shared-store.json will be created by the prior step and committed; skipping this run."
+            exit 0
+          fi
+          url="$(python -c 'import json; print(json.load(open("shared-store.json"))["url"])')"
+          echo "Testing $url"
+          curl -sS -D - -o /dev/null -X OPTIONS "$url"             -H "Origin: https://ryanehinkle.github.io"             -H "Access-Control-Request-Method: PUT"             -H "Access-Control-Request-Headers: content-type"
