@@ -16,6 +16,7 @@
       --pill: rgba(215,215,220,.42);
       --panel: rgba(20,22,28,.86);
       --display-scale: 1;
+      --board-fit-scale: 1;
     }
     * { box-sizing: border-box; }
     html, body {
@@ -33,13 +34,17 @@
       font: inherit;
     }
 
-    /* The dashboard itself always remains 16:9 and letterboxes on other screens. */
+    /* Fixed 1920x1080 design canvas. The whole board is uniformly scaled to fit
+       the viewport, so layout proportions never change across screens/aspect ratios. */
     #board {
       position: relative;
-      width: min(100vw, 177.777777vh);
-      height: min(100vh, 56.25vw);
+      width: 1920px;
+      height: 1080px;
+      flex: 0 0 auto;
       overflow: hidden;
       isolation: isolate;
+      transform: scale(var(--board-fit-scale));
+      transform-origin: center center;
       background: #222 center / cover no-repeat;
       color: var(--text);
       text-shadow: 0 1px 3px rgba(0,0,0,.18);
@@ -129,17 +134,17 @@
       letter-spacing: -.055em;
     }
     #clock-main {
-      font-size: clamp(76px, 8.2vw, 158px);
+      font-size: 157.44px;
     }
     #clock-seconds {
       margin-top: .02em;
-      font-size: clamp(34px, 3.35vw, 68px);
+      font-size: 64.32px;
       font-weight: 300;
       letter-spacing: -.04em;
     }
     #date-line {
       margin-top: 4.6%;
-      font-size: clamp(24px, 2.05vw, 40px);
+      font-size: 39.36px;
       font-weight: 400;
       letter-spacing: -.02em;
     }
@@ -173,7 +178,7 @@
       gap: 8px;
       color: #fff;
       font-family: var(--app-font);
-      font-size: clamp(17px, 1.18vw, 23px);
+      font-size: 22.656px;
       font-weight: 400;
       line-height: 1;
       letter-spacing: -.02em;
@@ -208,14 +213,14 @@
       stroke-linejoin: round;
     }
     #current-temp {
-      font-size: clamp(46px, 4.2vw, 82px);
+      font-size: 80.64px;
       font-weight: 300;
       letter-spacing: -.05em;
       line-height: 1;
     }
     #current-icon {
-      width: clamp(62px, 4.75vw, 92px);
-      height: clamp(62px, 4.75vw, 92px);
+      width: 91.2px;
+      height: 91.2px;
       display: grid;
       place-items: center;
     }
@@ -240,15 +245,15 @@
       padding: 0 13px;
       border-radius: 999px;
       background: var(--pill);
-      font-size: clamp(16px, 1.07vw, 22px);
+      font-size: 20.544px;
       font-weight: 650;
       line-height: 1;
       text-shadow: none;
       letter-spacing: .01em;
     }
     .day-icon {
-      width: clamp(46px, 3.1vw, 62px);
-      height: clamp(46px, 3.1vw, 62px);
+      width: 59.52px;
+      height: 59.52px;
       display: grid;
       place-items: center;
       margin: 8px auto 0;
@@ -258,7 +263,7 @@
       display: flex;
       justify-content: center;
       gap: 13px;
-      font-size: clamp(19px, 1.35vw, 27px);
+      font-size: 25.92px;
       line-height: 1;
       font-weight: 400;
     }
@@ -279,8 +284,8 @@
       position: absolute;
       top: 1.1%;
       right: .7%;
-      width: clamp(39px, 2.4vw, 48px);
-      height: clamp(39px, 2.4vw, 48px);
+      width: 46.08px;
+      height: 46.08px;
       border: 0;
       border-radius: 999px;
       display: grid;
@@ -350,7 +355,7 @@
         visibility 0s;
     }
     .settings-card {
-      width: min(440px, 34vw);
+      width: 440px;
       min-width: 350px;
       max-height: 88%;
       overflow-y: auto;
@@ -1104,12 +1109,6 @@
     }
     .wx-fill { fill: currentColor !important; }
 
-    @media (max-width: 900px), (max-height: 520px) {
-      .weather-block { min-width: 0; width: 31%; }
-      #forecast { gap: 7px; }
-      .day-label { min-width: 56px; height: 26px; padding: 0 8px; }
-      .settings-card { min-width: 300px; }
-    }
   </style>
 </head>
 <body>
@@ -1434,6 +1433,18 @@
       };
 
       const board = document.getElementById("board");
+
+      function fitBoardToViewport() {
+        const viewportWidth = window.visualViewport?.width || window.innerWidth || 1920;
+        const viewportHeight = window.visualViewport?.height || window.innerHeight || 1080;
+        const scale = Math.min(viewportWidth / 1920, viewportHeight / 1080);
+        document.documentElement.style.setProperty("--board-fit-scale", String(scale));
+      }
+
+      fitBoardToViewport();
+      window.addEventListener("resize", fitBoardToViewport, { passive: true });
+      window.visualViewport?.addEventListener("resize", fitBoardToViewport, { passive: true });
+
       const backgroundSlotA = document.getElementById("background-slot-a");
       const backgroundSlotB = document.getElementById("background-slot-b");
       const youtubeHitShields = Array.from(document.querySelectorAll(".youtube-hit-shield"));
