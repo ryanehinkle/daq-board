@@ -31,6 +31,46 @@
   animation: sports-headline-scroll var(--headline-duration, 60s) linear infinite;
 }
 
+.sports-headline-ticker.static-mode {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.sports-headline-ticker.static-mode .sports-headline-track {
+  width: 100%;
+  min-width: 0;
+  justify-content: center;
+  animation: none;
+  transform: none;
+  will-change: auto;
+}
+.sports-headline-static {
+  width: 100%;
+  min-width: 0;
+  padding: 0 1.1cqw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .72cqw;
+  overflow: visible;
+}
+.sports-headline-static.entering {
+  animation: sports-headline-static-in .3s ease;
+}
+.sports-headline-static-text {
+  min-width: 0;
+  flex: 0 1 auto;
+  color: rgba(255,255,255,.96);
+  font-size: 1.78cqw;
+  font-weight: 560;
+  letter-spacing: .008em;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+@keyframes sports-headline-static-in {
+  from { opacity: 0; transform: translateY(.18cqw); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .sports-headline-group {
   flex: 0 0 auto;
   display: flex;
