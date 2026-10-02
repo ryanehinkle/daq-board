@@ -904,17 +904,29 @@
     if (!ticker || !tickerTrack || config.headlineMode !== "static") return;
     const row = tickerTrack.querySelector(".sports-headline-static");
     const textNode = tickerTrack.querySelector(".sports-headline-static-text");
+    const leagueNode = tickerTrack.querySelector(".sports-headline-league");
     if (!row || !textNode) return;
 
-    // Start each headline at the exact same size used by scrolling mode.
+    // Always begin at the exact normal headline size used by scrolling mode.
     textNode.style.fontSize = "";
     const baseSize = parseFloat(getComputedStyle(textNode).fontSize) || 28;
-    const minSize = baseSize * 0.52;
+    const minSize = baseSize * 0.72;
     let size = baseSize;
-    const maxWidth = ticker.clientWidth * 0.965;
 
-    // Only shrink this individual headline when it cannot fit on one line.
-    while (row.scrollWidth > maxWidth && size > minSize) {
+    const rowStyle = getComputedStyle(row);
+    const padding =
+      (parseFloat(rowStyle.paddingLeft) || 0) +
+      (parseFloat(rowStyle.paddingRight) || 0);
+    const gap = parseFloat(rowStyle.columnGap || rowStyle.gap) || 0;
+    const leagueWidth = leagueNode ? leagueNode.getBoundingClientRect().width : 0;
+    const availableTextWidth = Math.max(
+      80,
+      ticker.clientWidth - padding - gap - leagueWidth
+    );
+
+    // Measure only the actual headline text. The old logic measured the 100%-wide
+    // row itself, which caused short headlines to shrink even when they fit.
+    while (textNode.scrollWidth > availableTextWidth && size > minSize) {
       size -= 0.5;
       textNode.style.fontSize = size.toFixed(1) + "px";
     }
