@@ -2588,7 +2588,7 @@
         syncWeatherSourceUI();
         syncAnimationUI();
         syncFontUI();
-        renderBackgroundPicker();        renderBackgroundPicker();
+        renderBackgroundPicker();
         renderMusicPicker();
         backgroundEditor.classList.remove("open");
         musicEditor.classList.remove("open");
@@ -2999,7 +2999,7 @@
         settings.clockAnimation = CLOCK_ANIMATIONS[settings.clockAnimation] ? settings.clockAnimation : DEFAULTS.clockAnimation;
         settings.font = FONT_OPTIONS[settings.font] ? settings.font : DEFAULTS.font;
 
-        if (settings.weatherSource === "google" && !settings.googleWeatherApiKey) {        if (settings.weatherSource === "google" && !settings.googleWeatherApiKey) {
+        if (settings.weatherSource === "google" && !settings.googleWeatherApiKey) {
           showStatus("Google Weather needs an API key");
           googleWeatherKeyInput.focus();
           return;
