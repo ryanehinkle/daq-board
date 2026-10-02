@@ -1998,7 +1998,8 @@
           return;
         }
 
-        const youtubeSrc = youtubeBackgroundSrc(item.url);
+        const youtubeId = youtubeVideoId(item.url);
+        const youtubeSrc = youtubeId ? youtubeBackgroundSrc(item.url) : "";
         if (youtubeSrc) {
           const iframe = document.createElement("iframe");
           iframe.title = "YouTube background";
@@ -2013,7 +2014,7 @@
           const loaded = await waitForMediaEvent(iframe, "load", 10000);
           if (!loaded) throw new Error("YouTube preload timed out");
 
-          const contentReady = await waitForYouTubeContentReady(iframe, id);
+          const contentReady = await waitForYouTubeContentReady(iframe, youtubeId);
           if (!contentReady) throw new Error("YouTube content did not become ready");
 
           // Give the actual video a moment to render a clean frame before crossfading.
