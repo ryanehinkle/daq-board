@@ -1272,6 +1272,7 @@
       let lastShiftPress = 0;
       let coordinateSaveTimer = null;
       let googleKeySaveTimer = null;
+      let activeBackgroundKey = null;
       const backgroundTypeFilter = { image: true, video: true };
 
       function cloneDefaultBackgrounds() {
@@ -1631,9 +1632,20 @@
         return settings.backgrounds.find(item => item.id === settings.selectedBackgroundId) || null;
       }
 
-      function applySelectedBackground() {
-        stopVideoBackgrounds();
+      function applySelectedBackground({ force = false } = {}) {
         const item = selectedBackground();
+        const nextKey = item
+          ? item.type + ":" + item.url
+          : "none";
+
+        // Shared-preset refreshes and tab focus events happen regularly. If the
+        // selected media did not actually change, leave the existing iframe/video
+        // completely untouched so playback continues from the same position.
+        if (!force && activeBackgroundKey === nextKey) return;
+
+        stopVideoBackgrounds();
+        activeBackgroundKey = nextKey;
+
         if (!item) {
           applyBackground("");
           return;
@@ -3040,12 +3052,31 @@
 
       // Pull shared presets again when this display becomes active, plus periodically.
       const refreshSharedLists = async () => {
+        const beforeBackground = selectedBackground();
+        const beforeBackgroundKey = beforeBackground
+          ? beforeBackground.type + ":" + beforeBackground.url
+          : "none";
+        const beforeMusic = selectedMusic();
+        const beforeMusicKey = beforeMusic ? beforeMusic.url : "none";
+
         const changed = await loadSharedPresets();
         if (changed) {
           renderBackgroundPicker();
           renderMusicPicker();
-          applySelectedBackground();
-          applySelectedMusic();
+
+          const afterBackground = selectedBackground();
+          const afterBackgroundKey = afterBackground
+            ? afterBackground.type + ":" + afterBackground.url
+            : "none";
+          if (afterBackgroundKey !== beforeBackgroundKey) {
+            applySelectedBackground();
+          }
+
+          const afterMusic = selectedMusic();
+          const afterMusicKey = afterMusic ? afterMusic.url : "none";
+          if (afterMusicKey !== beforeMusicKey) {
+            applySelectedMusic();
+          }
         }
       };
       window.addEventListener("focus", refreshSharedLists);
