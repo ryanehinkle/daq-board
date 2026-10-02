@@ -1770,15 +1770,16 @@
       function waitForMediaEvent(target, eventName, timeoutMs) {
         return new Promise(resolve => {
           let done = false;
-          const finish = () => {
+          const finish = success => {
             if (done) return;
             done = true;
             clearTimeout(timer);
-            target.removeEventListener(eventName, finish);
-            resolve();
+            target.removeEventListener(eventName, onReady);
+            resolve(success);
           };
-          const timer = setTimeout(finish, timeoutMs);
-          target.addEventListener(eventName, finish, { once: true });
+          const onReady = () => finish(true);
+          const timer = setTimeout(() => finish(false), timeoutMs);
+          target.addEventListener(eventName, onReady, { once: true });
         });
       }
 
@@ -1816,13 +1817,17 @@
           const image = new Image();
           image.decoding = "async";
           image.src = item.url;
-          await Promise.race([
-            new Promise((resolve, reject) => {
-              image.onload = resolve;
-              image.onerror = reject;
-            }),
-            new Promise(resolve => setTimeout(resolve, 5000))
-          ]);
+          await new Promise((resolve, reject) => {
+            const timer = setTimeout(() => reject(new Error("Image preload timed out")), 6000);
+            image.onload = () => {
+              clearTimeout(timer);
+              resolve();
+            };
+            image.onerror = () => {
+              clearTimeout(timer);
+              reject(new Error("Image preload failed"));
+            };
+          });
           slot.style.backgroundImage =
             'linear-gradient(180deg,rgba(10,12,18,.05),rgba(10,12,18,.02)),url("' +
             item.url.replace(/"/g, "%22") + '")';
@@ -1842,8 +1847,9 @@
 
           // Load the next player while the current background is still fully visible.
           // Give YouTube a short extra buffer after the iframe itself reports loaded.
-          await waitForMediaEvent(iframe, "load", 4500);
-          await new Promise(resolve => setTimeout(resolve, 900));
+          const loaded = await waitForMediaEvent(iframe, "load", 6500);
+          if (!loaded) throw new Error("YouTube preload timed out");
+          await new Promise(resolve => setTimeout(resolve, 1100));
           slot.dataset.mediaType = "youtube";
           return;
         }
@@ -1869,7 +1875,8 @@
         slot.appendChild(video);
         video.play().catch(() => {});
 
-        await waitForMediaEvent(video, "canplay", 4500);
+        const canPlay = await waitForMediaEvent(video, "canplay", 6500);
+        if (!canPlay) throw new Error("Video preload timed out");
         startAtIntroSkip();
         video.play().catch(() => {});
         slot.dataset.mediaType = "video";
@@ -2112,7 +2119,7 @@
         });
       }
 
-      function backgroundCycleLabel(minutes) {
+      function formatBackgroundCycleLabel(minutes) {
         const value = Number(minutes);
         if (value === 60) return "1 hour";
         if (value === 90) return "1 hour 30 minutes";
@@ -2127,7 +2134,7 @@
         backgroundCycleField.hidden = !rotate;
 
         const minutes = Number(settings.backgroundCycleMinutes) || 15;
-        backgroundCycleLabel.textContent = backgroundCycleLabel(minutes);
+        backgroundCycleLabel.textContent = formatBackgroundCycleLabel(minutes);
         backgroundCycleMenu.querySelectorAll("[data-minutes]").forEach(option => {
           option.classList.toggle("selected", Number(option.dataset.minutes) === minutes);
         });
@@ -3044,12 +3051,14 @@
         syncWeatherSourceUI();
         syncAnimationUI();
         syncFontUI();
+        syncBackgroundModeUI();
         renderBackgroundPicker();
         renderMusicPicker();
         backgroundEditor.classList.remove("open");
         musicEditor.classList.remove("open");
         weatherSourceSelect.classList.remove("open");
         backgroundSelect.classList.remove("open");
+        backgroundCycleSelect.classList.remove("open");
         musicSelect.classList.remove("open");
         animationSelect.classList.remove("open");
         fontSelect.classList.remove("open");
@@ -3130,8 +3139,33 @@
         persistSettings();
       });
 
+      backgroundModeStatic.addEventListener("click", () => setBackgroundMode("static"));
+      backgroundModeRotate.addEventListener("click", () => setBackgroundMode("rotate"));
+
+      backgroundCycleButton.addEventListener("click", () => {
+        backgroundCycleSelect.classList.toggle("open");
+        backgroundSelect.classList.remove("open");
+        weatherSourceSelect.classList.remove("open");
+        musicSelect.classList.remove("open");
+        animationSelect.classList.remove("open");
+        fontSelect.classList.remove("open");
+      });
+
+      backgroundCycleMenu.addEventListener("click", e => {
+        const option = e.target.closest("[data-minutes]");
+        if (!option) return;
+        settings.backgroundCycleMinutes = Number(option.dataset.minutes) || 15;
+        resetBackgroundShuffle();
+        persistSettings();
+        syncBackgroundModeUI();
+        backgroundCycleSelect.classList.remove("open");
+        scheduleBackgroundCycle();
+        showStatus("Cycle time saved");
+      });
+
       backgroundButton.addEventListener("click", () => {
         backgroundSelect.classList.toggle("open");
+        backgroundCycleSelect.classList.remove("open");
         weatherSourceSelect.classList.remove("open");
         musicSelect.classList.remove("open");
         animationSelect.classList.remove("open");
@@ -3167,12 +3201,22 @@
           e.stopPropagation();
           const id = remove.dataset.removeId;
           settings.backgrounds = settings.backgrounds.filter(item => item.id !== id);
+          settings.selectedBackgroundIds = (settings.selectedBackgroundIds || [])
+            .filter(value => value !== id);
           if (settings.selectedBackgroundId === id) {
-            settings.selectedBackgroundId = "";
+            settings.selectedBackgroundId = settings.backgroundMode === "rotate"
+              ? (settings.selectedBackgroundIds[0] || "")
+              : "";
           }
+          if (settings.backgroundMode === "static") {
+            settings.selectedBackgroundIds = settings.selectedBackgroundId
+              ? [settings.selectedBackgroundId]
+              : [];
+          }
+          resetBackgroundShuffle();
           persistSettings();
           renderBackgroundPicker({ animateRows: true });
-          applySelectedBackground();
+          applySelectedBackground({ fade: true });
           updateSharedPresets(data => {
             data.backgrounds = data.backgrounds.filter(item => item.id !== id);
             return data;
@@ -3183,7 +3227,9 @@
         const option = e.target.closest(".background-option");
         if (!option) return;
         setSelectedBackground(option.dataset.id);
-        backgroundSelect.classList.remove("open");
+        if (settings.backgroundMode !== "rotate") {
+          backgroundSelect.classList.remove("open");
+        }
       });
 
       let newBackgroundType = "image";
@@ -3270,14 +3316,19 @@
           };
           settings.backgrounds.push(item);
           settings.selectedBackgroundId = item.id;
+          settings.selectedBackgroundIds = settings.backgroundMode === "rotate"
+            ? [...rotatingBackgroundIds(), item.id]
+            : [item.id];
+          resetBackgroundShuffle();
         }
 
         const savedBackground = settings.backgrounds.find(item =>
           item.id === (editingBackgroundId || settings.selectedBackgroundId)
         );
+        resetBackgroundShuffle();
         persistSettings();
         renderBackgroundPicker({ animateRows: true });
-        applySelectedBackground();
+        applySelectedBackground({ fade: true });
         backgroundEditor.classList.remove("open");
         updateSharedPresets(data => {
           const index = data.backgrounds.findIndex(item => item.id === savedBackground.id);
@@ -3410,6 +3461,7 @@
       document.addEventListener("click", e => {
         if (!weatherSourceSelect.contains(e.target)) weatherSourceSelect.classList.remove("open");
         if (!backgroundSelect.contains(e.target)) backgroundSelect.classList.remove("open");
+        if (!backgroundCycleSelect.contains(e.target)) backgroundCycleSelect.classList.remove("open");
         if (!musicSelect.contains(e.target)) musicSelect.classList.remove("open");
         if (!animationSelect.contains(e.target)) animationSelect.classList.remove("open");
         if (!fontSelect.contains(e.target)) fontSelect.classList.remove("open");
@@ -3419,6 +3471,7 @@
         if (e.key === "Escape") {
           weatherSourceSelect.classList.remove("open");
           backgroundSelect.classList.remove("open");
+          backgroundCycleSelect.classList.remove("open");
           musicSelect.classList.remove("open");
           animationSelect.classList.remove("open");
           fontSelect.classList.remove("open");
@@ -3504,8 +3557,9 @@
       // public JSON store; each device keeps only its current selections locally.
       await bootstrapSharedPresets();
       applyFont();
+      syncBackgroundModeUI();
       renderBackgroundPicker();
-      applySelectedBackground();
+      applySelectedBackground({ fade: false });
       renderMusicPicker();
       applySelectedMusic();
       renderWeatherFallback();
@@ -3540,8 +3594,11 @@
           const afterBackgroundKey = afterBackground
             ? afterBackground.type + ":" + afterBackground.url
             : "none";
+          resetBackgroundShuffle();
           if (afterBackgroundKey !== beforeBackgroundKey) {
-            applySelectedBackground();
+            applySelectedBackground({ fade: true });
+          } else {
+            scheduleBackgroundCycle();
           }
 
           const afterMusic = selectedMusic();
