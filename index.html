@@ -1736,16 +1736,6 @@
         statusTimer = setTimeout(() => statusEl.classList.remove("show"), 2200);
       }
 
-      function applyBackground(url) {
-        if (!url) {
-          board.style.backgroundImage = "linear-gradient(145deg,#303747,#0d1018)";
-          return;
-        }
-        board.style.backgroundImage =
-          'linear-gradient(180deg,rgba(10,12,18,.05),rgba(10,12,18,.02)),url("' +
-          url.replace(/"/g, "%22") + '")';
-      }
-
       function youtubeVideoId(value) {
         const raw = String(value || "").trim();
         if (!raw) return "";
@@ -1762,19 +1752,39 @@
         return /^[A-Za-z0-9_-]{11}$/.test(raw) ? raw : "";
       }
 
-      function stopVideoBackgrounds() {
-        youtubeBackground.classList.remove("active");
-        youtubeFrame.removeAttribute("src");
-        const existing = document.getElementById("direct-video-background");
-        if (existing) {
-          existing.pause();
-          existing.remove();
-        }
+      function backgroundKey(item) {
+        return item ? item.type + ":" + item.url : "none";
       }
 
-      function applyYouTubeBackground(url) {
+      function clearBackgroundSlot(slot) {
+        slot.classList.remove("youtube-active");
+        slot.dataset.mediaType = "";
+        slot.style.backgroundImage = "";
+        slot.style.backgroundColor = "#000";
+        Array.from(slot.querySelectorAll("video")).forEach(video => {
+          try { video.pause(); } catch {}
+        });
+        slot.replaceChildren();
+      }
+
+      function waitForMediaEvent(target, eventName, timeoutMs) {
+        return new Promise(resolve => {
+          let done = false;
+          const finish = () => {
+            if (done) return;
+            done = true;
+            clearTimeout(timer);
+            target.removeEventListener(eventName, finish);
+            resolve();
+          };
+          const timer = setTimeout(finish, timeoutMs);
+          target.addEventListener(eventName, finish, { once: true });
+        });
+      }
+
+      function youtubeBackgroundSrc(url) {
         const id = youtubeVideoId(url);
-        if (!id) return false;
+        if (!id) return "";
 
         const params = new URLSearchParams({
           autoplay: "1",
@@ -1790,73 +1800,207 @@
           playsinline: "1",
           cc_load_policy: "0"
         });
-        youtubeFrame.src = "https://www.youtube-nocookie.com/embed/" + id + "?" + params.toString();
-        youtubeBackground.classList.add("active");
-        return true;
+        return "https://www.youtube-nocookie.com/embed/" + id + "?" + params.toString();
       }
 
-      function applyDirectVideoBackground(url) {
+      async function prepareBackgroundInSlot(slot, item) {
+        clearBackgroundSlot(slot);
+
+        if (!item) {
+          slot.style.backgroundImage = "linear-gradient(145deg,#303747,#0d1018)";
+          slot.dataset.mediaType = "none";
+          return;
+        }
+
+        if (item.type === "image") {
+          const image = new Image();
+          image.decoding = "async";
+          image.src = item.url;
+          await Promise.race([
+            new Promise((resolve, reject) => {
+              image.onload = resolve;
+              image.onerror = reject;
+            }),
+            new Promise(resolve => setTimeout(resolve, 5000))
+          ]);
+          slot.style.backgroundImage =
+            'linear-gradient(180deg,rgba(10,12,18,.05),rgba(10,12,18,.02)),url("' +
+            item.url.replace(/"/g, "%22") + '")';
+          slot.dataset.mediaType = "image";
+          return;
+        }
+
+        const youtubeSrc = youtubeBackgroundSrc(item.url);
+        if (youtubeSrc) {
+          const iframe = document.createElement("iframe");
+          iframe.title = "YouTube background";
+          iframe.allow = "autoplay; encrypted-media";
+          iframe.referrerPolicy = "strict-origin-when-cross-origin";
+          iframe.tabIndex = -1;
+          iframe.src = youtubeSrc;
+          slot.appendChild(iframe);
+
+          // Load the next player while the current background is still fully visible.
+          // Give YouTube a short extra buffer after the iframe itself reports loaded.
+          await waitForMediaEvent(iframe, "load", 4500);
+          await new Promise(resolve => setTimeout(resolve, 900));
+          slot.dataset.mediaType = "youtube";
+          return;
+        }
+
         const video = document.createElement("video");
-        video.id = "direct-video-background";
-        video.src = url;
+        video.src = item.url;
         video.autoplay = true;
         video.muted = true;
         video.loop = false;
         video.playsInline = true;
         video.preload = "auto";
-        video.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none;";
 
         const startAtIntroSkip = () => {
           if (Number.isFinite(video.duration) && video.duration > 121) {
-            video.currentTime = 120;
+            try { video.currentTime = 120; } catch {}
           }
         };
-        video.addEventListener("loadedmetadata", () => {
-          startAtIntroSkip();
-          video.play().catch(() => {});
-        }, { once: true });
+        video.addEventListener("loadedmetadata", startAtIntroSkip, { once: true });
         video.addEventListener("ended", () => {
           startAtIntroSkip();
           video.play().catch(() => {});
         });
-
-        board.insertBefore(video, board.firstChild);
+        slot.appendChild(video);
         video.play().catch(() => {});
+
+        await waitForMediaEvent(video, "canplay", 4500);
+        startAtIntroSkip();
+        video.play().catch(() => {});
+        slot.dataset.mediaType = "video";
+      }
+
+      function updateYoutubeHitArea() {
+        const isYoutube = activeBackgroundSlot?.dataset.mediaType === "youtube";
+        activeBackgroundSlot?.classList.toggle("youtube-active", isYoutube);
+        const otherSlot = activeBackgroundSlot === backgroundSlotA ? backgroundSlotB : backgroundSlotA;
+        otherSlot.classList.remove("youtube-active");
+        youtubeHitShields.forEach(shield => shield.classList.toggle("enabled", isYoutube));
+      }
+
+      async function showBackgroundItem(item, { force = false, fade = true } = {}) {
+        const nextKey = backgroundKey(item);
+        if (!force && activeBackgroundKey === nextKey) return false;
+
+        const token = ++backgroundTransitionToken;
+        const nextSlot = activeBackgroundSlot === backgroundSlotA ? backgroundSlotB : backgroundSlotA;
+        const oldSlot = activeBackgroundSlot;
+
+        try {
+          await prepareBackgroundInSlot(nextSlot, item);
+        } catch {
+          clearBackgroundSlot(nextSlot);
+          return false;
+        }
+
+        if (token !== backgroundTransitionToken) {
+          clearBackgroundSlot(nextSlot);
+          return false;
+        }
+
+        const shouldFade = fade && activeBackgroundKey !== null;
+        if (!shouldFade) {
+          nextSlot.style.transition = "none";
+          oldSlot.style.transition = "none";
+        } else {
+          nextSlot.style.transition = "opacity .95s ease";
+          oldSlot.style.transition = "opacity .95s ease";
+        }
+
+        nextSlot.classList.add("active");
+        oldSlot.classList.remove("active");
+
+        activeBackgroundSlot = nextSlot;
+        activeBackgroundKey = nextKey;
+        updateYoutubeHitArea();
+
+        if (shouldFade) {
+          await new Promise(resolve => setTimeout(resolve, 980));
+        }
+
+        if (token === backgroundTransitionToken) {
+          clearBackgroundSlot(oldSlot);
+          oldSlot.style.transition = "opacity .95s ease";
+          nextSlot.style.transition = "opacity .95s ease";
+        }
+        return true;
       }
 
       function selectedBackground() {
         return settings.backgrounds.find(item => item.id === settings.selectedBackgroundId) || null;
       }
 
-      function applySelectedBackground({ force = false } = {}) {
-        const item = selectedBackground();
-        const nextKey = item
-          ? item.type + ":" + item.url
-          : "none";
+      function rotatingBackgroundIds() {
+        const valid = new Set(settings.backgrounds.map(item => item.id));
+        return Array.from(new Set(settings.selectedBackgroundIds || []))
+          .filter(id => valid.has(id));
+      }
 
-        // Shared-preset refreshes and tab focus events happen regularly. If the
-        // selected media did not actually change, leave the existing iframe/video
-        // completely untouched so playback continues from the same position.
-        if (!force && activeBackgroundKey === nextKey) return;
+      function shuffled(values) {
+        const copy = [...values];
+        for (let i = copy.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+        return copy;
+      }
 
-        stopVideoBackgrounds();
-        activeBackgroundKey = nextKey;
+      function resetBackgroundShuffle() {
+        backgroundShuffleQueue = [];
+      }
 
-        if (!item) {
-          applyBackground("");
-          return;
+      function nextRotatingBackgroundId() {
+        const ids = rotatingBackgroundIds();
+        if (!ids.length) return "";
+        if (ids.length === 1) return ids[0];
+
+        backgroundShuffleQueue = backgroundShuffleQueue
+          .filter(id => ids.includes(id) && id !== settings.selectedBackgroundId);
+
+        if (!backgroundShuffleQueue.length) {
+          backgroundShuffleQueue = shuffled(
+            ids.filter(id => id !== settings.selectedBackgroundId)
+          );
         }
 
-        if (item.type === "image") {
-          applyBackground(item.url);
-          return;
+        return backgroundShuffleQueue.shift() || "";
+      }
+
+      function scheduleBackgroundCycle() {
+        clearTimeout(backgroundCycleTimer);
+        backgroundCycleTimer = null;
+
+        const ids = rotatingBackgroundIds();
+        if (settings.backgroundMode !== "rotate" || ids.length < 2) return;
+
+        const minutes = Number(settings.backgroundCycleMinutes) || 15;
+        backgroundCycleTimer = setTimeout(async () => {
+          const nextId = nextRotatingBackgroundId();
+          if (!nextId) return;
+
+          settings.selectedBackgroundId = nextId;
+          persistSettings();
+          renderBackgroundPicker();
+          await showBackgroundItem(selectedBackground(), { fade: true });
+          scheduleBackgroundCycle();
+        }, minutes * 60 * 1000);
+      }
+
+      async function applySelectedBackground({ force = false, fade = true } = {}) {
+        if (settings.backgroundMode === "rotate") {
+          const ids = rotatingBackgroundIds();
+          if (!ids.includes(settings.selectedBackgroundId)) {
+            settings.selectedBackgroundId = ids[0] || "";
+          }
         }
 
-        // Keep the image layer neutral behind video content.
-        applyBackground("");
-        if (!applyYouTubeBackground(item.url)) {
-          applyDirectVideoBackground(item.url);
-        }
+        await showBackgroundItem(selectedBackground(), { force, fade });
+        scheduleBackgroundCycle();
       }
 
       function backgroundThumbnail(item) {
@@ -1891,13 +2035,17 @@
       function renderBackgroundPicker({ animateRows = false } = {}) {
         const current = selectedBackground();
         const thumb = backgroundThumbnail(current);
+        const rotateIds = rotatingBackgroundIds();
+        const rotateMode = settings.backgroundMode === "rotate";
 
         backgroundCurrent.innerHTML = current
           ? '<span class="background-thumb' + (thumb ? '' : ' video-generic') + '"' +
               (thumb ? ' style="background-image:url(&quot;' + escapeHtml(thumb) + '&quot;)"' : '') + '>' +
               (thumb ? '' : '▶') +
-            '</span><span class="background-title">' + escapeHtml(current.name) + '</span>'
-          : '<span class="background-title">No background</span>';
+            '</span><span class="background-title">' +
+              escapeHtml(rotateMode ? (rotateIds.length + " selected") : current.name) +
+            '</span>'
+          : '<span class="background-title">' + (rotateMode ? "Select backgrounds" : "No background") + '</span>';
 
         const filterHtml =
           '<div class="background-filter">' +
@@ -1920,7 +2068,10 @@
 
         backgroundMenu.innerHTML = filterHtml + visible.map(item => {
           const itemThumb = backgroundThumbnail(item);
-          const selected = item.id === settings.selectedBackgroundId ? " selected" : "";
+          const isSelected = rotateMode
+            ? rotateIds.includes(item.id)
+            : item.id === settings.selectedBackgroundId;
+          const selected = isSelected ? " selected" : "";
           return '<div class="background-option' + selected + '" data-id="' + escapeHtml(item.id) + '">' +
             '<span class="background-thumb' + (itemThumb ? '' : ' video-generic') + '"' +
               (itemThumb ? ' style="background-image:url(&quot;' + escapeHtml(itemThumb) + '&quot;)"' : '') + '>' +
@@ -1961,12 +2112,89 @@
         });
       }
 
+      function backgroundCycleLabel(minutes) {
+        const value = Number(minutes);
+        if (value === 60) return "1 hour";
+        if (value === 90) return "1 hour 30 minutes";
+        if (value === 120) return "2 hours";
+        return value + " minutes";
+      }
+
+      function syncBackgroundModeUI() {
+        const rotate = settings.backgroundMode === "rotate";
+        backgroundModeStatic.classList.toggle("active", !rotate);
+        backgroundModeRotate.classList.toggle("active", rotate);
+        backgroundCycleField.hidden = !rotate;
+
+        const minutes = Number(settings.backgroundCycleMinutes) || 15;
+        backgroundCycleLabel.textContent = backgroundCycleLabel(minutes);
+        backgroundCycleMenu.querySelectorAll("[data-minutes]").forEach(option => {
+          option.classList.toggle("selected", Number(option.dataset.minutes) === minutes);
+        });
+      }
+
+      function setBackgroundMode(mode) {
+        const nextMode = mode === "rotate" ? "rotate" : "static";
+        if (settings.backgroundMode === nextMode) return;
+
+        settings.backgroundMode = nextMode;
+        if (nextMode === "rotate") {
+          if (settings.selectedBackgroundId && !(settings.selectedBackgroundIds || []).includes(settings.selectedBackgroundId)) {
+            settings.selectedBackgroundIds = [
+              ...(settings.selectedBackgroundIds || []),
+              settings.selectedBackgroundId
+            ];
+          }
+        } else {
+          const id = settings.selectedBackgroundId || rotatingBackgroundIds()[0] || "";
+          settings.selectedBackgroundId = id;
+          settings.selectedBackgroundIds = id ? [id] : [];
+        }
+
+        resetBackgroundShuffle();
+        persistSettings();
+        syncBackgroundModeUI();
+        renderBackgroundPicker();
+        scheduleBackgroundCycle();
+      }
+
       function setSelectedBackground(id) {
         if (!settings.backgrounds.some(item => item.id === id)) return;
+
+        if (settings.backgroundMode === "rotate") {
+          const selected = rotatingBackgroundIds();
+          if (selected.includes(id)) {
+            if (selected.length === 1) {
+              showStatus("Keep at least one background selected");
+              return;
+            }
+            settings.selectedBackgroundIds = selected.filter(value => value !== id);
+            resetBackgroundShuffle();
+
+            if (settings.selectedBackgroundId === id) {
+              settings.selectedBackgroundId = settings.selectedBackgroundIds[0] || "";
+              persistSettings();
+              renderBackgroundPicker();
+              applySelectedBackground({ fade: true });
+              return;
+            }
+          } else {
+            settings.selectedBackgroundIds = [...selected, id];
+            resetBackgroundShuffle();
+          }
+
+          persistSettings();
+          renderBackgroundPicker();
+          scheduleBackgroundCycle();
+          return;
+        }
+
         settings.selectedBackgroundId = id;
+        settings.selectedBackgroundIds = [id];
+        resetBackgroundShuffle();
         persistSettings();
         renderBackgroundPicker();
-        applySelectedBackground();
+        applySelectedBackground({ fade: true });
       }
 
       function makePresetId(prefix = "bg") {
