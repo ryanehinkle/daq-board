@@ -146,6 +146,48 @@
       min-height: 84px;
       padding-right: 1%;
     }
+    .sun-times {
+      min-width: 108px;
+      margin-right: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 7px;
+      color: rgba(255,255,255,.97);
+      font-size: clamp(14px, 1vw, 20px);
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -.01em;
+      white-space: nowrap;
+    }
+    .sun-time-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .sun-time-icon {
+      width: 23px;
+      height: 18px;
+      flex: 0 0 auto;
+      color: #f5a23d;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,.22));
+    }
+    .sun-time-icon svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+    .sun-time-icon path,
+    .sun-time-icon line,
+    .sun-time-icon circle {
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
     #current-temp {
       font-size: clamp(46px, 4.2vw, 82px);
       font-weight: 300;
@@ -973,6 +1015,32 @@
 
     <section class="weather-block" aria-label="Weather">
       <div class="current-weather">
+        <div class="sun-times" aria-label="Sunrise and sunset">
+          <div class="sun-time-row">
+            <span class="sun-time-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 18">
+                <path d="M3 14.5h18"/>
+                <path d="M7 14.5a5 5 0 0 1 10 0"/>
+                <path d="M12 2.5v4"/>
+                <path d="M9.5 5l2.5-2.5L14.5 5"/>
+                <path d="M4.7 8.5l2.2 1.2M19.3 8.5l-2.2 1.2"/>
+              </svg>
+            </span>
+            <span id="sunrise-time">--:--</span>
+          </div>
+          <div class="sun-time-row">
+            <span class="sun-time-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 18">
+                <path d="M3 14.5h18"/>
+                <path d="M7 14.5a5 5 0 0 1 10 0"/>
+                <path d="M12 2.5v4"/>
+                <path d="M9.5 4l2.5 2.5L14.5 4"/>
+                <path d="M4.7 8.5l2.2 1.2M19.3 8.5l-2.2 1.2"/>
+              </svg>
+            </span>
+            <span id="sunset-time">--:--</span>
+          </div>
+        </div>
         <div id="current-temp">--°</div>
         <div id="current-icon" aria-hidden="true"></div>
       </div>
@@ -1219,6 +1287,8 @@
       const clockMain = document.getElementById("clock-main");
       const clockSeconds = document.getElementById("clock-seconds");
       const dateLine = document.getElementById("date-line");
+      const sunriseTime = document.getElementById("sunrise-time");
+      const sunsetTime = document.getElementById("sunset-time");
       const currentTemp = document.getElementById("current-temp");
       const currentIcon = document.getElementById("current-icon");
       const forecastEl = document.getElementById("forecast");
@@ -2130,6 +2200,45 @@
         return coords.lat.toFixed(5) + ", " + coords.lon.toFixed(5);
       }
 
+      function formatSolarTime(value) {
+        const match = String(value || "").match(/T(\d{2}):(\d{2})/);
+        if (!match) return "--:--";
+
+        const hour24 = Number(match[1]);
+        const minute = match[2];
+        const suffix = hour24 >= 12 ? "PM" : "AM";
+        const hour12 = hour24 % 12 || 12;
+        return hour12 + ":" + minute + " " + suffix;
+      }
+
+      function renderSunTimes(data) {
+        sunriseTime.textContent = formatSolarTime(data?.sunrise);
+        sunsetTime.textContent = formatSolarTime(data?.sunset);
+      }
+
+      async function fetchSunTimes(lat, lon) {
+        const params = new URLSearchParams({
+          latitude: String(lat),
+          longitude: String(lon),
+          daily: "sunrise,sunset",
+          timezone: "auto",
+          forecast_days: "1"
+        });
+
+        const res = await fetch(
+          "https://api.open-meteo.com/v1/forecast?" + params.toString(),
+          { cache: "no-store" }
+        );
+        if (!res.ok) throw new Error("Sunrise/sunset unavailable.");
+
+        const data = await res.json();
+        return {
+          sunrise: data?.daily?.sunrise?.[0] || null,
+          sunset: data?.daily?.sunset?.[0] || null,
+          timezone: data?.timezone || null
+        };
+      }
+
       async function fetchOpenMeteoWeather(lat, lon, source) {
         const params = new URLSearchParams({
           latitude: String(lat),
@@ -2525,6 +2634,15 @@
         // observations can differ by several degrees from neighborhood conditions.
 
         if (data.timezone) timezone = data.timezone;
+
+        try {
+          const sun = await fetchSunTimes(location.lat, location.lon);
+          renderSunTimes(sun);
+          if (!data.timezone && sun.timezone) timezone = sun.timezone;
+        } catch {
+          // Keep the last good sun times if this lightweight request ever fails.
+        }
+
         renderForecast(data);
         updateClock();
         return data;
