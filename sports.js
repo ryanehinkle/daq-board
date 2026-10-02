@@ -68,6 +68,7 @@
     enabled: true,
     expanded: true,
     appearance: "monotone",
+    showBoxes: true,
     leagues: {
       nfl: { enabled: true, mode: "cycle", cycleSeconds: 15, watchTeams: [] },
       mlb: { enabled: true, mode: "cycle", cycleSeconds: 15, watchTeams: [] },
@@ -102,6 +103,7 @@
       base.enabled = raw.enabled !== false;
       base.expanded = raw.expanded !== false;
       base.appearance = raw.appearance === "color" ? "color" : "monotone";
+      base.showBoxes = raw.showBoxes !== false;
       for (const key of Object.keys(LEAGUES)) {
         const saved = raw.leagues?.[key] || {};
         const target = base.leagues[key];
@@ -542,10 +544,12 @@
     const winnerArrow = game.state === "post" && team.winner
       ? '<span class="sports-winner-arrow" title="Winner" aria-label="Winner"></span>'
       : "";
+    const hasWinner = game.state === "post" && (game.away.winner || game.home.winner);
+    const resultClass = team.winner ? " winner" : (hasWinner ? " loser" : "");
     const rowStyle = '--team-color:#' + escapeAttr(team.color) +
       ';--team-rgb:' + escapeAttr(team.colorRgb) +
       ';--team-alt:#' + escapeAttr(team.alternateColor) + ';';
-    return '<div class="sports-team-row' + (team.winner ? ' winner' : '') + '" style="' + rowStyle + '">' +
+    return '<div class="sports-team-row' + resultClass + '" style="' + rowStyle + '">' +
       '<div class="sports-team-logo">' +
         (team.logo ? '<img src="' + escapeAttr(team.logo) + '" alt="" referrerpolicy="no-referrer">' : '') +
       '</div>' +
@@ -746,6 +750,7 @@
     zone.hidden = enabled.length === 0;
     zone.dataset.count = String(enabled.length || 1);
     zone.classList.toggle("color-mode", config.appearance === "color");
+    zone.classList.toggle("boxes-hidden", !config.showBoxes);
 
     for (const key of Object.keys(LEAGUES)) {
       let module = zone.querySelector('[data-sports-league="' + key + '"]');
@@ -1051,6 +1056,13 @@
               '<button type="button" data-sports-appearance="color" class="' + (config.appearance === "color" ? 'active' : '') + '">Color</button>' +
             '</div>' +
           '</div>' +
+          '<div class="sports-style-setting">' +
+            '<span class="sports-setting-label">Scoreboard boxes</span>' +
+            '<div class="sports-segmented">' +
+              '<button type="button" data-sports-boxes="show" class="' + (config.showBoxes ? 'active' : '') + '">Show</button>' +
+              '<button type="button" data-sports-boxes="hide" class="' + (!config.showBoxes ? 'active' : '') + '">Hide</button>' +
+            '</div>' +
+          '</div>' +
           Object.keys(LEAGUES).map(leagueSettingsHtml).join("") +
         '</div>' +
       '</div>';
@@ -1076,6 +1088,13 @@
     const appearance = event.target.closest("[data-sports-appearance]");
     if (appearance) {
       config.appearance = appearance.dataset.sportsAppearance === "color" ? "color" : "monotone";
+      afterConfigChange();
+      return;
+    }
+
+    const boxes = event.target.closest("[data-sports-boxes]");
+    if (boxes) {
+      config.showBoxes = boxes.dataset.sportsBoxes !== "hide";
       afterConfigChange();
       return;
     }
