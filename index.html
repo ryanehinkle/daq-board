@@ -1673,7 +1673,7 @@
           mute: "1",
           loop: "1",
           playlist: id,
-          start: "60",
+          start: "120",
           controls: "0",
           disablekb: "1",
           fs: "0",
@@ -1699,8 +1699,8 @@
         video.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none;";
 
         const startAtIntroSkip = () => {
-          if (Number.isFinite(video.duration) && video.duration > 61) {
-            video.currentTime = 60;
+          if (Number.isFinite(video.duration) && video.duration > 121) {
+            video.currentTime = 120;
           }
         };
         video.addEventListener("loadedmetadata", () => {
@@ -1890,7 +1890,7 @@
           autoplay: "1",
           loop: "1",
           playlist: id,
-          start: "60",
+          start: "120",
           controls: "0",
           disablekb: "1",
           fs: "0",
