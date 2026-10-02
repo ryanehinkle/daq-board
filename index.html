@@ -1891,7 +1891,7 @@
           playsinline: "1",
           cc_load_policy: "0"
         });
-        return "https://www.youtube-nocookie.com/embed/" + id + "?" + params.toString();
+        return "https://www.youtube.com/embed/" + id + "?" + params.toString();
       }
 
       async function prepareBackgroundInSlot(slot, item) {
@@ -2373,7 +2373,7 @@
           cc_load_policy: "0",
           enablejsapi: "1"
         });
-        const nextSrc = "https://www.youtube-nocookie.com/embed/" + id + "?" + params.toString();
+        const nextSrc = "https://www.youtube.com/embed/" + id + "?" + params.toString();
         if (forceReload || musicFrame.src !== nextSrc) musicFrame.src = nextSrc;
       }
 
