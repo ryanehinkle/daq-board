@@ -424,8 +424,8 @@
 /* MLB live situation sits in the open scorebug gap instead of the bottom detail row. */
 .sports-mlb-live-panel {
   position: absolute;
-  left: 59%;
-  top: 46%;
+  left: 50%;
+  top: 34%;
   transform: translate(-50%,-50%);
   width: 5.2cqw;
   display: flex;
