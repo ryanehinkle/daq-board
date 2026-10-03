@@ -29,6 +29,8 @@ jobs:
               headers={
                   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/154 Safari/537.36",
                   "Accept-Language": "en-US,en;q=0.9",
+                  "Cache-Control": "no-cache",
+                  "Pragma": "no-cache",
               },
           )
           with urllib.request.urlopen(req, timeout=25) as response:
@@ -44,7 +46,7 @@ jobs:
 
           block = page[start:end]
           pattern = re.compile(
-              r'<a\\b[^>]*href="(/(nfl|mlb|nhl|nba)/[^"]*)"[^>]*data-mpType="headline"[^>]*>(.*?)</a>',
+              r'<a\b[^>]*href="(/(nfl|mlb|nhl|nba)/[^"]*)"[^>]*data-mpType="headline"[^>]*>(.*?)</a>',
               re.I | re.S,
           )
 
@@ -52,7 +54,7 @@ jobs:
           seen = set()
           for href, league, title in pattern.findall(block):
               title = re.sub(r"<[^>]+>", "", title)
-              title = html.unescape(re.sub(r"\\s+", " ", title)).strip()
+              title = html.unescape(re.sub(r"\s+", " ", title)).strip()
               key = (league.lower(), title.lower())
               if not title or key in seen:
                   continue
@@ -83,7 +85,7 @@ jobs:
               "sectionId": "45672706",
               "items": items,
           }
-          path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\\n", encoding="utf-8")
+          path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
           print(f"Updated {len(items)} exact ESPN Top Headlines")
           PY
 
