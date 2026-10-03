@@ -787,16 +787,9 @@
     });
   }
 
-  const HEADLINE_CACHE_KEY = "daq-board-espn-exact-top-headlines-v4";
+  const HEADLINE_CACHE_KEY = "daq-board-espn-exact-top-headlines-v5";
   const ESPN_HOME_URL = "https://www.espn.com/";
   const ESPN_TOP_HEADLINES_SECTION_ID = "45672706";
-  const HEADLINE_REFRESH_MS = 30 * 1000;
-  const ESPN_HEADLINE_FEEDS = {
-    nfl: "https://site.api.espn.com/apis/site/v2/sports/football/nfl/news",
-    mlb: "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/news",
-    nhl: "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/news",
-    nba: "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/news"
-  };
   const ESPN_HOME_PROXIES = [
     url => "https://api.allorigins.win/raw?url=" + encodeURIComponent(url),
     url => "https://corsproxy.io/?" + encodeURIComponent(url),
@@ -869,156 +862,6 @@
         items: items.slice(0, 14)
       }));
     } catch {}
-  }
-
-  function usefulLiveEspnHeadline(value) {
-    const text = String(value || "").replace(/\s+/g, " ").trim();
-    if (!text) return false;
-
-    // This ticker is for actual notable sports news/info, not live blogs,
-    // generic article packages, fantasy, betting, schedules or utility pages.
-    const low = text.toLowerCase();
-    const blockedStarts = [
-      "live:",
-      "live -",
-      "live ",
-      "latest updates",
-      "updates:"
-    ];
-    const blockedTerms = [
-      " fantasy ",
-      "fantasy football",
-      "fantasy baseball",
-      "fantasy hockey",
-      "fantasy basketball",
-      "power rankings",
-      "mock draft",
-      "betting odds",
-      "betting picks",
-      "best bets",
-      "odds:",
-      "picks and predictions",
-      "prediction:",
-      "predictions:",
-      "how to watch",
-      "tv schedule",
-      "full schedule",
-      "standings",
-      "rankings:",
-      "live updates",
-      "latest updates",
-      "commentary",
-      "score, news",
-      "scores, news"
-    ];
-
-    if (blockedStarts.some(term => low.startsWith(term))) return false;
-    return !blockedTerms.some(term => (" " + low).includes(term));
-  }
-
-  function espnHeadlineTime(item) {
-    for (const value of [
-      item?.published,
-      item?.publishedTime,
-      item?.lastModified,
-      item?.date,
-      item?.timestamp
-    ]) {
-      const ms = new Date(value).getTime();
-      if (Number.isFinite(ms)) return ms;
-    }
-    return 0;
-  }
-
-  function espnHeadlineHref(item) {
-    return item?.links?.web?.href ||
-      item?.links?.mobile?.href ||
-      item?.link ||
-      item?.href ||
-      "";
-  }
-
-  function normalizedEspnPath(href) {
-    const raw = String(href || "").trim();
-    if (!raw) return "";
-    try {
-      return new URL(raw, "https://www.espn.com").pathname.toLowerCase();
-    } catch {
-      return raw.toLowerCase();
-    }
-  }
-
-  function headlineBelongsToLeague(league, href) {
-    const path = normalizedEspnPath(href);
-    return path.startsWith("/" + league + "/") || path === "/" + league;
-  }
-
-  function normalizeHeadlineKey(value) {
-    return String(value || "")
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, " ")
-      .trim();
-  }
-
-  async function fetchEspnLeagueNews(league) {
-    const base = ESPN_HEADLINE_FEEDS[league];
-    if (!base) return [];
-
-    const url = base + "?limit=20&_daq=" + Date.now();
-    const response = await fetch(url, {
-      cache: "no-store",
-      credentials: "omit"
-    });
-    if (!response.ok) throw new Error("ESPN " + league.toUpperCase() + " news HTTP " + response.status);
-
-    const payload = await response.json();
-    const rows = Array.isArray(payload?.articles)
-      ? payload.articles
-      : Array.isArray(payload?.headlines)
-        ? payload.headlines
-        : [];
-
-    return rows
-      .map(item => {
-        const headline = String(item?.headline || item?.title || "")
-          .replace(/\s+/g, " ")
-          .trim();
-        const href = espnHeadlineHref(item);
-        return {
-          league: league.toUpperCase(),
-          headline,
-          href,
-          publishedAt: espnHeadlineTime(item)
-        };
-      })
-      .filter(item =>
-        item.headline &&
-        usefulLiveEspnHeadline(item.headline) &&
-        headlineBelongsToLeague(league, item.href)
-      );
-  }
-
-  async function fetchLiveEspnNews() {
-    const leagues = Object.keys(ESPN_HEADLINE_FEEDS);
-    const settled = await Promise.allSettled(
-      leagues.map(league => fetchEspnLeagueNews(league))
-    );
-
-    const seen = new Set();
-    const items = [];
-
-    for (const result of settled) {
-      if (result.status !== "fulfilled") continue;
-      for (const item of result.value) {
-        const key = normalizeHeadlineKey(item.headline);
-        if (!key || seen.has(key)) continue;
-        seen.add(key);
-        items.push(item);
-      }
-    }
-
-    items.sort((a, b) => (b.publishedAt || 0) - (a.publishedAt || 0));
-    return items.slice(0, 14).map(({ publishedAt, ...item }) => item);
   }
 
   async function fetchSameOriginTopHeadlines() {
@@ -1176,13 +1019,24 @@
   }
 
   function renderHeadlines(items) {
+    const seen = new Set();
     const cleanItems = (Array.isArray(items) ? items : [])
-      .filter(item =>
-        item &&
-        typeof item.headline === "string" &&
-        item.headline.trim() &&
-        ["NFL", "MLB", "NHL", "NBA"].includes(item.league)
-      )
+      .filter(item => {
+        if (
+          !item ||
+          typeof item.headline !== "string" ||
+          !item.headline.trim() ||
+          !["NFL", "MLB", "NHL", "NBA"].includes(item.league)
+        ) return false;
+
+        const key = item.headline
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, " ")
+          .trim();
+        if (!key || seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      })
       .slice(0, 14);
 
     const signature = cleanItems.map(item => item.league + ":" + item.headline).join("|");
@@ -1218,47 +1072,19 @@
     headlineFetching = true;
 
     try {
-      let liveItems = [];
-      let topItems = [];
+      let headlines = [];
 
-      // Poll true league-specific ESPN news every 30 seconds.
+      // First choice: scrape the literal Top Headlines box from ESPN.com right now.
       try {
-        liveItems = await fetchLiveEspnNews();
+        headlines = await fetchLiveExactEspnTopHeadlines();
       } catch {}
 
-      // Also scrape ESPN's literal Top Headlines box. Its extractor already
-      // rejects anything whose ESPN URL is not NFL/MLB/NHL/NBA.
-      try {
-        topItems = await fetchLiveExactEspnTopHeadlines();
-      } catch {}
-
-      // Merge the two sources instead of choosing only one. This keeps the
-      // freshest breaking items while giving the marquee enough UNIQUE valid
-      // headlines that its seamless scroll clone does not look like a repeat.
-      const seen = new Set();
-      let headlines = [...liveItems, ...topItems].filter(item => {
-        if (!item || !usefulLiveEspnHeadline(item.headline)) return false;
-        const league = String(item.league || "").toLowerCase();
-        if (!ESPN_HEADLINE_FEEDS[league]) return false;
-        if (!headlineBelongsToLeague(league, item.href)) return false;
-
-        const key = normalizeHeadlineKey(item.headline);
-        if (!key || seen.has(key)) return false;
-        seen.add(key);
-        return true;
-      }).slice(0, 14);
-
-      // Final network fallback: the repo's periodically refreshed exact ESPN
-      // Top Headlines snapshot. Validate it with the same hard rules too.
+      // Reliable fallback: the repo refreshes this exact same ESPN box on a
+      // schedule, so even if a display/browser blocks the proxy we still never
+      // substitute generic news/article feeds.
       if (!headlines.length) {
         try {
-          const snapshot = await fetchSameOriginTopHeadlines();
-          headlines = snapshot.filter(item => {
-            const league = String(item?.league || "").toLowerCase();
-            return ESPN_HEADLINE_FEEDS[league] &&
-              usefulLiveEspnHeadline(item?.headline) &&
-              headlineBelongsToLeague(league, item?.href);
-          });
+          headlines = await fetchSameOriginTopHeadlines();
         } catch {}
       }
 
@@ -1266,18 +1092,13 @@
         saveCachedTopHeadlines(headlines);
         renderHeadlines(headlines);
       } else if (!headlineItems.length) {
-        const cached = loadCachedTopHeadlines().filter(item => {
-          const league = String(item?.league || "").toLowerCase();
-          return ESPN_HEADLINE_FEEDS[league] &&
-            usefulLiveEspnHeadline(item?.headline) &&
-            headlineBelongsToLeague(league, item?.href);
-        });
+        const cached = loadCachedTopHeadlines();
         if (cached.length) renderHeadlines(cached);
       }
     } finally {
       headlineFetching = false;
       if (config.enabled) {
-        headlineTimer = setTimeout(refreshHeadlines, HEADLINE_REFRESH_MS);
+        headlineTimer = setTimeout(refreshHeadlines, 30 * 1000);
       }
     }
   }
