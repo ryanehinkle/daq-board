@@ -789,10 +789,14 @@
 
   const HEADLINE_CACHE_KEY = "daq-board-espn-exact-top-headlines-v4";
   const ESPN_HOME_URL = "https://www.espn.com/";
-  const ESPN_NOW_URL = "https://now.core.api.espn.com/v1/sports/news";
   const ESPN_TOP_HEADLINES_SECTION_ID = "45672706";
   const HEADLINE_REFRESH_MS = 30 * 1000;
-  const ESPN_HEADLINE_LEAGUES = ["nfl", "mlb", "nhl", "nba"];
+  const ESPN_HEADLINE_FEEDS = {
+    nfl: "https://site.api.espn.com/apis/site/v2/sports/football/nfl/news",
+    mlb: "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/news",
+    nhl: "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/news",
+    nba: "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/news"
+  };
   const ESPN_HOME_PROXIES = [
     url => "https://api.allorigins.win/raw?url=" + encodeURIComponent(url),
     url => "https://corsproxy.io/?" + encodeURIComponent(url),
@@ -871,12 +875,18 @@
     const text = String(value || "").replace(/\s+/g, " ").trim();
     if (!text) return false;
 
-    // Keep the ticker focused on actual news/info instead of fantasy, betting,
-    // rankings, schedules, or other generic utility/article-list content.
+    // This ticker is for actual notable sports news/info, not live blogs,
+    // generic article packages, fantasy, betting, schedules or utility pages.
     const low = text.toLowerCase();
-    const blocked = [
-      "fantasy ",
-      "fantasy:",
+    const blockedStarts = [
+      "live:",
+      "live -",
+      "live ",
+      "latest updates",
+      "updates:"
+    ];
+    const blockedTerms = [
+      " fantasy ",
       "fantasy football",
       "fantasy baseball",
       "fantasy hockey",
@@ -888,13 +898,22 @@
       "best bets",
       "odds:",
       "picks and predictions",
+      "prediction:",
+      "predictions:",
       "how to watch",
       "tv schedule",
       "full schedule",
       "standings",
-      "rankings:"
+      "rankings:",
+      "live updates",
+      "latest updates",
+      "commentary",
+      "score, news",
+      "scores, news"
     ];
-    return !blocked.some(term => low.includes(term));
+
+    if (blockedStarts.some(term => low.startsWith(term))) return false;
+    return !blockedTerms.some(term => (" " + low).includes(term));
   }
 
   function espnHeadlineTime(item) {
@@ -919,61 +938,80 @@
       "";
   }
 
-  async function fetchEspnNowLeague(league) {
-    const query = new URLSearchParams({
-      leagues: league,
-      limit: "12",
-      _daq: String(Date.now())
-    });
-    const url = ESPN_NOW_URL + "?" + query.toString();
-    let lastError = null;
-
-    // The ESPN Now feed is the true freshness source. Try it directly first,
-    // then use the same proxy pool only when a display/browser blocks CORS.
-    const urls = [url, ...ESPN_HOME_PROXIES.map(build => build(url))];
-    for (const requestUrl of urls) {
-      try {
-        const response = await fetch(requestUrl, {
-          cache: "no-store",
-          credentials: "omit",
-          headers: { "Cache-Control": "no-cache" }
-        });
-        if (!response.ok) throw new Error("ESPN Now HTTP " + response.status);
-        const payload = await response.json();
-        const rows = Array.isArray(payload?.headlines)
-          ? payload.headlines
-          : Array.isArray(payload?.items)
-            ? payload.items
-            : [];
-
-        return rows
-          .map(item => ({
-            league: league.toUpperCase(),
-            headline: String(item?.headline || item?.title || "").replace(/\s+/g, " ").trim(),
-            href: espnHeadlineHref(item),
-            publishedAt: espnHeadlineTime(item)
-          }))
-          .filter(item => usefulLiveEspnHeadline(item.headline));
-      } catch (error) {
-        lastError = error;
-      }
+  function normalizedEspnPath(href) {
+    const raw = String(href || "").trim();
+    if (!raw) return "";
+    try {
+      return new URL(raw, "https://www.espn.com").pathname.toLowerCase();
+    } catch {
+      return raw.toLowerCase();
     }
+  }
 
-    throw lastError || new Error("ESPN Now feed unavailable");
+  function headlineBelongsToLeague(league, href) {
+    const path = normalizedEspnPath(href);
+    return path.startsWith("/" + league + "/") || path === "/" + league;
+  }
+
+  function normalizeHeadlineKey(value) {
+    return String(value || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, " ")
+      .trim();
+  }
+
+  async function fetchEspnLeagueNews(league) {
+    const base = ESPN_HEADLINE_FEEDS[league];
+    if (!base) return [];
+
+    const url = base + "?limit=20&_daq=" + Date.now();
+    const response = await fetch(url, {
+      cache: "no-store",
+      credentials: "omit"
+    });
+    if (!response.ok) throw new Error("ESPN " + league.toUpperCase() + " news HTTP " + response.status);
+
+    const payload = await response.json();
+    const rows = Array.isArray(payload?.articles)
+      ? payload.articles
+      : Array.isArray(payload?.headlines)
+        ? payload.headlines
+        : [];
+
+    return rows
+      .map(item => {
+        const headline = String(item?.headline || item?.title || "")
+          .replace(/\s+/g, " ")
+          .trim();
+        const href = espnHeadlineHref(item);
+        return {
+          league: league.toUpperCase(),
+          headline,
+          href,
+          publishedAt: espnHeadlineTime(item)
+        };
+      })
+      .filter(item =>
+        item.headline &&
+        usefulLiveEspnHeadline(item.headline) &&
+        headlineBelongsToLeague(league, item.href)
+      );
   }
 
   async function fetchLiveEspnNews() {
+    const leagues = Object.keys(ESPN_HEADLINE_FEEDS);
     const settled = await Promise.allSettled(
-      ESPN_HEADLINE_LEAGUES.map(league => fetchEspnNowLeague(league))
+      leagues.map(league => fetchEspnLeagueNews(league))
     );
 
     const seen = new Set();
     const items = [];
+
     for (const result of settled) {
       if (result.status !== "fulfilled") continue;
       for (const item of result.value) {
-        const key = item.league + ":" + item.headline.toLowerCase();
-        if (seen.has(key)) continue;
+        const key = normalizeHeadlineKey(item.headline);
+        if (!key || seen.has(key)) continue;
         seen.add(key);
         items.push(item);
       }
