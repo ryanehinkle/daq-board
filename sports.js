@@ -602,28 +602,43 @@
     const detail = String(game.statusDetail || "");
     const topFromDetail = /^top\b/i.test(detail);
     const bottomFromDetail = /^bot|^bottom\b/i.test(detail);
-    const top = typeof s.isTopInning === "boolean" ? s.isTopInning : (topFromDetail ? true : bottomFromDetail ? false : true);
+    const top = typeof s.isTopInning === "boolean"
+      ? s.isTopInning
+      : (topFromDetail ? true : bottomFromDetail ? false : true);
     const inning = game.period || safeNumber(s.inning, 0);
     const center = (top ? "▲ " : "▼ ") + (inning ? ordinal(inning) : (detail || "LIVE"));
+
     const first = baseOccupied(s.onFirst);
     const second = baseOccupied(s.onSecond);
     const third = baseOccupied(s.onThird);
     const balls = Number(s.balls);
     const strikes = Number(s.strikes);
     const outs = Number(s.outs);
-    const countBits = [];
-    if (Number.isFinite(balls) && Number.isFinite(strikes)) {
-      countBits.push('<span class="sports-count"><span>B</span><b>' + balls + '</b><span>–</span><span>S</span><b>' + strikes + '</b></span>');
-    }
-    if (Number.isFinite(outs)) {
-      countBits.push('<span class="sports-count"><span>OUT</span><b>' + outs + '</b></span>');
-    }
-    const bases = '<span class="sports-bases" aria-label="Base runners">' +
+
+    const bases = '<span class="sports-bases sports-bases-live" aria-label="Base runners">' +
       '<span class="sports-base first' + (first ? ' on' : '') + '"></span>' +
       '<span class="sports-base second' + (second ? ' on' : '') + '"></span>' +
       '<span class="sports-base third' + (third ? ' on' : '') + '"></span>' +
     '</span>';
-    return { center, detail: bases + countBits.join('<span>•</span>') };
+
+    const count = Number.isFinite(balls) && Number.isFinite(strikes)
+      ? '<span class="sports-mlb-count">' + balls + '-' + strikes + '</span>'
+      : '';
+
+    const safeOuts = Number.isFinite(outs) ? Math.max(0, Math.min(3, outs)) : 0;
+    const outDots = '<span class="sports-mlb-outs" aria-label="' + safeOuts + ' outs">' +
+      [0,1,2].map(i =>
+        '<span class="sports-mlb-out' + (i < safeOuts ? ' on' : '') + '"></span>'
+      ).join('') +
+    '</span>';
+
+    const overlay =
+      '<div class="sports-mlb-live-panel">' +
+        bases +
+        '<div class="sports-mlb-live-row">' + count + outDots + '</div>' +
+      '</div>';
+
+    return { center, detail: "", overlay };
   }
 
   function nhlPowerPlay(game) {
@@ -713,6 +728,7 @@
 
     let center = "";
     let detail = "";
+    let overlay = "";
     if (game.state === "pre") {
       center = formatStart(game);
       detail = "Scheduled";
@@ -723,6 +739,7 @@
       const info = liveInfo(game);
       center = info.center;
       detail = info.detail;
+      overlay = info.overlay || "";
     }
 
     module.innerHTML =
@@ -730,9 +747,10 @@
         '<span class="sports-league-name">' + LEAGUES[league].label + '</span>' +
         '<span class="sports-state ' + (game.state === "in" ? 'live' : '') + '">' + escapeHtml(stateText(game)) + '</span>' +
       '</div>' +
-      '<div class="sports-scorebug">' +
+      '<div class="sports-scorebug' + (game.league === "mlb" && game.state === "in" ? ' sports-scorebug-mlb-live' : '') + '">' +
         teamRowHtml(game, "away") +
         teamRowHtml(game, "home") +
+        overlay +
         '<div class="sports-center-line">' + center + '</div>' +
         '<div class="sports-detail-line">' + detail + '</div>' +
       '</div>' +
