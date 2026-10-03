@@ -787,9 +787,12 @@
     });
   }
 
-  const HEADLINE_CACHE_KEY = "daq-board-espn-exact-top-headlines-v3";
+  const HEADLINE_CACHE_KEY = "daq-board-espn-exact-top-headlines-v4";
   const ESPN_HOME_URL = "https://www.espn.com/";
+  const ESPN_NOW_URL = "https://now.core.api.espn.com/v1/sports/news";
   const ESPN_TOP_HEADLINES_SECTION_ID = "45672706";
+  const HEADLINE_REFRESH_MS = 30 * 1000;
+  const ESPN_HEADLINE_LEAGUES = ["nfl", "mlb", "nhl", "nba"];
   const ESPN_HOME_PROXIES = [
     url => "https://api.allorigins.win/raw?url=" + encodeURIComponent(url),
     url => "https://corsproxy.io/?" + encodeURIComponent(url),
@@ -862,6 +865,122 @@
         items: items.slice(0, 14)
       }));
     } catch {}
+  }
+
+  function usefulLiveEspnHeadline(value) {
+    const text = String(value || "").replace(/\s+/g, " ").trim();
+    if (!text) return false;
+
+    // Keep the ticker focused on actual news/info instead of fantasy, betting,
+    // rankings, schedules, or other generic utility/article-list content.
+    const low = text.toLowerCase();
+    const blocked = [
+      "fantasy ",
+      "fantasy:",
+      "fantasy football",
+      "fantasy baseball",
+      "fantasy hockey",
+      "fantasy basketball",
+      "power rankings",
+      "mock draft",
+      "betting odds",
+      "betting picks",
+      "best bets",
+      "odds:",
+      "picks and predictions",
+      "how to watch",
+      "tv schedule",
+      "full schedule",
+      "standings",
+      "rankings:"
+    ];
+    return !blocked.some(term => low.includes(term));
+  }
+
+  function espnHeadlineTime(item) {
+    for (const value of [
+      item?.published,
+      item?.publishedTime,
+      item?.lastModified,
+      item?.date,
+      item?.timestamp
+    ]) {
+      const ms = new Date(value).getTime();
+      if (Number.isFinite(ms)) return ms;
+    }
+    return 0;
+  }
+
+  function espnHeadlineHref(item) {
+    return item?.links?.web?.href ||
+      item?.links?.mobile?.href ||
+      item?.link ||
+      item?.href ||
+      "";
+  }
+
+  async function fetchEspnNowLeague(league) {
+    const query = new URLSearchParams({
+      leagues: league,
+      limit: "12",
+      _daq: String(Date.now())
+    });
+    const url = ESPN_NOW_URL + "?" + query.toString();
+    let lastError = null;
+
+    // The ESPN Now feed is the true freshness source. Try it directly first,
+    // then use the same proxy pool only when a display/browser blocks CORS.
+    const urls = [url, ...ESPN_HOME_PROXIES.map(build => build(url))];
+    for (const requestUrl of urls) {
+      try {
+        const response = await fetch(requestUrl, {
+          cache: "no-store",
+          credentials: "omit",
+          headers: { "Cache-Control": "no-cache" }
+        });
+        if (!response.ok) throw new Error("ESPN Now HTTP " + response.status);
+        const payload = await response.json();
+        const rows = Array.isArray(payload?.headlines)
+          ? payload.headlines
+          : Array.isArray(payload?.items)
+            ? payload.items
+            : [];
+
+        return rows
+          .map(item => ({
+            league: league.toUpperCase(),
+            headline: String(item?.headline || item?.title || "").replace(/\s+/g, " ").trim(),
+            href: espnHeadlineHref(item),
+            publishedAt: espnHeadlineTime(item)
+          }))
+          .filter(item => usefulLiveEspnHeadline(item.headline));
+      } catch (error) {
+        lastError = error;
+      }
+    }
+
+    throw lastError || new Error("ESPN Now feed unavailable");
+  }
+
+  async function fetchLiveEspnNews() {
+    const settled = await Promise.allSettled(
+      ESPN_HEADLINE_LEAGUES.map(league => fetchEspnNowLeague(league))
+    );
+
+    const seen = new Set();
+    const items = [];
+    for (const result of settled) {
+      if (result.status !== "fulfilled") continue;
+      for (const item of result.value) {
+        const key = item.league + ":" + item.headline.toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        items.push(item);
+      }
+    }
+
+    items.sort((a, b) => (b.publishedAt || 0) - (a.publishedAt || 0));
+    return items.slice(0, 14).map(({ publishedAt, ...item }) => item);
   }
 
   async function fetchSameOriginTopHeadlines() {
@@ -1063,14 +1182,22 @@
     try {
       let headlines = [];
 
-      // First choice: scrape the literal Top Headlines box from ESPN.com right now.
+      // First choice: ESPN's real-time news service. This is polled every
+      // 30 seconds, so a new ESPN headline can appear without waiting for the
+      // GitHub Action or a cached homepage proxy.
       try {
-        headlines = await fetchLiveExactEspnTopHeadlines();
+        headlines = await fetchLiveEspnNews();
       } catch {}
 
-      // Reliable fallback: the repo refreshes this exact same ESPN box on a
-      // schedule, so even if a display/browser blocks the proxy we still never
-      // substitute generic news/article feeds.
+      // If ESPN's live JSON feed is unavailable, scrape the literal homepage
+      // Top Headlines box right now.
+      if (!headlines.length) {
+        try {
+          headlines = await fetchLiveExactEspnTopHeadlines();
+        } catch {}
+      }
+
+      // Final network fallback: the repo's periodically refreshed snapshot.
       if (!headlines.length) {
         try {
           headlines = await fetchSameOriginTopHeadlines();
@@ -1087,7 +1214,7 @@
     } finally {
       headlineFetching = false;
       if (config.enabled) {
-        headlineTimer = setTimeout(refreshHeadlines, 30 * 1000);
+        headlineTimer = setTimeout(refreshHeadlines, HEADLINE_REFRESH_MS);
       }
     }
   }
