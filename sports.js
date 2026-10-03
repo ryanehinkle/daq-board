@@ -1218,27 +1218,47 @@
     headlineFetching = true;
 
     try {
-      let headlines = [];
+      let liveItems = [];
+      let topItems = [];
 
-      // First choice: ESPN's real-time news service. This is polled every
-      // 30 seconds, so a new ESPN headline can appear without waiting for the
-      // GitHub Action or a cached homepage proxy.
+      // Poll true league-specific ESPN news every 30 seconds.
       try {
-        headlines = await fetchLiveEspnNews();
+        liveItems = await fetchLiveEspnNews();
       } catch {}
 
-      // If ESPN's live JSON feed is unavailable, scrape the literal homepage
-      // Top Headlines box right now.
-      if (!headlines.length) {
-        try {
-          headlines = await fetchLiveExactEspnTopHeadlines();
-        } catch {}
-      }
+      // Also scrape ESPN's literal Top Headlines box. Its extractor already
+      // rejects anything whose ESPN URL is not NFL/MLB/NHL/NBA.
+      try {
+        topItems = await fetchLiveExactEspnTopHeadlines();
+      } catch {}
 
-      // Final network fallback: the repo's periodically refreshed snapshot.
+      // Merge the two sources instead of choosing only one. This keeps the
+      // freshest breaking items while giving the marquee enough UNIQUE valid
+      // headlines that its seamless scroll clone does not look like a repeat.
+      const seen = new Set();
+      let headlines = [...liveItems, ...topItems].filter(item => {
+        if (!item || !usefulLiveEspnHeadline(item.headline)) return false;
+        const league = String(item.league || "").toLowerCase();
+        if (!ESPN_HEADLINE_FEEDS[league]) return false;
+        if (!headlineBelongsToLeague(league, item.href)) return false;
+
+        const key = normalizeHeadlineKey(item.headline);
+        if (!key || seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      }).slice(0, 14);
+
+      // Final network fallback: the repo's periodically refreshed exact ESPN
+      // Top Headlines snapshot. Validate it with the same hard rules too.
       if (!headlines.length) {
         try {
-          headlines = await fetchSameOriginTopHeadlines();
+          const snapshot = await fetchSameOriginTopHeadlines();
+          headlines = snapshot.filter(item => {
+            const league = String(item?.league || "").toLowerCase();
+            return ESPN_HEADLINE_FEEDS[league] &&
+              usefulLiveEspnHeadline(item?.headline) &&
+              headlineBelongsToLeague(league, item?.href);
+          });
         } catch {}
       }
 
@@ -1246,7 +1266,12 @@
         saveCachedTopHeadlines(headlines);
         renderHeadlines(headlines);
       } else if (!headlineItems.length) {
-        const cached = loadCachedTopHeadlines();
+        const cached = loadCachedTopHeadlines().filter(item => {
+          const league = String(item?.league || "").toLowerCase();
+          return ESPN_HEADLINE_FEEDS[league] &&
+            usefulLiveEspnHeadline(item?.headline) &&
+            headlineBelongsToLeague(league, item?.href);
+        });
         if (cached.length) renderHeadlines(cached);
       }
     } finally {
