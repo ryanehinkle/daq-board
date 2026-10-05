@@ -1,51 +1,56 @@
 {
-  "source": "ESPN Top Headlines",
-  "sectionId": "45672706",
+  "source": "ESPN fresh headlines",
+  "refreshedAt": "2026-10-05T13:58:00Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "Ravens' Hendrickson has surgery on finger, out vs. Titans",
-      "href": "/nfl/story/_/id/50085727/ravens-trey-hendrickson-surgery-finger-vs-titans"
-    },
-    {
-      "league": "NFL",
-      "headline": "49ers owner York suspended six games, fined $500,000 for personal conduct violation",
-      "href": "/nfl/story/_/id/50085721/49ers-owner-jed-york-suspended-six-games-fined-500k-nfl"
+      "headline": "Chiefs WR Thornton has dislocated ankle, sources say",
+      "href": "/nfl/story/_/id/50104571/chiefs-rule-rashee-rice-doubtful-return-injury"
     },
     {
       "league": "MLB",
-      "headline": "Yankees in wait-and-see mode on Judge availability for ALDS",
+      "headline": "Braves lean on Kerr, Fuentes in lieu of Sale, win NLDS Game 2",
+      "href": "/mlb/story/_/id/50107240/michael-harris-ii-leads-braves-3-2-win-dodgers-game-2-tie-nlds"
+    },
+    {
+      "league": "MLB",
+      "headline": "Braves have 'zero regrets' about pitching Chris Sale in relief",
+      "href": "/mlb/story/_/id/50101965/braves-start-ray-kerr-game-2-vs-dodgers-chris-sale-game-3"
+    },
+    {
+      "league": "NHL",
+      "headline": "Marchand, out since March 6, scores in return to Panthers",
+      "href": "/nhl/story/_/id/50106368/brad-marchand-march-6-back-panthers-lineup"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Baker Mayfield return hinges on when QB can grip football",
+      "href": "/nfl/story/_/id/50090537/sources-baker-mayfield-return-hinges-qb-grip-football"
+    },
+    {
+      "league": "MLB",
+      "headline": "Rasmussen nearly perfect vs. Yankees as Rays take ALDS Game 1",
+      "href": "/mlb/story/_/id/50095644/rasmussen-nearly-perfect-vs-yankees-rays-take-alds-game-1"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sources: Grizzlies waive Jordan Hawkins weeks after Pels trade",
+      "href": "/nba/story/_/id/50087727/sources-grizzlies-waive-jordan-hawkins-weeks-pels-trade"
+    },
+    {
+      "league": "NFL",
+      "headline": "49ers WR Mike Evans a game-time decision with rib injury",
+      "href": "/nfl/story/_/id/50086883/49ers-wr-mike-evans-game-decision-rib-injury"
+    },
+    {
+      "league": "MLB",
+      "headline": "Yankees waiting to decide on Aaron Judge's availability for ALDS",
       "href": "/mlb/story/_/id/50086265/yankees-waiting-decide-aaron-judge-availability-alds"
     },
     {
-      "league": "NFL",
-      "headline": "Winless Texans get top WR Collins back after 2-game absence",
-      "href": "/nfl/story/_/id/50086264/texans-get-wr-nico-collins-hamstring-back-vs-cowboys"
-    },
-    {
-      "league": "NFL",
-      "headline": "Vikings' Jefferson to sit vs. Dolphins, hoping to return in Week 5",
-      "href": "/nfl/story/_/id/50086081/vikings-justin-jefferson-vs-dolphins-ankle-injury"
-    },
-    {
-      "league": "NFL",
-      "headline": "Rams DT Donald out, WR Nacua returns against Eagles",
-      "href": "/nfl/story/_/id/50085994/aaron-donald-puka-nacua-play-rams-game-vs-eagles"
-    },
-    {
-      "league": "NFL",
-      "headline": "CB Porter trending toward Cowboys debut days after trade",
-      "href": "/nfl/story/_/id/50086232/joey-porter-jr-designation-debut-cowboys"
-    },
-    {
-      "league": "MLB",
-      "headline": "Source: Skubal to start Dodgers' NLDS opener; Braves' plans in flux",
-      "href": "/mlb/story/_/id/50085886/dodgers-commit-skubal-game-1-start-nlds-source-says"
-    },
-    {
-      "league": "NFL",
-      "headline": "Early look at the NFL trade deadline: Why Mac Jones likely won't be going anywhere",
-      "href": "/nfl/story/_/id/50077145/2026-trade-deadline-early-look-players-teams-predictions"
+      "league": "NBA",
+      "headline": "Trail Blazers fire new announcer over past inappropriate posts",
+      "href": "/nba/story/_/id/50084279/trail-blazers-fire-new-announcer-inappropriate-posts"
     }
   ]
 }
