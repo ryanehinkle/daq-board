@@ -1,11 +1,21 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-08T16:54:11Z",
+  "refreshedAt": "2026-10-08T21:46:22Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "Jayden Daniels will be 'full go' vs. Giants, says Commanders OC",
-      "href": "/nfl/story/_/id/50133878/jayden-daniels-full-go-vs-giants-commanders-oc-says"
+      "headline": "Sean Payton says he's taking over playcalling for Broncos' offense",
+      "href": "/nfl/story/_/id/50135033/sean-payton-says-taking-playcalling-broncos-offense"
+    },
+    {
+      "league": "NFL",
+      "headline": "Shai Gilgeous-Alexander joins athletes who became owners",
+      "href": "/nfl/story/_/id/29553205/dwyane-wade-tom-brady-lebron-james-athletes-team-owners"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sources: 76ers plan to play starters in preseason game vs. Nets",
+      "href": "/nba/story/_/id/50134832/sources-76ers-plan-play-starters-preseason-game-vs-nets"
     },
     {
       "league": "NFL",
@@ -13,14 +23,19 @@
       "href": "/nfl/story/_/id/50133567/sources-sean-payton-expand-role-broncos-playcalling-process"
     },
     {
-      "league": "MLB",
-      "headline": "Tampa Bay Rays troll New York Yankees with signature Sinatra song after ALDS win",
-      "href": "/mlb/story/_/id/50132928/rays-yankees-sinatra-song-alds-troll"
+      "league": "NFL",
+      "headline": "Steelers receiver Michael Pittman aggravates foot, out weeks",
+      "href": "/nfl/story/_/id/50133939/steelers-receiver-michael-pittman-aggravates-foot-weeks"
     },
     {
       "league": "NFL",
-      "headline": "Source: Cowboys activating Pro Bowl LG Tyler Smith (thumb) from IR",
-      "href": "/nfl/story/_/id/50132896/source-cowboys-activating-pro-bowl-lg-tyler-smith-thumb-ir"
+      "headline": "Jayden Daniels will be 'full go' vs. Giants, says Commanders OC",
+      "href": "/nfl/story/_/id/50133878/jayden-daniels-full-go-vs-giants-commanders-oc-says"
+    },
+    {
+      "league": "MLB",
+      "headline": "Tampa Bay Rays troll New York Yankees with signature Sinatra song after ALDS win",
+      "href": "/mlb/story/_/id/50132928/rays-yankees-sinatra-song-alds-troll"
     },
     {
       "league": "MLB",
@@ -46,21 +61,6 @@
       "league": "MLB",
       "headline": "Andy Pages lifts Dodgers past Braves, into third straight NLCS",
       "href": "/mlb/story/_/id/50129200/dodgers-dispatch-braves-advance-third-straight-nlcs"
-    },
-    {
-      "league": "NBA",
-      "headline": "Trail Blazers' Dundon says he intends to bring title to Portland",
-      "href": "/nba/story/_/id/50127764/trail-blazers-dundon-says-intends-bring-title-portland"
-    },
-    {
-      "league": "MLB",
-      "headline": "Rays complete sweep of Yankees to advance to ALCS",
-      "href": "/mlb/story/_/id/50130798/tampa-bay-rays-complete-sweep-new-york-yankees-advance-alcs"
-    },
-    {
-      "league": "MLB",
-      "headline": "Trump says he'll award Clemens the Presidential Medal of Freedom",
-      "href": "/mlb/story/_/id/50129668/trump-says-award-clemens-presidential-medal-freedom"
     },
     {
       "league": "NHL",
