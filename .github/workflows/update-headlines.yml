@@ -4,89 +4,226 @@ on:
   schedule:
     - cron: "*/5 * * * *"
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/update-headlines.yml"
 
 permissions:
   contents: write
+
+concurrency:
+  group: espn-headlines
+  cancel-in-progress: true
 
 jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Scrape exact ESPN Top Headlines box
+      - name: Pull fresh ESPN NFL MLB NHL NBA headlines
         run: |
           python3 - <<'PY'
-          import html
           import json
           import re
           import urllib.request
+          from datetime import datetime, timezone
           from pathlib import Path
+          from urllib.parse import urlparse
 
-          url = "https://www.espn.com/"
-          req = urllib.request.Request(
-              url,
-              headers={
-                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/154 Safari/537.36",
-                  "Accept-Language": "en-US,en;q=0.9",
-                  "Cache-Control": "no-cache",
-                  "Pragma": "no-cache",
-              },
+          FEEDS = {
+              "NFL": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?limit=30",
+              "MLB": "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/news?limit=30",
+              "NHL": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/news?limit=30",
+              "NBA": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/news?limit=30",
+          }
+
+          BLOCKED = (
+              "fantasy ",
+              "fantasy:",
+              "power rankings",
+              "mock draft",
+              "best bets",
+              "betting",
+              "odds:",
+              "odds ",
+              "predictions",
+              "prediction:",
+              "how to watch",
+              "tv schedule",
+              "full schedule",
+              "standings",
+              "rankings:",
+              "live updates",
+              "latest updates",
+              "commentary",
+              "score, news",
+              "scores, news",
+              "preview:",
+              "takeaways:",
           )
-          with urllib.request.urlopen(req, timeout=25) as response:
-              page = response.read().decode("utf-8", "ignore")
 
-          start = page.find('<section data-id="45672706"')
-          if start < 0:
-              raise SystemExit("ESPN Top Headlines section 45672706 not found")
+          def clean_text(value):
+              return re.sub(r"\s+", " ", str(value or "")).strip()
 
-          end = page.find('<div class="ad-slot-inview', start)
-          if end < 0:
-              raise SystemExit("Could not find end of ESPN Top Headlines section")
+          def normalize_key(value):
+              return re.sub(r"[^a-z0-9]+", " ", clean_text(value).lower()).strip()
 
-          block = page[start:end]
-          pattern = re.compile(
-              r'<a\b[^>]*href="(/(nfl|mlb|nhl|nba)/[^"]*)"[^>]*data-mpType="headline"[^>]*>(.*?)</a>',
-              re.I | re.S,
-          )
+          def useful(headline):
+              low = clean_text(headline).lower()
+              if not low:
+                  return False
+              if low.startswith(("live:", "live -", "live ")):
+                  return False
+              return not any(term in low for term in BLOCKED)
 
-          items = []
+          def published_epoch(item):
+              for key in ("published", "publishedTime", "lastModified", "date", "timestamp"):
+                  value = item.get(key)
+                  if not value:
+                      continue
+                  try:
+                      dt = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+                      if dt.tzinfo is None:
+                          dt = dt.replace(tzinfo=timezone.utc)
+                      return dt.timestamp()
+                  except Exception:
+                      pass
+              return 0
+
+          def story_path(item, league):
+              links = item.get("links") or {}
+              candidates = []
+              if isinstance(links, dict):
+                  for key in ("web", "mobile"):
+                      value = links.get(key)
+                      if isinstance(value, dict):
+                          candidates.append(value.get("href"))
+                      elif isinstance(value, str):
+                          candidates.append(value)
+                  candidates.append(links.get("href"))
+              candidates.extend([item.get("link"), item.get("href")])
+
+              wanted = league.lower()
+              for href in candidates:
+                  href = clean_text(href)
+                  if not href:
+                      continue
+                  try:
+                      path = urlparse(href).path if "://" in href else href.split("?", 1)[0]
+                  except Exception:
+                      continue
+                  path = path.strip()
+                  if re.match(rf"^/{wanted}/story/", path, re.I):
+                      return path
+              return ""
+
+          def fetch_feed(league, url):
+              req = urllib.request.Request(
+                  url + ("&" if "?" in url else "?") + "_=" + str(int(datetime.now(timezone.utc).timestamp())),
+                  headers={
+                      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/154 Safari/537.36",
+                      "Accept": "application/json,text/plain,*/*",
+                      "Accept-Language": "en-US,en;q=0.9",
+                      "Cache-Control": "no-cache",
+                      "Pragma": "no-cache",
+                  },
+              )
+              with urllib.request.urlopen(req, timeout=25) as response:
+                  payload = json.loads(response.read().decode("utf-8", "ignore"))
+
+              rows = payload.get("articles") or payload.get("headlines") or payload.get("items") or []
+              out = []
+              for item in rows:
+                  if not isinstance(item, dict):
+                      continue
+                  headline = clean_text(item.get("headline") or item.get("title"))
+                  href = story_path(item, league)
+                  if not href or not useful(headline):
+                      continue
+                  out.append({
+                      "league": league,
+                      "headline": headline,
+                      "href": href,
+                      "_published": published_epoch(item),
+                  })
+
+              out.sort(key=lambda row: row["_published"], reverse=True)
+              print(f"{league}: {len(out)} validated news stories")
+              for row in out[:5]:
+                  stamp = datetime.fromtimestamp(row["_published"], timezone.utc).isoformat() if row["_published"] else "unknown"
+                  print(f"  {stamp} | {row['headline']} | {row['href']}")
+              return out
+
+          by_league = {}
+          failures = []
+          for league, url in FEEDS.items():
+              try:
+                  by_league[league] = fetch_feed(league, url)
+              except Exception as exc:
+                  failures.append(f"{league}: {exc}")
+                  by_league[league] = []
+
+          if failures:
+              print("Feed warnings:")
+              for warning in failures:
+                  print("  " + warning)
+
+          total_valid = sum(len(rows) for rows in by_league.values())
+          if total_valid < 6:
+              raise SystemExit(f"Only {total_valid} validated ESPN stories found; refusing to replace headlines.json")
+
+          # Guarantee representation from each major league when ESPN has valid
+          # current stories, then fill the remaining slots by recency.
+          selected = []
           seen = set()
-          for href, league, title in pattern.findall(block):
-              title = re.sub(r"<[^>]+>", "", title)
-              title = html.unescape(re.sub(r"\s+", " ", title)).strip()
-              key = (league.lower(), title.lower())
-              if not title or key in seen:
-                  continue
+
+          def add(row):
+              key = normalize_key(row["headline"])
+              if not key or key in seen:
+                  return False
               seen.add(key)
-              items.append({
-                  "league": league.upper(),
-                  "headline": title,
-                  "href": href,
-              })
+              selected.append(row)
+              return True
+
+          for league in ("NFL", "MLB", "NHL", "NBA"):
+              for row in by_league[league][:2]:
+                  add(row)
+
+          remainder = sorted(
+              [row for rows in by_league.values() for row in rows],
+              key=lambda row: row["_published"],
+              reverse=True,
+          )
+          for row in remainder:
+              if len(selected) >= 14:
+                  break
+              add(row)
+
+          selected.sort(key=lambda row: row["_published"], reverse=True)
+          items = [
+              {"league": row["league"], "headline": row["headline"], "href": row["href"]}
+              for row in selected[:14]
+          ]
 
           if not items:
-              raise SystemExit("No NFL/MLB/NHL/NBA headlines found in ESPN Top Headlines box")
+              raise SystemExit("No validated ESPN headlines available")
 
-          path = Path("headlines.json")
-          old_items = []
-          if path.exists():
-              try:
-                  old_items = json.loads(path.read_text(encoding="utf-8")).get("items", [])
-              except Exception:
-                  pass
-
-          if old_items == items:
-              print("ESPN Top Headlines unchanged")
-              raise SystemExit(0)
-
+          now = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
           payload = {
-              "source": "ESPN Top Headlines",
-              "sectionId": "45672706",
+              "source": "ESPN league news feeds",
+              "refreshedAt": now,
               "items": items,
           }
-          path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-          print(f"Updated {len(items)} exact ESPN Top Headlines")
+
+          Path("headlines.json").write_text(
+              json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
+              encoding="utf-8",
+          )
+          print(f"Wrote {len(items)} fresh validated headlines at {now}")
           PY
 
       - name: Commit updated headlines
@@ -99,4 +236,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add headlines.json
           git commit -m "Refresh ESPN Top Headlines"
+          git pull --rebase origin main
           git push
