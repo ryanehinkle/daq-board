@@ -1,46 +1,11 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-08T13:57:09Z",
+  "refreshedAt": "2026-10-08T13:58:49Z",
   "items": [
-    {
-      "league": "NFL",
-      "headline": "Eagles' offensive state of affairs in limbo",
-      "href": "/nfl/story/_/id/50125173/philadelphia-eagles-offensive-line-limbo-week-5"
-    },
-    {
-      "league": "MLB",
-      "headline": "MLB playoffs 2026: Is this the Milwaukee Brewers' year?",
-      "href": "/mlb/story/_/id/50093592/mlb-2026-playoffs-milwaukee-brewers-postseason-different"
-    },
-    {
-      "league": "NFL",
-      "headline": "'A loaded question': How do the Ravens plan to stop Bijan Robinson?",
-      "href": "/nfl/story/_/id/50118457/how-do-baltimore-ravens-plan-stop-bijan-robinson-week-5"
-    },
-    {
-      "league": "NBA",
-      "headline": "Rockets, Mavs take China: Highlights, top scenes from off the court",
-      "href": "/nba/story/_/id/50119633/rockets-mavs-nba-china-highlights"
-    },
-    {
-      "league": "NBA",
-      "headline": "What does your NBA team need? The biggest hole on all 30 rosters",
-      "href": "/nba/story/_/id/50111204/nba-preseason-roster-holes-30-teams"
-    },
-    {
-      "league": "NFL",
-      "headline": "2026 NFL quarter-season awards: MVP picks, top rookies, OPOY, DPOY, best coaches",
-      "href": "/nfl/story/_/id/50118698/2026-early-awards-ranking-mvp-rookies-coaches-barnwell"
-    },
     {
       "league": "MLB",
       "headline": "Fan interference denies Yankees of game-tying HR vs. Rays",
       "href": "/mlb/story/_/id/50129842/fan-interference-denies-yankees-game-tying-hr-vs-rays"
-    },
-    {
-      "league": "NFL",
-      "headline": "NFL Week 5 uniforms: Packers debut Rivalries look, Patriots wearing throwbacks",
-      "href": "/nfl/story/_/id/50120618/nfl-week-5-uniforms"
     },
     {
       "league": "MLB",
@@ -48,29 +13,64 @@
       "href": "/mlb/story/_/id/50131001/aaron-judge-reacts-yankees-postseason-elimination-rays"
     },
     {
+      "league": "NBA",
+      "headline": "NBA, FIBA say Europe push to continue without EuroLeague",
+      "href": "/nba/story/_/id/50131848/nba-fiba-say-europe-push-continue-euroleague"
+    },
+    {
+      "league": "MLB",
+      "headline": "Mitchell robs Padres of tying homer as Brewers clinch NLDS",
+      "href": "/mlb/story/_/id/50130772/mitchell-robs-padres-tying-homer-brewers-clinch-nlds"
+    },
+    {
+      "league": "MLB",
+      "headline": "Andy Pages lifts Dodgers past Braves, into third straight NLCS",
+      "href": "/mlb/story/_/id/50129200/dodgers-dispatch-braves-advance-third-straight-nlcs"
+    },
+    {
+      "league": "NBA",
+      "headline": "Trail Blazers' Dundon says he intends to bring title to Portland",
+      "href": "/nba/story/_/id/50127764/trail-blazers-dundon-says-intends-bring-title-portland"
+    },
+    {
       "league": "NFL",
-      "headline": "Experience Cowboys QB Dak Prescott directing a TD play",
-      "href": "/nfl/story/_/id/50124371/dallas-cowboys-dak-prescott-touchdown"
+      "headline": "Vikings' Justin Jefferson says plan is to play vs. Saints",
+      "href": "/nfl/story/_/id/50128245/vikings-justin-jefferson-says-plan-play-week-5-vs-saints"
     },
     {
-      "league": "NBA",
-      "headline": "The Warriors need Yaxel Lendeborg's fast-tracked development",
-      "href": "/nba/story/_/id/50125703/warriors-yaxel-lendeborg-training-camp-preseason-debut"
+      "league": "NFL",
+      "headline": "Commanders' Jayden Daniels fully practices, trending toward return",
+      "href": "/nfl/story/_/id/50127736/commanders-jayden-daniels-fully-practices-trending-return"
     },
     {
-      "league": "NBA",
-      "headline": "NBA preseason buzz: Latest on trades, news and intel",
-      "href": "/nba/story/_/id/50028196/2026-27-nba-buzz-latest-live-updates-news-intel-trades-deals"
+      "league": "MLB",
+      "headline": "Rays complete sweep of Yankees to advance to ALCS",
+      "href": "/mlb/story/_/id/50130798/tampa-bay-rays-complete-sweep-new-york-yankees-advance-alcs"
+    },
+    {
+      "league": "MLB",
+      "headline": "2026 MLB playoffs: Offseason questions for eliminated teams",
+      "href": "/mlb/story/_/id/50052092/mlb-playoffs-2026-offseason-eliminated-teams-questions"
+    },
+    {
+      "league": "MLB",
+      "headline": "Trump says he'll award Clemens the Presidential Medal of Freedom",
+      "href": "/mlb/story/_/id/50129668/trump-says-award-clemens-presidential-medal-freedom"
+    },
+    {
+      "league": "NFL",
+      "headline": "TE Sam LaPorta says extension talks with Lions at 'stalemate'",
+      "href": "/nfl/story/_/id/50127865/te-sam-laporta-says-extension-talks-lions-stalemate"
     },
     {
       "league": "NHL",
-      "headline": "Wysh List: What NHL execs think of ESPN's top 100 player rankings",
-      "href": "/nhl/story/_/id/50125128/nhl-2026-27-wysh-list-player-rankings-insiders-execs-audit-overrated-underrated"
+      "headline": "Islanders D Alexander Romanov out 6-8 months with torn ACL",
+      "href": "/nhl/story/_/id/50126899/islanders-d-alexander-romanov-6-8-months-torn-acl"
     },
     {
       "league": "NHL",
-      "headline": "Alex Ovechkin's 'cool' final home opener marked by sons introducing him pregame",
-      "href": "/nhl/story/_/id/50130222/alex-ovechkin-cool-final-home-opener-marked-sons-introducing-pregame"
+      "headline": "Penguins trade Filip Hallander to Oilers for Spencer Stastney",
+      "href": "/nhl/story/_/id/50126128/penguins-trade-filip-hallander-oilers-spencer-stastney"
     }
   ]
 }
