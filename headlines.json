@@ -1,6 +1,6 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-08T13:58:49Z",
+  "refreshedAt": "2026-10-08T13:59:34Z",
   "items": [
     {
       "league": "MLB",
@@ -49,11 +49,6 @@
     },
     {
       "league": "MLB",
-      "headline": "2026 MLB playoffs: Offseason questions for eliminated teams",
-      "href": "/mlb/story/_/id/50052092/mlb-playoffs-2026-offseason-eliminated-teams-questions"
-    },
-    {
-      "league": "MLB",
       "headline": "Trump says he'll award Clemens the Presidential Medal of Freedom",
       "href": "/mlb/story/_/id/50129668/trump-says-award-clemens-presidential-medal-freedom"
     },
@@ -61,6 +56,11 @@
       "league": "NFL",
       "headline": "TE Sam LaPorta says extension talks with Lions at 'stalemate'",
       "href": "/nfl/story/_/id/50127865/te-sam-laporta-says-extension-talks-lions-stalemate"
+    },
+    {
+      "league": "MLB",
+      "headline": "Dodgers hold 2B Rojas out of Game 4 due to sore back",
+      "href": "/mlb/story/_/id/50127664/dodgers-hold-2b-rojas-game-4-due-sore-back"
     },
     {
       "league": "NHL",
