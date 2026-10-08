@@ -56,7 +56,7 @@ jobs:
               "tv schedule",
               "full schedule",
               "standings",
-              "rankings:",
+              "rankings",
               "live updates",
               "latest updates",
               "commentary",
@@ -64,6 +64,33 @@ jobs:
               "scores, news",
               "preview:",
               "takeaways:",
+              "awards:",
+              "awards ",
+              "uniforms:",
+              "uniforms ",
+              "experience ",
+              "highlights",
+              "top scenes",
+              "biggest hole",
+              "all 30 rosters",
+              "wysh list",
+              "top 100",
+              "buzz:",
+              "latest on trades",
+              "state of affairs",
+              "loaded question",
+              "is this the ",
+              "how do ",
+              "how does ",
+              "how the ",
+              "what does ",
+              "what your ",
+              "what every ",
+              "why ",
+              "inside ",
+              "guide:",
+              "guide to",
+              "roundtable",
           )
 
           def clean_text(value):
@@ -72,13 +99,80 @@ jobs:
           def normalize_key(value):
               return re.sub(r"[^a-z0-9]+", " ", clean_text(value).lower()).strip()
 
+          NEWS_SIGNALS = (
+              "source:",
+              "sources:",
+              "trade ",
+              " traded ",
+              "trades ",
+              "sign ",
+              "signs ",
+              "signed ",
+              "agree ",
+              "agrees ",
+              "agreed ",
+              "deal ",
+              "waive ",
+              "waives ",
+              "waived ",
+              "release ",
+              "releases ",
+              "released ",
+              "fire ",
+              "fires ",
+              "fired ",
+              "suspend ",
+              "suspends ",
+              "suspended ",
+              "injury",
+              "injured",
+              " surgery",
+              " out ",
+              "ruled out",
+              "return ",
+              "returns ",
+              "retire",
+              "retires",
+              "retirement",
+              "announces",
+              "announced",
+              "says ",
+              "say ",
+              "set to ",
+              "to miss ",
+              "clinches",
+              "clinch ",
+              "advance ",
+              "advances ",
+              "eliminated",
+              "elimination",
+              "beats ",
+              "beat ",
+              "wins ",
+              "win ",
+              "lifts ",
+              "denies ",
+              "upsets ",
+              "hires ",
+              "hired ",
+              "joins ",
+              "rejoins ",
+              "activated ",
+              "placed on ",
+              "extension",
+              "contract",
+          )
+
           def useful(headline):
               low = clean_text(headline).lower()
               if not low:
                   return False
               if low.startswith(("live:", "live -", "live ")):
                   return False
-              return not any(term in low for term in BLOCKED)
+              if any(term in low for term in BLOCKED):
+                  return False
+              padded = " " + low + " "
+              return any(signal in padded or low.startswith(signal.strip()) for signal in NEWS_SIGNALS)
 
           def published_epoch(item):
               for key in ("published", "publishedTime", "lastModified", "date", "timestamp"):
@@ -144,11 +238,17 @@ jobs:
                   href = story_path(item, league)
                   if not href or not useful(headline):
                       continue
+                  published = published_epoch(item)
+                  # Do not let stale stories linger just because a league has a
+                  # slower news day. The board is meant to feel current.
+                  now_epoch = datetime.now(timezone.utc).timestamp()
+                  if published and (now_epoch - published) > 72 * 60 * 60:
+                      continue
                   out.append({
                       "league": league,
                       "headline": headline,
                       "href": href,
-                      "_published": published_epoch(item),
+                      "_published": published,
                   })
 
               out.sort(key=lambda row: row["_published"], reverse=True)
