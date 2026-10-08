@@ -805,14 +805,8 @@
     });
   }
 
-  const HEADLINE_CACHE_KEY = "daq-board-espn-exact-top-headlines-v5";
-  const ESPN_HOME_URL = "https://www.espn.com/";
-  const ESPN_TOP_HEADLINES_SECTION_ID = "45672706";
-  const ESPN_HOME_PROXIES = [
-    url => "https://api.allorigins.win/raw?url=" + encodeURIComponent(url),
-    url => "https://corsproxy.io/?" + encodeURIComponent(url),
-    url => "https://api.codetabs.com/v1/proxy?quest=" + encodeURIComponent(url)
-  ];
+  const HEADLINE_CACHE_KEY = "daq-board-espn-headlines-v6";
+  const HEADLINE_CACHE_MAX_AGE_MS = 10 * 60 * 1000;
 
   let headlineTimer = null;
   let headlineFetching = false;
@@ -821,48 +815,12 @@
   let staticHeadlineIndex = 0;
   let staticHeadlineTimer = null;
 
-  function leagueFromEspnHref(href) {
-    const match = String(href || "").match(/^\/(nfl|mlb|nhl|nba)(?:\/|$)/i);
-    return match ? match[1].toUpperCase() : "";
-  }
-
-  function extractExactEspnTopHeadlines(htmlText) {
-    const html = String(htmlText || "");
-    if (!html) return [];
-
-    const doc = new DOMParser().parseFromString(html, "text/html");
-    const section = doc.querySelector(
-      'section[data-id="' + ESPN_TOP_HEADLINES_SECTION_ID + '"], ' +
-      'section[data-now-id="1-' + ESPN_TOP_HEADLINES_SECTION_ID + '"]'
-    );
-    if (!section) return [];
-
-    const heading = section.querySelector("h2");
-    if (!heading || heading.textContent.trim() !== "Top Headlines") return [];
-
-    const items = [];
-    const seen = new Set();
-    section.querySelectorAll('.headlineStack.top-headlines a[data-mpType="headline"]').forEach(anchor => {
-      const href = anchor.getAttribute("href") || "";
-      const league = leagueFromEspnHref(href);
-      const headline = anchor.textContent.replace(/\s+/g, " ").trim();
-      if (!league || !headline) return;
-
-      const key = league + ":" + headline.toLowerCase();
-      if (seen.has(key)) return;
-      seen.add(key);
-      items.push({ league, headline, href });
-    });
-
-    // Preserve ESPN's exact box order. Do not rank, re-sort, score, infer, or
-    // supplement with any other feed.
-    return items.slice(0, 14);
-  }
-
   function loadCachedTopHeadlines() {
     try {
       const cached = JSON.parse(localStorage.getItem(HEADLINE_CACHE_KEY) || "null");
       if (!cached || !Array.isArray(cached.items)) return [];
+      const savedAt = Number(cached.savedAt || 0);
+      if (!savedAt || Date.now() - savedAt > HEADLINE_CACHE_MAX_AGE_MS) return [];
       return cached.items.filter(item =>
         item &&
         typeof item.headline === "string" &&
@@ -895,29 +853,6 @@
       typeof item.headline === "string" &&
       ["NFL", "MLB", "NHL", "NBA"].includes(item.league)
     ).slice(0, 14);
-  }
-
-  async function fetchLiveExactEspnTopHeadlines() {
-    const target = ESPN_HOME_URL + "?_daq=" + Date.now();
-    let lastError = null;
-
-    for (const buildProxyUrl of ESPN_HOME_PROXIES) {
-      try {
-        const response = await fetch(buildProxyUrl(target), {
-          cache: "no-store",
-          credentials: "omit"
-        });
-        if (!response.ok) throw new Error("proxy HTTP " + response.status);
-        const html = await response.text();
-        const items = extractExactEspnTopHeadlines(html);
-        if (items.length) return items;
-        throw new Error("Top Headlines section not found");
-      } catch (error) {
-        lastError = error;
-      }
-    }
-
-    throw lastError || new Error("ESPN Top Headlines unavailable");
   }
 
   function clearStaticHeadlineTimer() {
@@ -1092,24 +1027,20 @@
     try {
       let headlines = [];
 
-      // First choice: scrape the literal Top Headlines box from ESPN.com right now.
+      // headlines.json is the single authoritative source. The GitHub Action
+      // refreshes it directly from ESPN's league feeds, and this display checks
+      // it every 30 seconds. Do not use homepage/CORS proxies here: they can
+      // return hours-old cached HTML and overwrite genuinely fresh headlines.
       try {
-        headlines = await fetchLiveExactEspnTopHeadlines();
+        headlines = await fetchSameOriginTopHeadlines();
       } catch {}
-
-      // Reliable fallback: the repo refreshes this exact same ESPN box on a
-      // schedule, so even if a display/browser blocks the proxy we still never
-      // substitute generic news/article feeds.
-      if (!headlines.length) {
-        try {
-          headlines = await fetchSameOriginTopHeadlines();
-        } catch {}
-      }
 
       if (headlines.length) {
         saveCachedTopHeadlines(headlines);
         renderHeadlines(headlines);
       } else if (!headlineItems.length) {
+        // Only fall back to a very recent local copy during a brief network
+        // failure. Never resurrect old headlines from hours or days ago.
         const cached = loadCachedTopHeadlines();
         if (cached.length) renderHeadlines(cached);
       }
@@ -1450,8 +1381,8 @@
   renderAllModules();
   reconcilePolling({ immediate: true });
   if (config.enabled) {
-    const cachedHeadlines = loadCachedTopHeadlines();
-    if (cachedHeadlines.length) renderHeadlines(cachedHeadlines);
+    // Fetch the current repository snapshot first instead of flashing a stale
+    // browser cache on startup.
     refreshHeadlines();
   }
 
