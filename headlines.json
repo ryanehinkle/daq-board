@@ -1,7 +1,27 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-08T13:59:34Z",
+  "refreshedAt": "2026-10-08T16:54:11Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Jayden Daniels will be 'full go' vs. Giants, says Commanders OC",
+      "href": "/nfl/story/_/id/50133878/jayden-daniels-full-go-vs-giants-commanders-oc-says"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Sean Payton to expand role in Broncos' playcalling process",
+      "href": "/nfl/story/_/id/50133567/sources-sean-payton-expand-role-broncos-playcalling-process"
+    },
+    {
+      "league": "MLB",
+      "headline": "Tampa Bay Rays troll New York Yankees with signature Sinatra song after ALDS win",
+      "href": "/mlb/story/_/id/50132928/rays-yankees-sinatra-song-alds-troll"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Cowboys activating Pro Bowl LG Tyler Smith (thumb) from IR",
+      "href": "/nfl/story/_/id/50132896/source-cowboys-activating-pro-bowl-lg-tyler-smith-thumb-ir"
+    },
     {
       "league": "MLB",
       "headline": "Fan interference denies Yankees of game-tying HR vs. Rays",
@@ -33,16 +53,6 @@
       "href": "/nba/story/_/id/50127764/trail-blazers-dundon-says-intends-bring-title-portland"
     },
     {
-      "league": "NFL",
-      "headline": "Vikings' Justin Jefferson says plan is to play vs. Saints",
-      "href": "/nfl/story/_/id/50128245/vikings-justin-jefferson-says-plan-play-week-5-vs-saints"
-    },
-    {
-      "league": "NFL",
-      "headline": "Commanders' Jayden Daniels fully practices, trending toward return",
-      "href": "/nfl/story/_/id/50127736/commanders-jayden-daniels-fully-practices-trending-return"
-    },
-    {
       "league": "MLB",
       "headline": "Rays complete sweep of Yankees to advance to ALCS",
       "href": "/mlb/story/_/id/50130798/tampa-bay-rays-complete-sweep-new-york-yankees-advance-alcs"
@@ -51,16 +61,6 @@
       "league": "MLB",
       "headline": "Trump says he'll award Clemens the Presidential Medal of Freedom",
       "href": "/mlb/story/_/id/50129668/trump-says-award-clemens-presidential-medal-freedom"
-    },
-    {
-      "league": "NFL",
-      "headline": "TE Sam LaPorta says extension talks with Lions at 'stalemate'",
-      "href": "/nfl/story/_/id/50127865/te-sam-laporta-says-extension-talks-lions-stalemate"
-    },
-    {
-      "league": "MLB",
-      "headline": "Dodgers hold 2B Rojas out of Game 4 due to sore back",
-      "href": "/mlb/story/_/id/50127664/dodgers-hold-2b-rojas-game-4-due-sore-back"
     },
     {
       "league": "NHL",
