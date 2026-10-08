@@ -91,6 +91,8 @@ jobs:
               "guide:",
               "guide to",
               "roundtable",
+              "offseason questions",
+              "questions for eliminated",
           )
 
           def clean_text(value):
