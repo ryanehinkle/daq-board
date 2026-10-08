@@ -1,56 +1,76 @@
 {
-  "source": "ESPN fresh headlines",
-  "refreshedAt": "2026-10-06T14:02:00Z",
+  "source": "ESPN league news feeds",
+  "refreshedAt": "2026-10-08T13:57:09Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "Sources: Seahawks plan to sign RB Joe Mixon to practice squad",
-      "href": "/nfl/story/_/id/50112493/seahawks-signing-rb-joe-mixon-workout-source-says"
+      "headline": "Eagles' offensive state of affairs in limbo",
+      "href": "/nfl/story/_/id/50125173/philadelphia-eagles-offensive-line-limbo-week-5"
     },
     {
-      "league": "NBA",
-      "headline": "Pistons' Jalen Duren happy to return despite prolonged talks",
-      "href": "/nba/story/_/id/50104454/pistons-jalen-duren-happy-return-prolonged-talks"
+      "league": "MLB",
+      "headline": "MLB playoffs 2026: Is this the Milwaukee Brewers' year?",
+      "href": "/mlb/story/_/id/50093592/mlb-2026-playoffs-milwaukee-brewers-postseason-different"
     },
     {
       "league": "NFL",
-      "headline": "Chiefs WR Thornton has dislocated ankle, sources say",
-      "href": "/nfl/story/_/id/50104571/chiefs-rule-rashee-rice-doubtful-return-injury"
+      "headline": "'A loaded question': How do the Ravens plan to stop Bijan Robinson?",
+      "href": "/nfl/story/_/id/50118457/how-do-baltimore-ravens-plan-stop-bijan-robinson-week-5"
+    },
+    {
+      "league": "NBA",
+      "headline": "Rockets, Mavs take China: Highlights, top scenes from off the court",
+      "href": "/nba/story/_/id/50119633/rockets-mavs-nba-china-highlights"
+    },
+    {
+      "league": "NBA",
+      "headline": "What does your NBA team need? The biggest hole on all 30 rosters",
+      "href": "/nba/story/_/id/50111204/nba-preseason-roster-holes-30-teams"
+    },
+    {
+      "league": "NFL",
+      "headline": "2026 NFL quarter-season awards: MVP picks, top rookies, OPOY, DPOY, best coaches",
+      "href": "/nfl/story/_/id/50118698/2026-early-awards-ranking-mvp-rookies-coaches-barnwell"
     },
     {
       "league": "MLB",
-      "headline": "Braves lean on Kerr, Fuentes in lieu of Sale, win NLDS Game 2",
-      "href": "/mlb/story/_/id/50107240/michael-harris-ii-leads-braves-3-2-win-dodgers-game-2-tie-nlds"
+      "headline": "Fan interference denies Yankees of game-tying HR vs. Rays",
+      "href": "/mlb/story/_/id/50129842/fan-interference-denies-yankees-game-tying-hr-vs-rays"
+    },
+    {
+      "league": "NFL",
+      "headline": "NFL Week 5 uniforms: Packers debut Rivalries look, Patriots wearing throwbacks",
+      "href": "/nfl/story/_/id/50120618/nfl-week-5-uniforms"
     },
     {
       "league": "MLB",
-      "headline": "Braves have 'zero regrets' about pitching Chris Sale in relief",
-      "href": "/mlb/story/_/id/50101965/braves-start-ray-kerr-game-2-vs-dodgers-chris-sale-game-3"
+      "headline": "As Yankees fall short again, Aaron Judge says front office 'should go all-in'",
+      "href": "/mlb/story/_/id/50131001/aaron-judge-reacts-yankees-postseason-elimination-rays"
+    },
+    {
+      "league": "NFL",
+      "headline": "Experience Cowboys QB Dak Prescott directing a TD play",
+      "href": "/nfl/story/_/id/50124371/dallas-cowboys-dak-prescott-touchdown"
+    },
+    {
+      "league": "NBA",
+      "headline": "The Warriors need Yaxel Lendeborg's fast-tracked development",
+      "href": "/nba/story/_/id/50125703/warriors-yaxel-lendeborg-training-camp-preseason-debut"
+    },
+    {
+      "league": "NBA",
+      "headline": "NBA preseason buzz: Latest on trades, news and intel",
+      "href": "/nba/story/_/id/50028196/2026-27-nba-buzz-latest-live-updates-news-intel-trades-deals"
     },
     {
       "league": "NHL",
-      "headline": "Marchand, out since March 6, scores in return to Panthers",
-      "href": "/nhl/story/_/id/50106368/brad-marchand-march-6-back-panthers-lineup"
+      "headline": "Wysh List: What NHL execs think of ESPN's top 100 player rankings",
+      "href": "/nhl/story/_/id/50125128/nhl-2026-27-wysh-list-player-rankings-insiders-execs-audit-overrated-underrated"
     },
     {
-      "league": "NFL",
-      "headline": "Sources: Baker Mayfield return hinges on when QB can grip football",
-      "href": "/nfl/story/_/id/50090537/sources-baker-mayfield-return-hinges-qb-grip-football"
-    },
-    {
-      "league": "MLB",
-      "headline": "Rasmussen nearly perfect vs. Yankees as Rays take ALDS Game 1",
-      "href": "/mlb/story/_/id/50095644/rasmussen-nearly-perfect-vs-yankees-rays-take-alds-game-1"
-    },
-    {
-      "league": "NBA",
-      "headline": "Sources: Grizzlies waive Jordan Hawkins weeks after Pels trade",
-      "href": "/nba/story/_/id/50087727/sources-grizzlies-waive-jordan-hawkins-weeks-pels-trade"
-    },
-    {
-      "league": "MLB",
-      "headline": "Yankees waiting to decide on Aaron Judge's availability for ALDS",
-      "href": "/mlb/story/_/id/50086265/yankees-waiting-decide-aaron-judge-availability-alds"
+      "league": "NHL",
+      "headline": "Alex Ovechkin's 'cool' final home opener marked by sons introducing him pregame",
+      "href": "/nhl/story/_/id/50130222/alex-ovechkin-cool-final-home-opener-marked-sons-introducing-pregame"
     }
   ]
 }
