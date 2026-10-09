@@ -1,7 +1,12 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-09T07:57:23Z",
+  "refreshedAt": "2026-10-09T15:06:52Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Knicks tabling Karl-Anthony Towns, Josh Hart contract talks",
+      "href": "/nba/story/_/id/50140136/knicks-tabling-karl-anthony-towns-josh-hart-contract-talks"
+    },
     {
       "league": "NFL",
       "headline": "Undrafted rookie QB Daniels savors Thursday night win vs. Cowboys",
@@ -13,31 +18,6 @@
       "href": "/mlb/story/_/id/50137741/ramirez-guardians-top-white-sox-force-decisive-game-5-alds"
     },
     {
-      "league": "NFL",
-      "headline": "Sick Joey Porter Jr. sits out Cowboys' 'TNF' loss to Bucs",
-      "href": "/nfl/story/_/id/50135957/cowboys-say-sick-joey-porter-jr-face-bucs-tnf"
-    },
-    {
-      "league": "NFL",
-      "headline": "Buccaneers explode in third quarter against Cowboys to get first win",
-      "href": "/nfl/story/_/id/50136406/buccaneers-explode-first-win-cowboys-tnf"
-    },
-    {
-      "league": "NHL",
-      "headline": "Report: Panthers' Marchand out 'a few weeks' with leg injury",
-      "href": "/nhl/story/_/id/50136206/panthers-marchand-weeks-leg-injury"
-    },
-    {
-      "league": "NFL",
-      "headline": "Cards' Marvin Harrison Jr. paying 'no mind' to trade rumors",
-      "href": "/nfl/story/_/id/50136259/cards-marvin-harrison-jr-paying-no-mind-trade-rumors"
-    },
-    {
-      "league": "NFL",
-      "headline": "Shai Gilgeous-Alexander joins athletes who became owners",
-      "href": "/nfl/story/_/id/29553205/dwyane-wade-tom-brady-lebron-james-athletes-team-owners"
-    },
-    {
       "league": "NBA",
       "headline": "Sources: 76ers plan to play starters in preseason game vs. Nets",
       "href": "/nba/story/_/id/50134832/sources-76ers-plan-play-starters-preseason-game-vs-nets"
@@ -46,11 +26,6 @@
       "league": "MLB",
       "headline": "Tampa Bay Rays troll New York Yankees with signature Sinatra song after ALDS win",
       "href": "/mlb/story/_/id/50132928/rays-yankees-sinatra-song-alds-troll"
-    },
-    {
-      "league": "MLB",
-      "headline": "Fan interference denies Yankees of game-tying HR vs. Rays",
-      "href": "/mlb/story/_/id/50129842/fan-interference-denies-yankees-game-tying-hr-vs-rays"
     },
     {
       "league": "MLB",
@@ -69,8 +44,8 @@
     },
     {
       "league": "MLB",
-      "headline": "Andy Pages lifts Dodgers past Braves, into third straight NLCS",
-      "href": "/mlb/story/_/id/50129200/dodgers-dispatch-braves-advance-third-straight-nlcs"
+      "headline": "Rays complete sweep of Yankees to advance to ALCS",
+      "href": "/mlb/story/_/id/50130798/tampa-bay-rays-complete-sweep-new-york-yankees-advance-alcs"
     }
   ]
 }
