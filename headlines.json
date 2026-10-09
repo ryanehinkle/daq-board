@@ -1,7 +1,27 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-09T01:29:45Z",
+  "refreshedAt": "2026-10-09T07:57:23Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Undrafted rookie QB Daniels savors Thursday night win vs. Cowboys",
+      "href": "/nfl/story/_/id/50138218/undrafted-rookie-qb-daniels-savors-thursday-night-win-vs-cowboys"
+    },
+    {
+      "league": "MLB",
+      "headline": "Guardians survive in Chicago, head home with chance to advance",
+      "href": "/mlb/story/_/id/50137741/ramirez-guardians-top-white-sox-force-decisive-game-5-alds"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sick Joey Porter Jr. sits out Cowboys' 'TNF' loss to Bucs",
+      "href": "/nfl/story/_/id/50135957/cowboys-say-sick-joey-porter-jr-face-bucs-tnf"
+    },
+    {
+      "league": "NFL",
+      "headline": "Buccaneers explode in third quarter against Cowboys to get first win",
+      "href": "/nfl/story/_/id/50136406/buccaneers-explode-first-win-cowboys-tnf"
+    },
     {
       "league": "NHL",
       "headline": "Report: Panthers' Marchand out 'a few weeks' with leg injury",
@@ -11,16 +31,6 @@
       "league": "NFL",
       "headline": "Cards' Marvin Harrison Jr. paying 'no mind' to trade rumors",
       "href": "/nfl/story/_/id/50136259/cards-marvin-harrison-jr-paying-no-mind-trade-rumors"
-    },
-    {
-      "league": "NFL",
-      "headline": "Cowboys say sick Joey Porter Jr. won't face Bucs on 'TNF'",
-      "href": "/nfl/story/_/id/50135957/cowboys-say-sick-joey-porter-jr-face-bucs-tnf"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sean Payton says he's taking over playcalling for Broncos' offense",
-      "href": "/nfl/story/_/id/50135033/sean-payton-says-taking-playcalling-broncos-offense"
     },
     {
       "league": "NFL",
@@ -61,16 +71,6 @@
       "league": "MLB",
       "headline": "Andy Pages lifts Dodgers past Braves, into third straight NLCS",
       "href": "/mlb/story/_/id/50129200/dodgers-dispatch-braves-advance-third-straight-nlcs"
-    },
-    {
-      "league": "NBA",
-      "headline": "Trail Blazers' Dundon says he intends to bring title to Portland",
-      "href": "/nba/story/_/id/50127764/trail-blazers-dundon-says-intends-bring-title-portland"
-    },
-    {
-      "league": "NHL",
-      "headline": "Islanders D Alexander Romanov out 6-8 months with torn ACL",
-      "href": "/nhl/story/_/id/50126899/islanders-d-alexander-romanov-6-8-months-torn-acl"
     }
   ]
 }
