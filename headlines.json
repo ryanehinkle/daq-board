@@ -1,21 +1,36 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-09T20:05:24Z",
+  "refreshedAt": "2026-10-09T23:59:47Z",
   "items": [
     {
-      "league": "NFL",
-      "headline": "Sources: Eagles release Andy Dalton after costly pick, demotion",
-      "href": "/nfl/story/_/id/50142134/sources-eagles-release-andy-dalton-costly-pick-demotion"
+      "league": "NHL",
+      "headline": "Defenseman Matt Dumba, 32, retires after 13 NHL seasons",
+      "href": "/nhl/story/_/id/50143313/defenseman-matt-dumba-32-retires-13-nhl-seasons"
     },
     {
       "league": "NFL",
-      "headline": "Jeremiyah Love 'trending well' to play despite ankle reinjury",
-      "href": "/nfl/story/_/id/50142254/jeremiyah-love-trending-well-play-ankle-reinjury"
+      "headline": "Broncos OC Davis Webb says 'not ideal' to lose playcalling duties",
+      "href": "/nfl/story/_/id/50142757/broncos-oc-davis-webb-says-not-ideal-lose-play-calling-duties"
+    },
+    {
+      "league": "NFL",
+      "headline": "Eagles release QB Andy Dalton after costly pick, demotion",
+      "href": "/nfl/story/_/id/50142134/sources-eagles-release-andy-dalton-costly-pick-demotion"
     },
     {
       "league": "NFL",
       "headline": "Chargers LT Rashawn Slater on IR following ankle surgery",
       "href": "/nfl/story/_/id/50142241/chargers-lt-rashawn-slater-ir-following-ankle-surgery"
+    },
+    {
+      "league": "NFL",
+      "headline": "Saquon Barkley, DeVonta Smith among Eagles ruled out vs. Jaguars",
+      "href": "/nfl/story/_/id/50142553/saquon-barkley-devonta-smith-eagles-players-ruled-london-game-vs-jaguars"
+    },
+    {
+      "league": "NFL",
+      "headline": "Jeremiyah Love 'trending well' to play despite ankle reinjury",
+      "href": "/nfl/story/_/id/50142254/jeremiyah-love-trending-well-play-ankle-reinjury"
     },
     {
       "league": "NFL",
@@ -56,21 +71,6 @@
       "league": "MLB",
       "headline": "As Yankees fall short again, Aaron Judge says front office 'should go all-in'",
       "href": "/mlb/story/_/id/50131001/aaron-judge-reacts-yankees-postseason-elimination-rays"
-    },
-    {
-      "league": "NBA",
-      "headline": "NBA, FIBA say Europe push to continue without EuroLeague",
-      "href": "/nba/story/_/id/50131848/nba-fiba-say-europe-push-continue-euroleague"
-    },
-    {
-      "league": "MLB",
-      "headline": "Mitchell robs Padres of tying homer as Brewers clinch NLDS",
-      "href": "/mlb/story/_/id/50130772/mitchell-robs-padres-tying-homer-brewers-clinch-nlds"
-    },
-    {
-      "league": "MLB",
-      "headline": "Rays complete sweep of Yankees to advance to ALCS",
-      "href": "/mlb/story/_/id/50130798/tampa-bay-rays-complete-sweep-new-york-yankees-advance-alcs"
     }
   ]
 }
