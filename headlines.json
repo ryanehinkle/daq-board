@@ -1,16 +1,41 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-09T15:06:52Z",
+  "refreshedAt": "2026-10-09T20:05:24Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Sources: Eagles release Andy Dalton after costly pick, demotion",
+      "href": "/nfl/story/_/id/50142134/sources-eagles-release-andy-dalton-costly-pick-demotion"
+    },
+    {
+      "league": "NFL",
+      "headline": "Jeremiyah Love 'trending well' to play despite ankle reinjury",
+      "href": "/nfl/story/_/id/50142254/jeremiyah-love-trending-well-play-ankle-reinjury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Chargers LT Rashawn Slater on IR following ankle surgery",
+      "href": "/nfl/story/_/id/50142241/chargers-lt-rashawn-slater-ir-following-ankle-surgery"
+    },
+    {
+      "league": "NFL",
+      "headline": "Browns rule out DTs Graham, Hall against Jets",
+      "href": "/nfl/story/_/id/50141641/browns-rule-dts-graham-hall-jets"
+    },
+    {
+      "league": "NFL",
+      "headline": "Commanders QB Daniels will play, WR Diggs out against Giants",
+      "href": "/nfl/story/_/id/50141410/commanders-qb-daniels-play-wr-diggs-giants"
+    },
+    {
+      "league": "NHL",
+      "headline": "Panthers eyeing six-week timeline for Brad Marchand's return",
+      "href": "/nhl/story/_/id/50141348/panthers-eyeing-six-week-line-brad-marchand-return"
+    },
     {
       "league": "NBA",
       "headline": "Knicks tabling Karl-Anthony Towns, Josh Hart contract talks",
       "href": "/nba/story/_/id/50140136/knicks-tabling-karl-anthony-towns-josh-hart-contract-talks"
-    },
-    {
-      "league": "NFL",
-      "headline": "Undrafted rookie QB Daniels savors Thursday night win vs. Cowboys",
-      "href": "/nfl/story/_/id/50138218/undrafted-rookie-qb-daniels-savors-thursday-night-win-vs-cowboys"
     },
     {
       "league": "MLB",
