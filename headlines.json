@@ -1,7 +1,27 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-10T11:22:01Z",
+  "refreshedAt": "2026-10-10T16:17:52Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Sources: Cardinals finalizing deal to trade WR Marvin Harrison Jr.",
+      "href": "/nfl/story/_/id/50148005/sources-cardinals-finalizing-deal-trade-wr-marvin-harrison-jr"
+    },
+    {
+      "league": "NBA",
+      "headline": "Warriors give Brandin Podziemski 5-year, $110M extension",
+      "href": "/nba/story/_/id/50148027/warriors-give-brandin-podziemski-5-year-110m-extension"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Ravens held Cam Jurgens physical before trade with Eagles",
+      "href": "/nfl/story/_/id/50147669/sources-ravens-held-cam-jurgens-physical-trade-eagles"
+    },
+    {
+      "league": "NFL",
+      "headline": "Saquon Barkley, DeVonta Smith among 5 Eagles ruled out vs. Jags",
+      "href": "/nfl/story/_/id/50142553/saquon-barkley-devonta-smith-eagles-players-ruled-london-game-vs-jaguars"
+    },
     {
       "league": "NFL",
       "headline": "Texans, Titans face off desperately seeking first win after 0-4 starts",
@@ -16,11 +36,6 @@
       "league": "NHL",
       "headline": "Blackhawks' Frank Nazar suspended 2 games for check to the head",
       "href": "/nhl/story/_/id/50144146/blackhawks-frank-nazar-suspended-2-games-check-head"
-    },
-    {
-      "league": "NFL",
-      "headline": "Saquon Barkley, DeVonta Smith among Eagles ruled out vs. Jaguars",
-      "href": "/nfl/story/_/id/50142553/saquon-barkley-devonta-smith-eagles-players-ruled-london-game-vs-jaguars"
     },
     {
       "league": "NHL",
@@ -38,16 +53,6 @@
       "href": "/nhl/story/_/id/50143419/senators-eklund-extended-period-ankle-injury"
     },
     {
-      "league": "NFL",
-      "headline": "Chargers LT Rashawn Slater on IR following ankle surgery",
-      "href": "/nfl/story/_/id/50142241/chargers-lt-rashawn-slater-ir-following-ankle-surgery"
-    },
-    {
-      "league": "NFL",
-      "headline": "Jeremiyah Love 'trending well' to play despite ankle reinjury",
-      "href": "/nfl/story/_/id/50142254/jeremiyah-love-trending-well-play-ankle-reinjury"
-    },
-    {
       "league": "NHL",
       "headline": "Panthers eyeing six-week timeline for Brad Marchand's return",
       "href": "/nhl/story/_/id/50141348/panthers-eyeing-six-week-line-brad-marchand-return"
@@ -61,11 +66,6 @@
       "league": "MLB",
       "headline": "Guardians survive in Chicago, head home with chance to advance",
       "href": "/mlb/story/_/id/50137741/ramirez-guardians-top-white-sox-force-decisive-game-5-alds"
-    },
-    {
-      "league": "NBA",
-      "headline": "Sources: 76ers plan to play starters in preseason game vs. Nets",
-      "href": "/nba/story/_/id/50134832/sources-76ers-plan-play-starters-preseason-game-vs-nets"
     },
     {
       "league": "MLB",
