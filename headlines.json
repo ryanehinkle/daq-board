@@ -1,7 +1,12 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-10T05:37:50Z",
+  "refreshedAt": "2026-10-10T11:22:01Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Texans, Titans face off desperately seeking first win after 0-4 starts",
+      "href": "/nfl/story/_/id/50134036/texans-titans-0-4-matchup-desperate-win"
+    },
     {
       "league": "NHL",
       "headline": "Blue Jackets G Talbot sets NHL record with win on ninth team",
@@ -31,11 +36,6 @@
       "league": "NHL",
       "headline": "Senators' Eklund out for 'extended' period with ankle injury",
       "href": "/nhl/story/_/id/50143419/senators-eklund-extended-period-ankle-injury"
-    },
-    {
-      "league": "NFL",
-      "headline": "Eagles release QB Andy Dalton after costly pick, demotion",
-      "href": "/nfl/story/_/id/50142134/sources-eagles-release-andy-dalton-costly-pick-demotion"
     },
     {
       "league": "NFL",
