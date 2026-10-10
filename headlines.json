@@ -1,11 +1,51 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-10T16:17:52Z",
+  "refreshedAt": "2026-10-10T20:10:10Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Steelers place WR Michael Pittman Jr. on IR with foot injury",
+      "href": "/nfl/story/_/id/50149634/steelers-placing-wr-pittman-injured-reserve"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Odell Beckham Jr. joins Vikings roster, status unclear",
+      "href": "/nfl/story/_/id/50149803/source-odell-beckham-jr-joins-vikings-roster-status-unclear"
+    },
+    {
+      "league": "NFL",
+      "headline": "Bills rule out Ed Oliver, Joshua Palmer, wait on WR DJ Moore",
+      "href": "/nfl/story/_/id/50149505/bills-rule-ed-oliver-joshua-palmer-wait-wr-dj-moore"
+    },
+    {
+      "league": "NBA",
+      "headline": "2026 NBA free agency: Grades for offseason signings, extensions",
+      "href": "/nba/story/_/id/48957095/2026-nba-free-agency-grades-offseason-signings-deals-contracts-extensions-depth-charts"
+    },
+    {
+      "league": "NHL",
+      "headline": "Rangers' Igor Shesterkin out for season with right knee injury",
+      "href": "/nhl/story/_/id/50148688/rangers-igor-shesterkin-year-right-knee-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Colts place DE Arden Key on IR with hamstring injury",
+      "href": "/nfl/story/_/id/50148833/colts-place-de-arden-key-ir-hamstring-injury"
+    },
     {
       "league": "NFL",
       "headline": "Sources: Cardinals finalizing deal to trade WR Marvin Harrison Jr.",
       "href": "/nfl/story/_/id/50148005/sources-cardinals-finalizing-deal-trade-wr-marvin-harrison-jr"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: Phillies' Fuld declines offer to become A's president",
+      "href": "/mlb/story/_/id/50148844/sources-phillies-fuld-declines-offer-become-president"
+    },
+    {
+      "league": "NHL",
+      "headline": "Blue Jackets G Talbot sets NHL record with win on ninth team",
+      "href": "/nhl/story/_/id/50144510/blue-jackets-g-talbot-sets-nhl-record-win-ninth-team"
     },
     {
       "league": "NBA",
@@ -19,18 +59,8 @@
     },
     {
       "league": "NFL",
-      "headline": "Saquon Barkley, DeVonta Smith among 5 Eagles ruled out vs. Jags",
-      "href": "/nfl/story/_/id/50142553/saquon-barkley-devonta-smith-eagles-players-ruled-london-game-vs-jaguars"
-    },
-    {
-      "league": "NFL",
       "headline": "Texans, Titans face off desperately seeking first win after 0-4 starts",
       "href": "/nfl/story/_/id/50134036/texans-titans-0-4-matchup-desperate-win"
-    },
-    {
-      "league": "NHL",
-      "headline": "Blue Jackets G Talbot sets NHL record with win on ninth team",
-      "href": "/nhl/story/_/id/50144510/blue-jackets-g-talbot-sets-nhl-record-win-ninth-team"
     },
     {
       "league": "NHL",
@@ -38,39 +68,9 @@
       "href": "/nhl/story/_/id/50144146/blackhawks-frank-nazar-suspended-2-games-check-head"
     },
     {
-      "league": "NHL",
-      "headline": "Defenseman Matt Dumba, 32, retires after 13 NHL seasons",
-      "href": "/nhl/story/_/id/50143313/defenseman-matt-dumba-32-retires-13-nhl-seasons"
-    },
-    {
-      "league": "NFL",
-      "headline": "Broncos OC Davis Webb says 'not ideal' to lose playcalling duties",
-      "href": "/nfl/story/_/id/50142757/broncos-oc-davis-webb-says-not-ideal-lose-play-calling-duties"
-    },
-    {
-      "league": "NHL",
-      "headline": "Senators' Eklund out for 'extended' period with ankle injury",
-      "href": "/nhl/story/_/id/50143419/senators-eklund-extended-period-ankle-injury"
-    },
-    {
-      "league": "NHL",
-      "headline": "Panthers eyeing six-week timeline for Brad Marchand's return",
-      "href": "/nhl/story/_/id/50141348/panthers-eyeing-six-week-line-brad-marchand-return"
-    },
-    {
-      "league": "NBA",
-      "headline": "Knicks tabling Karl-Anthony Towns, Josh Hart contract talks",
-      "href": "/nba/story/_/id/50140136/knicks-tabling-karl-anthony-towns-josh-hart-contract-talks"
-    },
-    {
       "league": "MLB",
       "headline": "Guardians survive in Chicago, head home with chance to advance",
       "href": "/mlb/story/_/id/50137741/ramirez-guardians-top-white-sox-force-decisive-game-5-alds"
-    },
-    {
-      "league": "MLB",
-      "headline": "Tampa Bay Rays troll New York Yankees with signature Sinatra song after ALDS win",
-      "href": "/mlb/story/_/id/50132928/rays-yankees-sinatra-song-alds-troll"
     }
   ]
 }
