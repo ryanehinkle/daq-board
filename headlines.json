@@ -1,7 +1,22 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-09T23:59:47Z",
+  "refreshedAt": "2026-10-10T05:37:50Z",
   "items": [
+    {
+      "league": "NHL",
+      "headline": "Blue Jackets G Talbot sets NHL record with win on ninth team",
+      "href": "/nhl/story/_/id/50144510/blue-jackets-g-talbot-sets-nhl-record-win-ninth-team"
+    },
+    {
+      "league": "NHL",
+      "headline": "Blackhawks' Frank Nazar suspended 2 games for check to the head",
+      "href": "/nhl/story/_/id/50144146/blackhawks-frank-nazar-suspended-2-games-check-head"
+    },
+    {
+      "league": "NFL",
+      "headline": "Saquon Barkley, DeVonta Smith among Eagles ruled out vs. Jaguars",
+      "href": "/nfl/story/_/id/50142553/saquon-barkley-devonta-smith-eagles-players-ruled-london-game-vs-jaguars"
+    },
     {
       "league": "NHL",
       "headline": "Defenseman Matt Dumba, 32, retires after 13 NHL seasons",
@@ -11,6 +26,11 @@
       "league": "NFL",
       "headline": "Broncos OC Davis Webb says 'not ideal' to lose playcalling duties",
       "href": "/nfl/story/_/id/50142757/broncos-oc-davis-webb-says-not-ideal-lose-play-calling-duties"
+    },
+    {
+      "league": "NHL",
+      "headline": "Senators' Eklund out for 'extended' period with ankle injury",
+      "href": "/nhl/story/_/id/50143419/senators-eklund-extended-period-ankle-injury"
     },
     {
       "league": "NFL",
@@ -24,23 +44,8 @@
     },
     {
       "league": "NFL",
-      "headline": "Saquon Barkley, DeVonta Smith among Eagles ruled out vs. Jaguars",
-      "href": "/nfl/story/_/id/50142553/saquon-barkley-devonta-smith-eagles-players-ruled-london-game-vs-jaguars"
-    },
-    {
-      "league": "NFL",
       "headline": "Jeremiyah Love 'trending well' to play despite ankle reinjury",
       "href": "/nfl/story/_/id/50142254/jeremiyah-love-trending-well-play-ankle-reinjury"
-    },
-    {
-      "league": "NFL",
-      "headline": "Browns rule out DTs Graham, Hall against Jets",
-      "href": "/nfl/story/_/id/50141641/browns-rule-dts-graham-hall-jets"
-    },
-    {
-      "league": "NFL",
-      "headline": "Commanders QB Daniels will play, WR Diggs out against Giants",
-      "href": "/nfl/story/_/id/50141410/commanders-qb-daniels-play-wr-diggs-giants"
     },
     {
       "league": "NHL",
@@ -66,11 +71,6 @@
       "league": "MLB",
       "headline": "Tampa Bay Rays troll New York Yankees with signature Sinatra song after ALDS win",
       "href": "/mlb/story/_/id/50132928/rays-yankees-sinatra-song-alds-troll"
-    },
-    {
-      "league": "MLB",
-      "headline": "As Yankees fall short again, Aaron Judge says front office 'should go all-in'",
-      "href": "/mlb/story/_/id/50131001/aaron-judge-reacts-yankees-postseason-elimination-rays"
     }
   ]
 }
