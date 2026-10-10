@@ -1,16 +1,26 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-10T20:10:10Z",
+  "refreshedAt": "2026-10-10T23:33:21Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "Steelers place WR Michael Pittman Jr. on IR with foot injury",
-      "href": "/nfl/story/_/id/50149634/steelers-placing-wr-pittman-injured-reserve"
+      "headline": "Rams: Myles Garrett making 'good progress,' but no return timeline",
+      "href": "/nfl/story/_/id/50150638/rams-say-myles-garrett-making-good-progress-no-return-line"
+    },
+    {
+      "league": "NFL",
+      "headline": "Patriots place veteran WR Mack Hollins on IR with calf injury",
+      "href": "/nfl/story/_/id/50150455/patriots-place-veteran-wr-mack-hollins-ir-calf-injury"
     },
     {
       "league": "NFL",
       "headline": "Source: Odell Beckham Jr. joins Vikings roster, status unclear",
       "href": "/nfl/story/_/id/50149803/source-odell-beckham-jr-joins-vikings-roster-status-unclear"
+    },
+    {
+      "league": "NFL",
+      "headline": "Steelers place WR Michael Pittman Jr. on IR with foot injury",
+      "href": "/nfl/story/_/id/50149634/steelers-placing-wr-pittman-injured-reserve"
     },
     {
       "league": "NFL",
@@ -56,16 +66,6 @@
       "league": "NFL",
       "headline": "Sources: Ravens held Cam Jurgens physical before trade with Eagles",
       "href": "/nfl/story/_/id/50147669/sources-ravens-held-cam-jurgens-physical-trade-eagles"
-    },
-    {
-      "league": "NFL",
-      "headline": "Texans, Titans face off desperately seeking first win after 0-4 starts",
-      "href": "/nfl/story/_/id/50134036/texans-titans-0-4-matchup-desperate-win"
-    },
-    {
-      "league": "NHL",
-      "headline": "Blackhawks' Frank Nazar suspended 2 games for check to the head",
-      "href": "/nhl/story/_/id/50144146/blackhawks-frank-nazar-suspended-2-games-check-head"
     },
     {
       "league": "MLB",
