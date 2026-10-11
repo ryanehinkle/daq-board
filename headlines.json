@@ -1,21 +1,31 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-11T15:07:56Z",
+  "refreshedAt": "2026-10-11T19:32:28Z",
   "items": [
     {
+      "league": "NFL",
+      "headline": "Texans RB David Montgomery ruled out with groin injury",
+      "href": "/nfl/story/_/id/50159624/texans-rb-david-montgomery-ruled-groin-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Browns WR KC Concepcion suffers head injury after illegal hit",
+      "href": "/nfl/story/_/id/50159137/browns-wr-kc-concepcion-suffers-head-injury-illegal-hit"
+    },
+    {
+      "league": "NFL",
+      "headline": "Eagles, already depleted at RB, lose Will Shipley to foot injury",
+      "href": "/nfl/story/_/id/50158323/eagles-already-depleted-rb-lose-shipley-foot-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Jaguars rule out LT Anton Harrison with apparent knee injury",
+      "href": "/nfl/story/_/id/50158493/jaguars-rule-lt-anton-harrison-apparent-knee-injury"
+    },
+    {
       "league": "NBA",
-      "headline": "Kyrie Irving returns to Mavs, dazzles in China preseason game",
-      "href": "/nba/story/_/id/50157198/kyrie-irving-returns-mavs-dazzles-china-preseason-game"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Cardinals finalizing deal to trade WR Marvin Harrison Jr.",
-      "href": "/nfl/story/_/id/50148005/sources-cardinals-finalizing-deal-trade-wr-marvin-harrison-jr"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Eagles mull Lane Johnson roster status amid O-line changes",
-      "href": "/nfl/story/_/id/50151867/sources-eagles-mull-lane-johnson-roster-status-amid-o-line-changes"
+      "headline": "Kings lose Maxime Raynaud to apparent serious knee injury",
+      "href": "/nba/story/_/id/50153526/kings-lose-maxime-raynaud-apparent-serious-knee-injury"
     },
     {
       "league": "NFL",
@@ -23,14 +33,9 @@
       "href": "/nfl/story/_/id/50152303/doctors-fear-risk-further-jayden-daniels-elbow-injury"
     },
     {
-      "league": "NFL",
-      "headline": "Source: Odell Beckham Jr. joins Vikings roster, status unclear",
-      "href": "/nfl/story/_/id/50149803/source-odell-beckham-jr-joins-vikings-roster-status-unclear"
-    },
-    {
-      "league": "NFL",
-      "headline": "Patriots place veteran WR Mack Hollins on IR with calf injury",
-      "href": "/nfl/story/_/id/50150455/patriots-place-veteran-wr-mack-hollins-ir-calf-injury"
+      "league": "NBA",
+      "headline": "Kyrie Irving returns to Mavs, dazzles in China preseason game",
+      "href": "/nba/story/_/id/50157198/kyrie-irving-returns-mavs-dazzles-china-preseason-game"
     },
     {
       "league": "MLB",
@@ -44,26 +49,6 @@
     },
     {
       "league": "NBA",
-      "headline": "Kings lose Maxime Raynaud to apparent serious knee injury",
-      "href": "/nba/story/_/id/50153526/kings-lose-maxime-raynaud-apparent-serious-knee-injury"
-    },
-    {
-      "league": "NFL",
-      "headline": "Rams: Myles Garrett making 'good progress,' but no return timeline",
-      "href": "/nfl/story/_/id/50150638/rams-say-myles-garrett-making-good-progress-no-return-line"
-    },
-    {
-      "league": "NFL",
-      "headline": "Steelers place WR Michael Pittman Jr. on IR with foot injury",
-      "href": "/nfl/story/_/id/50149634/steelers-placing-wr-pittman-injured-reserve"
-    },
-    {
-      "league": "NFL",
-      "headline": "Bills rule out Ed Oliver, Joshua Palmer, wait on WR DJ Moore",
-      "href": "/nfl/story/_/id/50149505/bills-rule-ed-oliver-joshua-palmer-wait-wr-dj-moore"
-    },
-    {
-      "league": "NBA",
       "headline": "2026 NBA free agency: Grades for offseason signings, extensions",
       "href": "/nba/story/_/id/48957095/2026-nba-free-agency-grades-offseason-signings-deals-contracts-extensions-depth-charts"
     },
@@ -71,6 +56,16 @@
       "league": "MLB",
       "headline": "Sources: Phillies' Fuld declines offer to become A's president",
       "href": "/mlb/story/_/id/50148844/sources-phillies-fuld-declines-offer-become-president"
+    },
+    {
+      "league": "NBA",
+      "headline": "Knicks tabling Karl-Anthony Towns, Josh Hart contract talks",
+      "href": "/nba/story/_/id/50140136/knicks-tabling-karl-anthony-towns-josh-hart-contract-talks"
+    },
+    {
+      "league": "MLB",
+      "headline": "Guardians survive in Chicago, head home with chance to advance",
+      "href": "/mlb/story/_/id/50137741/ramirez-guardians-top-white-sox-force-decisive-game-5-alds"
     }
   ]
 }
