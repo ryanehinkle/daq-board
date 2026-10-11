@@ -1,7 +1,37 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-11T08:46:57Z",
+  "refreshedAt": "2026-10-11T15:07:56Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Kyrie Irving returns to Mavs, dazzles in China preseason game",
+      "href": "/nba/story/_/id/50157198/kyrie-irving-returns-mavs-dazzles-china-preseason-game"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Cardinals finalizing deal to trade WR Marvin Harrison Jr.",
+      "href": "/nfl/story/_/id/50148005/sources-cardinals-finalizing-deal-trade-wr-marvin-harrison-jr"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Eagles mull Lane Johnson roster status amid O-line changes",
+      "href": "/nfl/story/_/id/50151867/sources-eagles-mull-lane-johnson-roster-status-amid-o-line-changes"
+    },
+    {
+      "league": "NFL",
+      "headline": "Doctors fear risk of further Jayden Daniels elbow injury",
+      "href": "/nfl/story/_/id/50152303/doctors-fear-risk-further-jayden-daniels-elbow-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Odell Beckham Jr. joins Vikings roster, status unclear",
+      "href": "/nfl/story/_/id/50149803/source-odell-beckham-jr-joins-vikings-roster-status-unclear"
+    },
+    {
+      "league": "NFL",
+      "headline": "Patriots place veteran WR Mack Hollins on IR with calf injury",
+      "href": "/nfl/story/_/id/50150455/patriots-place-veteran-wr-mack-hollins-ir-calf-injury"
+    },
     {
       "league": "MLB",
       "headline": "Guardians repeatedly troll divisional rival White Sox after ALDS win",
@@ -19,23 +49,8 @@
     },
     {
       "league": "NFL",
-      "headline": "Sources: Cardinals finalizing deal to trade WR Marvin Harrison Jr.",
-      "href": "/nfl/story/_/id/50148005/sources-cardinals-finalizing-deal-trade-wr-marvin-harrison-jr"
-    },
-    {
-      "league": "NFL",
-      "headline": "Source: Odell Beckham Jr. joins Vikings roster, status unclear",
-      "href": "/nfl/story/_/id/50149803/source-odell-beckham-jr-joins-vikings-roster-status-unclear"
-    },
-    {
-      "league": "NFL",
       "headline": "Rams: Myles Garrett making 'good progress,' but no return timeline",
       "href": "/nfl/story/_/id/50150638/rams-say-myles-garrett-making-good-progress-no-return-line"
-    },
-    {
-      "league": "NFL",
-      "headline": "Patriots place veteran WR Mack Hollins on IR with calf injury",
-      "href": "/nfl/story/_/id/50150455/patriots-place-veteran-wr-mack-hollins-ir-calf-injury"
     },
     {
       "league": "NFL",
@@ -53,24 +68,9 @@
       "href": "/nba/story/_/id/48957095/2026-nba-free-agency-grades-offseason-signings-deals-contracts-extensions-depth-charts"
     },
     {
-      "league": "NFL",
-      "headline": "Colts place DE Arden Key on IR with hamstring injury",
-      "href": "/nfl/story/_/id/50148833/colts-place-de-arden-key-ir-hamstring-injury"
-    },
-    {
       "league": "MLB",
       "headline": "Sources: Phillies' Fuld declines offer to become A's president",
       "href": "/mlb/story/_/id/50148844/sources-phillies-fuld-declines-offer-become-president"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Ravens held Cam Jurgens physical before trade with Eagles",
-      "href": "/nfl/story/_/id/50147669/sources-ravens-held-cam-jurgens-physical-trade-eagles"
-    },
-    {
-      "league": "NFL",
-      "headline": "Texans, Titans face off desperately seeking first win after 0-4 starts",
-      "href": "/nfl/story/_/id/50134036/texans-titans-0-4-matchup-desperate-win"
     }
   ]
 }
