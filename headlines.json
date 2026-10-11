@@ -1,7 +1,27 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-11T02:08:50Z",
+  "refreshedAt": "2026-10-11T08:46:57Z",
   "items": [
+    {
+      "league": "MLB",
+      "headline": "Guardians repeatedly troll divisional rival White Sox after ALDS win",
+      "href": "/mlb/story/_/id/50153772/cleveland-guardians-troll-white-sox"
+    },
+    {
+      "league": "NBA",
+      "headline": "Warriors give Brandin Podziemski 5-year, $110M extension",
+      "href": "/nba/story/_/id/50148027/warriors-give-brandin-podziemski-5-year-110m-extension"
+    },
+    {
+      "league": "NBA",
+      "headline": "Kings lose Maxime Raynaud to apparent serious knee injury",
+      "href": "/nba/story/_/id/50153526/kings-lose-maxime-raynaud-apparent-serious-knee-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Cardinals finalizing deal to trade WR Marvin Harrison Jr.",
+      "href": "/nfl/story/_/id/50148005/sources-cardinals-finalizing-deal-trade-wr-marvin-harrison-jr"
+    },
     {
       "league": "NFL",
       "headline": "Source: Odell Beckham Jr. joins Vikings roster, status unclear",
@@ -33,19 +53,9 @@
       "href": "/nba/story/_/id/48957095/2026-nba-free-agency-grades-offseason-signings-deals-contracts-extensions-depth-charts"
     },
     {
-      "league": "NHL",
-      "headline": "Rangers' Igor Shesterkin out for season with right knee injury",
-      "href": "/nhl/story/_/id/50148688/rangers-igor-shesterkin-year-right-knee-injury"
-    },
-    {
       "league": "NFL",
       "headline": "Colts place DE Arden Key on IR with hamstring injury",
       "href": "/nfl/story/_/id/50148833/colts-place-de-arden-key-ir-hamstring-injury"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Cardinals finalizing deal to trade WR Marvin Harrison Jr.",
-      "href": "/nfl/story/_/id/50148005/sources-cardinals-finalizing-deal-trade-wr-marvin-harrison-jr"
     },
     {
       "league": "MLB",
@@ -53,24 +63,14 @@
       "href": "/mlb/story/_/id/50148844/sources-phillies-fuld-declines-offer-become-president"
     },
     {
-      "league": "NHL",
-      "headline": "Blue Jackets G Talbot sets NHL record with win on ninth team",
-      "href": "/nhl/story/_/id/50144510/blue-jackets-g-talbot-sets-nhl-record-win-ninth-team"
-    },
-    {
-      "league": "NBA",
-      "headline": "Warriors give Brandin Podziemski 5-year, $110M extension",
-      "href": "/nba/story/_/id/50148027/warriors-give-brandin-podziemski-5-year-110m-extension"
-    },
-    {
       "league": "NFL",
       "headline": "Sources: Ravens held Cam Jurgens physical before trade with Eagles",
       "href": "/nfl/story/_/id/50147669/sources-ravens-held-cam-jurgens-physical-trade-eagles"
     },
     {
-      "league": "MLB",
-      "headline": "Guardians survive in Chicago, head home with chance to advance",
-      "href": "/mlb/story/_/id/50137741/ramirez-guardians-top-white-sox-force-decisive-game-5-alds"
+      "league": "NFL",
+      "headline": "Texans, Titans face off desperately seeking first win after 0-4 starts",
+      "href": "/nfl/story/_/id/50134036/texans-titans-0-4-matchup-desperate-win"
     }
   ]
 }
