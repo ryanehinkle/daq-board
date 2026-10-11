@@ -1,7 +1,12 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-10T23:33:21Z",
+  "refreshedAt": "2026-10-11T02:08:50Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Source: Odell Beckham Jr. joins Vikings roster, status unclear",
+      "href": "/nfl/story/_/id/50149803/source-odell-beckham-jr-joins-vikings-roster-status-unclear"
+    },
     {
       "league": "NFL",
       "headline": "Rams: Myles Garrett making 'good progress,' but no return timeline",
@@ -11,11 +16,6 @@
       "league": "NFL",
       "headline": "Patriots place veteran WR Mack Hollins on IR with calf injury",
       "href": "/nfl/story/_/id/50150455/patriots-place-veteran-wr-mack-hollins-ir-calf-injury"
-    },
-    {
-      "league": "NFL",
-      "headline": "Source: Odell Beckham Jr. joins Vikings roster, status unclear",
-      "href": "/nfl/story/_/id/50149803/source-odell-beckham-jr-joins-vikings-roster-status-unclear"
     },
     {
       "league": "NFL",
