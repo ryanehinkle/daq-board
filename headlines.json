@@ -1,31 +1,41 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-11T23:06:58Z",
+  "refreshedAt": "2026-10-12T02:20:20Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Broncos beat Chargers in Sean Payton's return to playcalling",
+      "href": "/nfl/story/_/id/50163287/broncos-beat-chargers-sean-payton-return-playcalling"
+    },
+    {
+      "league": "NHL",
+      "headline": "Without Shesterkin, New York Rangers lean on Garand in win",
+      "href": "/nhl/story/_/id/50163138/without-shesterkin-new-york-rangers-lean-garand-win"
+    },
+    {
+      "league": "NFL",
+      "headline": "49ers lose WR Deebo Samuel to hamstring injury vs. Seahawks",
+      "href": "/nfl/story/_/id/50161984/49ers-lose-wr-deebo-samuel-hamstring-injury-vs-seahawks"
+    },
+    {
+      "league": "NFL",
+      "headline": "Packers maul Bears, then fire back at Burden for 'quit' talk",
+      "href": "/nfl/story/_/id/50162146/packers-maul-bears-fire-back-burden-quit-talk"
+    },
+    {
+      "league": "NFL",
+      "headline": "Texans' win over Titans might have broken Terrible Towel curse",
+      "href": "/nfl/story/_/id/50162466/texans-break-steelers-terrible-towel-curse"
+    },
+    {
+      "league": "NFL",
+      "headline": "David Bailey delivers breakthrough performance in Jets' win",
+      "href": "/nfl/story/_/id/50162150/david-bailey-delivers-breakthrough-performance-jets-win"
+    },
     {
       "league": "NFL",
       "headline": "Bears QB Caleb Williams 'close' to returning, Ben Johnson says",
       "href": "/nfl/story/_/id/50161771/bears-qb-caleb-williams-close-returning-ben-johnson-says"
-    },
-    {
-      "league": "NFL",
-      "headline": "Texans complete trade with Cardinals for WR Marvin Harrison Jr.",
-      "href": "/nfl/story/_/id/50160631/texans-complete-trade-cardinals-wr-marvin-harrison-jr"
-    },
-    {
-      "league": "NFL",
-      "headline": "NFL trade deadline grades: Marvin Harrison Jr. to Texans, Cam Jurgens to Ravens",
-      "href": "/nfl/story/_/id/50043542/2026-trade-deadline-grades-latest-best-worst-deals"
-    },
-    {
-      "league": "NFL",
-      "headline": "Jaguars' emergency long snapper plays unlikely hero in win over Eagles",
-      "href": "/nfl/story/_/id/50160547/davon-hamilton-snap-cam-little-game-winning-kick"
-    },
-    {
-      "league": "NFL",
-      "headline": "2026 NFL trade deadline updates: Marvin Harrison Jr., Cam Jurgens on the move",
-      "href": "/nfl/story/_/id/50043471/2026-trade-deadline-updates-latest-news-deals-terms"
     },
     {
       "league": "NBA",
@@ -61,11 +71,6 @@
       "league": "NBA",
       "headline": "Knicks tabling Karl-Anthony Towns, Josh Hart contract talks",
       "href": "/nba/story/_/id/50140136/knicks-tabling-karl-anthony-towns-josh-hart-contract-talks"
-    },
-    {
-      "league": "MLB",
-      "headline": "Guardians survive in Chicago, head home with chance to advance",
-      "href": "/mlb/story/_/id/50137741/ramirez-guardians-top-white-sox-force-decisive-game-5-alds"
     }
   ]
 }
