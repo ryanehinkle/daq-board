@@ -1,11 +1,46 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-12T09:26:39Z",
+  "refreshedAt": "2026-10-12T19:13:45Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "QB Tyler Huntley leads Ravens to comeback OT win vs. Falcons",
-      "href": "/nfl/story/_/id/50164378/backup-qb-tyler-huntley-leads-ravens-comeback-ot-win-vs-falcons"
+      "headline": "Judkins, Schwesinger (ankles) add to injury woes for Browns",
+      "href": "/nfl/story/_/id/50167865/judkins-schwesinger-ankles-add-injury-woes-browns"
+    },
+    {
+      "league": "NFL",
+      "headline": "49ers' Dre Greenlaw suspended one game for head-butting helmetless Seahawks LB",
+      "href": "/nfl/story/_/id/50167745/49ers-greenlaw-suspended-head-butting-helmetless-jones"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Packers not anticipating Micah Parsons' return for game vs. Cowboys",
+      "href": "/nfl/story/_/id/50167779/source-packers-not-anticipating-parsons-return-snf"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Packers lose DT Javon Hargrave for season to torn Achilles",
+      "href": "/nfl/story/_/id/50167021/source-packers-lose-hargrave-season-ending-torn-achilles"
+    },
+    {
+      "league": "NHL",
+      "headline": "Stars' Matt Duchene to miss 3 months after core muscle surgery",
+      "href": "/nhl/story/_/id/50167257/stars-matt-duchene-miss-3-months-core-muscle-surgery"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Eagles RB Will Shipley has partial tear of plantar fascia",
+      "href": "/nfl/story/_/id/50166619/source-eagles-rb-shipley-partial-tear-plantar-fascia"
+    },
+    {
+      "league": "NFL",
+      "headline": "Making sense of the Giants-Commanders tie, the Texans' Marvin Harrison Jr. trade",
+      "href": "/nfl/story/_/id/50158326/week-5-commanders-tie-texans-marvin-harrison-jr-trade"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Steelers' Roman Wilson expected to miss multiple weeks",
+      "href": "/nfl/story/_/id/50165164/source-steelers-roman-wilson-expected-miss-multiple-weeks"
     },
     {
       "league": "MLB",
@@ -13,29 +48,9 @@
       "href": "/mlb/story/_/id/50158797/mlb-2026-nlcs-game-1-dodgers-brewers-lineups-updates-analysis-takeaways"
     },
     {
-      "league": "NFL",
-      "headline": "Broncos beat Chargers in Sean Payton's return to playcalling",
-      "href": "/nfl/story/_/id/50163287/broncos-beat-chargers-sean-payton-return-playcalling"
-    },
-    {
       "league": "NHL",
       "headline": "Without Shesterkin, New York Rangers lean on Garand in win",
       "href": "/nhl/story/_/id/50163138/without-shesterkin-new-york-rangers-lean-garand-win"
-    },
-    {
-      "league": "NFL",
-      "headline": "Packers maul Bears, then fire back at Burden for 'quit' talk",
-      "href": "/nfl/story/_/id/50162146/packers-maul-bears-fire-back-burden-quit-talk"
-    },
-    {
-      "league": "NFL",
-      "headline": "Texans' win over Titans might have broken Terrible Towel curse",
-      "href": "/nfl/story/_/id/50162466/texans-break-steelers-terrible-towel-curse"
-    },
-    {
-      "league": "NFL",
-      "headline": "David Bailey delivers breakthrough performance in Jets' win",
-      "href": "/nfl/story/_/id/50162150/david-bailey-delivers-breakthrough-performance-jets-win"
     },
     {
       "league": "NBA",
@@ -56,21 +71,6 @@
       "league": "NBA",
       "headline": "Warriors give Brandin Podziemski 5-year, $110M extension",
       "href": "/nba/story/_/id/50148027/warriors-give-brandin-podziemski-5-year-110m-extension"
-    },
-    {
-      "league": "NBA",
-      "headline": "2026 NBA free agency: Grades for offseason signings, extensions",
-      "href": "/nba/story/_/id/48957095/2026-nba-free-agency-grades-offseason-signings-deals-contracts-extensions-depth-charts"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Phillies' Fuld declines offer to become A's president",
-      "href": "/mlb/story/_/id/50148844/sources-phillies-fuld-declines-offer-become-president"
-    },
-    {
-      "league": "NBA",
-      "headline": "Knicks tabling Karl-Anthony Towns, Josh Hart contract talks",
-      "href": "/nba/story/_/id/50140136/knicks-tabling-karl-anthony-towns-josh-hart-contract-talks"
     }
   ]
 }
