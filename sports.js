@@ -241,7 +241,8 @@
       dates: String(info.year),
       seasontype: String(info.seasonType || 2),
       week: String(info.week),
-      limit: "100"
+      limit: "100",
+      _: String(Date.now())
     });
     return fetchJsonFallback([
       "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?" + query.toString()
@@ -249,25 +250,38 @@
   }
 
   async function fetchNFLEvents() {
-    const now = new Date();
-    const isTuesday = now.getDay() === 2;
     const stored = loadStoredNFLWeek();
 
-    // Tuesday is the explicit week rollover. On every other day, keep using
-    // the stored active week so Monday finals remain visible all day.
-    if (stored && !isTuesday) {
-      const payload = await fetchNFLWeek(stored).catch(() => null);
-      if (payload && eventsFromPayload(payload).length) return eventsFromPayload(payload);
+    // Always ask ESPN what the CURRENT NFL week is first. The old logic kept
+    // using the stored week until Tuesday, which left Sunday/Monday stuck on
+    // the previous week's games. The stored value is now fallback-only.
+    let current = null;
+    try {
+      current = await fetchJsonFallback([
+        "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?limit=100&_=" + Date.now()
+      ]);
+    } catch {}
+
+    if (current && eventsFromPayload(current).length) {
+      const info = nflWeekMeta(current);
+      storeNFLWeek(info);
+
+      const full = await fetchNFLWeek(info).catch(() => current);
+      const events = eventsFromPayload(full);
+      if (events.length) return events;
+      return eventsFromPayload(current);
     }
 
-    const current = await fetchJsonFallback([
-      "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?limit=100"
-    ]);
-    const info = nflWeekMeta(current);
-    storeNFLWeek(info);
+    // Brief ESPN/network failure: keep the last known week rather than blanking
+    // the module, but never prefer this stale value over ESPN's current slate.
+    if (stored) {
+      const fallback = await fetchNFLWeek(stored).catch(() => null);
+      if (fallback && eventsFromPayload(fallback).length) {
+        return eventsFromPayload(fallback);
+      }
+    }
 
-    const full = await fetchNFLWeek(info).catch(() => current);
-    return eventsFromPayload(full);
+    throw new Error("NFL score feed unavailable");
   }
 
   async function fetchLeagueEvents(league) {
