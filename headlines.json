@@ -1,7 +1,17 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-12T02:20:20Z",
+  "refreshedAt": "2026-10-12T09:26:39Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "QB Tyler Huntley leads Ravens to comeback OT win vs. Falcons",
+      "href": "/nfl/story/_/id/50164378/backup-qb-tyler-huntley-leads-ravens-comeback-ot-win-vs-falcons"
+    },
+    {
+      "league": "MLB",
+      "headline": "NLCS Game 1: Takeaways, updates, analysis from Brewers' win",
+      "href": "/mlb/story/_/id/50158797/mlb-2026-nlcs-game-1-dodgers-brewers-lineups-updates-analysis-takeaways"
+    },
     {
       "league": "NFL",
       "headline": "Broncos beat Chargers in Sean Payton's return to playcalling",
@@ -11,11 +21,6 @@
       "league": "NHL",
       "headline": "Without Shesterkin, New York Rangers lean on Garand in win",
       "href": "/nhl/story/_/id/50163138/without-shesterkin-new-york-rangers-lean-garand-win"
-    },
-    {
-      "league": "NFL",
-      "headline": "49ers lose WR Deebo Samuel to hamstring injury vs. Seahawks",
-      "href": "/nfl/story/_/id/50161984/49ers-lose-wr-deebo-samuel-hamstring-injury-vs-seahawks"
     },
     {
       "league": "NFL",
@@ -31,11 +36,6 @@
       "league": "NFL",
       "headline": "David Bailey delivers breakthrough performance in Jets' win",
       "href": "/nfl/story/_/id/50162150/david-bailey-delivers-breakthrough-performance-jets-win"
-    },
-    {
-      "league": "NFL",
-      "headline": "Bears QB Caleb Williams 'close' to returning, Ben Johnson says",
-      "href": "/nfl/story/_/id/50161771/bears-qb-caleb-williams-close-returning-ben-johnson-says"
     },
     {
       "league": "NBA",
