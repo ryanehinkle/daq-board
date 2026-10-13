@@ -1,26 +1,21 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-13T15:51:17Z",
+  "refreshedAt": "2026-10-13T20:51:54Z",
   "items": [
     {
-      "league": "NFL",
-      "headline": "Sources: Jaguars LT Anton Harrison to undergo knee surgery",
-      "href": "/nfl/story/_/id/50172717/sources-jaguars-lt-anton-harrison-undergo-knee-surgery"
+      "league": "NBA",
+      "headline": "Celtics to extend guard Payton Pritchard on 2-year, $44.2M deal",
+      "href": "/nba/story/_/id/50176173/celtics-extend-payton-pritchard-two-year-442m-deal"
     },
     {
       "league": "NFL",
-      "headline": "Sources: Patriots' TreVeyon Henderson out multiple weeks with high ankle sprain",
-      "href": "/nfl/story/_/id/50173985/sources-patriots-treveyon-henderson-high-ankle-sprain"
+      "headline": "Bears DE Montez Sweat suspended two games for violating NFL's PED policy",
+      "href": "/nfl/story/_/id/50176333/bears-de-sweat-suspended-two-games-violating-ped-policy"
     },
     {
       "league": "NBA",
-      "headline": "Sources: 76ers' G League affiliate in Delaware tabs Brad Jones as GM",
-      "href": "/nba/story/_/id/50173640/sources-76ers-g-league-team-delaware-tabs-jones-gm"
-    },
-    {
-      "league": "MLB",
-      "headline": "Source: Dodgers' decision on sitting Ohtani hinges on health",
-      "href": "/mlb/story/_/id/50171187/dodgers-shohei-ohtani-nlcs-game-3-playing-status-health"
+      "headline": "2026 NBA free agency: Grades for offseason signings, extensions",
+      "href": "/nba/story/_/id/48957095/2026-nba-free-agency-grades-offseason-signings-deals-contracts-extensions-depth-charts"
     },
     {
       "league": "NBA",
@@ -28,9 +23,34 @@
       "href": "/nba/story/_/id/50166436/rookie-veteran-contract-extensions-towns-giannis-jokic"
     },
     {
+      "league": "NFL",
+      "headline": "Sources: Rams release kicker Mevis after miscues in loss, sign Grupe from Jets",
+      "href": "/nfl/story/_/id/50175234/rams-release-kicker-mevis-miscues-ot-loss"
+    },
+    {
       "league": "MLB",
-      "headline": "Chase DeLauter, José Ramírez lead Guardians' win in Game 1 of ALCS vs. Rays",
-      "href": "/mlb/story/_/id/50170936/guardians-come-beat-rays-game-1-alcs"
+      "headline": "Source: Dodgers' decision on sitting Ohtani hinges on health",
+      "href": "/mlb/story/_/id/50171187/dodgers-shohei-ohtani-nlcs-game-3-playing-status-health"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Patriots lineman Will Campbell out with MCL sprain",
+      "href": "/nfl/story/_/id/50175463/source-patriots-lineman-campbell-mcl-sprain"
+    },
+    {
+      "league": "NFL",
+      "headline": "Recruiting firm's Brian Flores memo contains racial stereotypes, lawyers say",
+      "href": "/nfl/story/_/id/50174946/brian-flores-memo-rife-racial-stereotypes-lawyers-say"
+    },
+    {
+      "league": "NFL",
+      "headline": "Zxavian Harris eligible to sign with NFL teams despite bid to play for LSU",
+      "href": "/nfl/story/_/id/50174944/zxavian-harris-eligible-sign-nfl-teams-lsu-bid"
+    },
+    {
+      "league": "NBA",
+      "headline": "NBA teams reveal court designs for 2026 NBA Cup tournament",
+      "href": "/nba/story/_/id/50174098/2026-nba-cup-tournament-court-designs"
     },
     {
       "league": "NBA",
@@ -39,38 +59,18 @@
     },
     {
       "league": "NHL",
-      "headline": "Sturm sent to hospital after puck strikes head in Wild's win",
-      "href": "/nhl/story/_/id/50171288/sturm-sent-hospital-puck-strikes-head-wild-win"
-    },
-    {
-      "league": "NBA",
-      "headline": "Carmelo Anthony thinks Knicks right to halt contract talks to focus on season",
-      "href": "/nba/story/_/id/50169786/carmelo-anthony-thinks-knicks-right-halt-contract-talks-focus-season"
-    },
-    {
-      "league": "NHL",
-      "headline": "Sabres' Dahlin out Tuesday vs. Canadiens due to upper-body injury",
-      "href": "/nhl/story/_/id/50168195/sabres-dahlin-leaves-game-vs-panthers-upper-body-injury"
-    },
-    {
-      "league": "NHL",
-      "headline": "Stars' Matt Duchene to miss 3 months after core muscle surgery",
-      "href": "/nhl/story/_/id/50167257/stars-matt-duchene-miss-3-months-core-muscle-surgery"
+      "headline": "Hurricanes captain Jordan Staal to miss 1-2 months with torn calf muscle",
+      "href": "/nhl/story/_/id/50174591/hurricanes-jordan-staal-1-2-months-torn-calf"
     },
     {
       "league": "MLB",
-      "headline": "NLCS Game 1: Takeaways, updates, analysis from Brewers' win",
-      "href": "/mlb/story/_/id/50158797/mlb-2026-nlcs-game-1-dodgers-brewers-lineups-updates-analysis-takeaways"
+      "headline": "Chase DeLauter, José Ramírez lead Guardians' win in Game 1 of ALCS vs. Rays",
+      "href": "/mlb/story/_/id/50170936/guardians-come-beat-rays-game-1-alcs"
     },
     {
-      "league": "NBA",
-      "headline": "Kings lose Maxime Raynaud to apparent serious knee injury",
-      "href": "/nba/story/_/id/50153526/kings-lose-maxime-raynaud-apparent-serious-knee-injury"
-    },
-    {
-      "league": "NBA",
-      "headline": "Kyrie Irving returns to Mavs, dazzles in China preseason game",
-      "href": "/nba/story/_/id/50157198/kyrie-irving-returns-mavs-dazzles-china-preseason-game"
+      "league": "NHL",
+      "headline": "Sturm sent to hospital after puck strikes head in Wild's win",
+      "href": "/nhl/story/_/id/50171288/sturm-sent-hospital-puck-strikes-head-wild-win"
     }
   ]
 }
