@@ -1,21 +1,31 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-13T07:59:04Z",
+  "refreshedAt": "2026-10-13T15:51:17Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Sources: Jaguars LT Anton Harrison to undergo knee surgery",
+      "href": "/nfl/story/_/id/50172717/sources-jaguars-lt-anton-harrison-undergo-knee-surgery"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Patriots' TreVeyon Henderson out multiple weeks with high ankle sprain",
+      "href": "/nfl/story/_/id/50173985/sources-patriots-treveyon-henderson-high-ankle-sprain"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sources: 76ers' G League affiliate in Delaware tabs Brad Jones as GM",
+      "href": "/nba/story/_/id/50173640/sources-76ers-g-league-team-delaware-tabs-jones-gm"
+    },
     {
       "league": "MLB",
       "headline": "Source: Dodgers' decision on sitting Ohtani hinges on health",
       "href": "/mlb/story/_/id/50171187/dodgers-shohei-ohtani-nlcs-game-3-playing-status-health"
     },
     {
-      "league": "NFL",
-      "headline": "Sean McVay says Rams to 'evaluate everything' about kicking unit after OT loss",
-      "href": "/nfl/story/_/id/50171556/sean-mcvay-says-rams-evaluate-everything-kicking-unit-ot-loss-bills"
-    },
-    {
-      "league": "NFL",
-      "headline": "Bills QB Josh Allen earns first overtime win of career vs. Rams on MNF",
-      "href": "/nfl/story/_/id/50171513/bills-josh-allen-earns-first-career-win-vs-rams-mnf"
+      "league": "NBA",
+      "headline": "Which NBA deals will get done? Bobby Marks' biggest extension decisions to watch",
+      "href": "/nba/story/_/id/50166436/rookie-veteran-contract-extensions-towns-giannis-jokic"
     },
     {
       "league": "MLB",
@@ -23,9 +33,9 @@
       "href": "/mlb/story/_/id/50170936/guardians-come-beat-rays-game-1-alcs"
     },
     {
-      "league": "NFL",
-      "headline": "Jim Harbaugh says he, Chargers ownership 'in this fight together' amid 0-5 start",
-      "href": "/nfl/story/_/id/50170100/amid-0-5-start-jim-harbaugh-chargers-ownership-fight-together"
+      "league": "NBA",
+      "headline": "Tyrese Haliburton's return brings hope and expectations in Indiana",
+      "href": "/nba/story/_/id/50168604/tyrese-haliburton-indiana-pacers-return-injury"
     },
     {
       "league": "NHL",
@@ -38,39 +48,29 @@
       "href": "/nba/story/_/id/50169786/carmelo-anthony-thinks-knicks-right-halt-contract-talks-focus-season"
     },
     {
-      "league": "NFL",
-      "headline": "49ers' Dre Greenlaw suspended one game for head-butting helmetless Seahawks LB",
-      "href": "/nfl/story/_/id/50167745/49ers-greenlaw-suspended-head-butting-helmetless-jones"
-    },
-    {
-      "league": "NFL",
-      "headline": "Dolphins' Jeff Hafley says he's not mulling QB change entering bye",
-      "href": "/nfl/story/_/id/50168959/dolphins-hafley-says-not-mulling-qb-change-entering-bye"
-    },
-    {
-      "league": "NFL",
-      "headline": "Commanders' Quinn says 'no one is pleased' after botched play fuels fan angst",
-      "href": "/nfl/story/_/id/50168989/quinn-commanders-botched-final-play-starts-me"
-    },
-    {
-      "league": "NFL",
-      "headline": "Packers' Micah Parsons won't play against Cowboys but return 'getting closer'",
-      "href": "/nfl/story/_/id/50167779/source-packers-not-anticipating-parsons-return-snf"
-    },
-    {
       "league": "NHL",
       "headline": "Sabres' Dahlin out Tuesday vs. Canadiens due to upper-body injury",
       "href": "/nhl/story/_/id/50168195/sabres-dahlin-leaves-game-vs-panthers-upper-body-injury"
     },
     {
-      "league": "NFL",
-      "headline": "Shanahan says 49ers WR Deebo Samuel to miss time with hamstring injury",
-      "href": "/nfl/story/_/id/50168446/shanahan-49ers-wr-samuel-miss-hamstring-injury"
+      "league": "NHL",
+      "headline": "Stars' Matt Duchene to miss 3 months after core muscle surgery",
+      "href": "/nhl/story/_/id/50167257/stars-matt-duchene-miss-3-months-core-muscle-surgery"
+    },
+    {
+      "league": "MLB",
+      "headline": "NLCS Game 1: Takeaways, updates, analysis from Brewers' win",
+      "href": "/mlb/story/_/id/50158797/mlb-2026-nlcs-game-1-dodgers-brewers-lineups-updates-analysis-takeaways"
     },
     {
       "league": "NBA",
       "headline": "Kings lose Maxime Raynaud to apparent serious knee injury",
       "href": "/nba/story/_/id/50153526/kings-lose-maxime-raynaud-apparent-serious-knee-injury"
+    },
+    {
+      "league": "NBA",
+      "headline": "Kyrie Irving returns to Mavs, dazzles in China preseason game",
+      "href": "/nba/story/_/id/50157198/kyrie-irving-returns-mavs-dazzles-china-preseason-game"
     }
   ]
 }
