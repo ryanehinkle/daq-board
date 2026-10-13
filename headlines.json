@@ -1,11 +1,36 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-13T01:23:44Z",
+  "refreshedAt": "2026-10-13T07:59:04Z",
   "items": [
+    {
+      "league": "MLB",
+      "headline": "Source: Dodgers' decision on sitting Ohtani hinges on health",
+      "href": "/mlb/story/_/id/50171187/dodgers-shohei-ohtani-nlcs-game-3-playing-status-health"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sean McVay says Rams to 'evaluate everything' about kicking unit after OT loss",
+      "href": "/nfl/story/_/id/50171556/sean-mcvay-says-rams-evaluate-everything-kicking-unit-ot-loss-bills"
+    },
+    {
+      "league": "NFL",
+      "headline": "Bills QB Josh Allen earns first overtime win of career vs. Rams on MNF",
+      "href": "/nfl/story/_/id/50171513/bills-josh-allen-earns-first-career-win-vs-rams-mnf"
+    },
+    {
+      "league": "MLB",
+      "headline": "Chase DeLauter, José Ramírez lead Guardians' win in Game 1 of ALCS vs. Rays",
+      "href": "/mlb/story/_/id/50170936/guardians-come-beat-rays-game-1-alcs"
+    },
     {
       "league": "NFL",
       "headline": "Jim Harbaugh says he, Chargers ownership 'in this fight together' amid 0-5 start",
       "href": "/nfl/story/_/id/50170100/amid-0-5-start-jim-harbaugh-chargers-ownership-fight-together"
+    },
+    {
+      "league": "NHL",
+      "headline": "Sturm sent to hospital after puck strikes head in Wild's win",
+      "href": "/nhl/story/_/id/50171288/sturm-sent-hospital-puck-strikes-head-wild-win"
     },
     {
       "league": "NBA",
@@ -43,34 +68,9 @@
       "href": "/nfl/story/_/id/50168446/shanahan-49ers-wr-samuel-miss-hamstring-injury"
     },
     {
-      "league": "NFL",
-      "headline": "Sources: Falcons QB Michael Penix's rib injury not considered serious",
-      "href": "/nfl/story/_/id/50168293/falcons-qb-penix-rib-injury-not-considered-serious"
-    },
-    {
-      "league": "NFL",
-      "headline": "Judkins, Schwesinger (ankles) add to injury woes for Browns",
-      "href": "/nfl/story/_/id/50167865/judkins-schwesinger-ankles-add-injury-woes-browns"
-    },
-    {
-      "league": "NHL",
-      "headline": "Stars' Matt Duchene to miss 3 months after core muscle surgery",
-      "href": "/nhl/story/_/id/50167257/stars-matt-duchene-miss-3-months-core-muscle-surgery"
-    },
-    {
-      "league": "MLB",
-      "headline": "NLCS Game 1: Takeaways, updates, analysis from Brewers' win",
-      "href": "/mlb/story/_/id/50158797/mlb-2026-nlcs-game-1-dodgers-brewers-lineups-updates-analysis-takeaways"
-    },
-    {
       "league": "NBA",
       "headline": "Kings lose Maxime Raynaud to apparent serious knee injury",
       "href": "/nba/story/_/id/50153526/kings-lose-maxime-raynaud-apparent-serious-knee-injury"
-    },
-    {
-      "league": "MLB",
-      "headline": "Guardians repeatedly troll divisional rival White Sox after ALDS win",
-      "href": "/mlb/story/_/id/50153772/cleveland-guardians-troll-white-sox"
     }
   ]
 }
