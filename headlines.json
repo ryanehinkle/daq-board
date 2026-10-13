@@ -1,11 +1,16 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-12T19:13:45Z",
+  "refreshedAt": "2026-10-13T01:23:44Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "Judkins, Schwesinger (ankles) add to injury woes for Browns",
-      "href": "/nfl/story/_/id/50167865/judkins-schwesinger-ankles-add-injury-woes-browns"
+      "headline": "Jim Harbaugh says he, Chargers ownership 'in this fight together' amid 0-5 start",
+      "href": "/nfl/story/_/id/50170100/amid-0-5-start-jim-harbaugh-chargers-ownership-fight-together"
+    },
+    {
+      "league": "NBA",
+      "headline": "Carmelo Anthony thinks Knicks right to halt contract talks to focus on season",
+      "href": "/nba/story/_/id/50169786/carmelo-anthony-thinks-knicks-right-halt-contract-talks-focus-season"
     },
     {
       "league": "NFL",
@@ -14,13 +19,38 @@
     },
     {
       "league": "NFL",
-      "headline": "Sources: Packers not anticipating Micah Parsons' return for game vs. Cowboys",
-      "href": "/nfl/story/_/id/50167779/source-packers-not-anticipating-parsons-return-snf"
+      "headline": "Dolphins' Jeff Hafley says he's not mulling QB change entering bye",
+      "href": "/nfl/story/_/id/50168959/dolphins-hafley-says-not-mulling-qb-change-entering-bye"
     },
     {
       "league": "NFL",
-      "headline": "Source: Packers lose DT Javon Hargrave for season to torn Achilles",
-      "href": "/nfl/story/_/id/50167021/source-packers-lose-hargrave-season-ending-torn-achilles"
+      "headline": "Commanders' Quinn says 'no one is pleased' after botched play fuels fan angst",
+      "href": "/nfl/story/_/id/50168989/quinn-commanders-botched-final-play-starts-me"
+    },
+    {
+      "league": "NFL",
+      "headline": "Packers' Micah Parsons won't play against Cowboys but return 'getting closer'",
+      "href": "/nfl/story/_/id/50167779/source-packers-not-anticipating-parsons-return-snf"
+    },
+    {
+      "league": "NHL",
+      "headline": "Sabres' Dahlin out Tuesday vs. Canadiens due to upper-body injury",
+      "href": "/nhl/story/_/id/50168195/sabres-dahlin-leaves-game-vs-panthers-upper-body-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Shanahan says 49ers WR Deebo Samuel to miss time with hamstring injury",
+      "href": "/nfl/story/_/id/50168446/shanahan-49ers-wr-samuel-miss-hamstring-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Falcons QB Michael Penix's rib injury not considered serious",
+      "href": "/nfl/story/_/id/50168293/falcons-qb-penix-rib-injury-not-considered-serious"
+    },
+    {
+      "league": "NFL",
+      "headline": "Judkins, Schwesinger (ankles) add to injury woes for Browns",
+      "href": "/nfl/story/_/id/50167865/judkins-schwesinger-ankles-add-injury-woes-browns"
     },
     {
       "league": "NHL",
@@ -28,29 +58,9 @@
       "href": "/nhl/story/_/id/50167257/stars-matt-duchene-miss-3-months-core-muscle-surgery"
     },
     {
-      "league": "NFL",
-      "headline": "Source: Eagles RB Will Shipley has partial tear of plantar fascia",
-      "href": "/nfl/story/_/id/50166619/source-eagles-rb-shipley-partial-tear-plantar-fascia"
-    },
-    {
-      "league": "NFL",
-      "headline": "Making sense of the Giants-Commanders tie, the Texans' Marvin Harrison Jr. trade",
-      "href": "/nfl/story/_/id/50158326/week-5-commanders-tie-texans-marvin-harrison-jr-trade"
-    },
-    {
-      "league": "NFL",
-      "headline": "Source: Steelers' Roman Wilson expected to miss multiple weeks",
-      "href": "/nfl/story/_/id/50165164/source-steelers-roman-wilson-expected-miss-multiple-weeks"
-    },
-    {
       "league": "MLB",
       "headline": "NLCS Game 1: Takeaways, updates, analysis from Brewers' win",
       "href": "/mlb/story/_/id/50158797/mlb-2026-nlcs-game-1-dodgers-brewers-lineups-updates-analysis-takeaways"
-    },
-    {
-      "league": "NHL",
-      "headline": "Without Shesterkin, New York Rangers lean on Garand in win",
-      "href": "/nhl/story/_/id/50163138/without-shesterkin-new-york-rangers-lean-garand-win"
     },
     {
       "league": "NBA",
@@ -58,19 +68,9 @@
       "href": "/nba/story/_/id/50153526/kings-lose-maxime-raynaud-apparent-serious-knee-injury"
     },
     {
-      "league": "NBA",
-      "headline": "Kyrie Irving returns to Mavs, dazzles in China preseason game",
-      "href": "/nba/story/_/id/50157198/kyrie-irving-returns-mavs-dazzles-china-preseason-game"
-    },
-    {
       "league": "MLB",
       "headline": "Guardians repeatedly troll divisional rival White Sox after ALDS win",
       "href": "/mlb/story/_/id/50153772/cleveland-guardians-troll-white-sox"
-    },
-    {
-      "league": "NBA",
-      "headline": "Warriors give Brandin Podziemski 5-year, $110M extension",
-      "href": "/nba/story/_/id/50148027/warriors-give-brandin-podziemski-5-year-110m-extension"
     }
   ]
 }
