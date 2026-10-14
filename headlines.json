@@ -1,11 +1,16 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-14T18:56:17Z",
+  "refreshedAt": "2026-10-14T22:05:48Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "Patriots CB Gonzalez says he's 'ready to go'; WR Brown returns to practice",
-      "href": "/nfl/story/_/id/50183044/patriots-gonzalez-set-return-wr-brown-back-practice"
+      "headline": "Marvin Harrison Jr. will play for Texans on Sunday in London, coach says",
+      "href": "/nfl/story/_/id/50184544/marvin-harrison-jr-play-texans-sunday-london"
+    },
+    {
+      "league": "NBA",
+      "headline": "Warriors' Kristaps Porzingis remains out indefinitely but will be around team",
+      "href": "/nba/story/_/id/50184641/warriors-kristaps-porzingis-indefinitely-team"
     },
     {
       "league": "NFL",
@@ -16,6 +21,16 @@
       "league": "NFL",
       "headline": "Falcons QB Michael Penix on track to start vs. Bears if no setbacks, coach says",
       "href": "/nfl/story/_/id/50182471/falcons-say-michael-penix-track-start-bears"
+    },
+    {
+      "league": "NFL",
+      "headline": "Patriots CB Gonzalez says he's 'ready to go'; WR Brown returns to practice",
+      "href": "/nfl/story/_/id/50183044/patriots-gonzalez-set-return-wr-brown-back-practice"
+    },
+    {
+      "league": "NFL",
+      "headline": "Adonai Mitchell had surgical procedure on finger, expected to miss Week 6",
+      "href": "/nfl/story/_/id/50183688/jets-adonai-mitchell-underwent-surgical-procedure-finger"
     },
     {
       "league": "MLB",
@@ -31,11 +46,6 @@
       "league": "MLB",
       "headline": "What this year's MLB playoffs say about baseball's future",
       "href": "/mlb/story/_/id/50166698/mlb-playoffs-2026-nlcs-alcs-dodgers-brewers-rays-guardians-payroll-cba-labor"
-    },
-    {
-      "league": "NFL",
-      "headline": "Micah Parsons wants to ensure 'all the small things fixed first' before return",
-      "href": "/nfl/story/_/id/50181654/micah-parsons-not-rushing-return-prevent-different-injury"
     },
     {
       "league": "MLB",
@@ -61,16 +71,6 @@
       "league": "NHL",
       "headline": "Taylor Hall exits Hurricanes' 4-2 win with upper-body injury",
       "href": "/nhl/story/_/id/50179406/taylor-hall-exits-hurricanes-4-2-win-upper-body-injury"
-    },
-    {
-      "league": "MLB",
-      "headline": "Source: Mariners get OK to interview Astros' Joe Espada",
-      "href": "/mlb/story/_/id/50176901/source-mariners-get-ok-interview-astros-joe-espada"
-    },
-    {
-      "league": "NBA",
-      "headline": "2026 NBA free agency: Grades for offseason signings, extensions",
-      "href": "/nba/story/_/id/48957095/2026-nba-free-agency-grades-offseason-signings-deals-contracts-extensions-depth-charts"
     }
   ]
 }
