@@ -1,11 +1,56 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-14T09:45:14Z",
+  "refreshedAt": "2026-10-14T14:41:34Z",
   "items": [
+    {
+      "league": "MLB",
+      "headline": "Phillies hire Don Mattingly to 2-year deal as manager",
+      "href": "/mlb/story/_/id/50181619/phillies-hire-don-mattingly-2-year-deal-manager"
+    },
+    {
+      "league": "NFL",
+      "headline": "Micah Parsons wants to ensure 'all the small things fixed first' before return",
+      "href": "/nfl/story/_/id/50181654/micah-parsons-not-rushing-return-prevent-different-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Lamar Jackson has realistic chance to play Ravens' Week 6 game at Browns",
+      "href": "/nfl/story/_/id/50181398/source-lamar-jackson-realistic-chance-play-week-6"
+    },
+    {
+      "league": "MLB",
+      "headline": "What this year's MLB playoffs say about baseball's future",
+      "href": "/mlb/story/_/id/50166698/mlb-playoffs-2026-nlcs-alcs-dodgers-brewers-rays-guardians-payroll-cba-labor"
+    },
+    {
+      "league": "MLB",
+      "headline": "Shohei Ohtani will be in Dodgers' Game 3 NLCS lineup, Dave Roberts says",
+      "href": "/mlb/story/_/id/50177824/ohtani-dodgers-game-3-nlcs-lineup-roberts-says"
+    },
+    {
+      "league": "NBA",
+      "headline": "Carmelo Anthony thinks Knicks right to halt contract talks to focus on season",
+      "href": "/nba/story/_/id/50169786/carmelo-anthony-thinks-knicks-right-halt-contract-talks-focus-season"
+    },
+    {
+      "league": "NBA",
+      "headline": "Celtics to extend guard Payton Pritchard on 2-year, $44.2M deal",
+      "href": "/nba/story/_/id/50176173/celtics-extend-payton-pritchard-two-year-442m-deal"
+    },
+    {
+      "league": "NFL",
+      "headline": "Saints owner Gayle Benson rips 1-4 start, says fans 'deserve better'",
+      "href": "/nfl/story/_/id/50177269/saints-owner-benson-rips-1-4-start-says-fans-deserve-better"
+    },
     {
       "league": "MLB",
       "headline": "Freddy Peralta shuts down Guardians as Rays even ALCS with Game 2 win",
       "href": "/mlb/story/_/id/50179060/peralta-tosses-gem-rays-cash-ramirez-gaffe-game-2"
+    },
+    {
+      "league": "NFL",
+      "headline": "Jaguars WR Parker Washington has the clutch gene: Will that earn him an extension?",
+      "href": "/nfl/story/_/id/50174583/jacksonville-jaguars-parker-washington-2026-breakout"
     },
     {
       "league": "NHL",
@@ -18,16 +63,6 @@
       "href": "/nfl/story/_/id/50173615/nfl-suspends-rams-lt-jackson-punching-bills-chubb"
     },
     {
-      "league": "MLB",
-      "headline": "Shohei Ohtani will be in Dodgers' Game 3 NLCS lineup, Dave Roberts says",
-      "href": "/mlb/story/_/id/50177824/ohtani-dodgers-game-3-nlcs-lineup-roberts-says"
-    },
-    {
-      "league": "NFL",
-      "headline": "Saints owner Gayle Benson rips 1-4 start, says fans 'deserve better'",
-      "href": "/nfl/story/_/id/50177269/saints-owner-benson-rips-1-4-start-says-fans-deserve-better"
-    },
-    {
       "league": "NFL",
       "headline": "Broncos' Bo Nix says he needs to simplify approach, play faster amid rocky start",
       "href": "/nfl/story/_/id/50177580/broncos-bo-nix-says-needs-simplify-approach-amid-rocky-start"
@@ -36,41 +71,6 @@
       "league": "NFL",
       "headline": "Bears DE Montez Sweat suspended two games for violating NFL's PED policy",
       "href": "/nfl/story/_/id/50176333/bears-de-sweat-suspended-two-games-violating-ped-policy"
-    },
-    {
-      "league": "MLB",
-      "headline": "Source: Mariners get OK to interview Astros' Joe Espada",
-      "href": "/mlb/story/_/id/50176901/source-mariners-get-ok-interview-astros-joe-espada"
-    },
-    {
-      "league": "NBA",
-      "headline": "2026 NBA free agency: Grades for offseason signings, extensions",
-      "href": "/nba/story/_/id/48957095/2026-nba-free-agency-grades-offseason-signings-deals-contracts-extensions-depth-charts"
-    },
-    {
-      "league": "NBA",
-      "headline": "Celtics to extend guard Payton Pritchard on 2-year, $44.2M deal",
-      "href": "/nba/story/_/id/50176173/celtics-extend-payton-pritchard-two-year-442m-deal"
-    },
-    {
-      "league": "NBA",
-      "headline": "Which NBA deals will get done? Bobby Marks' biggest extension decisions to watch",
-      "href": "/nba/story/_/id/50166436/rookie-veteran-contract-extensions-towns-giannis-jokic"
-    },
-    {
-      "league": "MLB",
-      "headline": "Source: Dodgers' decision on sitting Ohtani hinges on health",
-      "href": "/mlb/story/_/id/50171187/dodgers-shohei-ohtani-nlcs-game-3-playing-status-health"
-    },
-    {
-      "league": "NFL",
-      "headline": "Source: Patriots lineman Will Campbell out with MCL sprain",
-      "href": "/nfl/story/_/id/50175463/source-patriots-lineman-campbell-mcl-sprain"
-    },
-    {
-      "league": "NBA",
-      "headline": "NBA teams reveal court designs for 2026 NBA Cup tournament",
-      "href": "/nba/story/_/id/50174098/2026-nba-cup-tournament-court-designs"
     }
   ]
 }
