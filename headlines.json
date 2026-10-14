@@ -1,12 +1,7 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-14T04:42:50Z",
+  "refreshedAt": "2026-10-14T09:45:14Z",
   "items": [
-    {
-      "league": "NHL",
-      "headline": "Taylor Hall exits Hurricanes' 4-2 win with upper-body injury",
-      "href": "/nhl/story/_/id/50179406/taylor-hall-exits-hurricanes-4-2-win-upper-body-injury"
-    },
     {
       "league": "MLB",
       "headline": "Freddy Peralta shuts down Guardians as Rays even ALCS with Game 2 win",
@@ -14,13 +9,8 @@
     },
     {
       "league": "NHL",
-      "headline": "Connor Bedard makes season debut, records assist in Blackhawks' win vs. Penguins",
-      "href": "/nhl/story/_/id/50178919/connor-bedard-makes-season-debut-records-assist-blackhawks-win-vs-penguins"
-    },
-    {
-      "league": "NHL",
-      "headline": "Sources: Alex DeBrincat, Red Wings close in on 7-year extension",
-      "href": "/nhl/story/_/id/50178559/debrincat-red-wings-close-7-year-extension"
+      "headline": "Taylor Hall exits Hurricanes' 4-2 win with upper-body injury",
+      "href": "/nhl/story/_/id/50179406/taylor-hall-exits-hurricanes-4-2-win-upper-body-injury"
     },
     {
       "league": "NFL",
@@ -71,6 +61,16 @@
       "league": "MLB",
       "headline": "Source: Dodgers' decision on sitting Ohtani hinges on health",
       "href": "/mlb/story/_/id/50171187/dodgers-shohei-ohtani-nlcs-game-3-playing-status-health"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Patriots lineman Will Campbell out with MCL sprain",
+      "href": "/nfl/story/_/id/50175463/source-patriots-lineman-campbell-mcl-sprain"
+    },
+    {
+      "league": "NBA",
+      "headline": "NBA teams reveal court designs for 2026 NBA Cup tournament",
+      "href": "/nba/story/_/id/50174098/2026-nba-cup-tournament-court-designs"
     }
   ]
 }
