@@ -1,11 +1,21 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-13T20:51:54Z",
+  "refreshedAt": "2026-10-14T00:01:17Z",
   "items": [
     {
-      "league": "NBA",
-      "headline": "Celtics to extend guard Payton Pritchard on 2-year, $44.2M deal",
-      "href": "/nba/story/_/id/50176173/celtics-extend-payton-pritchard-two-year-442m-deal"
+      "league": "NFL",
+      "headline": "Broncos' Bo Nix says he needs to simplify approach, play faster amid rocky start",
+      "href": "/nfl/story/_/id/50177580/broncos-bo-nix-says-needs-simplify-approach-amid-rocky-start"
+    },
+    {
+      "league": "NFL",
+      "headline": "NFL suspends Rams' Alaric Jackson for two games after punch",
+      "href": "/nfl/story/_/id/50173615/nfl-suspends-rams-lt-jackson-punching-bills-chubb"
+    },
+    {
+      "league": "NFL",
+      "headline": "Saints owner Gayle Benson rips 1-4 start, says fans 'deserve better'",
+      "href": "/nfl/story/_/id/50177269/saints-owner-benson-rips-1-4-start-says-fans-deserve-better"
     },
     {
       "league": "NFL",
@@ -13,19 +23,29 @@
       "href": "/nfl/story/_/id/50176333/bears-de-sweat-suspended-two-games-violating-ped-policy"
     },
     {
+      "league": "MLB",
+      "headline": "Source: Mariners get OK to interview Astros' Joe Espada",
+      "href": "/mlb/story/_/id/50176901/source-mariners-get-ok-interview-astros-joe-espada"
+    },
+    {
       "league": "NBA",
       "headline": "2026 NBA free agency: Grades for offseason signings, extensions",
       "href": "/nba/story/_/id/48957095/2026-nba-free-agency-grades-offseason-signings-deals-contracts-extensions-depth-charts"
     },
     {
-      "league": "NBA",
-      "headline": "Which NBA deals will get done? Bobby Marks' biggest extension decisions to watch",
-      "href": "/nba/story/_/id/50166436/rookie-veteran-contract-extensions-towns-giannis-jokic"
-    },
-    {
       "league": "NFL",
       "headline": "Sources: Rams release kicker Mevis after miscues in loss, sign Grupe from Jets",
       "href": "/nfl/story/_/id/50175234/rams-release-kicker-mevis-miscues-ot-loss"
+    },
+    {
+      "league": "NBA",
+      "headline": "Celtics to extend guard Payton Pritchard on 2-year, $44.2M deal",
+      "href": "/nba/story/_/id/50176173/celtics-extend-payton-pritchard-two-year-442m-deal"
+    },
+    {
+      "league": "NBA",
+      "headline": "Which NBA deals will get done? Bobby Marks' biggest extension decisions to watch",
+      "href": "/nba/story/_/id/50166436/rookie-veteran-contract-extensions-towns-giannis-jokic"
     },
     {
       "league": "MLB",
@@ -38,34 +58,14 @@
       "href": "/nfl/story/_/id/50175463/source-patriots-lineman-campbell-mcl-sprain"
     },
     {
-      "league": "NFL",
-      "headline": "Recruiting firm's Brian Flores memo contains racial stereotypes, lawyers say",
-      "href": "/nfl/story/_/id/50174946/brian-flores-memo-rife-racial-stereotypes-lawyers-say"
-    },
-    {
-      "league": "NFL",
-      "headline": "Zxavian Harris eligible to sign with NFL teams despite bid to play for LSU",
-      "href": "/nfl/story/_/id/50174944/zxavian-harris-eligible-sign-nfl-teams-lsu-bid"
-    },
-    {
       "league": "NBA",
       "headline": "NBA teams reveal court designs for 2026 NBA Cup tournament",
       "href": "/nba/story/_/id/50174098/2026-nba-cup-tournament-court-designs"
     },
     {
-      "league": "NBA",
-      "headline": "Tyrese Haliburton's return brings hope and expectations in Indiana",
-      "href": "/nba/story/_/id/50168604/tyrese-haliburton-indiana-pacers-return-injury"
-    },
-    {
       "league": "NHL",
       "headline": "Hurricanes captain Jordan Staal to miss 1-2 months with torn calf muscle",
       "href": "/nhl/story/_/id/50174591/hurricanes-jordan-staal-1-2-months-torn-calf"
-    },
-    {
-      "league": "MLB",
-      "headline": "Chase DeLauter, José Ramírez lead Guardians' win in Game 1 of ALCS vs. Rays",
-      "href": "/mlb/story/_/id/50170936/guardians-come-beat-rays-game-1-alcs"
     },
     {
       "league": "NHL",
