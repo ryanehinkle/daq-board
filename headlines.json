@@ -1,11 +1,26 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-14T00:01:17Z",
+  "refreshedAt": "2026-10-14T04:42:50Z",
   "items": [
     {
-      "league": "NFL",
-      "headline": "Broncos' Bo Nix says he needs to simplify approach, play faster amid rocky start",
-      "href": "/nfl/story/_/id/50177580/broncos-bo-nix-says-needs-simplify-approach-amid-rocky-start"
+      "league": "NHL",
+      "headline": "Taylor Hall exits Hurricanes' 4-2 win with upper-body injury",
+      "href": "/nhl/story/_/id/50179406/taylor-hall-exits-hurricanes-4-2-win-upper-body-injury"
+    },
+    {
+      "league": "MLB",
+      "headline": "Freddy Peralta shuts down Guardians as Rays even ALCS with Game 2 win",
+      "href": "/mlb/story/_/id/50179060/peralta-tosses-gem-rays-cash-ramirez-gaffe-game-2"
+    },
+    {
+      "league": "NHL",
+      "headline": "Connor Bedard makes season debut, records assist in Blackhawks' win vs. Penguins",
+      "href": "/nhl/story/_/id/50178919/connor-bedard-makes-season-debut-records-assist-blackhawks-win-vs-penguins"
+    },
+    {
+      "league": "NHL",
+      "headline": "Sources: Alex DeBrincat, Red Wings close in on 7-year extension",
+      "href": "/nhl/story/_/id/50178559/debrincat-red-wings-close-7-year-extension"
     },
     {
       "league": "NFL",
@@ -13,9 +28,19 @@
       "href": "/nfl/story/_/id/50173615/nfl-suspends-rams-lt-jackson-punching-bills-chubb"
     },
     {
+      "league": "MLB",
+      "headline": "Shohei Ohtani will be in Dodgers' Game 3 NLCS lineup, Dave Roberts says",
+      "href": "/mlb/story/_/id/50177824/ohtani-dodgers-game-3-nlcs-lineup-roberts-says"
+    },
+    {
       "league": "NFL",
       "headline": "Saints owner Gayle Benson rips 1-4 start, says fans 'deserve better'",
       "href": "/nfl/story/_/id/50177269/saints-owner-benson-rips-1-4-start-says-fans-deserve-better"
+    },
+    {
+      "league": "NFL",
+      "headline": "Broncos' Bo Nix says he needs to simplify approach, play faster amid rocky start",
+      "href": "/nfl/story/_/id/50177580/broncos-bo-nix-says-needs-simplify-approach-amid-rocky-start"
     },
     {
       "league": "NFL",
@@ -33,11 +58,6 @@
       "href": "/nba/story/_/id/48957095/2026-nba-free-agency-grades-offseason-signings-deals-contracts-extensions-depth-charts"
     },
     {
-      "league": "NFL",
-      "headline": "Sources: Rams release kicker Mevis after miscues in loss, sign Grupe from Jets",
-      "href": "/nfl/story/_/id/50175234/rams-release-kicker-mevis-miscues-ot-loss"
-    },
-    {
       "league": "NBA",
       "headline": "Celtics to extend guard Payton Pritchard on 2-year, $44.2M deal",
       "href": "/nba/story/_/id/50176173/celtics-extend-payton-pritchard-two-year-442m-deal"
@@ -51,26 +71,6 @@
       "league": "MLB",
       "headline": "Source: Dodgers' decision on sitting Ohtani hinges on health",
       "href": "/mlb/story/_/id/50171187/dodgers-shohei-ohtani-nlcs-game-3-playing-status-health"
-    },
-    {
-      "league": "NFL",
-      "headline": "Source: Patriots lineman Will Campbell out with MCL sprain",
-      "href": "/nfl/story/_/id/50175463/source-patriots-lineman-campbell-mcl-sprain"
-    },
-    {
-      "league": "NBA",
-      "headline": "NBA teams reveal court designs for 2026 NBA Cup tournament",
-      "href": "/nba/story/_/id/50174098/2026-nba-cup-tournament-court-designs"
-    },
-    {
-      "league": "NHL",
-      "headline": "Hurricanes captain Jordan Staal to miss 1-2 months with torn calf muscle",
-      "href": "/nhl/story/_/id/50174591/hurricanes-jordan-staal-1-2-months-torn-calf"
-    },
-    {
-      "league": "NHL",
-      "headline": "Sturm sent to hospital after puck strikes head in Wild's win",
-      "href": "/nhl/story/_/id/50171288/sturm-sent-hospital-puck-strikes-head-wild-win"
     }
   ]
 }
