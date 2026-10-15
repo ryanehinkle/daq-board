@@ -1,16 +1,26 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-15T18:33:47Z",
+  "refreshedAt": "2026-10-15T21:43:55Z",
   "items": [
-    {
-      "league": "NFL",
-      "headline": "Packers' Josh Jacobs sues to block release of records, video of altercation",
-      "href": "/nfl/story/_/id/50190063/packers-josh-jacobs-sues-block-release-records-video"
-    },
     {
       "league": "NFL",
       "headline": "Eagles QB Jalen Hurts ruled out vs. Panthers with blood clot in calf",
       "href": "/nfl/story/_/id/50189940/eagles-qb-jalen-hurts-ruled-vs-panthers-blood-clot"
+    },
+    {
+      "league": "MLB",
+      "headline": "Oswaldo Cabrera agrees to $1 million, 1-year deal with Reds",
+      "href": "/mlb/story/_/id/50191527/oswaldo-cabrera-agrees-1-million-1-year-deal-reds"
+    },
+    {
+      "league": "NFL",
+      "headline": "Patriots star WR A.J. Brown says status 'still up in the air' for game vs. Jets",
+      "href": "/nfl/story/_/id/50191062/pats-aj-brown-says-status-air-vs-jets"
+    },
+    {
+      "league": "NFL",
+      "headline": "Packers' Josh Jacobs joins woman in filing to block release of records, video",
+      "href": "/nfl/story/_/id/50190063/packers-josh-jacobs-sues-block-release-records-video"
     },
     {
       "league": "NHL",
@@ -23,11 +33,6 @@
       "href": "/mlb/story/_/id/50189697/brewers-dodgers-blake-snell-troll-nlcs"
     },
     {
-      "league": "NFL",
-      "headline": "Are Panthers positioned to add reinforcements before NFL trade deadline?",
-      "href": "/nfl/story/_/id/50186245/carolina-panthers-nfl-trade-deadline-positioned-roster"
-    },
-    {
       "league": "NBA",
       "headline": "Spurs debut three-guard lineup of Fox, Harper, Castle in preseason win",
       "href": "/nba/story/_/id/50186974/spurs-debut-3-guard-lineup-deaaron-fox-dylan-harper-stephon-castle-preseason-win"
@@ -36,11 +41,6 @@
       "league": "MLB",
       "headline": "What this year's MLB playoffs say about baseball's future",
       "href": "/mlb/story/_/id/50166698/mlb-playoffs-2026-nlcs-alcs-dodgers-brewers-rays-guardians-payroll-cba-labor"
-    },
-    {
-      "league": "NFL",
-      "headline": "Love (ankle) sits out Cardinals practice as LaFleur says rest 'vital'",
-      "href": "/nfl/story/_/id/50185425/love-ankle-cardinals-practice"
     },
     {
       "league": "NBA",
