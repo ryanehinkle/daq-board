@@ -1,11 +1,16 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-15T21:43:55Z",
+  "refreshedAt": "2026-10-15T23:54:34Z",
   "items": [
     {
+      "league": "MLB",
+      "headline": "Junior Caminero says Rays have to adjust after 13 strikeouts",
+      "href": "/mlb/story/_/id/50192351/junior-caminero-says-rays-adjust-13-strikeouts"
+    },
+    {
       "league": "NFL",
-      "headline": "Eagles QB Jalen Hurts ruled out vs. Panthers with blood clot in calf",
-      "href": "/nfl/story/_/id/50189940/eagles-qb-jalen-hurts-ruled-vs-panthers-blood-clot"
+      "headline": "Texans RB Montgomery, S Pitre out for London affair vs. Jaguars",
+      "href": "/nfl/story/_/id/50192302/texans-rb-montgomery-s-pitre-london-affair-vs-jaguars"
     },
     {
       "league": "MLB",
@@ -16,11 +21,6 @@
       "league": "NFL",
       "headline": "Patriots star WR A.J. Brown says status 'still up in the air' for game vs. Jets",
       "href": "/nfl/story/_/id/50191062/pats-aj-brown-says-status-air-vs-jets"
-    },
-    {
-      "league": "NFL",
-      "headline": "Packers' Josh Jacobs joins woman in filing to block release of records, video",
-      "href": "/nfl/story/_/id/50190063/packers-josh-jacobs-sues-block-release-records-video"
     },
     {
       "league": "NHL",
@@ -36,11 +36,6 @@
       "league": "NBA",
       "headline": "Spurs debut three-guard lineup of Fox, Harper, Castle in preseason win",
       "href": "/nba/story/_/id/50186974/spurs-debut-3-guard-lineup-deaaron-fox-dylan-harper-stephon-castle-preseason-win"
-    },
-    {
-      "league": "MLB",
-      "headline": "What this year's MLB playoffs say about baseball's future",
-      "href": "/mlb/story/_/id/50166698/mlb-playoffs-2026-nlcs-alcs-dodgers-brewers-rays-guardians-payroll-cba-labor"
     },
     {
       "league": "NBA",
