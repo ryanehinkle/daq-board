@@ -1,11 +1,16 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-15T09:49:16Z",
+  "refreshedAt": "2026-10-15T14:28:56Z",
   "items": [
     {
       "league": "NBA",
       "headline": "Spurs debut three-guard lineup of Fox, Harper, Castle in preseason win",
       "href": "/nba/story/_/id/50186974/spurs-debut-3-guard-lineup-deaaron-fox-dylan-harper-stephon-castle-preseason-win"
+    },
+    {
+      "league": "NFL",
+      "headline": "Are Panthers positioned to add reinforcements before NFL trade deadline?",
+      "href": "/nfl/story/_/id/50186245/carolina-panthers-nfl-trade-deadline-positioned-roster"
     },
     {
       "league": "MLB",
@@ -34,16 +39,6 @@
     },
     {
       "league": "NFL",
-      "headline": "Sources: Broncos S Talanoa Hufanga (ankle) set to miss multiple weeks",
-      "href": "/nfl/story/_/id/50182760/sources-broncos-s-hufanga-ankle-set-miss-multiple-weeks"
-    },
-    {
-      "league": "NFL",
-      "headline": "Patriots CB Gonzalez says he's 'ready to go'; WR Brown returns to practice",
-      "href": "/nfl/story/_/id/50183044/patriots-gonzalez-set-return-wr-brown-back-practice"
-    },
-    {
-      "league": "NFL",
       "headline": "Adonai Mitchell had surgical procedure on finger, expected to miss Week 6",
       "href": "/nfl/story/_/id/50183688/jets-adonai-mitchell-underwent-surgical-procedure-finger"
     },
@@ -58,19 +53,24 @@
       "href": "/mlb/story/_/id/50181619/phillies-hire-don-mattingly-2-year-deal-manager"
     },
     {
-      "league": "MLB",
-      "headline": "Shohei Ohtani will be in Dodgers' Game 3 NLCS lineup, Dave Roberts says",
-      "href": "/mlb/story/_/id/50177824/ohtani-dodgers-game-3-nlcs-lineup-roberts-says"
-    },
-    {
       "league": "NBA",
       "headline": "Celtics to extend guard Payton Pritchard on 2-year, $44.2M deal",
       "href": "/nba/story/_/id/50176173/celtics-extend-payton-pritchard-two-year-442m-deal"
     },
     {
-      "league": "NHL",
-      "headline": "Taylor Hall exits Hurricanes' 4-2 win with upper-body injury",
-      "href": "/nhl/story/_/id/50179406/taylor-hall-exits-hurricanes-4-2-win-upper-body-injury"
+      "league": "MLB",
+      "headline": "Freddy Peralta shuts down Guardians as Rays even ALCS with Game 2 win",
+      "href": "/mlb/story/_/id/50179060/peralta-tosses-gem-rays-cash-ramirez-gaffe-game-2"
+    },
+    {
+      "league": "NBA",
+      "headline": "2026 NBA free agency: Grades for offseason signings, extensions",
+      "href": "/nba/story/_/id/48957095/2026-nba-free-agency-grades-offseason-signings-deals-contracts-extensions-depth-charts"
+    },
+    {
+      "league": "NBA",
+      "headline": "Which NBA deals will get done? Bobby Marks' biggest extension decisions to watch",
+      "href": "/nba/story/_/id/50166436/rookie-veteran-contract-extensions-towns-giannis-jokic"
     }
   ]
 }
