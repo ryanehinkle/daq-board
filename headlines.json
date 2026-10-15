@@ -1,7 +1,27 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-15T00:29:42Z",
+  "refreshedAt": "2026-10-15T05:04:44Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Spurs debut three-guard lineup of Fox, Harper, Castle in preseason win",
+      "href": "/nba/story/_/id/50186974/spurs-debut-3-guard-lineup-deaaron-fox-dylan-harper-stephon-castle-preseason-win"
+    },
+    {
+      "league": "MLB",
+      "headline": "What this year's MLB playoffs say about baseball's future",
+      "href": "/mlb/story/_/id/50166698/mlb-playoffs-2026-nlcs-alcs-dodgers-brewers-rays-guardians-payroll-cba-labor"
+    },
+    {
+      "league": "NFL",
+      "headline": "Marvin Harrison Jr. will play for Texans on Sunday in London, coach says",
+      "href": "/nfl/story/_/id/50184544/marvin-harrison-jr-play-texans-sunday-london"
+    },
+    {
+      "league": "NFL",
+      "headline": "Love (ankle) sits out Cardinals practice as LaFleur says rest 'vital'",
+      "href": "/nfl/story/_/id/50185425/love-ankle-cardinals-practice"
+    },
     {
       "league": "NFL",
       "headline": "Seahawks rule out LB Thomas, RB Charbonnet for Thursday night game vs. Broncos",
@@ -14,18 +34,8 @@
     },
     {
       "league": "NFL",
-      "headline": "Marvin Harrison Jr. will play for Texans on Sunday in London, coach says",
-      "href": "/nfl/story/_/id/50184544/marvin-harrison-jr-play-texans-sunday-london"
-    },
-    {
-      "league": "NFL",
       "headline": "Sources: Broncos S Talanoa Hufanga (ankle) set to miss multiple weeks",
       "href": "/nfl/story/_/id/50182760/sources-broncos-s-hufanga-ankle-set-miss-multiple-weeks"
-    },
-    {
-      "league": "NFL",
-      "headline": "Falcons QB Michael Penix on track to start vs. Bears if no setbacks, coach says",
-      "href": "/nfl/story/_/id/50182471/falcons-say-michael-penix-track-start-bears"
     },
     {
       "league": "NFL",
@@ -49,18 +59,8 @@
     },
     {
       "league": "MLB",
-      "headline": "What this year's MLB playoffs say about baseball's future",
-      "href": "/mlb/story/_/id/50166698/mlb-playoffs-2026-nlcs-alcs-dodgers-brewers-rays-guardians-payroll-cba-labor"
-    },
-    {
-      "league": "MLB",
       "headline": "Shohei Ohtani will be in Dodgers' Game 3 NLCS lineup, Dave Roberts says",
       "href": "/mlb/story/_/id/50177824/ohtani-dodgers-game-3-nlcs-lineup-roberts-says"
-    },
-    {
-      "league": "NBA",
-      "headline": "Carmelo Anthony thinks Knicks right to halt contract talks to focus on season",
-      "href": "/nba/story/_/id/50169786/carmelo-anthony-thinks-knicks-right-halt-contract-talks-focus-season"
     },
     {
       "league": "NBA",
