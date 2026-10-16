@@ -1,7 +1,22 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-16T20:01:12Z",
+  "refreshedAt": "2026-10-16T22:45:24Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Packers' Josh Jacobs eligible to return next week amid probe",
+      "href": "/nfl/story/_/id/50197784/packers-josh-jacobs-eligible-return-next-week-amid-probe"
+    },
+    {
+      "league": "NFL",
+      "headline": "Broncos' Jonathon Cooper off commissioner exempt list, could return Week 7",
+      "href": "/nfl/story/_/id/50198029/broncos-jonathon-cooper-removed-nfl-commissioner-exempt-list"
+    },
+    {
+      "league": "NFL",
+      "headline": "Eagles' Saquon Barkley ruled out; DeVonta Smith to return",
+      "href": "/nfl/story/_/id/50198056/eagles-saquon-barkley-ruled-devonta-smith-return"
+    },
     {
       "league": "NFL",
       "headline": "Cardinals 'do what's right,' rule RB Jeremiyah Love (ankle) out vs. Rams",
