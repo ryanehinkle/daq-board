@@ -1,6 +1,6 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-15T23:54:34Z",
+  "refreshedAt": "2026-10-16T02:59:10Z",
   "items": [
     {
       "league": "MLB",
@@ -16,11 +16,6 @@
       "league": "MLB",
       "headline": "Oswaldo Cabrera agrees to $1 million, 1-year deal with Reds",
       "href": "/mlb/story/_/id/50191527/oswaldo-cabrera-agrees-1-million-1-year-deal-reds"
-    },
-    {
-      "league": "NFL",
-      "headline": "Patriots star WR A.J. Brown says status 'still up in the air' for game vs. Jets",
-      "href": "/nfl/story/_/id/50191062/pats-aj-brown-says-status-air-vs-jets"
     },
     {
       "league": "NHL",
