@@ -1,11 +1,11 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-16T13:12:01Z",
+  "refreshedAt": "2026-10-16T17:25:57Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "Defense bails out Broncos in overtime win as Bo Nix, offense struggle",
-      "href": "/nfl/story/_/id/50194537/broncos-seahawks-defense-bo-nix"
+      "headline": "Jets rookie WR Cooper to play vs. Patriots; RB Hall, WR Mitchell out",
+      "href": "/nfl/story/_/id/50196775/jets-rookie-wr-cooper-play-vs-patriots-hall-mitchell-out"
     },
     {
       "league": "MLB",
@@ -23,19 +23,9 @@
       "href": "/nba/story/_/id/50190888/preseason-intel-expansion-seattle-towns-extensions"
     },
     {
-      "league": "NFL",
-      "headline": "Run game, defense power Broncos in OT win against Seahawks",
-      "href": "/nfl/story/_/id/50192352/broncos-seahawks-week-6-tnf-run-game-defense-ot"
-    },
-    {
       "league": "MLB",
       "headline": "Junior Caminero says Rays have to adjust after 13 strikeouts",
       "href": "/mlb/story/_/id/50192351/junior-caminero-says-rays-adjust-13-strikeouts"
-    },
-    {
-      "league": "NFL",
-      "headline": "Texans RB Montgomery, S Pitre out for London affair vs. Jaguars",
-      "href": "/nfl/story/_/id/50192302/texans-rb-montgomery-s-pitre-london-affair-vs-jaguars"
     },
     {
       "league": "MLB",
@@ -51,11 +41,6 @@
       "league": "NBA",
       "headline": "Spurs debut three-guard lineup of Fox, Harper, Castle in preseason win",
       "href": "/nba/story/_/id/50186974/spurs-debut-3-guard-lineup-deaaron-fox-dylan-harper-stephon-castle-preseason-win"
-    },
-    {
-      "league": "NBA",
-      "headline": "Warriors' Kristaps Porzingis remains out indefinitely but will be around team",
-      "href": "/nba/story/_/id/50184641/warriors-kristaps-porzingis-indefinitely-team"
     }
   ]
 }
