@@ -1,16 +1,26 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-16T08:04:14Z",
+  "refreshedAt": "2026-10-16T13:12:01Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "Defense bails out Broncos in OT win as Nix, offense struggle",
+      "headline": "Defense bails out Broncos in overtime win as Bo Nix, offense struggle",
       "href": "/nfl/story/_/id/50194537/broncos-seahawks-defense-bo-nix"
     },
     {
       "league": "MLB",
       "headline": "Brewers sweep Dodgers in NLCS, advance to 1st World Series in 44 years",
       "href": "/mlb/story/_/id/50193819/brewers-sweep-dodgers-nlcs-advance-world-series"
+    },
+    {
+      "league": "NBA",
+      "headline": "Can Jimmy Butler return in time to resurrect Steph Curry's final chapter?",
+      "href": "/nba/story/_/id/50182801/jimmy-butler-acl-injury-return-warriors-title"
+    },
+    {
+      "league": "NBA",
+      "headline": "NBA intel: Seattle expansion update, Towns extension drama, more from preseason",
+      "href": "/nba/story/_/id/50190888/preseason-intel-expansion-seattle-towns-extensions"
     },
     {
       "league": "NFL",
@@ -31,11 +41,6 @@
       "league": "MLB",
       "headline": "Oswaldo Cabrera agrees to $1 million, 1-year deal with Reds",
       "href": "/mlb/story/_/id/50191527/oswaldo-cabrera-agrees-1-million-1-year-deal-reds"
-    },
-    {
-      "league": "NHL",
-      "headline": "Senators' William Eklund set to miss 10-12 weeks after ankle surgery",
-      "href": "/nhl/story/_/id/50189936/senators-eklund-set-miss-10-12-weeks-ankle-surgery"
     },
     {
       "league": "MLB",
