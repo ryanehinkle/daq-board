@@ -1,10 +1,25 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-16T17:25:57Z",
+  "refreshedAt": "2026-10-16T20:01:12Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "Jets rookie WR Cooper to play vs. Patriots; RB Hall, WR Mitchell out",
+      "headline": "Cardinals 'do what's right,' rule RB Jeremiyah Love (ankle) out vs. Rams",
+      "href": "/nfl/story/_/id/50197712/cardinals-rb-jeremiyah-love-ankle-sunday-vs-rams"
+    },
+    {
+      "league": "NFL",
+      "headline": "Chiefs WR Rashee Rice out Sunday vs. Chargers with hamstring injury",
+      "href": "/nfl/story/_/id/50197599/chiefs-wr-rashee-rice-vs-chargers-hamstring-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Ravens rule out QB Lamar Jackson; Tyler Huntley to start vs. Browns",
+      "href": "/nfl/story/_/id/50197342/ravens-rule-qb-jackson-huntley-start-browns"
+    },
+    {
+      "league": "NFL",
+      "headline": "Jets rookie WR Omar Cooper Jr. to return vs. Patriots; RB Hall, WR Mitchell out",
       "href": "/nfl/story/_/id/50196775/jets-rookie-wr-cooper-play-vs-patriots-hall-mitchell-out"
     },
     {
