@@ -1,16 +1,26 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-17T18:35:34Z",
+  "refreshedAt": "2026-10-17T20:55:34Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Sources: Bears plan to start QB Caleb Williams in Week 6 vs. Falcons",
+      "href": "/nfl/story/_/id/50201828/sources-bears-plan-start-qb-caleb-williams-vs-falcons"
+    },
+    {
+      "league": "NFL",
+      "headline": "Eagles QB Jalen Hurts on IR due to blood clot, expected to be out indefinitely",
+      "href": "/nfl/story/_/id/50202417/sources-eagles-place-jalen-hurts-ir-due-blood-clot"
+    },
+    {
+      "league": "NFL",
+      "headline": "Steelers place Wilson on IR with finger injury",
+      "href": "/nfl/story/_/id/50203338/steelers-place-receiver-wilson-ir"
+    },
     {
       "league": "NFL",
       "headline": "Taylor Moton among 3 Panthers activated ahead of Eagles game",
       "href": "/nfl/story/_/id/50202634/taylor-moton-3-panthers-activated-ahead-eagles-game"
-    },
-    {
-      "league": "NFL",
-      "headline": "Broncos' Jonathon Cooper off commissioner exempt list, could return Week 7",
-      "href": "/nfl/story/_/id/50198029/broncos-jonathon-cooper-removed-nfl-commissioner-exempt-list"
     },
     {
       "league": "NFL",
@@ -33,19 +43,9 @@
       "href": "/nfl/story/_/id/50200331/sources-no-ir-plans-hurts-indefinitely-clot"
     },
     {
-      "league": "NFL",
-      "headline": "Source: Patriots likely to activate WR A.J. Brown for Sunday's game vs. Jets",
-      "href": "/nfl/story/_/id/50200910/source-patriots-likely-activate-aj-brown-jets-game"
-    },
-    {
       "league": "NBA",
       "headline": "LeBron fires up crowd with monster slam in Sixers home debut",
       "href": "/nba/story/_/id/50199345/lebron-fires-crowd-monster-slam-sixers-home-debut"
-    },
-    {
-      "league": "NFL",
-      "headline": "Eagles' Saquon Barkley ruled out; DeVonta Smith likely to return",
-      "href": "/nfl/story/_/id/50198056/eagles-saquon-barkley-ruled-devonta-smith-return"
     },
     {
       "league": "NFL",
