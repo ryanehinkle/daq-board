@@ -1,11 +1,21 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-17T13:01:00Z",
+  "refreshedAt": "2026-10-17T16:18:50Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "76ers, needing frontcourt help, convert 7-foot-6 Tacko Fall to two-way contract",
+      "href": "/nba/story/_/id/50201671/76ers-convert-7-foot-6-tacko-fall-two-way-contract"
+    },
     {
       "league": "NFL",
       "headline": "Sources: Eagles' Jalen Hurts, out indefinitely with blood clot, not planned for IR",
       "href": "/nfl/story/_/id/50200331/sources-no-ir-plans-hurts-indefinitely-clot"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Patriots likely to activate WR A.J. Brown for Sunday's game vs. Jets",
+      "href": "/nfl/story/_/id/50200910/source-patriots-likely-activate-aj-brown-jets-game"
     },
     {
       "league": "NBA",
@@ -61,16 +71,6 @@
       "league": "MLB",
       "headline": "Junior Caminero says Rays have to adjust after 13 strikeouts",
       "href": "/mlb/story/_/id/50192351/junior-caminero-says-rays-adjust-13-strikeouts"
-    },
-    {
-      "league": "MLB",
-      "headline": "Oswaldo Cabrera agrees to $1 million, 1-year deal with Reds",
-      "href": "/mlb/story/_/id/50191527/oswaldo-cabrera-agrees-1-million-1-year-deal-reds"
-    },
-    {
-      "league": "MLB",
-      "headline": "Brewers throw Snell's words back at him with troll after NLCS win",
-      "href": "/mlb/story/_/id/50189697/brewers-dodgers-blake-snell-troll-nlcs"
     }
   ]
 }
