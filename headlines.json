@@ -1,7 +1,27 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-17T16:18:50Z",
+  "refreshedAt": "2026-10-17T18:35:34Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Taylor Moton among 3 Panthers activated ahead of Eagles game",
+      "href": "/nfl/story/_/id/50202634/taylor-moton-3-panthers-activated-ahead-eagles-game"
+    },
+    {
+      "league": "NFL",
+      "headline": "Broncos' Jonathon Cooper off commissioner exempt list, could return Week 7",
+      "href": "/nfl/story/_/id/50198029/broncos-jonathon-cooper-removed-nfl-commissioner-exempt-list"
+    },
+    {
+      "league": "NFL",
+      "headline": "Commanders RB Jacory Croskey-Merritt out vs. 49ers with groin injury",
+      "href": "/nfl/story/_/id/50202044/commanders-rb-croskey-merritt-vs-49ers-groin-injury"
+    },
+    {
+      "league": "NBA",
+      "headline": "Nuggets' Julian Strawther out with knee sprain, will be reevaluated in six weeks",
+      "href": "/nba/story/_/id/50199062/strawther-indefinitely-knee-sprain-nuggets-say"
+    },
     {
       "league": "NBA",
       "headline": "76ers, needing frontcourt help, convert 7-foot-6 Tacko Fall to two-way contract",
@@ -29,28 +49,8 @@
     },
     {
       "league": "NFL",
-      "headline": "Packers' Josh Jacobs eligible to return next week amid investigation",
-      "href": "/nfl/story/_/id/50197784/packers-josh-jacobs-eligible-return-next-week-amid-probe"
-    },
-    {
-      "league": "NFL",
       "headline": "What Cowboys-Packers' Micah Parsons trade means a year later",
       "href": "/nfl/story/_/id/50195809/cowboys-packers-micah-parsons-trade-winner"
-    },
-    {
-      "league": "NBA",
-      "headline": "Nuggets' Strawther out with knee sprain, will be reevaluated in six weeks",
-      "href": "/nba/story/_/id/50199062/strawther-indefinitely-knee-sprain-nuggets-say"
-    },
-    {
-      "league": "NFL",
-      "headline": "Broncos' Jonathon Cooper off commissioner exempt list, could return Week 7",
-      "href": "/nfl/story/_/id/50198029/broncos-jonathon-cooper-removed-nfl-commissioner-exempt-list"
-    },
-    {
-      "league": "NFL",
-      "headline": "Cardinals 'do what's right,' rule RB Jeremiyah Love (ankle) out vs. Rams",
-      "href": "/nfl/story/_/id/50197712/cardinals-rb-jeremiyah-love-ankle-sunday-vs-rams"
     },
     {
       "league": "MLB",
