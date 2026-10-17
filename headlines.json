@@ -1,11 +1,31 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-17T09:15:12Z",
+  "refreshedAt": "2026-10-17T13:01:00Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Sources: Eagles' Jalen Hurts, out indefinitely with blood clot, not planned for IR",
+      "href": "/nfl/story/_/id/50200331/sources-no-ir-plans-hurts-indefinitely-clot"
+    },
     {
       "league": "NBA",
       "headline": "LeBron fires up crowd with monster slam in Sixers home debut",
       "href": "/nba/story/_/id/50199345/lebron-fires-crowd-monster-slam-sixers-home-debut"
+    },
+    {
+      "league": "NFL",
+      "headline": "Eagles' Saquon Barkley ruled out; DeVonta Smith likely to return",
+      "href": "/nfl/story/_/id/50198056/eagles-saquon-barkley-ruled-devonta-smith-return"
+    },
+    {
+      "league": "NFL",
+      "headline": "Packers' Josh Jacobs eligible to return next week amid investigation",
+      "href": "/nfl/story/_/id/50197784/packers-josh-jacobs-eligible-return-next-week-amid-probe"
+    },
+    {
+      "league": "NFL",
+      "headline": "What Cowboys-Packers' Micah Parsons trade means a year later",
+      "href": "/nfl/story/_/id/50195809/cowboys-packers-micah-parsons-trade-winner"
     },
     {
       "league": "NBA",
@@ -19,33 +39,8 @@
     },
     {
       "league": "NFL",
-      "headline": "Eagles' Saquon Barkley ruled out; DeVonta Smith likely to return",
-      "href": "/nfl/story/_/id/50198056/eagles-saquon-barkley-ruled-devonta-smith-return"
-    },
-    {
-      "league": "NFL",
-      "headline": "Packers' Josh Jacobs eligible to return next week amid probe",
-      "href": "/nfl/story/_/id/50197784/packers-josh-jacobs-eligible-return-next-week-amid-probe"
-    },
-    {
-      "league": "NFL",
       "headline": "Cardinals 'do what's right,' rule RB Jeremiyah Love (ankle) out vs. Rams",
       "href": "/nfl/story/_/id/50197712/cardinals-rb-jeremiyah-love-ankle-sunday-vs-rams"
-    },
-    {
-      "league": "NFL",
-      "headline": "Chiefs WR Rashee Rice out Sunday vs. Chargers with hamstring injury",
-      "href": "/nfl/story/_/id/50197599/chiefs-wr-rashee-rice-vs-chargers-hamstring-injury"
-    },
-    {
-      "league": "NFL",
-      "headline": "Ravens rule out QB Lamar Jackson; Tyler Huntley to start vs. Browns",
-      "href": "/nfl/story/_/id/50197342/ravens-rule-qb-jackson-huntley-start-browns"
-    },
-    {
-      "league": "NFL",
-      "headline": "Jets rookie WR Omar Cooper Jr. to return vs. Patriots; RB Hall, WR Mitchell out",
-      "href": "/nfl/story/_/id/50196775/jets-rookie-wr-cooper-play-vs-patriots-hall-mitchell-out"
     },
     {
       "league": "MLB",
@@ -71,6 +66,11 @@
       "league": "MLB",
       "headline": "Oswaldo Cabrera agrees to $1 million, 1-year deal with Reds",
       "href": "/mlb/story/_/id/50191527/oswaldo-cabrera-agrees-1-million-1-year-deal-reds"
+    },
+    {
+      "league": "MLB",
+      "headline": "Brewers throw Snell's words back at him with troll after NLCS win",
+      "href": "/mlb/story/_/id/50189697/brewers-dodgers-blake-snell-troll-nlcs"
     }
   ]
 }
