@@ -1,7 +1,12 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-18T05:06:58Z",
+  "refreshedAt": "2026-10-18T09:31:41Z",
   "items": [
+    {
+      "league": "MLB",
+      "headline": "Rays' big three of Caminero, Diaz, Aranda deliver big hits in ALCS Game 4 win",
+      "href": "/mlb/story/_/id/50207772/rays-capitalize-guardians-errors-game-4-even-alcs"
+    },
     {
       "league": "NBA",
       "headline": "Knicks waive Bruce Brown, keep James Wiseman ahead of opener",
@@ -66,11 +71,6 @@
       "league": "MLB",
       "headline": "Brewers sweep Dodgers in NLCS, advance to 1st World Series in 44 years",
       "href": "/mlb/story/_/id/50193819/brewers-sweep-dodgers-nlcs-advance-world-series"
-    },
-    {
-      "league": "MLB",
-      "headline": "Junior Caminero says Rays have to adjust after 13 strikeouts",
-      "href": "/mlb/story/_/id/50192351/junior-caminero-says-rays-adjust-13-strikeouts"
     }
   ]
 }
