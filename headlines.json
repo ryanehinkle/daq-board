@@ -1,16 +1,21 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-18T13:30:40Z",
+  "refreshedAt": "2026-10-18T16:48:14Z",
   "items": [
-    {
-      "league": "NFL",
-      "headline": "Sources: Saints QB Tyler Shough playing with 2 broken bones in non-throwing hand",
-      "href": "/nfl/story/_/id/50200514/sources-saints-tyler-shough-broken-bones-left-hand"
-    },
     {
       "league": "MLB",
       "headline": "Rays' big three of Caminero, Diaz, Aranda deliver big hits in ALCS Game 4 win",
       "href": "/mlb/story/_/id/50207772/rays-capitalize-guardians-errors-game-4-even-alcs"
+    },
+    {
+      "league": "NFL",
+      "headline": "49ers rule out Bosa, still hopeful for Evans; Juszczyk will play",
+      "href": "/nfl/story/_/id/50205015/san-francisco-49ers-rule-de-nick-bosa-monday-night"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Saints QB Tyler Shough playing with 2 broken bones in non-throwing hand",
+      "href": "/nfl/story/_/id/50200514/sources-saints-tyler-shough-broken-bones-left-hand"
     },
     {
       "league": "NBA",
@@ -19,18 +24,8 @@
     },
     {
       "league": "NFL",
-      "headline": "49ers rule out Bosa for Monday, still hopeful for Evans, Juszczyk",
-      "href": "/nfl/story/_/id/50205015/san-francisco-49ers-rule-de-nick-bosa-monday-night"
-    },
-    {
-      "league": "NFL",
       "headline": "Eagles QB Jalen Hurts on IR due to blood clot, expected to be out indefinitely",
       "href": "/nfl/story/_/id/50202417/sources-eagles-place-jalen-hurts-ir-due-blood-clot"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Bears plan to start QB Caleb Williams in Week 6 vs. Falcons",
-      "href": "/nfl/story/_/id/50201828/sources-bears-plan-start-qb-caleb-williams-vs-falcons"
     },
     {
       "league": "NFL",
@@ -58,11 +53,6 @@
       "href": "/nba/story/_/id/50201671/76ers-convert-7-foot-6-tacko-fall-two-way-contract"
     },
     {
-      "league": "NFL",
-      "headline": "Sources: Eagles' Jalen Hurts, out indefinitely with blood clot, not planned for IR",
-      "href": "/nfl/story/_/id/50200331/sources-no-ir-plans-hurts-indefinitely-clot"
-    },
-    {
       "league": "NBA",
       "headline": "LeBron fires up crowd with monster slam in Sixers home debut",
       "href": "/nba/story/_/id/50199345/lebron-fires-crowd-monster-slam-sixers-home-debut"
@@ -71,6 +61,16 @@
       "league": "MLB",
       "headline": "Brewers sweep Dodgers in NLCS, advance to 1st World Series in 44 years",
       "href": "/mlb/story/_/id/50193819/brewers-sweep-dodgers-nlcs-advance-world-series"
+    },
+    {
+      "league": "NBA",
+      "headline": "Can Jimmy Butler return in time to resurrect Steph Curry's final chapter?",
+      "href": "/nba/story/_/id/50182801/jimmy-butler-acl-injury-return-warriors-title"
+    },
+    {
+      "league": "NBA",
+      "headline": "NBA intel: Seattle expansion update, Towns extension drama, more from preseason",
+      "href": "/nba/story/_/id/50190888/preseason-intel-expansion-seattle-towns-extensions"
     }
   ]
 }
