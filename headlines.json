@@ -1,7 +1,12 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-18T09:31:41Z",
+  "refreshedAt": "2026-10-18T13:30:40Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Sources: Saints QB Tyler Shough playing with 2 broken bones in non-throwing hand",
+      "href": "/nfl/story/_/id/50200514/sources-saints-tyler-shough-broken-bones-left-hand"
+    },
     {
       "league": "MLB",
       "headline": "Rays' big three of Caminero, Diaz, Aranda deliver big hits in ALCS Game 4 win",
@@ -61,11 +66,6 @@
       "league": "NBA",
       "headline": "LeBron fires up crowd with monster slam in Sixers home debut",
       "href": "/nba/story/_/id/50199345/lebron-fires-crowd-monster-slam-sixers-home-debut"
-    },
-    {
-      "league": "NFL",
-      "headline": "What Cowboys-Packers' Micah Parsons trade means a year later",
-      "href": "/nfl/story/_/id/50195809/cowboys-packers-micah-parsons-trade-winner"
     },
     {
       "league": "MLB",
