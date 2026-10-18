@@ -1,21 +1,11 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-18T19:00:59Z",
+  "refreshedAt": "2026-10-18T21:25:04Z",
   "items": [
     {
       "league": "MLB",
       "headline": "Rays' big three of Caminero, Diaz, Aranda deliver big hits in ALCS Game 4 win",
       "href": "/mlb/story/_/id/50207772/rays-capitalize-guardians-errors-game-4-even-alcs"
-    },
-    {
-      "league": "NFL",
-      "headline": "49ers rule out Bosa, still hopeful for Evans; Juszczyk will play",
-      "href": "/nfl/story/_/id/50205015/san-francisco-49ers-rule-de-nick-bosa-monday-night"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Saints QB Tyler Shough playing with 2 broken bones in non-throwing hand",
-      "href": "/nfl/story/_/id/50200514/sources-saints-tyler-shough-broken-bones-left-hand"
     },
     {
       "league": "NBA",
@@ -56,11 +46,6 @@
       "league": "MLB",
       "headline": "Junior Caminero says Rays have to adjust after 13 strikeouts",
       "href": "/mlb/story/_/id/50192351/junior-caminero-says-rays-adjust-13-strikeouts"
-    },
-    {
-      "league": "MLB",
-      "headline": "Oswaldo Cabrera agrees to $1 million, 1-year deal with Reds",
-      "href": "/mlb/story/_/id/50191527/oswaldo-cabrera-agrees-1-million-1-year-deal-reds"
     }
   ]
 }
