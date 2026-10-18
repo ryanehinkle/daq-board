@@ -1,6 +1,6 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-18T16:48:14Z",
+  "refreshedAt": "2026-10-18T19:00:59Z",
   "items": [
     {
       "league": "MLB",
@@ -21,26 +21,6 @@
       "league": "NBA",
       "headline": "Knicks waive Bruce Brown, keep James Wiseman ahead of opener",
       "href": "/nba/story/_/id/50204321/sources-knicks-waiving-bruce-brown-keeping-james-wiseman"
-    },
-    {
-      "league": "NFL",
-      "headline": "Eagles QB Jalen Hurts on IR due to blood clot, expected to be out indefinitely",
-      "href": "/nfl/story/_/id/50202417/sources-eagles-place-jalen-hurts-ir-due-blood-clot"
-    },
-    {
-      "league": "NFL",
-      "headline": "Steelers place Wilson on IR with finger injury",
-      "href": "/nfl/story/_/id/50203338/steelers-place-receiver-wilson-ir"
-    },
-    {
-      "league": "NFL",
-      "headline": "Taylor Moton among 3 Panthers activated ahead of Eagles game",
-      "href": "/nfl/story/_/id/50202634/taylor-moton-3-panthers-activated-ahead-eagles-game"
-    },
-    {
-      "league": "NFL",
-      "headline": "Commanders RB Jacory Croskey-Merritt out vs. 49ers with groin injury",
-      "href": "/nfl/story/_/id/50202044/commanders-rb-croskey-merritt-vs-49ers-groin-injury"
     },
     {
       "league": "NBA",
@@ -71,6 +51,16 @@
       "league": "NBA",
       "headline": "NBA intel: Seattle expansion update, Towns extension drama, more from preseason",
       "href": "/nba/story/_/id/50190888/preseason-intel-expansion-seattle-towns-extensions"
+    },
+    {
+      "league": "MLB",
+      "headline": "Junior Caminero says Rays have to adjust after 13 strikeouts",
+      "href": "/mlb/story/_/id/50192351/junior-caminero-says-rays-adjust-13-strikeouts"
+    },
+    {
+      "league": "MLB",
+      "headline": "Oswaldo Cabrera agrees to $1 million, 1-year deal with Reds",
+      "href": "/mlb/story/_/id/50191527/oswaldo-cabrera-agrees-1-million-1-year-deal-reds"
     }
   ]
 }
