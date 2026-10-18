@@ -1,7 +1,37 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-18T21:25:04Z",
+  "refreshedAt": "2026-10-18T23:28:31Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Stephen Curry limps out of practice after tweaking right knee",
+      "href": "/nba/story/_/id/50214211/stephen-curry-limps-practice-tweaking-knee"
+    },
+    {
+      "league": "NFL",
+      "headline": "Jeffery Simmons' halftime message, play help Titans stun Colts, get 1st win",
+      "href": "/nfl/story/_/id/50213831/jeffery-simmons-half-speech-play-buoy-titans-1st-win"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sources: Kings guard Ben Simmons believed to have torn Achilles tendon",
+      "href": "/nba/story/_/id/50214131/kings-simmons-believed-achilles-tendon-tear"
+    },
+    {
+      "league": "NFL",
+      "headline": "Patriots' A.J. Brown has career-high 3 dropped passes in return from injury",
+      "href": "/nfl/story/_/id/50213864/patriots-aj-brown-career-high-3-drops-return-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Jerry Jeudy, amid trade buzz, has clutch catch in Browns' win, gets game ball",
+      "href": "/nfl/story/_/id/50213675/browns-jerry-jeudy-gets-game-ball-clutch-catch-win"
+    },
+    {
+      "league": "NFL",
+      "headline": "Chargers WR Ladd McConkey ruled out with concussion vs. Chiefs",
+      "href": "/nfl/story/_/id/50213342/chargers-ladd-mcconkey-ruled-concussion-vs-chiefs"
+    },
     {
       "league": "MLB",
       "headline": "Rays' big three of Caminero, Diaz, Aranda deliver big hits in ALCS Game 4 win",
@@ -41,11 +71,6 @@
       "league": "NBA",
       "headline": "NBA intel: Seattle expansion update, Towns extension drama, more from preseason",
       "href": "/nba/story/_/id/50190888/preseason-intel-expansion-seattle-towns-extensions"
-    },
-    {
-      "league": "MLB",
-      "headline": "Junior Caminero says Rays have to adjust after 13 strikeouts",
-      "href": "/mlb/story/_/id/50192351/junior-caminero-says-rays-adjust-13-strikeouts"
     }
   ]
 }
