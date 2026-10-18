@@ -1,7 +1,12 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-18T00:37:26Z",
+  "refreshedAt": "2026-10-18T05:06:58Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Knicks waive Bruce Brown, keep James Wiseman ahead of opener",
+      "href": "/nba/story/_/id/50204321/sources-knicks-waiving-bruce-brown-keeping-james-wiseman"
+    },
     {
       "league": "NFL",
       "headline": "49ers rule out Bosa for Monday, still hopeful for Evans, Juszczyk",
@@ -11,11 +16,6 @@
       "league": "NFL",
       "headline": "Eagles QB Jalen Hurts on IR due to blood clot, expected to be out indefinitely",
       "href": "/nfl/story/_/id/50202417/sources-eagles-place-jalen-hurts-ir-due-blood-clot"
-    },
-    {
-      "league": "NBA",
-      "headline": "Knicks waive Bruce Brown, keep James Wiseman ahead of opener",
-      "href": "/nba/story/_/id/50204321/sources-knicks-waiving-bruce-brown-keeping-james-wiseman"
     },
     {
       "league": "NFL",
