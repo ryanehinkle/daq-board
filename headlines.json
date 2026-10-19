@@ -1,21 +1,46 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-19T01:33:45Z",
+  "refreshedAt": "2026-10-19T06:45:14Z",
   "items": [
+    {
+      "league": "MLB",
+      "headline": "Game 5 win has Rays on World Series cusp after wild weekend",
+      "href": "/mlb/story/_/id/50214985/rays-beat-guardians-game-5-take-3-2-alcs-lead"
+    },
+    {
+      "league": "NFL",
+      "headline": "Packers use timely turnovers, third-down conversions to beat struggling Cowboys",
+      "href": "/nfl/story/_/id/50190741/packers-beat-cowboys-sunday-night-football-jordan-love"
+    },
+    {
+      "league": "MLB",
+      "headline": "Facing elimination on road, Cleveland Guardians back on familiar ground",
+      "href": "/mlb/story/_/id/50216130/facing-elimination-road-again-guardians-keep-spirits-up"
+    },
+    {
+      "league": "NFL",
+      "headline": "Harbaugh mum on McDaniel, says Chargers need 'to address everything'",
+      "href": "/nfl/story/_/id/50215829/harbaugh-mum-mcdaniel-chargers-need-address-everything"
+    },
+    {
+      "league": "NFL",
+      "headline": "Chiefs' Patrick Mahomes earns 100th win in 131st start, tying Tom Brady",
+      "href": "/nfl/story/_/id/50215969/chiefs-patrick-mahomes-ties-tom-brady-fastest-100-career-wins"
+    },
     {
       "league": "NFL",
       "headline": "Kyren Williams says Rams' inconsistencies on offense 'probably' due to role",
       "href": "/nfl/story/_/id/50215576/kyren-williams-rams-inconsistencies-due-role"
     },
     {
+      "league": "NFL",
+      "headline": "Fans boo Colts in loss to Titans; 'I don't blame them,' says Shane Steichen",
+      "href": "/nfl/story/_/id/50214430/colts-shane-steichen-does-not-blame-fans-booing-loss-titans"
+    },
+    {
       "league": "NBA",
       "headline": "Cruel Achilles injury has killed the Ben Simmons comeback Australia was dying to see",
       "href": "/nba/story/_/id/50215522/cruel-achilles-injury-killed-ben-simmons-comeback-australia-was-dying-see"
-    },
-    {
-      "league": "NFL",
-      "headline": "DB Gardner-Johnson expects fine after spitting incident in Bills' win",
-      "href": "/nfl/story/_/id/50213664/bills-cb-gardner-johnson-tossed-apparent-spit-incident"
     },
     {
       "league": "NBA",
@@ -29,33 +54,8 @@
     },
     {
       "league": "MLB",
-      "headline": "Rays beat Guardians in Game 5 behind Drew Rasmussen to take 3-2 ALCS lead",
-      "href": "/mlb/story/_/id/50214985/rays-beat-guardians-game-5-take-3-2-alcs-lead"
-    },
-    {
-      "league": "NFL",
-      "headline": "Patriots' A.J. Brown has career-high 3 dropped passes in return from injury",
-      "href": "/nfl/story/_/id/50213864/patriots-aj-brown-career-high-3-drops-return-injury"
-    },
-    {
-      "league": "NFL",
-      "headline": "Fans boo Colts in loss to Titans; 'I don't blame them,' says Shane Steichen",
-      "href": "/nfl/story/_/id/50214430/colts-shane-steichen-does-not-blame-fans-booing-loss-titans"
-    },
-    {
-      "league": "MLB",
       "headline": "ALCS Game 5: Takeaways from Rays' win over Guardians",
       "href": "/mlb/story/_/id/50198161/playoff-guardians-rays-alcs-game-5-live-takeaways"
-    },
-    {
-      "league": "NFL",
-      "headline": "Jerry Jeudy, amid trade buzz, has clutch catch in Browns' win, gets game ball",
-      "href": "/nfl/story/_/id/50213675/browns-jerry-jeudy-gets-game-ball-clutch-catch-win"
-    },
-    {
-      "league": "NFL",
-      "headline": "Jeffery Simmons' halftime message, play help Titans stun Colts, get 1st win",
-      "href": "/nfl/story/_/id/50213831/jeffery-simmons-half-speech-play-buoy-titans-1st-win"
     },
     {
       "league": "MLB",
