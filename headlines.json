@@ -1,26 +1,46 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-19T14:02:07Z",
+  "refreshedAt": "2026-10-19T19:48:27Z",
   "items": [
-    {
-      "league": "NFL",
-      "headline": "Packers' D shines vs. Cowboys as Micah Parsons nears return",
-      "href": "/nfl/story/_/id/50217832/packers-defeat-cowboys-micah-parsons-josh-jacobs"
-    },
     {
       "league": "NFL",
       "headline": "Colts fire GM Chris Ballard after home loss to Titans, cite 'necessary' change",
       "href": "/nfl/story/_/id/50218030/colts-fire-gm-chris-ballard-home-loss-titans"
     },
     {
+      "league": "NFL",
+      "headline": "NFL suspends Bills' C.J. Gardner-Johnson for one game for spitting",
+      "href": "/nfl/story/_/id/50220546/nfl-suspends-cj-gardner-johnson-one-game-spitting"
+    },
+    {
       "league": "NBA",
-      "headline": "2026 NBA free agency: Grades for offseason signings, extensions",
-      "href": "/nba/story/_/id/48957095/2026-nba-free-agency-grades-offseason-signings-deals-contracts-extensions-depth-charts"
+      "headline": "Mavericks waive center Dwight Powell after 12-year run",
+      "href": "/nba/story/_/id/50220158/mavericks-waive-center-dwight-powell-12-year-run"
     },
     {
       "league": "NFL",
-      "headline": "Bears' Kyler Gordon returns with vengeance, answers critics",
-      "href": "/nfl/story/_/id/50212900/chicago-bears-kyler-gordon-future-injuries-critics"
+      "headline": "Jalen Hurts expected to miss season after blood clots discovered in QB's lungs",
+      "href": "/nfl/story/_/id/50218378/eagles-jalen-hurts-season-due-blood-clots-lungs"
+    },
+    {
+      "league": "NFL",
+      "headline": "Falcons sign veteran QB Andy Dalton, release QB Cooper Rush",
+      "href": "/nfl/story/_/id/50218249/sources-falcons-signing-qb-dalton-releasing-qb-rush"
+    },
+    {
+      "league": "MLB",
+      "headline": "How trade deadline splash has carried Guardians deep into MLB playoffs",
+      "href": "/mlb/story/_/id/50213861/playoffs-guardians-alcs-trade-deadline-payoff"
+    },
+    {
+      "league": "NFL",
+      "headline": "Packers' D shines vs. Cowboys as Micah Parsons nears return",
+      "href": "/nfl/story/_/id/50217832/packers-defeat-cowboys-micah-parsons-josh-jacobs"
+    },
+    {
+      "league": "NBA",
+      "headline": "2026 NBA free agency: Grades for offseason signings, extensions",
+      "href": "/nba/story/_/id/48957095/2026-nba-free-agency-grades-offseason-signings-deals-contracts-extensions-depth-charts"
     },
     {
       "league": "MLB",
@@ -39,28 +59,8 @@
     },
     {
       "league": "MLB",
-      "headline": "How trade deadline splash has carried Guardians deep into MLB playoffs",
-      "href": "/mlb/story/_/id/50213861/playoffs-guardians-alcs-trade-deadline-payoff"
-    },
-    {
-      "league": "NFL",
-      "headline": "Packers use timely turnovers, third-down conversions to beat struggling Cowboys",
-      "href": "/nfl/story/_/id/50190741/packers-beat-cowboys-sunday-night-football-jordan-love"
-    },
-    {
-      "league": "MLB",
       "headline": "Facing elimination on road, Cleveland Guardians back on familiar ground",
       "href": "/mlb/story/_/id/50216130/facing-elimination-road-again-guardians-keep-spirits-up"
-    },
-    {
-      "league": "NFL",
-      "headline": "Harbaugh mum on McDaniel, says Chargers need 'to address everything'",
-      "href": "/nfl/story/_/id/50215829/harbaugh-mum-mcdaniel-chargers-need-address-everything"
-    },
-    {
-      "league": "NFL",
-      "headline": "Chiefs' Patrick Mahomes earns 100th win in 131st start, tying Tom Brady",
-      "href": "/nfl/story/_/id/50215969/chiefs-patrick-mahomes-ties-tom-brady-fastest-100-career-wins"
     },
     {
       "league": "NBA",
