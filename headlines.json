@@ -1,11 +1,46 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-19T06:45:14Z",
+  "refreshedAt": "2026-10-19T14:02:07Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Packers' D shines vs. Cowboys as Micah Parsons nears return",
+      "href": "/nfl/story/_/id/50217832/packers-defeat-cowboys-micah-parsons-josh-jacobs"
+    },
+    {
+      "league": "NFL",
+      "headline": "Colts fire GM Chris Ballard after home loss to Titans, cite 'necessary' change",
+      "href": "/nfl/story/_/id/50218030/colts-fire-gm-chris-ballard-home-loss-titans"
+    },
+    {
+      "league": "NBA",
+      "headline": "2026 NBA free agency: Grades for offseason signings, extensions",
+      "href": "/nba/story/_/id/48957095/2026-nba-free-agency-grades-offseason-signings-deals-contracts-extensions-depth-charts"
+    },
+    {
+      "league": "NFL",
+      "headline": "Bears' Kyler Gordon returns with vengeance, answers critics",
+      "href": "/nfl/story/_/id/50212900/chicago-bears-kyler-gordon-future-injuries-critics"
+    },
+    {
+      "league": "MLB",
+      "headline": "How Rays brought out best in Freddy Peralta for MLB playoffs",
+      "href": "/mlb/story/_/id/50213999/playoffs-rays-alcs-freddy-peralta-best-version"
+    },
+    {
+      "league": "NBA",
+      "headline": "Kings guard Ben Simmons has torn Achilles tendon, will undergo surgery",
+      "href": "/nba/story/_/id/50214131/kings-simmons-believed-achilles-tendon-tear"
+    },
     {
       "league": "MLB",
       "headline": "Game 5 win has Rays on World Series cusp after wild weekend",
       "href": "/mlb/story/_/id/50214985/rays-beat-guardians-game-5-take-3-2-alcs-lead"
+    },
+    {
+      "league": "MLB",
+      "headline": "How trade deadline splash has carried Guardians deep into MLB playoffs",
+      "href": "/mlb/story/_/id/50213861/playoffs-guardians-alcs-trade-deadline-payoff"
     },
     {
       "league": "NFL",
@@ -28,49 +63,14 @@
       "href": "/nfl/story/_/id/50215969/chiefs-patrick-mahomes-ties-tom-brady-fastest-100-career-wins"
     },
     {
-      "league": "NFL",
-      "headline": "Kyren Williams says Rams' inconsistencies on offense 'probably' due to role",
-      "href": "/nfl/story/_/id/50215576/kyren-williams-rams-inconsistencies-due-role"
-    },
-    {
-      "league": "NFL",
-      "headline": "Fans boo Colts in loss to Titans; 'I don't blame them,' says Shane Steichen",
-      "href": "/nfl/story/_/id/50214430/colts-shane-steichen-does-not-blame-fans-booing-loss-titans"
-    },
-    {
       "league": "NBA",
       "headline": "Cruel Achilles injury has killed the Ben Simmons comeback Australia was dying to see",
       "href": "/nba/story/_/id/50215522/cruel-achilles-injury-killed-ben-simmons-comeback-australia-was-dying-see"
     },
     {
-      "league": "NBA",
-      "headline": "Kings guard Ben Simmons, 30, has torn Achilles tendon, will undergo surgery",
-      "href": "/nba/story/_/id/50214131/kings-simmons-believed-achilles-tendon-tear"
-    },
-    {
-      "league": "NFL",
-      "headline": "Caleb Williams leads Bears by Falcons in return from injury",
-      "href": "/nfl/story/_/id/50214605/caleb-williams-leads-bears-falcons-return-injury"
-    },
-    {
       "league": "MLB",
       "headline": "ALCS Game 5: Takeaways from Rays' win over Guardians",
       "href": "/mlb/story/_/id/50198161/playoff-guardians-rays-alcs-game-5-live-takeaways"
-    },
-    {
-      "league": "MLB",
-      "headline": "Rays' big three of Caminero, Diaz, Aranda deliver big hits in ALCS Game 4 win",
-      "href": "/mlb/story/_/id/50207772/rays-capitalize-guardians-errors-game-4-even-alcs"
-    },
-    {
-      "league": "NBA",
-      "headline": "Knicks waive Bruce Brown, keep James Wiseman ahead of opener",
-      "href": "/nba/story/_/id/50204321/sources-knicks-waiving-bruce-brown-keeping-james-wiseman"
-    },
-    {
-      "league": "NBA",
-      "headline": "Nuggets' Julian Strawther out with knee sprain, will be reevaluated in six weeks",
-      "href": "/nba/story/_/id/50199062/strawther-indefinitely-knee-sprain-nuggets-say"
     }
   ]
 }
