@@ -1,21 +1,36 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-18T23:28:31Z",
+  "refreshedAt": "2026-10-19T01:33:45Z",
   "items": [
     {
+      "league": "NFL",
+      "headline": "Kyren Williams says Rams' inconsistencies on offense 'probably' due to role",
+      "href": "/nfl/story/_/id/50215576/kyren-williams-rams-inconsistencies-due-role"
+    },
+    {
       "league": "NBA",
-      "headline": "Stephen Curry limps out of practice after tweaking right knee",
-      "href": "/nba/story/_/id/50214211/stephen-curry-limps-practice-tweaking-knee"
+      "headline": "Cruel Achilles injury has killed the Ben Simmons comeback Australia was dying to see",
+      "href": "/nba/story/_/id/50215522/cruel-achilles-injury-killed-ben-simmons-comeback-australia-was-dying-see"
     },
     {
       "league": "NFL",
-      "headline": "Jeffery Simmons' halftime message, play help Titans stun Colts, get 1st win",
-      "href": "/nfl/story/_/id/50213831/jeffery-simmons-half-speech-play-buoy-titans-1st-win"
+      "headline": "DB Gardner-Johnson expects fine after spitting incident in Bills' win",
+      "href": "/nfl/story/_/id/50213664/bills-cb-gardner-johnson-tossed-apparent-spit-incident"
     },
     {
       "league": "NBA",
-      "headline": "Sources: Kings guard Ben Simmons believed to have torn Achilles tendon",
+      "headline": "Kings guard Ben Simmons, 30, has torn Achilles tendon, will undergo surgery",
       "href": "/nba/story/_/id/50214131/kings-simmons-believed-achilles-tendon-tear"
+    },
+    {
+      "league": "NFL",
+      "headline": "Caleb Williams leads Bears by Falcons in return from injury",
+      "href": "/nfl/story/_/id/50214605/caleb-williams-leads-bears-falcons-return-injury"
+    },
+    {
+      "league": "MLB",
+      "headline": "Rays beat Guardians in Game 5 behind Drew Rasmussen to take 3-2 ALCS lead",
+      "href": "/mlb/story/_/id/50214985/rays-beat-guardians-game-5-take-3-2-alcs-lead"
     },
     {
       "league": "NFL",
@@ -24,13 +39,23 @@
     },
     {
       "league": "NFL",
+      "headline": "Fans boo Colts in loss to Titans; 'I don't blame them,' says Shane Steichen",
+      "href": "/nfl/story/_/id/50214430/colts-shane-steichen-does-not-blame-fans-booing-loss-titans"
+    },
+    {
+      "league": "MLB",
+      "headline": "ALCS Game 5: Takeaways from Rays' win over Guardians",
+      "href": "/mlb/story/_/id/50198161/playoff-guardians-rays-alcs-game-5-live-takeaways"
+    },
+    {
+      "league": "NFL",
       "headline": "Jerry Jeudy, amid trade buzz, has clutch catch in Browns' win, gets game ball",
       "href": "/nfl/story/_/id/50213675/browns-jerry-jeudy-gets-game-ball-clutch-catch-win"
     },
     {
       "league": "NFL",
-      "headline": "Chargers WR Ladd McConkey ruled out with concussion vs. Chiefs",
-      "href": "/nfl/story/_/id/50213342/chargers-ladd-mcconkey-ruled-concussion-vs-chiefs"
+      "headline": "Jeffery Simmons' halftime message, play help Titans stun Colts, get 1st win",
+      "href": "/nfl/story/_/id/50213831/jeffery-simmons-half-speech-play-buoy-titans-1st-win"
     },
     {
       "league": "MLB",
@@ -46,31 +71,6 @@
       "league": "NBA",
       "headline": "Nuggets' Julian Strawther out with knee sprain, will be reevaluated in six weeks",
       "href": "/nba/story/_/id/50199062/strawther-indefinitely-knee-sprain-nuggets-say"
-    },
-    {
-      "league": "NBA",
-      "headline": "76ers, needing frontcourt help, convert 7-foot-6 Tacko Fall to two-way contract",
-      "href": "/nba/story/_/id/50201671/76ers-convert-7-foot-6-tacko-fall-two-way-contract"
-    },
-    {
-      "league": "NBA",
-      "headline": "LeBron fires up crowd with monster slam in Sixers home debut",
-      "href": "/nba/story/_/id/50199345/lebron-fires-crowd-monster-slam-sixers-home-debut"
-    },
-    {
-      "league": "MLB",
-      "headline": "Brewers sweep Dodgers in NLCS, advance to 1st World Series in 44 years",
-      "href": "/mlb/story/_/id/50193819/brewers-sweep-dodgers-nlcs-advance-world-series"
-    },
-    {
-      "league": "NBA",
-      "headline": "Can Jimmy Butler return in time to resurrect Steph Curry's final chapter?",
-      "href": "/nba/story/_/id/50182801/jimmy-butler-acl-injury-return-warriors-title"
-    },
-    {
-      "league": "NBA",
-      "headline": "NBA intel: Seattle expansion update, Towns extension drama, more from preseason",
-      "href": "/nba/story/_/id/50190888/preseason-intel-expansion-seattle-towns-extensions"
     }
   ]
 }
