@@ -1,11 +1,56 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-19T19:48:27Z",
+  "refreshedAt": "2026-10-19T23:08:41Z",
   "items": [
     {
+      "league": "MLB",
+      "headline": "Aaron Boone returning as Yankees manager in 2027, source says",
+      "href": "/mlb/story/_/id/50222033/aaron-boone-returning-new-york-yankees-manager"
+    },
+    {
+      "league": "NBA",
+      "headline": "Cruel Achilles injury has killed the Ben Simmons comeback Australia was dying to see",
+      "href": "/nba/story/_/page/TAB4FY26/cruel-achilles-injury-killed-ben-simmons-comeback-australia-was-dying-see"
+    },
+    {
       "league": "NFL",
-      "headline": "Colts fire GM Chris Ballard after home loss to Titans, cite 'necessary' change",
-      "href": "/nfl/story/_/id/50218030/colts-fire-gm-chris-ballard-home-loss-titans"
+      "headline": "Rams suffer several major injuries, including to WR Adams, who's out 6-10 weeks",
+      "href": "/nfl/story/_/id/50221426/rams-lose-star-wr-davante-adams-6-10-weeks-mcvay-says"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sources: Grizzlies waiving former first-round pick Walter Clayton Jr.",
+      "href": "/nba/story/_/id/50221787/sources-grizzlies-waive-walter-clayton-jr-micah-peavy"
+    },
+    {
+      "league": "NBA",
+      "headline": "Hornets, Brandon Miller agree to 5-year, $209M rookie extension",
+      "href": "/nba/story/_/id/50221373/hornets-brandon-miller-agree-5-year-209m-rookie-extension"
+    },
+    {
+      "league": "NBA",
+      "headline": "Lakers waive former first-round pick Dalton Knecht",
+      "href": "/nba/story/_/id/50221792/lakers-waive-former-first-round-pick-dalton-knecht"
+    },
+    {
+      "league": "NHL",
+      "headline": "Sources: At least 3 teams in mix for Jets goalie Connor Hellebuyck",
+      "href": "/nhl/story/_/id/50221218/sources-least-3-teams-mix-jets-goalie-hellebuyck"
+    },
+    {
+      "league": "NBA",
+      "headline": "2026 NBA free agency: Grades for offseason signings, extensions",
+      "href": "/nba/story/_/id/48957095/2026-nba-free-agency-grades-offseason-signings-deals-contracts-extensions-depth-charts"
+    },
+    {
+      "league": "NFL",
+      "headline": "Rams place kicker Blake Grupe on IR due to knee injury",
+      "href": "/nfl/story/_/id/50220866/rams-place-kicker-blake-grupe-ir-due-knee-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Texans WR Tank Dell to play Sunday in 1st game since major 2024 knee injury",
+      "href": "/nfl/story/_/id/50220990/texans-tank-dell-play-sunday-1st-game-knee-injury"
     },
     {
       "league": "NFL",
@@ -18,59 +63,14 @@
       "href": "/nba/story/_/id/50220158/mavericks-waive-center-dwight-powell-12-year-run"
     },
     {
-      "league": "NFL",
-      "headline": "Jalen Hurts expected to miss season after blood clots discovered in QB's lungs",
-      "href": "/nfl/story/_/id/50218378/eagles-jalen-hurts-season-due-blood-clots-lungs"
-    },
-    {
-      "league": "NFL",
-      "headline": "Falcons sign veteran QB Andy Dalton, release QB Cooper Rush",
-      "href": "/nfl/story/_/id/50218249/sources-falcons-signing-qb-dalton-releasing-qb-rush"
-    },
-    {
       "league": "MLB",
       "headline": "How trade deadline splash has carried Guardians deep into MLB playoffs",
       "href": "/mlb/story/_/id/50213861/playoffs-guardians-alcs-trade-deadline-payoff"
     },
     {
-      "league": "NFL",
-      "headline": "Packers' D shines vs. Cowboys as Micah Parsons nears return",
-      "href": "/nfl/story/_/id/50217832/packers-defeat-cowboys-micah-parsons-josh-jacobs"
-    },
-    {
-      "league": "NBA",
-      "headline": "2026 NBA free agency: Grades for offseason signings, extensions",
-      "href": "/nba/story/_/id/48957095/2026-nba-free-agency-grades-offseason-signings-deals-contracts-extensions-depth-charts"
-    },
-    {
       "league": "MLB",
       "headline": "How Rays brought out best in Freddy Peralta for MLB playoffs",
       "href": "/mlb/story/_/id/50213999/playoffs-rays-alcs-freddy-peralta-best-version"
-    },
-    {
-      "league": "NBA",
-      "headline": "Kings guard Ben Simmons has torn Achilles tendon, will undergo surgery",
-      "href": "/nba/story/_/id/50214131/kings-simmons-believed-achilles-tendon-tear"
-    },
-    {
-      "league": "MLB",
-      "headline": "Game 5 win has Rays on World Series cusp after wild weekend",
-      "href": "/mlb/story/_/id/50214985/rays-beat-guardians-game-5-take-3-2-alcs-lead"
-    },
-    {
-      "league": "MLB",
-      "headline": "Facing elimination on road, Cleveland Guardians back on familiar ground",
-      "href": "/mlb/story/_/id/50216130/facing-elimination-road-again-guardians-keep-spirits-up"
-    },
-    {
-      "league": "NBA",
-      "headline": "Cruel Achilles injury has killed the Ben Simmons comeback Australia was dying to see",
-      "href": "/nba/story/_/id/50215522/cruel-achilles-injury-killed-ben-simmons-comeback-australia-was-dying-see"
-    },
-    {
-      "league": "MLB",
-      "headline": "ALCS Game 5: Takeaways from Rays' win over Guardians",
-      "href": "/mlb/story/_/id/50198161/playoff-guardians-rays-alcs-game-5-live-takeaways"
     }
   ]
 }
