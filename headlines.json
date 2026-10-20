@@ -1,7 +1,17 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-20T17:18:45Z",
+  "refreshedAt": "2026-10-20T20:42:20Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Windhorst: What playing at Madison Square Garden means to LeBron James",
+      "href": "/nba/story/_/id/50220047/lebron-james-opener-msg-knicks-76ers"
+    },
+    {
+      "league": "NFL",
+      "headline": "Dolphins release Riley Patterson after Week 5 problems defending kickoffs",
+      "href": "/nfl/story/_/id/50229491/sources-dolphins-release-riley-patterson-amid-kickoff-woes"
+    },
     {
       "league": "NBA",
       "headline": "Wizards' AJ Dybantsa (ankle) to miss season opener",
@@ -11,21 +21,6 @@
       "league": "NFL",
       "headline": "Giants releasing RB Najee Harris, source says",
       "href": "/nfl/story/_/id/50228752/giants-releasing-rb-najee-harris-source-says"
-    },
-    {
-      "league": "NFL",
-      "headline": "Titans abruptly release DT Jordan Elliott for undisclosed reasons",
-      "href": "/nfl/story/_/id/50228692/titans-abruptly-release-dt-jordan-elliott-undisclosed-reasons"
-    },
-    {
-      "league": "NBA",
-      "headline": "Windhorst: What playing at Madison Square Garden means to LeBron James",
-      "href": "/nba/story/_/id/50220047/lebron-james-opener-msg-knicks-76ers"
-    },
-    {
-      "league": "NFL",
-      "headline": "NFL announces U2 will play in first Thanksgiving Eve halftime show",
-      "href": "/nfl/story/_/id/50228151/u2-thanksgiving-eve-packers-rams-half-show"
     },
     {
       "league": "MLB",
@@ -43,19 +38,9 @@
       "href": "/mlb/story/_/id/50224233/rays-clinch-alcs-game-6-face-brewers-world-series"
     },
     {
-      "league": "NBA",
-      "headline": "Timberwolves agree to 1-year, $40M extension with Jaden McDaniels",
-      "href": "/nba/story/_/id/50223341/timberwolves-agree-1-year-40m-extension-mcdaniels"
-    },
-    {
       "league": "MLB",
       "headline": "ALCS Game 6: Takeaways as Rays advance to World Series",
       "href": "/mlb/story/_/id/50214010/playoffs-guardians-rays-game-6-alcs-live-takeaways"
-    },
-    {
-      "league": "NBA",
-      "headline": "Bucks waive assist-leader Kevin Porter Jr. ahead of season opener",
-      "href": "/nba/story/_/id/50222332/bucks-waive-assist-leader-kevin-porter-ahead-season-opener"
     },
     {
       "league": "MLB",
@@ -71,6 +56,21 @@
       "league": "NHL",
       "headline": "Sources: At least 3 teams in mix for Jets goalie Connor Hellebuyck",
       "href": "/nhl/story/_/id/50221218/sources-least-3-teams-mix-jets-goalie-hellebuyck"
+    },
+    {
+      "league": "MLB",
+      "headline": "How Rays brought out best in Freddy Peralta for MLB playoffs",
+      "href": "/mlb/story/_/id/50213999/playoffs-rays-alcs-freddy-peralta-best-version"
+    },
+    {
+      "league": "MLB",
+      "headline": "Game 5 win has Rays on World Series cusp after wild weekend",
+      "href": "/mlb/story/_/id/50214985/rays-beat-guardians-game-5-take-3-2-alcs-lead"
+    },
+    {
+      "league": "MLB",
+      "headline": "Facing elimination on road, Cleveland Guardians back on familiar ground",
+      "href": "/mlb/story/_/id/50216130/facing-elimination-road-again-guardians-keep-spirits-up"
     }
   ]
 }
