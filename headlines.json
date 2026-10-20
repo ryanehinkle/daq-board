@@ -1,11 +1,36 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-20T01:48:25Z",
+  "refreshedAt": "2026-10-20T06:43:25Z",
   "items": [
     {
+      "league": "MLB",
+      "headline": "Rays clinch ALCS with Game 6 win, to face Brewers in World Series",
+      "href": "/mlb/story/_/id/50224233/rays-clinch-alcs-game-6-face-brewers-world-series"
+    },
+    {
       "league": "NFL",
-      "headline": "Commanders' Terry McLaurin carted off field with knee injury, ruled out for MNF",
+      "headline": "Commanders' Terry McLaurin carted off with knee injury in MNF loss to 49ers",
       "href": "/nfl/story/_/id/50222846/commanders-terry-mclaurin-carted-knee-injury-ruled-mnf-vs-49ers"
+    },
+    {
+      "league": "NBA",
+      "headline": "Timberwolves agree to 1-year, $40M extension with Jaden McDaniels",
+      "href": "/nba/story/_/id/50223341/timberwolves-agree-1-year-40m-extension-mcdaniels"
+    },
+    {
+      "league": "NFL",
+      "headline": "Rams suffer several major injuries, including to WR Adams, who's out 6-10 weeks",
+      "href": "/nfl/story/_/id/50221426/rams-lose-star-wr-davante-adams-6-10-weeks-mcvay-says"
+    },
+    {
+      "league": "MLB",
+      "headline": "ALCS Game 6: Takeaways as Rays advance to World Series",
+      "href": "/mlb/story/_/id/50214010/playoffs-guardians-rays-game-6-alcs-live-takeaways"
+    },
+    {
+      "league": "MLB",
+      "headline": "How Tampa Bay Rays, Milwaukee Brewers can win World Series",
+      "href": "/mlb/story/_/id/50214717/world-series-rays-brewers-first-look-preview"
     },
     {
       "league": "NBA",
@@ -28,11 +53,6 @@
       "href": "/mlb/story/_/id/50213861/playoffs-guardians-alcs-trade-deadline-payoff"
     },
     {
-      "league": "NFL",
-      "headline": "Rams suffer several major injuries, including to WR Adams, who's out 6-10 weeks",
-      "href": "/nfl/story/_/id/50221426/rams-lose-star-wr-davante-adams-6-10-weeks-mcvay-says"
-    },
-    {
       "league": "NBA",
       "headline": "Sources: Grizzlies waiving former first-round pick Walter Clayton Jr.",
       "href": "/nba/story/_/id/50221787/sources-grizzlies-waive-walter-clayton-jr-micah-peavy"
@@ -48,29 +68,9 @@
       "href": "/nba/story/_/id/50221373/hornets-brandon-miller-agree-5-year-209m-rookie-extension"
     },
     {
-      "league": "NBA",
-      "headline": "Lakers waive former first-round pick Dalton Knecht",
-      "href": "/nba/story/_/id/50221792/lakers-waive-former-first-round-pick-dalton-knecht"
-    },
-    {
       "league": "NHL",
       "headline": "Sources: At least 3 teams in mix for Jets goalie Connor Hellebuyck",
       "href": "/nhl/story/_/id/50221218/sources-least-3-teams-mix-jets-goalie-hellebuyck"
-    },
-    {
-      "league": "NBA",
-      "headline": "2026 NBA free agency: Grades for offseason signings, extensions",
-      "href": "/nba/story/_/id/48957095/2026-nba-free-agency-grades-offseason-signings-deals-contracts-extensions-depth-charts"
-    },
-    {
-      "league": "NFL",
-      "headline": "Rams place kicker Blake Grupe on IR due to knee injury",
-      "href": "/nfl/story/_/id/50220866/rams-place-kicker-blake-grupe-ir-due-knee-injury"
-    },
-    {
-      "league": "NFL",
-      "headline": "Texans WR Tank Dell to play Sunday in 1st game since major 2024 knee injury",
-      "href": "/nfl/story/_/id/50220990/texans-tank-dell-play-sunday-1st-game-knee-injury"
     }
   ]
 }
