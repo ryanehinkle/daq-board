@@ -1,11 +1,21 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-20T12:16:24Z",
+  "refreshedAt": "2026-10-20T17:18:45Z",
   "items": [
     {
       "league": "NBA",
-      "headline": "Both sides of the contract divide between Karl-Anthony Towns and the Knicks",
-      "href": "/nba/story/_/id/50112265/karl-anthony-towns-new-york-knicks-extension-talks-next"
+      "headline": "Wizards' AJ Dybantsa (ankle) to miss season opener",
+      "href": "/nba/story/_/id/50229436/wizards-aj-dybantsa-ankle-miss-season-opener"
+    },
+    {
+      "league": "NFL",
+      "headline": "Giants releasing RB Najee Harris, source says",
+      "href": "/nfl/story/_/id/50228752/giants-releasing-rb-najee-harris-source-says"
+    },
+    {
+      "league": "NFL",
+      "headline": "Titans abruptly release DT Jordan Elliott for undisclosed reasons",
+      "href": "/nfl/story/_/id/50228692/titans-abruptly-release-dt-jordan-elliott-undisclosed-reasons"
     },
     {
       "league": "NBA",
@@ -13,29 +23,9 @@
       "href": "/nba/story/_/id/50220047/lebron-james-opener-msg-knicks-76ers"
     },
     {
-      "league": "MLB",
-      "headline": "Rays clinch ALCS with Game 6 win, to face Brewers in World Series",
-      "href": "/mlb/story/_/id/50224233/rays-clinch-alcs-game-6-face-brewers-world-series"
-    },
-    {
       "league": "NFL",
-      "headline": "Commanders' Terry McLaurin carted off with knee injury in MNF loss to 49ers",
-      "href": "/nfl/story/_/id/50222846/commanders-terry-mclaurin-carted-knee-injury-ruled-mnf-vs-49ers"
-    },
-    {
-      "league": "NBA",
-      "headline": "Timberwolves agree to 1-year, $40M extension with Jaden McDaniels",
-      "href": "/nba/story/_/id/50223341/timberwolves-agree-1-year-40m-extension-mcdaniels"
-    },
-    {
-      "league": "NFL",
-      "headline": "Rams suffer several major injuries, including to WR Adams, who's out 6-10 weeks",
-      "href": "/nfl/story/_/id/50221426/rams-lose-star-wr-davante-adams-6-10-weeks-mcvay-says"
-    },
-    {
-      "league": "MLB",
-      "headline": "ALCS Game 6: Takeaways as Rays advance to World Series",
-      "href": "/mlb/story/_/id/50214010/playoffs-guardians-rays-game-6-alcs-live-takeaways"
+      "headline": "NFL announces U2 will play in first Thanksgiving Eve halftime show",
+      "href": "/nfl/story/_/id/50228151/u2-thanksgiving-eve-packers-rams-half-show"
     },
     {
       "league": "MLB",
@@ -44,13 +34,28 @@
     },
     {
       "league": "NBA",
-      "headline": "Bucks waive assist-leader Kevin Porter Jr. ahead of season opener",
-      "href": "/nba/story/_/id/50222332/bucks-waive-assist-leader-kevin-porter-ahead-season-opener"
+      "headline": "Both sides of the contract divide between Karl-Anthony Towns and the Knicks",
+      "href": "/nba/story/_/id/50112265/karl-anthony-towns-new-york-knicks-extension-talks-next"
     },
     {
-      "league": "NFL",
-      "headline": "Stephen Jones says Brian Schottenheimer has full support of Cowboys' ownership",
-      "href": "/nfl/story/_/id/50222284/brian-schottenheimer-full-support-cowboys-ownership"
+      "league": "MLB",
+      "headline": "Rays clinch ALCS with Game 6 win, to face Brewers in World Series",
+      "href": "/mlb/story/_/id/50224233/rays-clinch-alcs-game-6-face-brewers-world-series"
+    },
+    {
+      "league": "NBA",
+      "headline": "Timberwolves agree to 1-year, $40M extension with Jaden McDaniels",
+      "href": "/nba/story/_/id/50223341/timberwolves-agree-1-year-40m-extension-mcdaniels"
+    },
+    {
+      "league": "MLB",
+      "headline": "ALCS Game 6: Takeaways as Rays advance to World Series",
+      "href": "/mlb/story/_/id/50214010/playoffs-guardians-rays-game-6-alcs-live-takeaways"
+    },
+    {
+      "league": "NBA",
+      "headline": "Bucks waive assist-leader Kevin Porter Jr. ahead of season opener",
+      "href": "/nba/story/_/id/50222332/bucks-waive-assist-leader-kevin-porter-ahead-season-opener"
     },
     {
       "league": "MLB",
@@ -61,11 +66,6 @@
       "league": "MLB",
       "headline": "How trade deadline splash has carried Guardians deep into MLB playoffs",
       "href": "/mlb/story/_/id/50213861/playoffs-guardians-alcs-trade-deadline-payoff"
-    },
-    {
-      "league": "NBA",
-      "headline": "Sources: Grizzlies waiving former first-round pick Walter Clayton Jr.",
-      "href": "/nba/story/_/id/50221787/sources-grizzlies-waive-walter-clayton-jr-micah-peavy"
     },
     {
       "league": "NHL",
