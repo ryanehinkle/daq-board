@@ -1,16 +1,31 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-19T23:08:41Z",
+  "refreshedAt": "2026-10-20T01:48:25Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Commanders' Terry McLaurin carted off field with knee injury, ruled out for MNF",
+      "href": "/nfl/story/_/id/50222846/commanders-terry-mclaurin-carted-knee-injury-ruled-mnf-vs-49ers"
+    },
+    {
+      "league": "NBA",
+      "headline": "Bucks waive assist-leader Kevin Porter Jr. ahead of season opener",
+      "href": "/nba/story/_/id/50222332/bucks-waive-assist-leader-kevin-porter-ahead-season-opener"
+    },
+    {
+      "league": "NFL",
+      "headline": "Stephen Jones says Brian Schottenheimer has full support of Cowboys' ownership",
+      "href": "/nfl/story/_/id/50222284/brian-schottenheimer-full-support-cowboys-ownership"
+    },
     {
       "league": "MLB",
       "headline": "Aaron Boone returning as Yankees manager in 2027, source says",
       "href": "/mlb/story/_/id/50222033/aaron-boone-returning-new-york-yankees-manager"
     },
     {
-      "league": "NBA",
-      "headline": "Cruel Achilles injury has killed the Ben Simmons comeback Australia was dying to see",
-      "href": "/nba/story/_/page/TAB4FY26/cruel-achilles-injury-killed-ben-simmons-comeback-australia-was-dying-see"
+      "league": "MLB",
+      "headline": "How trade deadline splash has carried Guardians deep into MLB playoffs",
+      "href": "/mlb/story/_/id/50213861/playoffs-guardians-alcs-trade-deadline-payoff"
     },
     {
       "league": "NFL",
@@ -21,6 +36,11 @@
       "league": "NBA",
       "headline": "Sources: Grizzlies waiving former first-round pick Walter Clayton Jr.",
       "href": "/nba/story/_/id/50221787/sources-grizzlies-waive-walter-clayton-jr-micah-peavy"
+    },
+    {
+      "league": "NBA",
+      "headline": "Cruel Achilles injury has killed the Ben Simmons comeback Australia was dying to see",
+      "href": "/nba/story/_/page/TAB4FY26/cruel-achilles-injury-killed-ben-simmons-comeback-australia-was-dying-see"
     },
     {
       "league": "NBA",
@@ -51,26 +71,6 @@
       "league": "NFL",
       "headline": "Texans WR Tank Dell to play Sunday in 1st game since major 2024 knee injury",
       "href": "/nfl/story/_/id/50220990/texans-tank-dell-play-sunday-1st-game-knee-injury"
-    },
-    {
-      "league": "NFL",
-      "headline": "NFL suspends Bills' C.J. Gardner-Johnson for one game for spitting",
-      "href": "/nfl/story/_/id/50220546/nfl-suspends-cj-gardner-johnson-one-game-spitting"
-    },
-    {
-      "league": "NBA",
-      "headline": "Mavericks waive center Dwight Powell after 12-year run",
-      "href": "/nba/story/_/id/50220158/mavericks-waive-center-dwight-powell-12-year-run"
-    },
-    {
-      "league": "MLB",
-      "headline": "How trade deadline splash has carried Guardians deep into MLB playoffs",
-      "href": "/mlb/story/_/id/50213861/playoffs-guardians-alcs-trade-deadline-payoff"
-    },
-    {
-      "league": "MLB",
-      "headline": "How Rays brought out best in Freddy Peralta for MLB playoffs",
-      "href": "/mlb/story/_/id/50213999/playoffs-rays-alcs-freddy-peralta-best-version"
     }
   ]
 }
