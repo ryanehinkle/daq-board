@@ -1,7 +1,27 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-20T20:42:20Z",
+  "refreshedAt": "2026-10-20T23:26:08Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Steelers bring back veteran Marquez Valdes-Scantling amid receiver injury woes",
+      "href": "/nfl/story/_/id/50232379/steelers-bring-back-marquez-valdes-scantling-amid-wr-injuries"
+    },
+    {
+      "league": "NBA",
+      "headline": "JJ Redick says Lakers' 'biggest unknown' is how they will deal with adversity",
+      "href": "/nba/story/_/id/50232351/redick-lakers-biggest-test-dealing-adversity"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Rams signing free agent kicker Brandon McManus",
+      "href": "/nfl/story/_/id/50231705/sources-rams-signing-free-agent-kicker-brandon-mcmanus"
+    },
+    {
+      "league": "NBA",
+      "headline": "Kon Knueppel, Coby White out for Hornets' season opener",
+      "href": "/nba/story/_/id/50231767/hornets-opener-kon-knueppel-coby-white-grant-williams"
+    },
     {
       "league": "NBA",
       "headline": "Windhorst: What playing at Madison Square Garden means to LeBron James",
@@ -16,11 +36,6 @@
       "league": "NBA",
       "headline": "Wizards' AJ Dybantsa (ankle) to miss season opener",
       "href": "/nba/story/_/id/50229436/wizards-aj-dybantsa-ankle-miss-season-opener"
-    },
-    {
-      "league": "NFL",
-      "headline": "Giants releasing RB Najee Harris, source says",
-      "href": "/nfl/story/_/id/50228752/giants-releasing-rb-najee-harris-source-says"
     },
     {
       "league": "MLB",
@@ -56,21 +71,6 @@
       "league": "NHL",
       "headline": "Sources: At least 3 teams in mix for Jets goalie Connor Hellebuyck",
       "href": "/nhl/story/_/id/50221218/sources-least-3-teams-mix-jets-goalie-hellebuyck"
-    },
-    {
-      "league": "MLB",
-      "headline": "How Rays brought out best in Freddy Peralta for MLB playoffs",
-      "href": "/mlb/story/_/id/50213999/playoffs-rays-alcs-freddy-peralta-best-version"
-    },
-    {
-      "league": "MLB",
-      "headline": "Game 5 win has Rays on World Series cusp after wild weekend",
-      "href": "/mlb/story/_/id/50214985/rays-beat-guardians-game-5-take-3-2-alcs-lead"
-    },
-    {
-      "league": "MLB",
-      "headline": "Facing elimination on road, Cleveland Guardians back on familiar ground",
-      "href": "/mlb/story/_/id/50216130/facing-elimination-road-again-guardians-keep-spirits-up"
     }
   ]
 }
