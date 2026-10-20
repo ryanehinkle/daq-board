@@ -1,7 +1,17 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-20T06:43:25Z",
+  "refreshedAt": "2026-10-20T12:16:24Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Both sides of the contract divide between Karl-Anthony Towns and the Knicks",
+      "href": "/nba/story/_/id/50112265/karl-anthony-towns-new-york-knicks-extension-talks-next"
+    },
+    {
+      "league": "NBA",
+      "headline": "Windhorst: What playing at Madison Square Garden means to LeBron James",
+      "href": "/nba/story/_/id/50220047/lebron-james-opener-msg-knicks-76ers"
+    },
     {
       "league": "MLB",
       "headline": "Rays clinch ALCS with Game 6 win, to face Brewers in World Series",
@@ -56,16 +66,6 @@
       "league": "NBA",
       "headline": "Sources: Grizzlies waiving former first-round pick Walter Clayton Jr.",
       "href": "/nba/story/_/id/50221787/sources-grizzlies-waive-walter-clayton-jr-micah-peavy"
-    },
-    {
-      "league": "NBA",
-      "headline": "Cruel Achilles injury has killed the Ben Simmons comeback Australia was dying to see",
-      "href": "/nba/story/_/page/TAB4FY26/cruel-achilles-injury-killed-ben-simmons-comeback-australia-was-dying-see"
-    },
-    {
-      "league": "NBA",
-      "headline": "Hornets, Brandon Miller agree to 5-year, $209M rookie extension",
-      "href": "/nba/story/_/id/50221373/hornets-brandon-miller-agree-5-year-209m-rookie-extension"
     },
     {
       "league": "NHL",
