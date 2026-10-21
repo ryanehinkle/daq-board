@@ -1,31 +1,16 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-21T06:40:51Z",
+  "refreshedAt": "2026-10-21T12:26:39Z",
   "items": [
-    {
-      "league": "NBA",
-      "headline": "Sixers' Joel Embiid has 3 blocks in win over Knicks, eyes All-Defensive season",
-      "href": "/nba/story/_/id/50234914/sixers-joel-embiid-3-blocks-season-opener-vs-knicks"
-    },
     {
       "league": "NBA",
       "headline": "Mike Brown: Would not have felt good about a win vs. 76ers given Knicks' play",
       "href": "/nba/story/_/id/50235062/mike-brown-not-felt-good-knicks-win-vs-76ers-given-play"
     },
     {
-      "league": "NHL",
-      "headline": "Kings secure long-awaited first win, lose Quinton Byfield to upper-body injury",
-      "href": "/nhl/story/_/id/50234733/los-angeles-kings-break-secure-long-awaited-first-win"
-    },
-    {
-      "league": "NHL",
-      "headline": "Source: Red Wings' Dylan Larkin stretches list of trade options to 10 teams",
-      "href": "/nhl/story/_/id/50233721/red-wings-dylan-larkin-stretches-trade-list-10-teams"
-    },
-    {
       "league": "NBA",
-      "headline": "Warriors' Brandin Podziemski to miss opener vs. Lakers with back soreness",
-      "href": "/nba/story/_/id/50233339/warriors-guard-podziemski-vs-lakers-back-soreness"
+      "headline": "Thunder win chippy opener vs. Spurs, throw support behind Chet Holmgren",
+      "href": "/nba/story/_/id/50235276/thunder-win-chippy-opener-vs-spurs-back-chet-holmgren"
     },
     {
       "league": "NFL",
@@ -33,14 +18,34 @@
       "href": "/nfl/story/_/id/50232379/steelers-bring-back-marquez-valdes-scantling-amid-wr-injuries"
     },
     {
-      "league": "NBA",
-      "headline": "JJ Redick says Lakers' 'biggest unknown' is how they will deal with adversity",
-      "href": "/nba/story/_/id/50232351/redick-lakers-biggest-test-dealing-adversity"
-    },
-    {
       "league": "NFL",
       "headline": "Sources: Rams signing free agent kicker Brandon McManus",
       "href": "/nfl/story/_/id/50231705/sources-rams-signing-free-agent-kicker-brandon-mcmanus"
+    },
+    {
+      "league": "NHL",
+      "headline": "How Brady Tkachuk (and the Senators) are preparing for his Ottawa return",
+      "href": "/nhl/story/_/id/50229493/nhl-2026-27-brady-tkachuk-panthers-senators-return-trade-rivalry-playoffs"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sixers' Joel Embiid has 3 blocks in win over Knicks, eyes All-Defensive season",
+      "href": "/nba/story/_/id/50234914/sixers-joel-embiid-3-blocks-season-opener-vs-knicks"
+    },
+    {
+      "league": "NHL",
+      "headline": "Kings secure long-awaited first win, lose Quinton Byfield to upper-body injury",
+      "href": "/nhl/story/_/id/50234733/los-angeles-kings-break-secure-long-awaited-first-win"
+    },
+    {
+      "league": "NBA",
+      "headline": "Warriors' Brandin Podziemski to miss opener vs. Lakers with back soreness",
+      "href": "/nba/story/_/id/50233339/warriors-guard-podziemski-vs-lakers-back-soreness"
+    },
+    {
+      "league": "NBA",
+      "headline": "JJ Redick says Lakers' 'biggest unknown' is how they will deal with adversity",
+      "href": "/nba/story/_/id/50232351/redick-lakers-biggest-test-dealing-adversity"
     },
     {
       "league": "NBA",
@@ -66,11 +71,6 @@
       "league": "MLB",
       "headline": "Rays clinch ALCS with Game 6 win, to face Brewers in World Series",
       "href": "/mlb/story/_/id/50224233/rays-clinch-alcs-game-6-face-brewers-world-series"
-    },
-    {
-      "league": "MLB",
-      "headline": "ALCS Game 6: Takeaways as Rays advance to World Series",
-      "href": "/mlb/story/_/id/50214010/playoffs-guardians-rays-game-6-alcs-live-takeaways"
     }
   ]
 }
