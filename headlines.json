@@ -1,7 +1,37 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-21T12:26:39Z",
+  "refreshedAt": "2026-10-21T17:33:49Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Goodell says NFL welcomes investigation into Eagles QB Hurts' medical care",
+      "href": "/nfl/story/_/id/50239029/roger-goodell-nfl-welcomes-probe-hurts-medical-care"
+    },
+    {
+      "league": "NHL",
+      "headline": "Brady Tkachuk returns to Ottawa for first time since trade",
+      "href": "/nhl/story/_/id/50239618/brady-tkachuk-returns-ottawa-first-trade"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Giants turning to J.J. McCarthy as QB1 this week against Texans",
+      "href": "/nfl/story/_/id/50238746/giants-start-jj-mccarthy-qb-week"
+    },
+    {
+      "league": "NFL",
+      "headline": "Bills' Sam Franklin Jr. suspended one game for spitting; will appeal, per sources",
+      "href": "/nfl/story/_/id/50237503/bills-sam-franklin-suspended-spitting-appeal"
+    },
+    {
+      "league": "MLB",
+      "headline": "Yankees, GM Brian Cashman agree to new contract",
+      "href": "/mlb/story/_/id/50238406/yankees-gm-brian-cashman-agree-new-contract"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sixers' Joel Embiid has 3 blocks in win over Knicks, eyes All-Defensive season",
+      "href": "/nba/story/_/id/50234914/sixers-joel-embiid-3-blocks-season-opener-vs-knicks"
+    },
     {
       "league": "NBA",
       "headline": "Mike Brown: Would not have felt good about a win vs. 76ers given Knicks' play",
@@ -13,24 +43,9 @@
       "href": "/nba/story/_/id/50235276/thunder-win-chippy-opener-vs-spurs-back-chet-holmgren"
     },
     {
-      "league": "NFL",
-      "headline": "Steelers bring back veteran Marquez Valdes-Scantling amid receiver injury woes",
-      "href": "/nfl/story/_/id/50232379/steelers-bring-back-marquez-valdes-scantling-amid-wr-injuries"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Rams signing free agent kicker Brandon McManus",
-      "href": "/nfl/story/_/id/50231705/sources-rams-signing-free-agent-kicker-brandon-mcmanus"
-    },
-    {
       "league": "NHL",
       "headline": "How Brady Tkachuk (and the Senators) are preparing for his Ottawa return",
       "href": "/nhl/story/_/id/50229493/nhl-2026-27-brady-tkachuk-panthers-senators-return-trade-rivalry-playoffs"
-    },
-    {
-      "league": "NBA",
-      "headline": "Sixers' Joel Embiid has 3 blocks in win over Knicks, eyes All-Defensive season",
-      "href": "/nba/story/_/id/50234914/sixers-joel-embiid-3-blocks-season-opener-vs-knicks"
     },
     {
       "league": "NHL",
@@ -46,21 +61,6 @@
       "league": "NBA",
       "headline": "JJ Redick says Lakers' 'biggest unknown' is how they will deal with adversity",
       "href": "/nba/story/_/id/50232351/redick-lakers-biggest-test-dealing-adversity"
-    },
-    {
-      "league": "NBA",
-      "headline": "Kon Knueppel, Coby White out for Hornets' season opener",
-      "href": "/nba/story/_/id/50231767/hornets-opener-kon-knueppel-coby-white-grant-williams"
-    },
-    {
-      "league": "NFL",
-      "headline": "Dolphins release Riley Patterson after Week 5 problems defending kickoffs",
-      "href": "/nfl/story/_/id/50229491/sources-dolphins-release-riley-patterson-amid-kickoff-woes"
-    },
-    {
-      "league": "NBA",
-      "headline": "Wizards' AJ Dybantsa (ankle) to miss season opener",
-      "href": "/nba/story/_/id/50229436/wizards-aj-dybantsa-ankle-miss-season-opener"
     },
     {
       "league": "MLB",
