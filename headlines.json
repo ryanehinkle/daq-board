@@ -1,11 +1,56 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-21T20:51:59Z",
+  "refreshedAt": "2026-10-21T23:46:53Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Packers' Josh Jacobs says he is trying to learn from 'mistake,' move forward",
+      "href": "/nfl/story/_/id/50242627/green-bay-packers-josh-jacobs-first-comments-arrest"
+    },
+    {
+      "league": "NFL",
+      "headline": "Texans' Tank Dell says he won't fear being hit in return Sunday against Giants",
+      "href": "/nfl/story/_/id/50242240/texans-tank-dell-fear-being-hit-sunday-giants"
+    },
+    {
+      "league": "MLB",
+      "headline": "Dodgers' Shohei Ohtani won't require surgery, expected to pitch in 2027",
+      "href": "/mlb/story/_/id/50242196/dodgers-shohei-ohtani-not-require-surgery-expected-pitch-2027"
+    },
     {
       "league": "NFL",
       "headline": "Panthers LB Jaelan Phillips (hamstring) set to miss Week 7 game vs. Bucs",
       "href": "/nfl/story/_/id/50241322/panthers-jaelan-phillips-set-miss-week-7-game-vs-buccaneers-hamstring-injury"
+    },
+    {
+      "league": "MLB",
+      "headline": "Kurt Suzuki out as Angels manager after team's first 100-loss season",
+      "href": "/mlb/story/_/id/50240270/kurt-suzuki-angels-manager-100-loss-season"
+    },
+    {
+      "league": "NFL",
+      "headline": "Goodell says NFL welcomes investigation into Eagles QB Hurts' medical care",
+      "href": "/nfl/story/_/id/50239029/roger-goodell-nfl-welcomes-probe-hurts-medical-care"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sources: Warriors exploring options to trade center Kristaps Porzingis",
+      "href": "/nba/story/_/id/50239169/sources-warriors-exploring-trade-options-kristaps-porzingis"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sources: Mavericks agree to two-way deal with Walter Clayton Jr.",
+      "href": "/nba/story/_/id/50241679/sources-mavericks-agree-deal-walter-clayton-jr"
+    },
+    {
+      "league": "MLB",
+      "headline": "Yankees, Brian Cashman reach contract; owner blames players for playoff exit",
+      "href": "/mlb/story/_/id/50238406/yankees-gm-brian-cashman-agree-new-contract"
+    },
+    {
+      "league": "NFL",
+      "headline": "Ravens' Lamar Jackson returns to practice but status remains unclear vs. Bengals",
+      "href": "/nfl/story/_/id/50241195/lamar-jackson-practice-unclear-vs-bengals-week-7"
     },
     {
       "league": "NFL",
@@ -18,54 +63,9 @@
       "href": "/nfl/story/_/id/50240235/patriots-alijah-vera-tucker-ben-brown-ruled-vs-bears"
     },
     {
-      "league": "NFL",
-      "headline": "Sam LaPorta not feeling contract 'love' from Lions ahead of 2027 free agency",
-      "href": "/nfl/story/_/id/50240100/sam-laporta-extension-not-feeling-love-lions"
-    },
-    {
-      "league": "MLB",
-      "headline": "Uecker's family says he'd be 'incredibly proud' of Brewers",
-      "href": "/mlb/story/_/id/50240296/uecker-family-says-incredibly-proud-brewers"
-    },
-    {
-      "league": "MLB",
-      "headline": "Kurt Suzuki out as Angels manager after team's first 100-loss season",
-      "href": "/mlb/story/_/id/50240270/kurt-suzuki-angels-manager-100-loss-season"
-    },
-    {
-      "league": "MLB",
-      "headline": "Yankees, Brian Cashman reach contract; owner blames players for playoff exit",
-      "href": "/mlb/story/_/id/50238406/yankees-gm-brian-cashman-agree-new-contract"
-    },
-    {
-      "league": "NBA",
-      "headline": "Sources: Warriors exploring options to trade center Kristaps Porzingis",
-      "href": "/nba/story/_/id/50239169/sources-warriors-exploring-trade-options-kristaps-porzingis"
-    },
-    {
       "league": "NHL",
       "headline": "Brady Tkachuk returns to Ottawa for first time since trade",
       "href": "/nhl/story/_/id/50239618/brady-tkachuk-returns-ottawa-first-trade"
-    },
-    {
-      "league": "NFL",
-      "headline": "Goodell says NFL welcomes investigation into Eagles QB Hurts' medical care",
-      "href": "/nfl/story/_/id/50239029/roger-goodell-nfl-welcomes-probe-hurts-medical-care"
-    },
-    {
-      "league": "NBA",
-      "headline": "Sixers' Joel Embiid has 3 blocks in win over Knicks, eyes All-Defensive season",
-      "href": "/nba/story/_/id/50234914/sixers-joel-embiid-3-blocks-season-opener-vs-knicks"
-    },
-    {
-      "league": "NBA",
-      "headline": "Mike Brown: Would not have felt good about a win vs. 76ers given Knicks' play",
-      "href": "/nba/story/_/id/50235062/mike-brown-not-felt-good-knicks-win-vs-76ers-given-play"
-    },
-    {
-      "league": "NBA",
-      "headline": "Thunder win chippy opener vs. Spurs, throw support behind Chet Holmgren",
-      "href": "/nba/story/_/id/50235276/thunder-win-chippy-opener-vs-spurs-back-chet-holmgren"
     },
     {
       "league": "NHL",
