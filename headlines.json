@@ -1,7 +1,17 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-20T23:26:08Z",
+  "refreshedAt": "2026-10-21T01:51:07Z",
   "items": [
+    {
+      "league": "NHL",
+      "headline": "Source: Red Wings' Dylan Larkin stretches list of trade options to 10 teams",
+      "href": "/nhl/story/_/id/50233721/red-wings-dylan-larkin-stretches-trade-list-10-teams"
+    },
+    {
+      "league": "NBA",
+      "headline": "Warriors' Brandin Podziemski to miss opener vs. Lakers with back soreness",
+      "href": "/nba/story/_/id/50233339/warriors-guard-podziemski-vs-lakers-back-soreness"
+    },
     {
       "league": "NFL",
       "headline": "Steelers bring back veteran Marquez Valdes-Scantling amid receiver injury woes",
@@ -56,16 +66,6 @@
       "league": "MLB",
       "headline": "ALCS Game 6: Takeaways as Rays advance to World Series",
       "href": "/mlb/story/_/id/50214010/playoffs-guardians-rays-game-6-alcs-live-takeaways"
-    },
-    {
-      "league": "MLB",
-      "headline": "Aaron Boone returning as Yankees manager in 2027, source says",
-      "href": "/mlb/story/_/id/50222033/aaron-boone-returning-new-york-yankees-manager"
-    },
-    {
-      "league": "MLB",
-      "headline": "How trade deadline splash has carried Guardians deep into MLB playoffs",
-      "href": "/mlb/story/_/id/50213861/playoffs-guardians-alcs-trade-deadline-payoff"
     },
     {
       "league": "NHL",
