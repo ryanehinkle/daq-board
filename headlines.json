@@ -1,7 +1,22 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-21T01:51:07Z",
+  "refreshedAt": "2026-10-21T06:40:51Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Sixers' Joel Embiid has 3 blocks in win over Knicks, eyes All-Defensive season",
+      "href": "/nba/story/_/id/50234914/sixers-joel-embiid-3-blocks-season-opener-vs-knicks"
+    },
+    {
+      "league": "NBA",
+      "headline": "Mike Brown: Would not have felt good about a win vs. 76ers given Knicks' play",
+      "href": "/nba/story/_/id/50235062/mike-brown-not-felt-good-knicks-win-vs-76ers-given-play"
+    },
+    {
+      "league": "NHL",
+      "headline": "Kings secure long-awaited first win, lose Quinton Byfield to upper-body injury",
+      "href": "/nhl/story/_/id/50234733/los-angeles-kings-break-secure-long-awaited-first-win"
+    },
     {
       "league": "NHL",
       "headline": "Source: Red Wings' Dylan Larkin stretches list of trade options to 10 teams",
@@ -33,11 +48,6 @@
       "href": "/nba/story/_/id/50231767/hornets-opener-kon-knueppel-coby-white-grant-williams"
     },
     {
-      "league": "NBA",
-      "headline": "Windhorst: What playing at Madison Square Garden means to LeBron James",
-      "href": "/nba/story/_/id/50220047/lebron-james-opener-msg-knicks-76ers"
-    },
-    {
       "league": "NFL",
       "headline": "Dolphins release Riley Patterson after Week 5 problems defending kickoffs",
       "href": "/nfl/story/_/id/50229491/sources-dolphins-release-riley-patterson-amid-kickoff-woes"
@@ -53,11 +63,6 @@
       "href": "/mlb/story/_/id/50214717/world-series-rays-brewers-first-look-preview"
     },
     {
-      "league": "NBA",
-      "headline": "Both sides of the contract divide between Karl-Anthony Towns and the Knicks",
-      "href": "/nba/story/_/id/50112265/karl-anthony-towns-new-york-knicks-extension-talks-next"
-    },
-    {
       "league": "MLB",
       "headline": "Rays clinch ALCS with Game 6 win, to face Brewers in World Series",
       "href": "/mlb/story/_/id/50224233/rays-clinch-alcs-game-6-face-brewers-world-series"
@@ -66,11 +71,6 @@
       "league": "MLB",
       "headline": "ALCS Game 6: Takeaways as Rays advance to World Series",
       "href": "/mlb/story/_/id/50214010/playoffs-guardians-rays-game-6-alcs-live-takeaways"
-    },
-    {
-      "league": "NHL",
-      "headline": "Sources: At least 3 teams in mix for Jets goalie Connor Hellebuyck",
-      "href": "/nhl/story/_/id/50221218/sources-least-3-teams-mix-jets-goalie-hellebuyck"
     }
   ]
 }
