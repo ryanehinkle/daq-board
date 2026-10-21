@@ -1,11 +1,46 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-21T17:33:49Z",
+  "refreshedAt": "2026-10-21T20:51:59Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "Goodell says NFL welcomes investigation into Eagles QB Hurts' medical care",
-      "href": "/nfl/story/_/id/50239029/roger-goodell-nfl-welcomes-probe-hurts-medical-care"
+      "headline": "Panthers LB Jaelan Phillips (hamstring) set to miss Week 7 game vs. Bucs",
+      "href": "/nfl/story/_/id/50241322/panthers-jaelan-phillips-set-miss-week-7-game-vs-buccaneers-hamstring-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Bears RB Kyle Monangai (toe, thumb) out Thursday vs. Patriots",
+      "href": "/nfl/story/_/id/50240756/bears-rb-kyle-monangai-toe-thumb-thursday-vs-patriots"
+    },
+    {
+      "league": "NFL",
+      "headline": "Patriots' Alijah Vera-Tucker, Ben Brown ruled out vs. Bears",
+      "href": "/nfl/story/_/id/50240235/patriots-alijah-vera-tucker-ben-brown-ruled-vs-bears"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sam LaPorta not feeling contract 'love' from Lions ahead of 2027 free agency",
+      "href": "/nfl/story/_/id/50240100/sam-laporta-extension-not-feeling-love-lions"
+    },
+    {
+      "league": "MLB",
+      "headline": "Uecker's family says he'd be 'incredibly proud' of Brewers",
+      "href": "/mlb/story/_/id/50240296/uecker-family-says-incredibly-proud-brewers"
+    },
+    {
+      "league": "MLB",
+      "headline": "Kurt Suzuki out as Angels manager after team's first 100-loss season",
+      "href": "/mlb/story/_/id/50240270/kurt-suzuki-angels-manager-100-loss-season"
+    },
+    {
+      "league": "MLB",
+      "headline": "Yankees, Brian Cashman reach contract; owner blames players for playoff exit",
+      "href": "/mlb/story/_/id/50238406/yankees-gm-brian-cashman-agree-new-contract"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sources: Warriors exploring options to trade center Kristaps Porzingis",
+      "href": "/nba/story/_/id/50239169/sources-warriors-exploring-trade-options-kristaps-porzingis"
     },
     {
       "league": "NHL",
@@ -14,18 +49,8 @@
     },
     {
       "league": "NFL",
-      "headline": "Source: Giants turning to J.J. McCarthy as QB1 this week against Texans",
-      "href": "/nfl/story/_/id/50238746/giants-start-jj-mccarthy-qb-week"
-    },
-    {
-      "league": "NFL",
-      "headline": "Bills' Sam Franklin Jr. suspended one game for spitting; will appeal, per sources",
-      "href": "/nfl/story/_/id/50237503/bills-sam-franklin-suspended-spitting-appeal"
-    },
-    {
-      "league": "MLB",
-      "headline": "Yankees, GM Brian Cashman agree to new contract",
-      "href": "/mlb/story/_/id/50238406/yankees-gm-brian-cashman-agree-new-contract"
+      "headline": "Goodell says NFL welcomes investigation into Eagles QB Hurts' medical care",
+      "href": "/nfl/story/_/id/50239029/roger-goodell-nfl-welcomes-probe-hurts-medical-care"
     },
     {
       "league": "NBA",
@@ -46,31 +71,6 @@
       "league": "NHL",
       "headline": "How Brady Tkachuk (and the Senators) are preparing for his Ottawa return",
       "href": "/nhl/story/_/id/50229493/nhl-2026-27-brady-tkachuk-panthers-senators-return-trade-rivalry-playoffs"
-    },
-    {
-      "league": "NHL",
-      "headline": "Kings secure long-awaited first win, lose Quinton Byfield to upper-body injury",
-      "href": "/nhl/story/_/id/50234733/los-angeles-kings-break-secure-long-awaited-first-win"
-    },
-    {
-      "league": "NBA",
-      "headline": "Warriors' Brandin Podziemski to miss opener vs. Lakers with back soreness",
-      "href": "/nba/story/_/id/50233339/warriors-guard-podziemski-vs-lakers-back-soreness"
-    },
-    {
-      "league": "NBA",
-      "headline": "JJ Redick says Lakers' 'biggest unknown' is how they will deal with adversity",
-      "href": "/nba/story/_/id/50232351/redick-lakers-biggest-test-dealing-adversity"
-    },
-    {
-      "league": "MLB",
-      "headline": "How Tampa Bay Rays, Milwaukee Brewers can win World Series",
-      "href": "/mlb/story/_/id/50214717/world-series-rays-brewers-first-look-preview"
-    },
-    {
-      "league": "MLB",
-      "headline": "Rays clinch ALCS with Game 6 win, to face Brewers in World Series",
-      "href": "/mlb/story/_/id/50224233/rays-clinch-alcs-game-6-face-brewers-world-series"
     }
   ]
 }
