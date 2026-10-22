@@ -1,16 +1,26 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-21T23:46:53Z",
+  "refreshedAt": "2026-10-22T01:58:10Z",
   "items": [
+    {
+      "league": "NHL",
+      "headline": "Brady Tkachuk embraces boos, scores in acrimonious return to Ottawa",
+      "href": "/nhl/story/_/id/50243435/brady-tkachuk-embraces-boos-scores-acrimonious-return-ottawa"
+    },
+    {
+      "league": "MLB",
+      "headline": "Kurt Suzuki out as Angels manager; interim GM John Mozeliak won't return in 2027",
+      "href": "/mlb/story/_/id/50240270/kurt-suzuki-angels-manager-100-loss-season"
+    },
+    {
+      "league": "NBA",
+      "headline": "Tyrese Haliburton pays homage to Triple H's MSG outfit in return to NBA action",
+      "href": "/nba/story/_/id/50242948/tyrese-haliburton-pacers-triple-h-return"
+    },
     {
       "league": "NFL",
       "headline": "Packers' Josh Jacobs says he is trying to learn from 'mistake,' move forward",
       "href": "/nfl/story/_/id/50242627/green-bay-packers-josh-jacobs-first-comments-arrest"
-    },
-    {
-      "league": "NFL",
-      "headline": "Texans' Tank Dell says he won't fear being hit in return Sunday against Giants",
-      "href": "/nfl/story/_/id/50242240/texans-tank-dell-fear-being-hit-sunday-giants"
     },
     {
       "league": "MLB",
@@ -18,14 +28,19 @@
       "href": "/mlb/story/_/id/50242196/dodgers-shohei-ohtani-not-require-surgery-expected-pitch-2027"
     },
     {
+      "league": "NHL",
+      "headline": "Senators fans booing Tkachuk reminiscent of previous unpleasant sports returns",
+      "href": "/nhl/story/_/id/28118392/athletes-faced-wrath-jilted-fans"
+    },
+    {
+      "league": "NFL",
+      "headline": "Texans' Tank Dell says he won't fear being hit in return Sunday against Giants",
+      "href": "/nfl/story/_/id/50242240/texans-tank-dell-fear-being-hit-sunday-giants"
+    },
+    {
       "league": "NFL",
       "headline": "Panthers LB Jaelan Phillips (hamstring) set to miss Week 7 game vs. Bucs",
       "href": "/nfl/story/_/id/50241322/panthers-jaelan-phillips-set-miss-week-7-game-vs-buccaneers-hamstring-injury"
-    },
-    {
-      "league": "MLB",
-      "headline": "Kurt Suzuki out as Angels manager after team's first 100-loss season",
-      "href": "/mlb/story/_/id/50240270/kurt-suzuki-angels-manager-100-loss-season"
     },
     {
       "league": "NFL",
@@ -56,21 +71,6 @@
       "league": "NFL",
       "headline": "Bears RB Kyle Monangai (toe, thumb) out Thursday vs. Patriots",
       "href": "/nfl/story/_/id/50240756/bears-rb-kyle-monangai-toe-thumb-thursday-vs-patriots"
-    },
-    {
-      "league": "NFL",
-      "headline": "Patriots' Alijah Vera-Tucker, Ben Brown ruled out vs. Bears",
-      "href": "/nfl/story/_/id/50240235/patriots-alijah-vera-tucker-ben-brown-ruled-vs-bears"
-    },
-    {
-      "league": "NHL",
-      "headline": "Brady Tkachuk returns to Ottawa for first time since trade",
-      "href": "/nhl/story/_/id/50239618/brady-tkachuk-returns-ottawa-first-trade"
-    },
-    {
-      "league": "NHL",
-      "headline": "How Brady Tkachuk (and the Senators) are preparing for his Ottawa return",
-      "href": "/nhl/story/_/id/50229493/nhl-2026-27-brady-tkachuk-panthers-senators-return-trade-rivalry-playoffs"
     }
   ]
 }
