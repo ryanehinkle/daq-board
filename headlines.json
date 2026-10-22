@@ -1,7 +1,12 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-22T17:56:51Z",
+  "refreshedAt": "2026-10-22T21:18:59Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Seahawks RB Zach Charbonnet activated off PUP list",
+      "href": "/nfl/story/_/id/50250887/seahawks-rb-zach-charbonnet-activated-pup-list"
+    },
     {
       "league": "NHL",
       "headline": "How Brady Tkachuk (and the Senators) prepared for his Ottawa return",
@@ -11,26 +16,6 @@
       "league": "NHL",
       "headline": "Canadiens captain Nick Suzuki out 2-4 weeks with upper-body injury",
       "href": "/nhl/story/_/id/50250183/canadiens-captain-nick-suzuki-2-4-weeks-upper-body-injury"
-    },
-    {
-      "league": "NFL",
-      "headline": "Proposing NFL trade deadline offers: Moves for Saquon Barkley, Khalil Mack, more",
-      "href": "/nfl/story/_/id/50238049/trade-deadline-2026-barnwell-offers-pitches-barkley-thomas"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Eagles RB Barkley (hamstring) expected to practice, play vs. Cowboys",
-      "href": "/nfl/story/_/id/50248869/sources-eagles-barkley-expected-practice-play-vs-cowboys"
-    },
-    {
-      "league": "NFL",
-      "headline": "JJ Watt lands new deal as full-time CBS lead analyst replacement for Tony Romo",
-      "href": "/nfl/story/_/id/50248820/jj-watt-gets-deal-full-cbs-replacement-tony-romo"
-    },
-    {
-      "league": "NFL",
-      "headline": "Vikings praise Aaron Jones Sr.'s heart with Jordan Mason out",
-      "href": "/nfl/story/_/id/50242272/vikings-praise-aaron-jones-heart-jordan-mason"
     },
     {
       "league": "NBA",
@@ -71,6 +56,11 @@
       "league": "MLB",
       "headline": "Uecker's family says he'd be 'incredibly proud' of Brewers",
       "href": "/mlb/story/_/id/50240296/uecker-family-says-incredibly-proud-brewers"
+    },
+    {
+      "league": "NHL",
+      "headline": "Brady Tkachuk returns to Ottawa for first time since trade",
+      "href": "/nhl/story/_/id/50239618/brady-tkachuk-returns-ottawa-first-trade"
     }
   ]
 }
