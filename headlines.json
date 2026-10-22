@@ -1,11 +1,36 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-22T01:58:10Z",
+  "refreshedAt": "2026-10-22T07:23:45Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Trail Blazers fans show love for Damian Lillard in return",
+      "href": "/nba/story/_/id/50245665/portland-trail-blazers-damian-lillard-return-suns"
+    },
+    {
+      "league": "NBA",
+      "headline": "Tyrese Haliburton leads Pacers' opening-night win in emotional return from injury",
+      "href": "/nba/story/_/id/50245316/tyrese-haliburton-leads-pacers-opening-night-win-vs-pelicans-emotional-return-injury"
+    },
     {
       "league": "NHL",
       "headline": "Brady Tkachuk embraces boos, scores in acrimonious return to Ottawa",
       "href": "/nhl/story/_/id/50243435/brady-tkachuk-embraces-boos-scores-acrimonious-return-ottawa"
+    },
+    {
+      "league": "NBA",
+      "headline": "Giannis Antetokounmpo says Heat need to trust each other more after blowout loss",
+      "href": "/nba/story/_/id/50245072/giannis-antetokounmpo-says-heat-need-trust-other-more-blowout-opening-loss-timberwolves"
+    },
+    {
+      "league": "NBA",
+      "headline": "Anthony Edwards joins Chamberlain, Jordan after dropping 40 in another opener",
+      "href": "/nba/story/_/id/50244919/anthony-edwards-joins-chamberlain-jordan-dropping-40-another-opener"
+    },
+    {
+      "league": "MLB",
+      "headline": "Dodgers' Shohei Ohtani won't require surgery, expected to pitch in 2027",
+      "href": "/mlb/story/_/id/50242196/dodgers-shohei-ohtani-not-require-surgery-expected-pitch-2027"
     },
     {
       "league": "MLB",
@@ -13,19 +38,9 @@
       "href": "/mlb/story/_/id/50240270/kurt-suzuki-angels-manager-100-loss-season"
     },
     {
-      "league": "NBA",
-      "headline": "Tyrese Haliburton pays homage to Triple H's MSG outfit in return to NBA action",
-      "href": "/nba/story/_/id/50242948/tyrese-haliburton-pacers-triple-h-return"
-    },
-    {
       "league": "NFL",
       "headline": "Packers' Josh Jacobs says he is trying to learn from 'mistake,' move forward",
       "href": "/nfl/story/_/id/50242627/green-bay-packers-josh-jacobs-first-comments-arrest"
-    },
-    {
-      "league": "MLB",
-      "headline": "Dodgers' Shohei Ohtani won't require surgery, expected to pitch in 2027",
-      "href": "/mlb/story/_/id/50242196/dodgers-shohei-ohtani-not-require-surgery-expected-pitch-2027"
     },
     {
       "league": "NHL",
@@ -48,16 +63,6 @@
       "href": "/nfl/story/_/id/50239029/roger-goodell-nfl-welcomes-probe-hurts-medical-care"
     },
     {
-      "league": "NBA",
-      "headline": "Sources: Warriors exploring options to trade center Kristaps Porzingis",
-      "href": "/nba/story/_/id/50239169/sources-warriors-exploring-trade-options-kristaps-porzingis"
-    },
-    {
-      "league": "NBA",
-      "headline": "Sources: Mavericks agree to two-way deal with Walter Clayton Jr.",
-      "href": "/nba/story/_/id/50241679/sources-mavericks-agree-deal-walter-clayton-jr"
-    },
-    {
       "league": "MLB",
       "headline": "Yankees, Brian Cashman reach contract; owner blames players for playoff exit",
       "href": "/mlb/story/_/id/50238406/yankees-gm-brian-cashman-agree-new-contract"
@@ -66,11 +71,6 @@
       "league": "NFL",
       "headline": "Ravens' Lamar Jackson returns to practice but status remains unclear vs. Bengals",
       "href": "/nfl/story/_/id/50241195/lamar-jackson-practice-unclear-vs-bengals-week-7"
-    },
-    {
-      "league": "NFL",
-      "headline": "Bears RB Kyle Monangai (toe, thumb) out Thursday vs. Patriots",
-      "href": "/nfl/story/_/id/50240756/bears-rb-kyle-monangai-toe-thumb-thursday-vs-patriots"
     }
   ]
 }
