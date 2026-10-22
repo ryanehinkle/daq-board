@@ -1,11 +1,16 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-22T13:04:47Z",
+  "refreshedAt": "2026-10-22T17:56:51Z",
   "items": [
     {
-      "league": "NFL",
-      "headline": "Sources: Nick Sirianni, Mike Vrabel among coaches fined for conduct toward refs",
-      "href": "/nfl/story/_/id/50244013/sirianni-vrabel-glenn-fined-250k-ref-conduct"
+      "league": "NHL",
+      "headline": "How Brady Tkachuk (and the Senators) prepared for his Ottawa return",
+      "href": "/nhl/story/_/id/50229493/nhl-2026-27-brady-tkachuk-panthers-senators-return-trade-rivalry-playoffs"
+    },
+    {
+      "league": "NHL",
+      "headline": "Canadiens captain Nick Suzuki out 2-4 weeks with upper-body injury",
+      "href": "/nhl/story/_/id/50250183/canadiens-captain-nick-suzuki-2-4-weeks-upper-body-injury"
     },
     {
       "league": "NFL",
@@ -13,9 +18,14 @@
       "href": "/nfl/story/_/id/50238049/trade-deadline-2026-barnwell-offers-pitches-barkley-thomas"
     },
     {
-      "league": "NBA",
-      "headline": "Try the NBA trade builder: ESPN Analytics' new tool for mock deals",
-      "href": "/nba/story/_/id/50220458/nba-trade-builder-lab-analytics-deals"
+      "league": "NFL",
+      "headline": "Sources: Eagles RB Barkley (hamstring) expected to practice, play vs. Cowboys",
+      "href": "/nfl/story/_/id/50248869/sources-eagles-barkley-expected-practice-play-vs-cowboys"
+    },
+    {
+      "league": "NFL",
+      "headline": "JJ Watt lands new deal as full-time CBS lead analyst replacement for Tony Romo",
+      "href": "/nfl/story/_/id/50248820/jj-watt-gets-deal-full-cbs-replacement-tony-romo"
     },
     {
       "league": "NFL",
@@ -24,13 +34,13 @@
     },
     {
       "league": "NBA",
-      "headline": "Trail Blazers fans show love for Damian Lillard in return",
-      "href": "/nba/story/_/id/50245665/portland-trail-blazers-damian-lillard-return-suns"
+      "headline": "Try the NBA trade builder: ESPN Analytics' new tool for mock deals",
+      "href": "/nba/story/_/id/50220458/nba-trade-builder-lab-analytics-deals"
     },
     {
       "league": "NBA",
-      "headline": "Tyrese Haliburton leads Pacers' opening-night win in emotional return from injury",
-      "href": "/nba/story/_/id/50245316/tyrese-haliburton-leads-pacers-opening-night-win-vs-pelicans-emotional-return-injury"
+      "headline": "Trail Blazers fans show love for Damian Lillard in return",
+      "href": "/nba/story/_/id/50245665/portland-trail-blazers-damian-lillard-return-suns"
     },
     {
       "league": "NHL",
@@ -48,29 +58,19 @@
       "href": "/mlb/story/_/id/50240270/kurt-suzuki-angels-manager-100-loss-season"
     },
     {
-      "league": "NFL",
-      "headline": "Packers' Josh Jacobs says he is trying to learn from 'mistake,' move forward",
-      "href": "/nfl/story/_/id/50242627/green-bay-packers-josh-jacobs-first-comments-arrest"
-    },
-    {
       "league": "NHL",
       "headline": "Senators fans booing Tkachuk reminiscent of previous unpleasant sports returns",
       "href": "/nhl/story/_/id/28118392/athletes-faced-wrath-jilted-fans"
     },
     {
-      "league": "NFL",
-      "headline": "Texans' Tank Dell says he won't fear being hit in return Sunday against Giants",
-      "href": "/nfl/story/_/id/50242240/texans-tank-dell-fear-being-hit-sunday-giants"
-    },
-    {
-      "league": "NFL",
-      "headline": "Panthers LB Jaelan Phillips (hamstring) set to miss Week 7 game vs. Bucs",
-      "href": "/nfl/story/_/id/50241322/panthers-jaelan-phillips-set-miss-week-7-game-vs-buccaneers-hamstring-injury"
-    },
-    {
       "league": "MLB",
       "headline": "Yankees, Brian Cashman reach contract; owner blames players for playoff exit",
       "href": "/mlb/story/_/id/50238406/yankees-gm-brian-cashman-agree-new-contract"
+    },
+    {
+      "league": "MLB",
+      "headline": "Uecker's family says he'd be 'incredibly proud' of Brewers",
+      "href": "/mlb/story/_/id/50240296/uecker-family-says-incredibly-proud-brewers"
     }
   ]
 }
