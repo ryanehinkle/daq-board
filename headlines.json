@@ -1,7 +1,27 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-22T07:23:45Z",
+  "refreshedAt": "2026-10-22T13:04:47Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Sources: Nick Sirianni, Mike Vrabel among coaches fined for conduct toward refs",
+      "href": "/nfl/story/_/id/50244013/sirianni-vrabel-glenn-fined-250k-ref-conduct"
+    },
+    {
+      "league": "NFL",
+      "headline": "Proposing NFL trade deadline offers: Moves for Saquon Barkley, Khalil Mack, more",
+      "href": "/nfl/story/_/id/50238049/trade-deadline-2026-barnwell-offers-pitches-barkley-thomas"
+    },
+    {
+      "league": "NBA",
+      "headline": "Try the NBA trade builder: ESPN Analytics' new tool for mock deals",
+      "href": "/nba/story/_/id/50220458/nba-trade-builder-lab-analytics-deals"
+    },
+    {
+      "league": "NFL",
+      "headline": "Vikings praise Aaron Jones Sr.'s heart with Jordan Mason out",
+      "href": "/nfl/story/_/id/50242272/vikings-praise-aaron-jones-heart-jordan-mason"
+    },
     {
       "league": "NBA",
       "headline": "Trail Blazers fans show love for Damian Lillard in return",
@@ -16,16 +36,6 @@
       "league": "NHL",
       "headline": "Brady Tkachuk embraces boos, scores in acrimonious return to Ottawa",
       "href": "/nhl/story/_/id/50243435/brady-tkachuk-embraces-boos-scores-acrimonious-return-ottawa"
-    },
-    {
-      "league": "NBA",
-      "headline": "Giannis Antetokounmpo says Heat need to trust each other more after blowout loss",
-      "href": "/nba/story/_/id/50245072/giannis-antetokounmpo-says-heat-need-trust-other-more-blowout-opening-loss-timberwolves"
-    },
-    {
-      "league": "NBA",
-      "headline": "Anthony Edwards joins Chamberlain, Jordan after dropping 40 in another opener",
-      "href": "/nba/story/_/id/50244919/anthony-edwards-joins-chamberlain-jordan-dropping-40-another-opener"
     },
     {
       "league": "MLB",
@@ -58,19 +68,9 @@
       "href": "/nfl/story/_/id/50241322/panthers-jaelan-phillips-set-miss-week-7-game-vs-buccaneers-hamstring-injury"
     },
     {
-      "league": "NFL",
-      "headline": "Goodell says NFL welcomes investigation into Eagles QB Hurts' medical care",
-      "href": "/nfl/story/_/id/50239029/roger-goodell-nfl-welcomes-probe-hurts-medical-care"
-    },
-    {
       "league": "MLB",
       "headline": "Yankees, Brian Cashman reach contract; owner blames players for playoff exit",
       "href": "/mlb/story/_/id/50238406/yankees-gm-brian-cashman-agree-new-contract"
-    },
-    {
-      "league": "NFL",
-      "headline": "Ravens' Lamar Jackson returns to practice but status remains unclear vs. Bengals",
-      "href": "/nfl/story/_/id/50241195/lamar-jackson-practice-unclear-vs-bengals-week-7"
     }
   ]
 }
