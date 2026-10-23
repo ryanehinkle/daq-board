@@ -1,7 +1,17 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-23T00:01:41Z",
+  "refreshedAt": "2026-10-23T04:35:42Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "TE Cole Kmet exits Bears' win vs. Patriots with knee injury",
+      "href": "/nfl/story/_/id/50254858/bears-te-cole-kmet-exits-late-vs-patriots-knee-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Seahawks' Zach Charbonnet activated off PUP list, has 2nd straight full practice",
+      "href": "/nfl/story/_/id/50250887/seahawks-rb-zach-charbonnet-activated-pup-list"
+    },
     {
       "league": "NBA",
       "headline": "Co-defendant denies Billups gave him info, pleads guilty in NBA gambling case",
@@ -16,16 +26,6 @@
       "league": "NFL",
       "headline": "Source: Several teams interested in Colts RB Taylor as trade deadline approaches",
       "href": "/nfl/story/_/id/50252635/several-teams-interested-trade-colts-jonathan-taylor"
-    },
-    {
-      "league": "NFL",
-      "headline": "Seahawks RB Zach Charbonnet activated off PUP list",
-      "href": "/nfl/story/_/id/50250887/seahawks-rb-zach-charbonnet-activated-pup-list"
-    },
-    {
-      "league": "NHL",
-      "headline": "How Brady Tkachuk (and the Senators) prepared for his Ottawa return",
-      "href": "/nhl/story/_/id/50229493/nhl-2026-27-brady-tkachuk-panthers-senators-return-trade-rivalry-playoffs"
     },
     {
       "league": "NHL",
@@ -43,11 +43,6 @@
       "href": "/nba/story/_/id/50245665/portland-trail-blazers-damian-lillard-return-suns"
     },
     {
-      "league": "NHL",
-      "headline": "Brady Tkachuk embraces boos, scores in acrimonious return to Ottawa",
-      "href": "/nhl/story/_/id/50243435/brady-tkachuk-embraces-boos-scores-acrimonious-return-ottawa"
-    },
-    {
       "league": "MLB",
       "headline": "Dodgers' Shohei Ohtani won't require surgery, expected to pitch in 2027",
       "href": "/mlb/story/_/id/50242196/dodgers-shohei-ohtani-not-require-surgery-expected-pitch-2027"
@@ -56,11 +51,6 @@
       "league": "MLB",
       "headline": "Kurt Suzuki out as Angels manager; interim GM John Mozeliak won't return in 2027",
       "href": "/mlb/story/_/id/50240270/kurt-suzuki-angels-manager-100-loss-season"
-    },
-    {
-      "league": "NHL",
-      "headline": "Senators fans booing Tkachuk reminiscent of previous unpleasant sports returns",
-      "href": "/nhl/story/_/id/28118392/athletes-faced-wrath-jilted-fans"
     },
     {
       "league": "MLB",
