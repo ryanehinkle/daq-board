@@ -1,7 +1,22 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-22T21:18:59Z",
+  "refreshedAt": "2026-10-23T00:01:41Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Co-defendant denies Billups gave him info, pleads guilty in NBA gambling case",
+      "href": "/nba/story/_/id/50252916/co-defendant-denies-billups-gave-info-nba-gambling-case"
+    },
+    {
+      "league": "NFL",
+      "headline": "Rams WR Puka Nacua leaves practice with calf injury",
+      "href": "/nfl/story/_/id/50252934/rams-wr-puka-nacua-leaves-practice-calf-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Several teams interested in Colts RB Taylor as trade deadline approaches",
+      "href": "/nfl/story/_/id/50252635/several-teams-interested-trade-colts-jonathan-taylor"
+    },
     {
       "league": "NFL",
       "headline": "Seahawks RB Zach Charbonnet activated off PUP list",
@@ -56,11 +71,6 @@
       "league": "MLB",
       "headline": "Uecker's family says he'd be 'incredibly proud' of Brewers",
       "href": "/mlb/story/_/id/50240296/uecker-family-says-incredibly-proud-brewers"
-    },
-    {
-      "league": "NHL",
-      "headline": "Brady Tkachuk returns to Ottawa for first time since trade",
-      "href": "/nhl/story/_/id/50239618/brady-tkachuk-returns-ottawa-first-trade"
     }
   ]
 }
