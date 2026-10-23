@@ -1,7 +1,17 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-23T09:32:53Z",
+  "refreshedAt": "2026-10-23T14:23:37Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "NBA opening week intel: New trend in contract talks; OKC's pricey future",
+      "href": "/nba/story/_/id/50241622/contract-talks-thunder-payroll-opening-week"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Jaguars LT Harrison out for season after surgery reveals torn ACL",
+      "href": "/nfl/story/_/id/50256842/sources-jaguars-lt-anton-harrison-season-torn-acl"
+    },
     {
       "league": "NFL",
       "headline": "TE Cole Kmet exits Bears' win vs. Patriots with knee injury",
@@ -18,24 +28,9 @@
       "href": "/nba/story/_/id/50253148/cavs-coach-atkinson-depressed-lebron-deal-fell-through"
     },
     {
-      "league": "NFL",
-      "headline": "Seahawks' Zach Charbonnet activated off PUP list, has 2nd straight full practice",
-      "href": "/nfl/story/_/id/50250887/seahawks-rb-zach-charbonnet-activated-pup-list"
-    },
-    {
       "league": "NBA",
       "headline": "Co-defendant denies Billups gave him info, pleads guilty in NBA gambling case",
       "href": "/nba/story/_/id/50252916/co-defendant-denies-billups-gave-info-nba-gambling-case"
-    },
-    {
-      "league": "NFL",
-      "headline": "Rams WR Puka Nacua leaves practice with calf injury",
-      "href": "/nfl/story/_/id/50252934/rams-wr-puka-nacua-leaves-practice-calf-injury"
-    },
-    {
-      "league": "NFL",
-      "headline": "Source: Several teams interested in Colts RB Taylor as trade deadline approaches",
-      "href": "/nfl/story/_/id/50252635/several-teams-interested-trade-colts-jonathan-taylor"
     },
     {
       "league": "NBA",
