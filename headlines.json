@@ -1,16 +1,46 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-23T18:34:27Z",
+  "refreshedAt": "2026-10-23T21:37:55Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "Colts' Tyler Warren to miss second game with groin injury",
-      "href": "/nfl/story/_/id/50259536/colts-tyler-warren-miss-second-game-groin-injury"
+      "headline": "49ers WR Evans, DE Bosa, WR Samuel out vs. Atlanta; WR Kirk may return",
+      "href": "/nfl/story/_/id/50260609/49ers-wr-evans-de-bosa-wr-samuel-vs-atlanta-wr-kirk-return"
     },
     {
       "league": "NFL",
-      "headline": "Cards rookie RB Jeremiyah Love to miss second straight game with ankle injury",
-      "href": "/nfl/story/_/id/50259624/cardinals-rookie-rb-jeremiyah-love-miss-second-straight-game"
+      "headline": "Cowboys say still time to turn things around after 2-4 start",
+      "href": "/nfl/story/_/id/50260535/cowboys-say-turn-things-2-4-start"
+    },
+    {
+      "league": "NHL",
+      "headline": "NHL trade grades: Connor Hellebuyck to New Jersey Devils",
+      "href": "/nhl/story/_/id/50260103/nhl-hellebuyck-trade-grades-devils-jets-mercer-bjugstad-command-daws"
+    },
+    {
+      "league": "NFL",
+      "headline": "Cam Skattebo set to return to Giants RB mix after being 'taught a lesson'",
+      "href": "/nfl/story/_/id/50259856/cam-skattebo-set-return-giants-rb-mix"
+    },
+    {
+      "league": "NFL",
+      "headline": "Bears TE Cole Kmet out for season after knee injury vs. Patriots",
+      "href": "/nfl/story/_/id/50259989/bears-te-cole-kmet-season-knee-injury-vs-pats"
+    },
+    {
+      "league": "NFL",
+      "headline": "Rams WR Puka Nacua misses practice, questionable vs. Raiders with calf injury",
+      "href": "/nfl/story/_/id/50259748/rams-wr-puka-nacua-questionable-vs-raiders-calf-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Lions' Dan Campbell downplays Sam LaPorta's contract comments",
+      "href": "/nfl/story/_/id/50258967/lions-dan-campbell-downplays-sam-laporta-contract-comments"
+    },
+    {
+      "league": "NBA",
+      "headline": "Phishing email to Knicks employees an 'unfortunate mistake,' MSG spokesman says",
+      "href": "/nba/story/_/id/50258240/report-knicks-coaches-get-empty-ring-boxes-staff-phished"
     },
     {
       "league": "NFL",
@@ -19,28 +49,8 @@
     },
     {
       "league": "NFL",
-      "headline": "Dolphins rookie WR Caleb Douglas set to return vs. Jets",
-      "href": "/nfl/story/_/id/50259154/dolphins-rookie-wr-caleb-douglas-set-return-vs-jets"
-    },
-    {
-      "league": "NFL",
-      "headline": "Lions' Dan Campbell downplays Sam LaPorta's contract comments",
-      "href": "/nfl/story/_/id/50258967/lions-dan-campbell-downplays-sam-laporta-contract-comments"
-    },
-    {
-      "league": "NFL",
-      "headline": "Roger Goodell says NFL targeting Tokyo game in 2027 or 2028",
-      "href": "/nfl/story/_/id/50258811/roger-goodell-says-nfl-targeting-tokyo-game-2027-2028"
-    },
-    {
-      "league": "NFL",
-      "headline": "Packers linebacker Zaire Franklin out Sunday with shin injury",
-      "href": "/nfl/story/_/id/50258680/packers-linebacker-zaire-franklin-sunday-shin-injury"
-    },
-    {
-      "league": "NFL",
-      "headline": "Bills' Sam Franklin wins appeal; suspension for spitting reduced to fine",
-      "href": "/nfl/story/_/id/50258709/bills-franklin-wins-appeal-suspension-spitting-overturned"
+      "headline": "Cards rookie RB Jeremiyah Love to miss second straight game with ankle injury",
+      "href": "/nfl/story/_/id/50259624/cardinals-rookie-rb-jeremiyah-love-miss-second-straight-game"
     },
     {
       "league": "NBA",
@@ -51,16 +61,6 @@
       "league": "NHL",
       "headline": "Caps' Vincent Desharnais out 4-6 weeks after appendectomy",
       "href": "/nhl/story/_/id/50258318/caps-vincent-desharnais-4-6-weeks-appendectomy"
-    },
-    {
-      "league": "NBA",
-      "headline": "NBA opening week intel: New trend in contract talks; OKC's pricey future",
-      "href": "/nba/story/_/id/50241622/contract-talks-thunder-payroll-opening-week"
-    },
-    {
-      "league": "NBA",
-      "headline": "Shai Gilgeous-Alexander's record 20-point streak ends in Thunder win over Nuggets",
-      "href": "/nba/story/_/id/50255402/gilgeous-alexander-record-20-point-streak-ends-thunder-win"
     },
     {
       "league": "MLB",
