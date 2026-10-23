@@ -1,41 +1,66 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-23T14:23:37Z",
+  "refreshedAt": "2026-10-23T18:34:27Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Colts' Tyler Warren to miss second game with groin injury",
+      "href": "/nfl/story/_/id/50259536/colts-tyler-warren-miss-second-game-groin-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Cards rookie RB Jeremiyah Love to miss second straight game with ankle injury",
+      "href": "/nfl/story/_/id/50259624/cardinals-rookie-rb-jeremiyah-love-miss-second-straight-game"
+    },
+    {
+      "league": "NFL",
+      "headline": "Baker Mayfield returns for Bucs, but WR Emeka Egbuka, RT Luke Goedeke out",
+      "href": "/nfl/story/_/id/50259196/baker-mayfield-returns-emeka-egbuka-luke-goedeke-out"
+    },
+    {
+      "league": "NFL",
+      "headline": "Dolphins rookie WR Caleb Douglas set to return vs. Jets",
+      "href": "/nfl/story/_/id/50259154/dolphins-rookie-wr-caleb-douglas-set-return-vs-jets"
+    },
+    {
+      "league": "NFL",
+      "headline": "Lions' Dan Campbell downplays Sam LaPorta's contract comments",
+      "href": "/nfl/story/_/id/50258967/lions-dan-campbell-downplays-sam-laporta-contract-comments"
+    },
+    {
+      "league": "NFL",
+      "headline": "Roger Goodell says NFL targeting Tokyo game in 2027 or 2028",
+      "href": "/nfl/story/_/id/50258811/roger-goodell-says-nfl-targeting-tokyo-game-2027-2028"
+    },
+    {
+      "league": "NFL",
+      "headline": "Packers linebacker Zaire Franklin out Sunday with shin injury",
+      "href": "/nfl/story/_/id/50258680/packers-linebacker-zaire-franklin-sunday-shin-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Bills' Sam Franklin wins appeal; suspension for spitting reduced to fine",
+      "href": "/nfl/story/_/id/50258709/bills-franklin-wins-appeal-suspension-spitting-overturned"
+    },
+    {
+      "league": "NBA",
+      "headline": "Ex-Laker Dalton Knecht joins Knicks on two-way contract",
+      "href": "/nba/story/_/id/50258464/ex-laker-dalton-knecht-joins-knicks-two-way-contract"
+    },
+    {
+      "league": "NHL",
+      "headline": "Caps' Vincent Desharnais out 4-6 weeks after appendectomy",
+      "href": "/nhl/story/_/id/50258318/caps-vincent-desharnais-4-6-weeks-appendectomy"
+    },
     {
       "league": "NBA",
       "headline": "NBA opening week intel: New trend in contract talks; OKC's pricey future",
       "href": "/nba/story/_/id/50241622/contract-talks-thunder-payroll-opening-week"
     },
     {
-      "league": "NFL",
-      "headline": "Sources: Jaguars LT Harrison out for season after surgery reveals torn ACL",
-      "href": "/nfl/story/_/id/50256842/sources-jaguars-lt-anton-harrison-season-torn-acl"
-    },
-    {
-      "league": "NFL",
-      "headline": "TE Cole Kmet exits Bears' win vs. Patriots with knee injury",
-      "href": "/nfl/story/_/id/50254858/bears-te-cole-kmet-exits-late-vs-patriots-knee-injury"
-    },
-    {
       "league": "NBA",
       "headline": "Shai Gilgeous-Alexander's record 20-point streak ends in Thunder win over Nuggets",
       "href": "/nba/story/_/id/50255402/gilgeous-alexander-record-20-point-streak-ends-thunder-win"
-    },
-    {
-      "league": "NBA",
-      "headline": "Cavs coach Atkinson 'depressed' when LeBron deal fell through",
-      "href": "/nba/story/_/id/50253148/cavs-coach-atkinson-depressed-lebron-deal-fell-through"
-    },
-    {
-      "league": "NBA",
-      "headline": "Co-defendant denies Billups gave him info, pleads guilty in NBA gambling case",
-      "href": "/nba/story/_/id/50252916/co-defendant-denies-billups-gave-info-nba-gambling-case"
-    },
-    {
-      "league": "NBA",
-      "headline": "Try the NBA trade builder: ESPN Analytics' new tool for mock deals",
-      "href": "/nba/story/_/id/50220458/nba-trade-builder-lab-analytics-deals"
     },
     {
       "league": "MLB",
@@ -46,16 +71,6 @@
       "league": "MLB",
       "headline": "Kurt Suzuki out as Angels manager; interim GM John Mozeliak won't return in 2027",
       "href": "/mlb/story/_/id/50240270/kurt-suzuki-angels-manager-100-loss-season"
-    },
-    {
-      "league": "MLB",
-      "headline": "Yankees, Brian Cashman reach contract; owner blames players for playoff exit",
-      "href": "/mlb/story/_/id/50238406/yankees-gm-brian-cashman-agree-new-contract"
-    },
-    {
-      "league": "MLB",
-      "headline": "Uecker's family says he'd be 'incredibly proud' of Brewers",
-      "href": "/mlb/story/_/id/50240296/uecker-family-says-incredibly-proud-brewers"
     }
   ]
 }
