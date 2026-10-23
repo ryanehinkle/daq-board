@@ -1,11 +1,21 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-23T04:35:42Z",
+  "refreshedAt": "2026-10-23T09:32:53Z",
   "items": [
     {
       "league": "NFL",
       "headline": "TE Cole Kmet exits Bears' win vs. Patriots with knee injury",
       "href": "/nfl/story/_/id/50254858/bears-te-cole-kmet-exits-late-vs-patriots-knee-injury"
+    },
+    {
+      "league": "NBA",
+      "headline": "Shai Gilgeous-Alexander's record 20-point streak ends in Thunder win over Nuggets",
+      "href": "/nba/story/_/id/50255402/gilgeous-alexander-record-20-point-streak-ends-thunder-win"
+    },
+    {
+      "league": "NBA",
+      "headline": "Cavs coach Atkinson 'depressed' when LeBron deal fell through",
+      "href": "/nba/story/_/id/50253148/cavs-coach-atkinson-depressed-lebron-deal-fell-through"
     },
     {
       "league": "NFL",
@@ -28,19 +38,9 @@
       "href": "/nfl/story/_/id/50252635/several-teams-interested-trade-colts-jonathan-taylor"
     },
     {
-      "league": "NHL",
-      "headline": "Canadiens captain Nick Suzuki out 2-4 weeks with upper-body injury",
-      "href": "/nhl/story/_/id/50250183/canadiens-captain-nick-suzuki-2-4-weeks-upper-body-injury"
-    },
-    {
       "league": "NBA",
       "headline": "Try the NBA trade builder: ESPN Analytics' new tool for mock deals",
       "href": "/nba/story/_/id/50220458/nba-trade-builder-lab-analytics-deals"
-    },
-    {
-      "league": "NBA",
-      "headline": "Trail Blazers fans show love for Damian Lillard in return",
-      "href": "/nba/story/_/id/50245665/portland-trail-blazers-damian-lillard-return-suns"
     },
     {
       "league": "MLB",
