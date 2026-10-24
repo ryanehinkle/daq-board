@@ -1,16 +1,41 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-24T00:00:17Z",
+  "refreshedAt": "2026-10-24T04:24:14Z",
   "items": [
     {
-      "league": "NFL",
-      "headline": "Giants LB Tremaine Edmunds (chest) out for year, source says",
-      "href": "/nfl/story/_/id/50260899/giants-lb-tremaine-edmunds-chest-year-source-says"
+      "league": "NBA",
+      "headline": "Pelicans center Yves Missi helped off court vs. Jazz with leg injury",
+      "href": "/nba/story/_/id/50262849/pelicans-yves-missi-exits-jazz-game-left-leg-injury"
+    },
+    {
+      "league": "MLB",
+      "headline": "Trevor Megill escapes 9th-inning jam to close out Brewers' Game 1 win",
+      "href": "/mlb/story/_/id/50262974/trevor-megill-escapes-9th-inning-jam-close-brewers-g1-win"
+    },
+    {
+      "league": "NBA",
+      "headline": "Mavericks' Cooper Flagg lands on shoulder after hard foul, exits win vs. Pacers",
+      "href": "/nba/story/_/id/50262142/mavericks-cooper-flagg-exits-vs-pacers-left-shoulder-soreness"
+    },
+    {
+      "league": "MLB",
+      "headline": "2026 World Series Game 1: Analysis as Brewers beat Rays",
+      "href": "/mlb/story/_/id/50240295/world-series-game-1-rays-brewers-live-updates-takeaways"
     },
     {
       "league": "NFL",
       "headline": "49ers WR Evans, DE Bosa, WR Samuel out vs. Atlanta; WR Kirk may return",
       "href": "/nfl/story/_/id/50260609/49ers-wr-evans-de-bosa-wr-samuel-vs-atlanta-wr-kirk-return"
+    },
+    {
+      "league": "NFL",
+      "headline": "Cowboys say still time to turn things around after 2-4 start",
+      "href": "/nfl/story/_/id/50260535/cowboys-say-turn-things-2-4-start"
+    },
+    {
+      "league": "NFL",
+      "headline": "Giants LB Tremaine Edmunds (chest) out for year, source says",
+      "href": "/nfl/story/_/id/50260899/giants-lb-tremaine-edmunds-chest-year-source-says"
     },
     {
       "league": "NFL",
@@ -21,11 +46,6 @@
       "league": "NHL",
       "headline": "NHL trade grades: Connor Hellebuyck to New Jersey Devils",
       "href": "/nhl/story/_/id/50260103/nhl-hellebuyck-trade-grades-devils-jets-mercer-bjugstad-command-daws"
-    },
-    {
-      "league": "NFL",
-      "headline": "Cowboys say still time to turn things around after 2-4 start",
-      "href": "/nfl/story/_/id/50260535/cowboys-say-turn-things-2-4-start"
     },
     {
       "league": "NHL",
@@ -51,26 +71,6 @@
       "league": "NFL",
       "headline": "Lions' Dan Campbell downplays Sam LaPorta's contract comments",
       "href": "/nfl/story/_/id/50258967/lions-dan-campbell-downplays-sam-laporta-contract-comments"
-    },
-    {
-      "league": "NBA",
-      "headline": "Phishing email to Knicks employees an 'unfortunate mistake,' MSG spokesman says",
-      "href": "/nba/story/_/id/50258240/report-knicks-coaches-get-empty-ring-boxes-staff-phished"
-    },
-    {
-      "league": "NBA",
-      "headline": "Ex-Laker Dalton Knecht joins Knicks on two-way contract",
-      "href": "/nba/story/_/id/50258464/ex-laker-dalton-knecht-joins-knicks-two-way-contract"
-    },
-    {
-      "league": "MLB",
-      "headline": "Dodgers' Shohei Ohtani won't require surgery, expected to pitch in 2027",
-      "href": "/mlb/story/_/id/50242196/dodgers-shohei-ohtani-not-require-surgery-expected-pitch-2027"
-    },
-    {
-      "league": "MLB",
-      "headline": "Kurt Suzuki out as Angels manager; interim GM John Mozeliak won't return in 2027",
-      "href": "/mlb/story/_/id/50240270/kurt-suzuki-angels-manager-100-loss-season"
     }
   ]
 }
