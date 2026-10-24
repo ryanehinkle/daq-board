@@ -1,7 +1,27 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-24T19:00:15Z",
+  "refreshedAt": "2026-10-24T21:30:01Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Eagles' DeVonta Smith, Dontayvion Wicks out vs. Cowboys",
+      "href": "/nfl/story/_/id/50269752/eagles-devonta-smith-dontayvion-wicks-vs-cowboys"
+    },
+    {
+      "league": "NFL",
+      "headline": "Vikings activate RB Jordan Mason off injured reserve",
+      "href": "/nfl/story/_/id/50269656/vikings-activate-rb-jordan-mason-injured-reserve"
+    },
+    {
+      "league": "NFL",
+      "headline": "Ravens rule out Lamar Jackson (ankle) vs. Bengals; Tyler 'Snoop' Huntley to start",
+      "href": "/nfl/story/_/id/50268816/ravens-rule-lamar-jackson-high-ankle-sprain-vs-bengals"
+    },
+    {
+      "league": "NHL",
+      "headline": "Connor Hellebuyck glad to join Devils after Jets standoff forced trade",
+      "href": "/nhl/story/_/id/50268327/connor-hellebuyck-happy-join-devils-jets-standoff"
+    },
     {
       "league": "NBA",
       "headline": "Mavericks' Cooper Flagg out for home opener with mild left shoulder sprain",
@@ -48,19 +68,9 @@
       "href": "/nfl/story/_/id/50260899/giants-lb-tremaine-edmunds-chest-year-source-says"
     },
     {
-      "league": "NFL",
-      "headline": "Seahawks rule out RB Zach Charbonnet vs. Chiefs",
-      "href": "/nfl/story/_/id/50261029/seahawks-rule-rb-zach-charbonnet-vs-chiefs"
-    },
-    {
       "league": "NHL",
       "headline": "NHL trade grades: Connor Hellebuyck to New Jersey Devils",
       "href": "/nhl/story/_/id/50260103/nhl-hellebuyck-trade-grades-devils-jets-mercer-bjugstad-command-daws"
-    },
-    {
-      "league": "NHL",
-      "headline": "Caps' Vincent Desharnais out 4-6 weeks after appendectomy",
-      "href": "/nhl/story/_/id/50258318/caps-vincent-desharnais-4-6-weeks-appendectomy"
     }
   ]
 }
