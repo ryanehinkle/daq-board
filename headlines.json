@@ -1,6 +1,6 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-24T08:59:27Z",
+  "refreshedAt": "2026-10-24T13:14:25Z",
   "items": [
     {
       "league": "NBA",
@@ -9,7 +9,7 @@
     },
     {
       "league": "MLB",
-      "headline": "Trevor Megill escapes 9th-inning jam to close out Brewers' Game 1 win",
+      "headline": "Trevor Megill escapes ninth-inning jam to close out Brewers' Game 1 win",
       "href": "/mlb/story/_/id/50262974/trevor-megill-escapes-9th-inning-jam-close-brewers-g1-win"
     },
     {
@@ -69,8 +69,8 @@
     },
     {
       "league": "NFL",
-      "headline": "Lions' Dan Campbell downplays Sam LaPorta's contract comments",
-      "href": "/nfl/story/_/id/50258967/lions-dan-campbell-downplays-sam-laporta-contract-comments"
+      "headline": "Baker Mayfield returns for Bucs, but WR Emeka Egbuka, RT Luke Goedeke out",
+      "href": "/nfl/story/_/id/50259196/baker-mayfield-returns-emeka-egbuka-luke-goedeke-out"
     }
   ]
 }
