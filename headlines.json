@@ -1,7 +1,17 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-24T16:39:22Z",
+  "refreshedAt": "2026-10-24T19:00:15Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Mavericks' Cooper Flagg out for home opener with mild left shoulder sprain",
+      "href": "/nba/story/_/id/50267528/mavericks-flagg-home-opener-mild-left-shoulder-sprain"
+    },
+    {
+      "league": "NBA",
+      "headline": "Magic's Paolo Banchero has ankle sprain; out multiple weeks, sources say",
+      "href": "/nba/story/_/id/50266620/sources-magic-banchero-multiple-weeks-ankle-sprain"
+    },
     {
       "league": "NBA",
       "headline": "Ex-NBA player Malik Beasley negotiating plea deal in gambling case",
@@ -51,11 +61,6 @@
       "league": "NHL",
       "headline": "Caps' Vincent Desharnais out 4-6 weeks after appendectomy",
       "href": "/nhl/story/_/id/50258318/caps-vincent-desharnais-4-6-weeks-appendectomy"
-    },
-    {
-      "league": "NFL",
-      "headline": "Bears TE Cole Kmet out for season after knee injury vs. Patriots",
-      "href": "/nfl/story/_/id/50259989/bears-te-cole-kmet-season-knee-injury-vs-pats"
     }
   ]
 }
