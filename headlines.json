@@ -1,7 +1,12 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-24T13:14:25Z",
+  "refreshedAt": "2026-10-24T16:39:22Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Ex-NBA player Malik Beasley negotiating plea deal in gambling case",
+      "href": "/nba/story/_/id/50265720/ex-nba-player-malik-beasley-negotiating-plea-deal-gambling-case"
+    },
     {
       "league": "NBA",
       "headline": "Jayson Tatum insists 'there's no beef' with Jaylen Brown in wake of trade",
@@ -11,11 +16,6 @@
       "league": "MLB",
       "headline": "Trevor Megill escapes ninth-inning jam to close out Brewers' Game 1 win",
       "href": "/mlb/story/_/id/50262974/trevor-megill-escapes-9th-inning-jam-close-brewers-g1-win"
-    },
-    {
-      "league": "NBA",
-      "headline": "Pelicans center Yves Missi helped off court vs. Jazz with knee injury",
-      "href": "/nba/story/_/id/50262849/pelicans-yves-missi-exits-jazz-game-left-leg-injury"
     },
     {
       "league": "MLB",
@@ -54,23 +54,8 @@
     },
     {
       "league": "NFL",
-      "headline": "Cam Skattebo set to return to Giants RB mix after being 'taught a lesson'",
-      "href": "/nfl/story/_/id/50259856/cam-skattebo-set-return-giants-rb-mix"
-    },
-    {
-      "league": "NFL",
       "headline": "Bears TE Cole Kmet out for season after knee injury vs. Patriots",
       "href": "/nfl/story/_/id/50259989/bears-te-cole-kmet-season-knee-injury-vs-pats"
-    },
-    {
-      "league": "NFL",
-      "headline": "Rams WR Puka Nacua misses practice, questionable vs. Raiders with calf injury",
-      "href": "/nfl/story/_/id/50259748/rams-wr-puka-nacua-questionable-vs-raiders-calf-injury"
-    },
-    {
-      "league": "NFL",
-      "headline": "Baker Mayfield returns for Bucs, but WR Emeka Egbuka, RT Luke Goedeke out",
-      "href": "/nfl/story/_/id/50259196/baker-mayfield-returns-emeka-egbuka-luke-goedeke-out"
     }
   ]
 }
