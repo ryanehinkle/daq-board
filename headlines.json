@@ -1,11 +1,26 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-23T21:37:55Z",
+  "refreshedAt": "2026-10-24T00:00:17Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Giants LB Tremaine Edmunds (chest) out for year, source says",
+      "href": "/nfl/story/_/id/50260899/giants-lb-tremaine-edmunds-chest-year-source-says"
+    },
     {
       "league": "NFL",
       "headline": "49ers WR Evans, DE Bosa, WR Samuel out vs. Atlanta; WR Kirk may return",
       "href": "/nfl/story/_/id/50260609/49ers-wr-evans-de-bosa-wr-samuel-vs-atlanta-wr-kirk-return"
+    },
+    {
+      "league": "NFL",
+      "headline": "Seahawks rule out RB Zach Charbonnet vs. Chiefs",
+      "href": "/nfl/story/_/id/50261029/seahawks-rule-rb-zach-charbonnet-vs-chiefs"
+    },
+    {
+      "league": "NHL",
+      "headline": "NHL trade grades: Connor Hellebuyck to New Jersey Devils",
+      "href": "/nhl/story/_/id/50260103/nhl-hellebuyck-trade-grades-devils-jets-mercer-bjugstad-command-daws"
     },
     {
       "league": "NFL",
@@ -14,8 +29,8 @@
     },
     {
       "league": "NHL",
-      "headline": "NHL trade grades: Connor Hellebuyck to New Jersey Devils",
-      "href": "/nhl/story/_/id/50260103/nhl-hellebuyck-trade-grades-devils-jets-mercer-bjugstad-command-daws"
+      "headline": "Caps' Vincent Desharnais out 4-6 weeks after appendectomy",
+      "href": "/nhl/story/_/id/50258318/caps-vincent-desharnais-4-6-weeks-appendectomy"
     },
     {
       "league": "NFL",
@@ -43,24 +58,9 @@
       "href": "/nba/story/_/id/50258240/report-knicks-coaches-get-empty-ring-boxes-staff-phished"
     },
     {
-      "league": "NFL",
-      "headline": "Baker Mayfield returns for Bucs, but WR Emeka Egbuka, RT Luke Goedeke out",
-      "href": "/nfl/story/_/id/50259196/baker-mayfield-returns-emeka-egbuka-luke-goedeke-out"
-    },
-    {
-      "league": "NFL",
-      "headline": "Cards rookie RB Jeremiyah Love to miss second straight game with ankle injury",
-      "href": "/nfl/story/_/id/50259624/cardinals-rookie-rb-jeremiyah-love-miss-second-straight-game"
-    },
-    {
       "league": "NBA",
       "headline": "Ex-Laker Dalton Knecht joins Knicks on two-way contract",
       "href": "/nba/story/_/id/50258464/ex-laker-dalton-knecht-joins-knicks-two-way-contract"
-    },
-    {
-      "league": "NHL",
-      "headline": "Caps' Vincent Desharnais out 4-6 weeks after appendectomy",
-      "href": "/nhl/story/_/id/50258318/caps-vincent-desharnais-4-6-weeks-appendectomy"
     },
     {
       "league": "MLB",
