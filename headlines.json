@@ -1,16 +1,21 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-24T21:30:01Z",
+  "refreshedAt": "2026-10-24T23:36:12Z",
   "items": [
-    {
-      "league": "NFL",
-      "headline": "Eagles' DeVonta Smith, Dontayvion Wicks out vs. Cowboys",
-      "href": "/nfl/story/_/id/50269752/eagles-devonta-smith-dontayvion-wicks-vs-cowboys"
-    },
     {
       "league": "NFL",
       "headline": "Vikings activate RB Jordan Mason off injured reserve",
       "href": "/nfl/story/_/id/50269656/vikings-activate-rb-jordan-mason-injured-reserve"
+    },
+    {
+      "league": "NHL",
+      "headline": "Leo Carlsson, offered by Flyers, burns Philly in Ducks' win",
+      "href": "/nhl/story/_/id/50269978/leo-carlsson-offered-flyers-burns-philly-ducks-win"
+    },
+    {
+      "league": "NFL",
+      "headline": "Eagles' DeVonta Smith, Dontayvion Wicks out vs. Cowboys",
+      "href": "/nfl/story/_/id/50269752/eagles-devonta-smith-dontayvion-wicks-vs-cowboys"
     },
     {
       "league": "NFL",
@@ -66,11 +71,6 @@
       "league": "NFL",
       "headline": "Giants LB Tremaine Edmunds (chest) out for year, source says",
       "href": "/nfl/story/_/id/50260899/giants-lb-tremaine-edmunds-chest-year-source-says"
-    },
-    {
-      "league": "NHL",
-      "headline": "NHL trade grades: Connor Hellebuyck to New Jersey Devils",
-      "href": "/nhl/story/_/id/50260103/nhl-hellebuyck-trade-grades-devils-jets-mercer-bjugstad-command-daws"
     }
   ]
 }
