@@ -1,7 +1,12 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-25T16:09:58Z",
+  "refreshedAt": "2026-10-25T19:02:38Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Sources: Josh Simmons told to leave Chiefs meeting by Andy Reid, Patrick Mahomes",
+      "href": "/nfl/story/_/id/50268181/sources-josh-simmons-told-leave-chiefs-team-meeting"
+    },
     {
       "league": "NFL",
       "headline": "Sources: Cam Skattebo expected to resume role as Giants' lead RB vs. Texans",
@@ -16,11 +21,6 @@
       "league": "NBA",
       "headline": "Pistons C Jalen Duren out at least two weeks with hamstring strain",
       "href": "/nba/story/_/id/50277066/pistons-jalen-duren-hamstring-strain-least-2-weeks"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Josh Simmons told to leave Chiefs meeting by Andy Reid, Patrick Mahomes",
-      "href": "/nfl/story/_/id/50268181/sources-josh-simmons-told-leave-chiefs-team-meeting"
     },
     {
       "league": "NFL",
@@ -58,19 +58,14 @@
       "href": "/nba/story/_/id/50272348/giannis-antetokounmpo-fouls-4th-heat-tumble-0-3"
     },
     {
-      "league": "NFL",
-      "headline": "Vikings activate RB Jordan Mason off injured reserve",
-      "href": "/nfl/story/_/id/50269656/vikings-activate-rb-jordan-mason-injured-reserve"
-    },
-    {
-      "league": "NFL",
-      "headline": "Eagles' DeVonta Smith, Dontayvion Wicks out vs. Cowboys",
-      "href": "/nfl/story/_/id/50269752/eagles-devonta-smith-dontayvion-wicks-vs-cowboys"
-    },
-    {
       "league": "MLB",
       "headline": "Trevor Megill escapes ninth-inning jam to close out Brewers' Game 1 win",
       "href": "/mlb/story/_/id/50262974/trevor-megill-escapes-9th-inning-jam-close-brewers-g1-win"
+    },
+    {
+      "league": "MLB",
+      "headline": "2026 World Series Game 1: Analysis as Brewers beat Rays",
+      "href": "/mlb/story/_/id/50240295/world-series-game-1-rays-brewers-live-updates-takeaways"
     }
   ]
 }
