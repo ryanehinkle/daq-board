@@ -1,11 +1,31 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-25T06:49:35Z",
+  "refreshedAt": "2026-10-25T12:07:39Z",
   "items": [
     {
-      "league": "NHL",
-      "headline": "Connor Hellebuyck glad to join Devils after Jets standoff forced trade",
-      "href": "/nhl/story/_/id/50268327/connor-hellebuyck-happy-join-devils-jets-standoff"
+      "league": "NFL",
+      "headline": "Sources: Cam Skattebo expected to resume role as Giants' lead RB vs. Texans",
+      "href": "/nfl/story/_/id/50268018/sources-cam-skattebo-expected-giants-lead-rb"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Josh Simmons told to leave Chiefs meeting by Andy Reid, Patrick Mahomes",
+      "href": "/nfl/story/_/id/50268181/sources-josh-simmons-told-leave-chiefs-team-meeting"
+    },
+    {
+      "league": "NFL",
+      "headline": "Rams optimistic that star WR Puka Nacua will play vs. Raiders, source says",
+      "href": "/nfl/story/_/id/50275162/source-rams-optimistic-puka-nacua-play-vs-raiders"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Colts face big decisions on star players as NFL trade deadline looms",
+      "href": "/nfl/story/_/id/50272352/sources-decisions-loom-colts-nfl-trade-deadline"
+    },
+    {
+      "league": "NFL",
+      "headline": "Browns DT Maliek Collins lands 2-year extension worth $30 million, agent says",
+      "href": "/nfl/story/_/id/50275489/browns-maliek-collins-lands-2-year-extension-agent-says"
     },
     {
       "league": "NBA",
@@ -33,11 +53,6 @@
       "href": "/nfl/story/_/id/50269656/vikings-activate-rb-jordan-mason-injured-reserve"
     },
     {
-      "league": "NHL",
-      "headline": "Leo Carlsson, offered by Flyers, burns Philly in Ducks' win",
-      "href": "/nhl/story/_/id/50269978/leo-carlsson-offered-flyers-burns-philly-ducks-win"
-    },
-    {
       "league": "NFL",
       "headline": "Eagles' DeVonta Smith, Dontayvion Wicks out vs. Cowboys",
       "href": "/nfl/story/_/id/50269752/eagles-devonta-smith-dontayvion-wicks-vs-cowboys"
@@ -53,24 +68,9 @@
       "href": "/nba/story/_/id/50267528/mavericks-flagg-home-opener-mild-left-shoulder-sprain"
     },
     {
-      "league": "NBA",
-      "headline": "Magic's Paolo Banchero has ankle sprain; out multiple weeks, sources say",
-      "href": "/nba/story/_/id/50266620/sources-magic-banchero-multiple-weeks-ankle-sprain"
-    },
-    {
       "league": "MLB",
       "headline": "Trevor Megill escapes ninth-inning jam to close out Brewers' Game 1 win",
       "href": "/mlb/story/_/id/50262974/trevor-megill-escapes-9th-inning-jam-close-brewers-g1-win"
-    },
-    {
-      "league": "MLB",
-      "headline": "2026 World Series Game 1: Analysis as Brewers beat Rays",
-      "href": "/mlb/story/_/id/50240295/world-series-game-1-rays-brewers-live-updates-takeaways"
-    },
-    {
-      "league": "NFL",
-      "headline": "Giants LB Tremaine Edmunds (chest) out for year, source says",
-      "href": "/nfl/story/_/id/50260899/giants-lb-tremaine-edmunds-chest-year-source-says"
     }
   ]
 }
