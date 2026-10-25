@@ -1,7 +1,12 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-24T23:36:12Z",
+  "refreshedAt": "2026-10-25T01:36:47Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Giannis Antetokounmpo fouls out vs. Hornets as Heat tumble to 0-3",
+      "href": "/nba/story/_/id/50272348/giannis-antetokounmpo-fouls-4th-heat-tumble-0-3"
+    },
     {
       "league": "NFL",
       "headline": "Vikings activate RB Jordan Mason off injured reserve",
@@ -61,11 +66,6 @@
       "league": "NFL",
       "headline": "49ers WR Evans, DE Bosa, WR Samuel out vs. Atlanta; WR Kirk may return",
       "href": "/nfl/story/_/id/50260609/49ers-wr-evans-de-bosa-wr-samuel-vs-atlanta-wr-kirk-return"
-    },
-    {
-      "league": "NFL",
-      "headline": "Cowboys say still time to turn things around after 2-4 start",
-      "href": "/nfl/story/_/id/50260535/cowboys-say-turn-things-2-4-start"
     },
     {
       "league": "NFL",
