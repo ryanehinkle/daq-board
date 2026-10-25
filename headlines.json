@@ -1,46 +1,16 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-25T19:02:38Z",
+  "refreshedAt": "2026-10-25T21:41:10Z",
   "items": [
-    {
-      "league": "NFL",
-      "headline": "Sources: Josh Simmons told to leave Chiefs meeting by Andy Reid, Patrick Mahomes",
-      "href": "/nfl/story/_/id/50268181/sources-josh-simmons-told-leave-chiefs-team-meeting"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Cam Skattebo expected to resume role as Giants' lead RB vs. Texans",
-      "href": "/nfl/story/_/id/50268018/sources-cam-skattebo-expected-giants-lead-rb"
-    },
-    {
-      "league": "NFL",
-      "headline": "Rams optimistic that star WR Puka Nacua will play vs. Raiders, source says",
-      "href": "/nfl/story/_/id/50275162/source-rams-optimistic-puka-nacua-play-vs-raiders"
-    },
     {
       "league": "NBA",
       "headline": "Pistons C Jalen Duren out at least two weeks with hamstring strain",
       "href": "/nba/story/_/id/50277066/pistons-jalen-duren-hamstring-strain-least-2-weeks"
     },
     {
-      "league": "NFL",
-      "headline": "Browns DT Maliek Collins lands 2-year extension worth $30 million, agent says",
-      "href": "/nfl/story/_/id/50275489/browns-maliek-collins-lands-2-year-extension-agent-says"
-    },
-    {
       "league": "NBA",
       "headline": "Nikola Jokic rallies Nuggets from 23 down, says booing fans 'not welcome anymore'",
       "href": "/nba/story/_/id/50274046/nikola-jokic-says-booing-nuggets-fans-not-welcome-anymore"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Peyton Manning not expected to be candidate for Colts' vacant GM job",
-      "href": "/nfl/story/_/id/50267058/sources-peyton-manning-not-candidate-colts-gm-job"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Colts face big decisions on star players as NFL trade deadline looms",
-      "href": "/nfl/story/_/id/50272352/sources-decisions-loom-colts-nfl-trade-deadline"
     },
     {
       "league": "NBA",
