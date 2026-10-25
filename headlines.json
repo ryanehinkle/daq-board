@@ -1,11 +1,56 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-25T21:41:10Z",
+  "refreshedAt": "2026-10-25T23:34:08Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Chase's fiery halftime speech inspires Bengals to comeback win vs. Ravens",
+      "href": "/nfl/story/_/id/50281493/jamarr-chase-fiery-half-speech-inspires-bengals-win"
+    },
+    {
+      "league": "NFL",
+      "headline": "Jets' Garrett Wilson says sideline screaming wasn't directed at Geno Smith",
+      "href": "/nfl/story/_/id/50282050/jets-garrett-wilson-says-sideline-screaming-directed-geno-smith"
+    },
+    {
+      "league": "NFL",
+      "headline": "Colts' Shane Steichen says he's not considering benching QB Daniel Jones",
+      "href": "/nfl/story/_/id/50281882/colts-shane-steichen-says-not-considering-qb-change"
+    },
+    {
+      "league": "NFL",
+      "headline": "Baker Mayfield only needs to attempt 11 passes in Buccaneers' blowout win",
+      "href": "/nfl/story/_/id/50282250/buccaneers-mayfield-only-attempts-11-passes-winning-return"
+    },
+    {
+      "league": "NFL",
+      "headline": "After collapsing vs. Bengals, Jesse Minter says Ravens need identity check",
+      "href": "/nfl/story/_/id/50281972/after-loss-jesse-minter-says-ravens-need-identity-check"
+    },
+    {
+      "league": "NFL",
+      "headline": "Jeff Hafley, Dolphins hold off Jets, then revel in first win of season",
+      "href": "/nfl/story/_/id/50281453/jeff-hafley-dolphins-revel-first-win-season"
+    },
     {
       "league": "NBA",
       "headline": "Pistons C Jalen Duren out at least two weeks with hamstring strain",
       "href": "/nba/story/_/id/50277066/pistons-jalen-duren-hamstring-strain-least-2-weeks"
+    },
+    {
+      "league": "NHL",
+      "headline": "Hurricanes reach one-year, $3M deal with Alexander Nikishin",
+      "href": "/nhl/story/_/id/50281076/hurricanes-alexander-nikishin-agree-one-year-3m-deal"
+    },
+    {
+      "league": "NBA",
+      "headline": "Raptors' Kawhi Leonard to miss Wolves game with knee swelling",
+      "href": "/nba/story/_/id/50281331/kawhi-leonard-miss-timberwolves-game-knee-swelling"
+    },
+    {
+      "league": "NFL",
+      "headline": "Kendal Daniels seals Falcons' win with INT one week after trip to hospital",
+      "href": "/nfl/story/_/id/50280836/kendal-daniels-seals-falcons-win-fourth-quarter-int"
     },
     {
       "league": "NBA",
@@ -23,19 +68,9 @@
       "href": "/mlb/story/_/id/50240898/world-series-game-2-rays-brewers-live-updates-takeaways"
     },
     {
-      "league": "NBA",
-      "headline": "Giannis Antetokounmpo fouls out vs. Hornets as Heat tumble to 0-3",
-      "href": "/nba/story/_/id/50272348/giannis-antetokounmpo-fouls-4th-heat-tumble-0-3"
-    },
-    {
       "league": "MLB",
       "headline": "Trevor Megill escapes ninth-inning jam to close out Brewers' Game 1 win",
       "href": "/mlb/story/_/id/50262974/trevor-megill-escapes-9th-inning-jam-close-brewers-g1-win"
-    },
-    {
-      "league": "MLB",
-      "headline": "2026 World Series Game 1: Analysis as Brewers beat Rays",
-      "href": "/mlb/story/_/id/50240295/world-series-game-1-rays-brewers-live-updates-takeaways"
     }
   ]
 }
