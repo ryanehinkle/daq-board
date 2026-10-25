@@ -1,6 +1,6 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-25T12:07:39Z",
+  "refreshedAt": "2026-10-25T16:09:58Z",
   "items": [
     {
       "league": "NFL",
@@ -9,18 +9,18 @@
     },
     {
       "league": "NFL",
-      "headline": "Sources: Josh Simmons told to leave Chiefs meeting by Andy Reid, Patrick Mahomes",
-      "href": "/nfl/story/_/id/50268181/sources-josh-simmons-told-leave-chiefs-team-meeting"
-    },
-    {
-      "league": "NFL",
       "headline": "Rams optimistic that star WR Puka Nacua will play vs. Raiders, source says",
       "href": "/nfl/story/_/id/50275162/source-rams-optimistic-puka-nacua-play-vs-raiders"
     },
     {
+      "league": "NBA",
+      "headline": "Pistons C Jalen Duren out at least two weeks with hamstring strain",
+      "href": "/nba/story/_/id/50277066/pistons-jalen-duren-hamstring-strain-least-2-weeks"
+    },
+    {
       "league": "NFL",
-      "headline": "Sources: Colts face big decisions on star players as NFL trade deadline looms",
-      "href": "/nfl/story/_/id/50272352/sources-decisions-loom-colts-nfl-trade-deadline"
+      "headline": "Sources: Josh Simmons told to leave Chiefs meeting by Andy Reid, Patrick Mahomes",
+      "href": "/nfl/story/_/id/50268181/sources-josh-simmons-told-leave-chiefs-team-meeting"
     },
     {
       "league": "NFL",
@@ -33,8 +33,18 @@
       "href": "/nba/story/_/id/50274046/nikola-jokic-says-booing-nuggets-fans-not-welcome-anymore"
     },
     {
+      "league": "NFL",
+      "headline": "Sources: Peyton Manning not expected to be candidate for Colts' vacant GM job",
+      "href": "/nfl/story/_/id/50267058/sources-peyton-manning-not-candidate-colts-gm-job"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Colts face big decisions on star players as NFL trade deadline looms",
+      "href": "/nfl/story/_/id/50272352/sources-decisions-loom-colts-nfl-trade-deadline"
+    },
+    {
       "league": "NBA",
-      "headline": "76ers' Brown claims no beef, but says Tatum has 'hell of a PR team'",
+      "headline": "76ers' Jaylen Brown claims no beef but says Jayson Tatum has 'hell of a PR team'",
       "href": "/nba/story/_/id/50273329/76ers-brown-claims-no-beef-says-tatum-stay-ready-all-s"
     },
     {
@@ -56,16 +66,6 @@
       "league": "NFL",
       "headline": "Eagles' DeVonta Smith, Dontayvion Wicks out vs. Cowboys",
       "href": "/nfl/story/_/id/50269752/eagles-devonta-smith-dontayvion-wicks-vs-cowboys"
-    },
-    {
-      "league": "NFL",
-      "headline": "Ravens rule out Lamar Jackson (ankle) vs. Bengals; Tyler 'Snoop' Huntley to start",
-      "href": "/nfl/story/_/id/50268816/ravens-rule-lamar-jackson-high-ankle-sprain-vs-bengals"
-    },
-    {
-      "league": "NBA",
-      "headline": "Mavericks' Cooper Flagg out for home opener with mild left shoulder sprain",
-      "href": "/nba/story/_/id/50267528/mavericks-flagg-home-opener-mild-left-shoulder-sprain"
     },
     {
       "league": "MLB",
