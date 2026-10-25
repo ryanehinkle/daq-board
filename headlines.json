@@ -1,7 +1,27 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-25T01:36:47Z",
+  "refreshedAt": "2026-10-25T06:49:35Z",
   "items": [
+    {
+      "league": "NHL",
+      "headline": "Connor Hellebuyck glad to join Devils after Jets standoff forced trade",
+      "href": "/nhl/story/_/id/50268327/connor-hellebuyck-happy-join-devils-jets-standoff"
+    },
+    {
+      "league": "NBA",
+      "headline": "Nikola Jokic rallies Nuggets from 23 down, says booing fans 'not welcome anymore'",
+      "href": "/nba/story/_/id/50274046/nikola-jokic-says-booing-nuggets-fans-not-welcome-anymore"
+    },
+    {
+      "league": "NBA",
+      "headline": "76ers' Brown claims no beef, but says Tatum has 'hell of a PR team'",
+      "href": "/nba/story/_/id/50273329/76ers-brown-claims-no-beef-says-tatum-stay-ready-all-s"
+    },
+    {
+      "league": "MLB",
+      "headline": "World Series Game 2: Takeaways from Brewers' win over Rays",
+      "href": "/mlb/story/_/id/50240898/world-series-game-2-rays-brewers-live-updates-takeaways"
+    },
     {
       "league": "NBA",
       "headline": "Giannis Antetokounmpo fouls out vs. Hornets as Heat tumble to 0-3",
@@ -28,11 +48,6 @@
       "href": "/nfl/story/_/id/50268816/ravens-rule-lamar-jackson-high-ankle-sprain-vs-bengals"
     },
     {
-      "league": "NHL",
-      "headline": "Connor Hellebuyck glad to join Devils after Jets standoff forced trade",
-      "href": "/nhl/story/_/id/50268327/connor-hellebuyck-happy-join-devils-jets-standoff"
-    },
-    {
       "league": "NBA",
       "headline": "Mavericks' Cooper Flagg out for home opener with mild left shoulder sprain",
       "href": "/nba/story/_/id/50267528/mavericks-flagg-home-opener-mild-left-shoulder-sprain"
@@ -43,16 +58,6 @@
       "href": "/nba/story/_/id/50266620/sources-magic-banchero-multiple-weeks-ankle-sprain"
     },
     {
-      "league": "NBA",
-      "headline": "Ex-NBA player Malik Beasley negotiating plea deal in gambling case",
-      "href": "/nba/story/_/id/50265720/ex-nba-player-malik-beasley-negotiating-plea-deal-gambling-case"
-    },
-    {
-      "league": "NBA",
-      "headline": "Jayson Tatum insists 'there's no beef' with Jaylen Brown in wake of trade",
-      "href": "/nba/story/_/id/50263591/celtics-jayson-tatum-insists-no-beef-76ers-jaylen-brown-wake-trade"
-    },
-    {
       "league": "MLB",
       "headline": "Trevor Megill escapes ninth-inning jam to close out Brewers' Game 1 win",
       "href": "/mlb/story/_/id/50262974/trevor-megill-escapes-9th-inning-jam-close-brewers-g1-win"
@@ -61,11 +66,6 @@
       "league": "MLB",
       "headline": "2026 World Series Game 1: Analysis as Brewers beat Rays",
       "href": "/mlb/story/_/id/50240295/world-series-game-1-rays-brewers-live-updates-takeaways"
-    },
-    {
-      "league": "NFL",
-      "headline": "49ers WR Evans, DE Bosa, WR Samuel out vs. Atlanta; WR Kirk may return",
-      "href": "/nfl/story/_/id/50260609/49ers-wr-evans-de-bosa-wr-samuel-vs-atlanta-wr-kirk-return"
     },
     {
       "league": "NFL",
