@@ -1,51 +1,46 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-26T14:04:53Z",
+  "refreshedAt": "2026-10-26T19:52:55Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Magic's Jalen Suggs out at least 2 weeks with knee injury",
+      "href": "/nba/story/_/id/50289397/magic-jalen-suggs-least-2-weeks-knee-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Vikings RB Jones avoids serious knee injury, day-to-day",
+      "href": "/nfl/story/_/id/50289047/vikings-rb-jones-avoids-serious-knee-injury-day-day"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Seahawks LT Charles Cross has high ankle sprain, likely to miss time",
+      "href": "/nfl/story/_/id/50288850/source-seahawks-lt-charles-cross-high-ankle-sprain"
+    },
+    {
+      "league": "NFL",
+      "headline": "Aaron Glenn says Garrett Wilson's outburst 'overblown,' defends Jets' offense",
+      "href": "/nfl/story/_/id/50287902/aaron-glenn-says-talked-garrett-wilson-outburst"
+    },
+    {
+      "league": "MLB",
+      "headline": "Mets' Francisco Lindor wins Roberto Clemente Award",
+      "href": "/mlb/story/_/id/50288401/mets-francisco-lindor-wins-roberto-clemente-award"
+    },
+    {
+      "league": "MLB",
+      "headline": "MLB tests out restricted OF shifts in effort to up offense",
+      "href": "/mlb/story/_/id/50287898/mlb-tests-restricted-shifts-effort-offense"
+    },
     {
       "league": "NFL",
       "headline": "Sources: Packers LB Zaire Franklin has hairline fracture in leg",
       "href": "/nfl/story/_/id/50287123/sources-packers-zaire-franklin-hairline-fracture-leg"
     },
     {
-      "league": "NFL",
-      "headline": "Seahawks contain Chiefs' Kenneth Walker III in RB's return to Seattle",
-      "href": "/nfl/story/_/id/50285364/seahawks-limit-chiefs-rb-kenneth-walker-iii-seattle-return"
-    },
-    {
-      "league": "NFL",
-      "headline": "Jaxon Smith-Njigba has 150 receiving yards, TD in Seahawks' win vs. Chiefs",
-      "href": "/nfl/story/_/id/50285418/jaxon-smith-njigba-stars-seahawks-deal-chiefs-first-loss"
-    },
-    {
-      "league": "NBA",
-      "headline": "Thunder star Jalen Williams taken off court on stretcher with significant injury",
-      "href": "/nba/story/_/id/50283862/thunder-g-jalen-williams-taken-significant-injury"
-    },
-    {
       "league": "NHL",
       "headline": "Ex-Canucks captain Quinn Hughes booed in Vancouver return with Wild",
       "href": "/nhl/story/_/id/50284398/ex-canuck-quinn-hughes-booed-vancouver-return-wild"
-    },
-    {
-      "league": "NFL",
-      "headline": "Bo Nix wows with 62-yard run as Broncos stand by 'our guy' at QB after win",
-      "href": "/nfl/story/_/id/50284110/bo-nix-breaks-slump-carries-broncos-cardinals"
-    },
-    {
-      "league": "NBA",
-      "headline": "Lakers' Luka Doncic scores NBA season-high 52 points with 10 assists in win",
-      "href": "/nba/story/_/id/50282749/luka-doncic-scores-nba-season-high-52-points-lakers-win-vs-jazz"
-    },
-    {
-      "league": "NBA",
-      "headline": "Magic's Jalen Suggs exits late vs. Knicks with apparent knee injury",
-      "href": "/nba/story/_/id/50283872/magic-guard-jalen-suggs-helped-floor-injury-win-knicks"
-    },
-    {
-      "league": "NBA",
-      "headline": "Raptors fall to Wolves with Kawhi Leonard out due to knee swelling",
-      "href": "/nba/story/_/id/50281331/raptors-fall-wolves-kawhi-leonard-due-knee-swelling"
     },
     {
       "league": "NHL",
