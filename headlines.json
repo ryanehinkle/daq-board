@@ -1,7 +1,47 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-26T19:52:55Z",
+  "refreshedAt": "2026-10-26T23:29:10Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Panthers RT Taylor Moton to undergo season-ending ankle surgery",
+      "href": "/nfl/story/_/id/50291280/panthers-taylor-moton-season-ending-ankle-surgery"
+    },
+    {
+      "league": "NFL",
+      "headline": "Cardinals WR Jalen Brooks to miss rest of season with wrist injury",
+      "href": "/nfl/story/_/id/50291573/cardinals-jalen-brooks-wrist-miss-rest-season"
+    },
+    {
+      "league": "NBA",
+      "headline": "OKC's Jalen Williams (ankle), Cason Wallace (shoulder) to undergo surgery",
+      "href": "/nba/story/_/id/50290179/thunder-jalen-williams-cason-wallace-undergo-surgery"
+    },
+    {
+      "league": "NFL",
+      "headline": "Ex-Cowboy Dez Bryant calls out police investigation after he's cited for assault",
+      "href": "/nfl/story/_/id/50290470/dez-bryant-calls-police-cited-assault"
+    },
+    {
+      "league": "NBA",
+      "headline": "Jalen Williams, Cason Wallace injured: What's next for the OKC Thunder?",
+      "href": "/nba/story/_/id/50287191/jalen-williams-cason-wallace-injured-next-thunder"
+    },
+    {
+      "league": "NFL",
+      "headline": "Ravens' Jesse Minter optimistic QB Lamar Jackson can return vs. Bills",
+      "href": "/nfl/story/_/id/50290411/ravens-coach-minter-optimistic-qb-jackson-returns-vs-bills"
+    },
+    {
+      "league": "MLB",
+      "headline": "Mets' Francisco Lindor wins Roberto Clemente Award",
+      "href": "/mlb/story/_/id/50288401/mets-francisco-lindor-wins-roberto-clemente-award"
+    },
+    {
+      "league": "NFL",
+      "headline": "Kirk Cousins to remain Raiders' starting QB vs. Jets, Klint Kubiak says",
+      "href": "/nfl/story/_/id/50289866/kirk-cousins-remain-raiders-starting-qb-klint-kubiak-says"
+    },
     {
       "league": "NBA",
       "headline": "Magic's Jalen Suggs out at least 2 weeks with knee injury",
@@ -18,24 +58,9 @@
       "href": "/nfl/story/_/id/50288850/source-seahawks-lt-charles-cross-high-ankle-sprain"
     },
     {
-      "league": "NFL",
-      "headline": "Aaron Glenn says Garrett Wilson's outburst 'overblown,' defends Jets' offense",
-      "href": "/nfl/story/_/id/50287902/aaron-glenn-says-talked-garrett-wilson-outburst"
-    },
-    {
-      "league": "MLB",
-      "headline": "Mets' Francisco Lindor wins Roberto Clemente Award",
-      "href": "/mlb/story/_/id/50288401/mets-francisco-lindor-wins-roberto-clemente-award"
-    },
-    {
       "league": "MLB",
       "headline": "MLB tests out restricted OF shifts in effort to up offense",
       "href": "/mlb/story/_/id/50287898/mlb-tests-restricted-shifts-effort-offense"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Packers LB Zaire Franklin has hairline fracture in leg",
-      "href": "/nfl/story/_/id/50287123/sources-packers-zaire-franklin-hairline-fracture-leg"
     },
     {
       "league": "NHL",
@@ -46,21 +71,6 @@
       "league": "NHL",
       "headline": "Hurricanes reach one-year, $3M deal with Alexander Nikishin",
       "href": "/nhl/story/_/id/50281076/hurricanes-alexander-nikishin-agree-one-year-3m-deal"
-    },
-    {
-      "league": "MLB",
-      "headline": "World Series Game 2: Takeaways from Brewers' win over Rays",
-      "href": "/mlb/story/_/id/50240898/world-series-game-2-rays-brewers-live-updates-takeaways"
-    },
-    {
-      "league": "MLB",
-      "headline": "Trevor Megill escapes ninth-inning jam to close out Brewers' Game 1 win",
-      "href": "/mlb/story/_/id/50262974/trevor-megill-escapes-9th-inning-jam-close-brewers-g1-win"
-    },
-    {
-      "league": "MLB",
-      "headline": "2026 World Series Game 1: Analysis as Brewers beat Rays",
-      "href": "/mlb/story/_/id/50240295/world-series-game-1-rays-brewers-live-updates-takeaways"
     }
   ]
 }
