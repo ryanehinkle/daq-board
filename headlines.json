@@ -1,16 +1,16 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-26T06:58:20Z",
+  "refreshedAt": "2026-10-26T14:04:53Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Sources: Packers LB Zaire Franklin has hairline fracture in leg",
+      "href": "/nfl/story/_/id/50287123/sources-packers-zaire-franklin-hairline-fracture-leg"
+    },
     {
       "league": "NFL",
       "headline": "Seahawks contain Chiefs' Kenneth Walker III in RB's return to Seattle",
       "href": "/nfl/story/_/id/50285364/seahawks-limit-chiefs-rb-kenneth-walker-iii-seattle-return"
-    },
-    {
-      "league": "NHL",
-      "headline": "Ex-Canucks captain Quinn Hughes booed in Vancouver return with Wild",
-      "href": "/nhl/story/_/id/50284398/ex-canuck-quinn-hughes-booed-vancouver-return-wild"
     },
     {
       "league": "NFL",
@@ -19,8 +19,13 @@
     },
     {
       "league": "NBA",
-      "headline": "Thunder G Jalen Williams taken off with significant injury",
+      "headline": "Thunder star Jalen Williams taken off court on stretcher with significant injury",
       "href": "/nba/story/_/id/50283862/thunder-g-jalen-williams-taken-significant-injury"
+    },
+    {
+      "league": "NHL",
+      "headline": "Ex-Canucks captain Quinn Hughes booed in Vancouver return with Wild",
+      "href": "/nhl/story/_/id/50284398/ex-canuck-quinn-hughes-booed-vancouver-return-wild"
     },
     {
       "league": "NFL",
@@ -43,21 +48,6 @@
       "href": "/nba/story/_/id/50281331/raptors-fall-wolves-kawhi-leonard-due-knee-swelling"
     },
     {
-      "league": "NFL",
-      "headline": "Cam Skattebo & Co. answer John Harbaugh's call, lead Giants to OT win",
-      "href": "/nfl/story/_/id/50282376/cam-skattebo-co-answer-john-harbaugh-call-pace-giants"
-    },
-    {
-      "league": "NFL",
-      "headline": "Baker Mayfield needs to attempt only 11 passes in Buccaneers' blowout win",
-      "href": "/nfl/story/_/id/50282250/buccaneers-mayfield-only-attempts-11-passes-winning-return"
-    },
-    {
-      "league": "NBA",
-      "headline": "Pistons C Jalen Duren out at least two weeks with hamstring strain",
-      "href": "/nba/story/_/id/50277066/pistons-jalen-duren-hamstring-strain-least-2-weeks"
-    },
-    {
       "league": "NHL",
       "headline": "Hurricanes reach one-year, $3M deal with Alexander Nikishin",
       "href": "/nhl/story/_/id/50281076/hurricanes-alexander-nikishin-agree-one-year-3m-deal"
@@ -71,6 +61,11 @@
       "league": "MLB",
       "headline": "Trevor Megill escapes ninth-inning jam to close out Brewers' Game 1 win",
       "href": "/mlb/story/_/id/50262974/trevor-megill-escapes-9th-inning-jam-close-brewers-g1-win"
+    },
+    {
+      "league": "MLB",
+      "headline": "2026 World Series Game 1: Analysis as Brewers beat Rays",
+      "href": "/mlb/story/_/id/50240295/world-series-game-1-rays-brewers-live-updates-takeaways"
     }
   ]
 }
