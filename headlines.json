@@ -1,11 +1,11 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-25T23:34:08Z",
+  "refreshedAt": "2026-10-26T01:38:59Z",
   "items": [
     {
-      "league": "NFL",
-      "headline": "Chase's fiery halftime speech inspires Bengals to comeback win vs. Ravens",
-      "href": "/nfl/story/_/id/50281493/jamarr-chase-fiery-half-speech-inspires-bengals-win"
+      "league": "NBA",
+      "headline": "Luka Doncic scores NBA season-high 52 points, with 8 3s, in Lakers' win vs. Jazz",
+      "href": "/nba/story/_/id/50282749/luka-doncic-scores-nba-season-high-52-points-lakers-win-vs-jazz"
     },
     {
       "league": "NFL",
@@ -14,23 +14,33 @@
     },
     {
       "league": "NFL",
-      "headline": "Colts' Shane Steichen says he's not considering benching QB Daniel Jones",
-      "href": "/nfl/story/_/id/50281882/colts-shane-steichen-says-not-considering-qb-change"
-    },
-    {
-      "league": "NFL",
-      "headline": "Baker Mayfield only needs to attempt 11 passes in Buccaneers' blowout win",
-      "href": "/nfl/story/_/id/50282250/buccaneers-mayfield-only-attempts-11-passes-winning-return"
-    },
-    {
-      "league": "NFL",
-      "headline": "After collapsing vs. Bengals, Jesse Minter says Ravens need identity check",
-      "href": "/nfl/story/_/id/50281972/after-loss-jesse-minter-says-ravens-need-identity-check"
+      "headline": "Cam Skattebo & Co. answer John Harbaugh's call, lead Giants to OT win",
+      "href": "/nfl/story/_/id/50282376/cam-skattebo-co-answer-john-harbaugh-call-pace-giants"
     },
     {
       "league": "NFL",
       "headline": "Jeff Hafley, Dolphins hold off Jets, then revel in first win of season",
       "href": "/nfl/story/_/id/50281453/jeff-hafley-dolphins-revel-first-win-season"
+    },
+    {
+      "league": "NFL",
+      "headline": "Colts' Shane Steichen says he's not considering benching QB Daniel Jones",
+      "href": "/nfl/story/_/id/50281882/colts-shane-steichen-says-not-considering-qb-change"
+    },
+    {
+      "league": "NFL",
+      "headline": "Baker Mayfield needs to attempt only 11 passes in Buccaneers' blowout win",
+      "href": "/nfl/story/_/id/50282250/buccaneers-mayfield-only-attempts-11-passes-winning-return"
+    },
+    {
+      "league": "NFL",
+      "headline": "Chase's fiery halftime speech inspires Bengals to comeback win vs. Ravens",
+      "href": "/nfl/story/_/id/50281493/jamarr-chase-fiery-half-speech-inspires-bengals-win"
+    },
+    {
+      "league": "NFL",
+      "headline": "After collapsing vs. Bengals, Jesse Minter says Ravens need identity check",
+      "href": "/nfl/story/_/id/50281972/after-loss-jesse-minter-says-ravens-need-identity-check"
     },
     {
       "league": "NBA",
@@ -48,19 +58,9 @@
       "href": "/nba/story/_/id/50281331/kawhi-leonard-miss-timberwolves-game-knee-swelling"
     },
     {
-      "league": "NFL",
-      "headline": "Kendal Daniels seals Falcons' win with INT one week after trip to hospital",
-      "href": "/nfl/story/_/id/50280836/kendal-daniels-seals-falcons-win-fourth-quarter-int"
-    },
-    {
       "league": "NBA",
       "headline": "Nikola Jokic rallies Nuggets from 23 down, says booing fans 'not welcome anymore'",
       "href": "/nba/story/_/id/50274046/nikola-jokic-says-booing-nuggets-fans-not-welcome-anymore"
-    },
-    {
-      "league": "NBA",
-      "headline": "76ers' Jaylen Brown claims no beef but says Jayson Tatum has 'hell of a PR team'",
-      "href": "/nba/story/_/id/50273329/76ers-brown-claims-no-beef-says-tatum-stay-ready-all-s"
     },
     {
       "league": "MLB",
