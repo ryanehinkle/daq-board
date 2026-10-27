@@ -1,11 +1,21 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-26T23:29:10Z",
+  "refreshedAt": "2026-10-27T02:21:40Z",
   "items": [
     {
-      "league": "NFL",
-      "headline": "Panthers RT Taylor Moton to undergo season-ending ankle surgery",
-      "href": "/nfl/story/_/id/50291280/panthers-taylor-moton-season-ending-ankle-surgery"
+      "league": "NBA",
+      "headline": "OKC's Jalen Williams (ankle), Cason Wallace (shoulder) to undergo surgery",
+      "href": "/nba/story/_/id/50290179/thunder-jalen-williams-cason-wallace-undergo-surgery"
+    },
+    {
+      "league": "NBA",
+      "headline": "Pacers' Ben Sheppard to undergo surgery for torn meniscus",
+      "href": "/nba/story/_/id/50292072/pacers-ben-sheppard-surgery-torn-meniscus"
+    },
+    {
+      "league": "MLB",
+      "headline": "Mets' Francisco Lindor wins Roberto Clemente Award in 'full-circle moment'",
+      "href": "/mlb/story/_/id/50288401/mets-francisco-lindor-wins-roberto-clemente-award"
     },
     {
       "league": "NFL",
@@ -13,9 +23,9 @@
       "href": "/nfl/story/_/id/50291573/cardinals-jalen-brooks-wrist-miss-rest-season"
     },
     {
-      "league": "NBA",
-      "headline": "OKC's Jalen Williams (ankle), Cason Wallace (shoulder) to undergo surgery",
-      "href": "/nba/story/_/id/50290179/thunder-jalen-williams-cason-wallace-undergo-surgery"
+      "league": "NFL",
+      "headline": "Panthers RT Taylor Moton to undergo season-ending ankle surgery",
+      "href": "/nfl/story/_/id/50291280/panthers-taylor-moton-season-ending-ankle-surgery"
     },
     {
       "league": "NFL",
@@ -33,11 +43,6 @@
       "href": "/nfl/story/_/id/50290411/ravens-coach-minter-optimistic-qb-jackson-returns-vs-bills"
     },
     {
-      "league": "MLB",
-      "headline": "Mets' Francisco Lindor wins Roberto Clemente Award",
-      "href": "/mlb/story/_/id/50288401/mets-francisco-lindor-wins-roberto-clemente-award"
-    },
-    {
       "league": "NFL",
       "headline": "Kirk Cousins to remain Raiders' starting QB vs. Jets, Klint Kubiak says",
       "href": "/nfl/story/_/id/50289866/kirk-cousins-remain-raiders-starting-qb-klint-kubiak-says"
@@ -51,11 +56,6 @@
       "league": "NFL",
       "headline": "Vikings RB Jones avoids serious knee injury, day-to-day",
       "href": "/nfl/story/_/id/50289047/vikings-rb-jones-avoids-serious-knee-injury-day-day"
-    },
-    {
-      "league": "NFL",
-      "headline": "Source: Seahawks LT Charles Cross has high ankle sprain, likely to miss time",
-      "href": "/nfl/story/_/id/50288850/source-seahawks-lt-charles-cross-high-ankle-sprain"
     },
     {
       "league": "MLB",
