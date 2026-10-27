@@ -1,7 +1,17 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-27T08:05:06Z",
+  "refreshedAt": "2026-10-27T14:23:06Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Seven things Solak thinks entering NFL Week 8: WR trade for Chiefs? Goff for MVP?",
+      "href": "/nfl/story/_/id/50278890/week-8-seven-things-solak-thinks-chiefs-trade-goff-mvp"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Ravens rookie G Olaivavega Ioane expected to miss time with MCL sprain",
+      "href": "/nfl/story/_/id/50297114/sources-ravens-olaivavega-ioane-mcl-sprain"
+    },
     {
       "league": "NBA",
       "headline": "Yaxel Lendeborg has 31 points, 12 rebounds as Warriors blow out Nuggets on road",
@@ -48,21 +58,6 @@
       "href": "/nfl/story/_/id/50290470/dez-bryant-calls-police-cited-assault"
     },
     {
-      "league": "NFL",
-      "headline": "Ravens' Jesse Minter optimistic QB Lamar Jackson can return vs. Bills",
-      "href": "/nfl/story/_/id/50290411/ravens-coach-minter-optimistic-qb-jackson-returns-vs-bills"
-    },
-    {
-      "league": "NFL",
-      "headline": "Kirk Cousins to remain Raiders' starting QB vs. Jets, Klint Kubiak says",
-      "href": "/nfl/story/_/id/50289866/kirk-cousins-remain-raiders-starting-qb-klint-kubiak-says"
-    },
-    {
-      "league": "NFL",
-      "headline": "Vikings RB Jones avoids serious knee injury, day-to-day",
-      "href": "/nfl/story/_/id/50289047/vikings-rb-jones-avoids-serious-knee-injury-day-day"
-    },
-    {
       "league": "MLB",
       "headline": "MLB tests out restricted OF shifts in effort to up offense",
       "href": "/mlb/story/_/id/50287898/mlb-tests-restricted-shifts-effort-offense"
@@ -71,6 +66,11 @@
       "league": "NHL",
       "headline": "Ex-Canucks captain Quinn Hughes booed in Vancouver return with Wild",
       "href": "/nhl/story/_/id/50284398/ex-canuck-quinn-hughes-booed-vancouver-return-wild"
+    },
+    {
+      "league": "MLB",
+      "headline": "World Series Game 2: Takeaways from Brewers' win over Rays",
+      "href": "/mlb/story/_/id/50240898/world-series-game-2-rays-brewers-live-updates-takeaways"
     }
   ]
 }
