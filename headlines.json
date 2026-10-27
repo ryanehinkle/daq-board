@@ -1,16 +1,31 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-27T02:21:40Z",
+  "refreshedAt": "2026-10-27T08:05:06Z",
   "items": [
     {
       "league": "NBA",
-      "headline": "OKC's Jalen Williams (ankle), Cason Wallace (shoulder) to undergo surgery",
-      "href": "/nba/story/_/id/50290179/thunder-jalen-williams-cason-wallace-undergo-surgery"
+      "headline": "Yaxel Lendeborg has 31 points, 12 rebounds as Warriors blow out Nuggets on road",
+      "href": "/nba/story/_/id/50294832/yaxel-lendeborg-31-points-12-rebounds-warriors-beat-nuggets-first-win"
+    },
+    {
+      "league": "NFL",
+      "headline": "Cowboys keep pace in NFC East, end 2-game slide with road win over Eagles",
+      "href": "/nfl/story/_/id/50294687/prsecott-cowboys-keep-pace-nfc-east-road-win-eagles"
+    },
+    {
+      "league": "NFL",
+      "headline": "Eagles' Saquon Barkley says hamstring 'great' in return, not sweating back issue",
+      "href": "/nfl/story/_/id/50294604/eagles-saquon-barkley-hobbled-highly-efficient-gutsy-losing-effort-vs-cowboys"
     },
     {
       "league": "NBA",
-      "headline": "Pacers' Ben Sheppard to undergo surgery for torn meniscus",
-      "href": "/nba/story/_/id/50292072/pacers-ben-sheppard-surgery-torn-meniscus"
+      "headline": "Cavaliers credit Meleek Thomas for sparking OT win over Wolves in NBA debut",
+      "href": "/nba/story/_/id/50294276/cavaliers-credit-meleek-thomas-sparking-win-nba-debut"
+    },
+    {
+      "league": "NBA",
+      "headline": "Rep for Sixers' Jaylen Brown denies report he demanded trade from Celtics",
+      "href": "/nba/story/_/id/50293411/sixers-jaylen-brown-denies-report-saying-demanded-trade-celtics"
     },
     {
       "league": "MLB",
@@ -33,11 +48,6 @@
       "href": "/nfl/story/_/id/50290470/dez-bryant-calls-police-cited-assault"
     },
     {
-      "league": "NBA",
-      "headline": "Jalen Williams, Cason Wallace injured: What's next for the OKC Thunder?",
-      "href": "/nba/story/_/id/50287191/jalen-williams-cason-wallace-injured-next-thunder"
-    },
-    {
       "league": "NFL",
       "headline": "Ravens' Jesse Minter optimistic QB Lamar Jackson can return vs. Bills",
       "href": "/nfl/story/_/id/50290411/ravens-coach-minter-optimistic-qb-jackson-returns-vs-bills"
@@ -46,11 +56,6 @@
       "league": "NFL",
       "headline": "Kirk Cousins to remain Raiders' starting QB vs. Jets, Klint Kubiak says",
       "href": "/nfl/story/_/id/50289866/kirk-cousins-remain-raiders-starting-qb-klint-kubiak-says"
-    },
-    {
-      "league": "NBA",
-      "headline": "Magic's Jalen Suggs out at least 2 weeks with knee injury",
-      "href": "/nba/story/_/id/50289397/magic-jalen-suggs-least-2-weeks-knee-injury"
     },
     {
       "league": "NFL",
@@ -66,11 +71,6 @@
       "league": "NHL",
       "headline": "Ex-Canucks captain Quinn Hughes booed in Vancouver return with Wild",
       "href": "/nhl/story/_/id/50284398/ex-canuck-quinn-hughes-booed-vancouver-return-wild"
-    },
-    {
-      "league": "NHL",
-      "headline": "Hurricanes reach one-year, $3M deal with Alexander Nikishin",
-      "href": "/nhl/story/_/id/50281076/hurricanes-alexander-nikishin-agree-one-year-3m-deal"
     }
   ]
 }
