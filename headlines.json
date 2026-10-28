@@ -1,7 +1,17 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-28T02:10:18Z",
+  "refreshedAt": "2026-10-28T08:30:35Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Knicks 'focus on little things,' beat Pistons for first win of season",
+      "href": "/nba/story/_/id/50305071/knicks-focus-little-things-earn-first-win-season"
+    },
+    {
+      "league": "MLB",
+      "headline": "World Series Game 4: Takeaways from Rays' walk-off win",
+      "href": "/mlb/story/_/id/50241025/world-series-game-4-brewers-rays-live-updates-takeaways"
+    },
     {
       "league": "NBA",
       "headline": "Timberwolves' Anthony Edwards (knee) to miss up to 2 months, sources say",
@@ -53,11 +63,6 @@
       "href": "/nba/story/_/id/50300264/jazz-jaren-jackson-jr-knee-6-8-weeks-sources-say"
     },
     {
-      "league": "NHL",
-      "headline": "Vegas turns to Adin Hill after Carter Hart exits morning skate with injury",
-      "href": "/nhl/story/_/id/50301039/golden-knights-turn-adin-hill-carter-hart-exits-morning-skate-injury"
-    },
-    {
       "league": "NBA",
       "headline": "Hornets to retire Muggsy Bogues' No. 1 jersey",
       "href": "/nba/story/_/id/50299731/hornets-retire-muggsy-bogues-no-1-jersey"
@@ -66,11 +71,6 @@
       "league": "MLB",
       "headline": "Mets' Francisco Lindor wins Roberto Clemente Award in 'full-circle moment'",
       "href": "/mlb/story/_/id/50288401/mets-francisco-lindor-wins-roberto-clemente-award"
-    },
-    {
-      "league": "MLB",
-      "headline": "MLB tests out restricted OF shifts in effort to up offense",
-      "href": "/mlb/story/_/id/50287898/mlb-tests-restricted-shifts-effort-offense"
     }
   ]
 }
