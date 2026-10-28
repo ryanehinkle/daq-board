@@ -1,21 +1,41 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-27T23:06:05Z",
+  "refreshedAt": "2026-10-28T02:10:18Z",
   "items": [
-    {
-      "league": "NFL",
-      "headline": "NFL trade deadline grades: DeForest Buckner, Quenton Nelson dealt by Colts, more",
-      "href": "/nfl/story/_/id/50043542/2026-trade-deadline-grades-latest-best-worst-deals"
-    },
     {
       "league": "NBA",
       "headline": "Timberwolves' Anthony Edwards (knee) to miss up to 2 months, sources say",
       "href": "/nba/story/_/id/50302115/timberwolves-anthony-edwards-miss-2-months-arthroscopic-knee-procedure"
     },
     {
+      "league": "NBA",
+      "headline": "Sources: Knicks assistant coach Chris Jent steps away for personal reasons",
+      "href": "/nba/story/_/id/50302780/knicks-assistant-coach-chris-jent-takes-personal-leave"
+    },
+    {
+      "league": "NFL",
+      "headline": "NFL trade deadline grades: DeForest Buckner, Quenton Nelson dealt by Colts, more",
+      "href": "/nfl/story/_/id/50043542/2026-trade-deadline-grades-latest-best-worst-deals"
+    },
+    {
+      "league": "NFL",
+      "headline": "Buckner, Nelson trades signal Colts' rebuild underway",
+      "href": "/nfl/story/_/id/50302002/colts-deforest-buckner-quenton-nelson-jonathan-taylor"
+    },
+    {
+      "league": "NFL",
+      "headline": "Matt LaFleur isn't ruling out imminent practice return for Micah Parsons",
+      "href": "/nfl/story/_/id/50302347/matt-lafleur-hints-possible-practice-return-micah-parsons"
+    },
+    {
       "league": "NFL",
       "headline": "Colts trade DT DeForest Buckner to 49ers in another major move",
       "href": "/nfl/story/_/id/50301125/colts-trade-de-deforest-buckner-49ers"
+    },
+    {
+      "league": "NFL",
+      "headline": "Seahawks acquire Pro Bowl guard Quenton Nelson in trade with Colts",
+      "href": "/nfl/story/_/id/50298913/sources-seahawks-get-pro-bowl-guard-nelson-trade-colts"
     },
     {
       "league": "NFL",
@@ -26,11 +46,6 @@
       "league": "NFL",
       "headline": "Montez Sweat returns to Bears following 'devastating' 2-game suspension",
       "href": "/nfl/story/_/id/50301493/montez-sweat-back-bears-devastating-2-game-suspension"
-    },
-    {
-      "league": "NFL",
-      "headline": "Seahawks acquire Pro Bowl guard Quenton Nelson in trade with Colts",
-      "href": "/nfl/story/_/id/50298913/sources-seahawks-get-pro-bowl-guard-nelson-trade-colts"
     },
     {
       "league": "NBA",
@@ -46,21 +61,6 @@
       "league": "NBA",
       "headline": "Hornets to retire Muggsy Bogues' No. 1 jersey",
       "href": "/nba/story/_/id/50299731/hornets-retire-muggsy-bogues-no-1-jersey"
-    },
-    {
-      "league": "NFL",
-      "headline": "Giants place RB Tyrone Tracy Jr. on IR with hamstring injury",
-      "href": "/nfl/story/_/id/50300226/giants-place-rb-tyrone-tracy-ir-hamstring-injury"
-    },
-    {
-      "league": "NBA",
-      "headline": "Raptors' Kawhi Leonard out weeks due to knee, sources say",
-      "href": "/nba/story/_/id/50298441/raptors-kawhi-leonard-weeks-due-knee-sources-say"
-    },
-    {
-      "league": "NBA",
-      "headline": "Bam Adebayo says critics 'make me the scapegoat' for Heat's winless start",
-      "href": "/nba/story/_/id/50297902/bam-adebayo-says-scapegoat-heat-0-4-start"
     },
     {
       "league": "MLB",
