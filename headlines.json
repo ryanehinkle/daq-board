@@ -1,7 +1,32 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-28T08:30:35Z",
+  "refreshedAt": "2026-10-28T15:23:19Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Sources: Chiefs sign former Ravens kicker Justin Tucker to practice squad",
+      "href": "/nfl/story/_/id/50307506/sources-chiefs-sign-justin-tucker-practice-squad"
+    },
+    {
+      "league": "NFL",
+      "headline": "Montez Sweat returns to Bears following 'devastating' 2-game suspension",
+      "href": "/nfl/story/_/id/50301493/montez-sweat-back-bears-devastating-2-game-suspension"
+    },
+    {
+      "league": "NFL",
+      "headline": "2026 NFL trade deadline: Ranking the top 25 candidates to move, plus team fits",
+      "href": "/nfl/story/_/id/50278445/2026-nfl-trade-deadline-ranking-top-25-candidates-available"
+    },
+    {
+      "league": "NBA",
+      "headline": "Timberwolves' Anthony Edwards (knee) to miss up to 2 months, sources say",
+      "href": "/nba/story/_/id/50302115/timberwolves-anthony-edwards-miss-2-months-arthroscopic-knee-procedure"
+    },
+    {
+      "league": "NFL",
+      "headline": "Matt LaFleur isn't ruling out imminent practice return for Micah Parsons",
+      "href": "/nfl/story/_/id/50302347/matt-lafleur-hints-possible-practice-return-micah-parsons"
+    },
     {
       "league": "NBA",
       "headline": "Knicks 'focus on little things,' beat Pistons for first win of season",
@@ -11,11 +36,6 @@
       "league": "MLB",
       "headline": "World Series Game 4: Takeaways from Rays' walk-off win",
       "href": "/mlb/story/_/id/50241025/world-series-game-4-brewers-rays-live-updates-takeaways"
-    },
-    {
-      "league": "NBA",
-      "headline": "Timberwolves' Anthony Edwards (knee) to miss up to 2 months, sources say",
-      "href": "/nba/story/_/id/50302115/timberwolves-anthony-edwards-miss-2-months-arthroscopic-knee-procedure"
     },
     {
       "league": "NBA",
@@ -34,18 +54,8 @@
     },
     {
       "league": "NFL",
-      "headline": "Matt LaFleur isn't ruling out imminent practice return for Micah Parsons",
-      "href": "/nfl/story/_/id/50302347/matt-lafleur-hints-possible-practice-return-micah-parsons"
-    },
-    {
-      "league": "NFL",
       "headline": "Colts trade DT DeForest Buckner to 49ers in another major move",
       "href": "/nfl/story/_/id/50301125/colts-trade-de-deforest-buckner-49ers"
-    },
-    {
-      "league": "NFL",
-      "headline": "Seahawks acquire Pro Bowl guard Quenton Nelson in trade with Colts",
-      "href": "/nfl/story/_/id/50298913/sources-seahawks-get-pro-bowl-guard-nelson-trade-colts"
     },
     {
       "league": "NFL",
@@ -53,24 +63,14 @@
       "href": "/nfl/story/_/id/50043471/2026-trade-deadline-updates-latest-news-deals-terms"
     },
     {
-      "league": "NFL",
-      "headline": "Montez Sweat returns to Bears following 'devastating' 2-game suspension",
-      "href": "/nfl/story/_/id/50301493/montez-sweat-back-bears-devastating-2-game-suspension"
-    },
-    {
-      "league": "NBA",
-      "headline": "Jazz's Jaren Jackson Jr. (knee) out 6-8 weeks, sources say",
-      "href": "/nba/story/_/id/50300264/jazz-jaren-jackson-jr-knee-6-8-weeks-sources-say"
-    },
-    {
-      "league": "NBA",
-      "headline": "Hornets to retire Muggsy Bogues' No. 1 jersey",
-      "href": "/nba/story/_/id/50299731/hornets-retire-muggsy-bogues-no-1-jersey"
-    },
-    {
       "league": "MLB",
       "headline": "Mets' Francisco Lindor wins Roberto Clemente Award in 'full-circle moment'",
       "href": "/mlb/story/_/id/50288401/mets-francisco-lindor-wins-roberto-clemente-award"
+    },
+    {
+      "league": "MLB",
+      "headline": "MLB tests out restricted OF shifts in effort to up offense",
+      "href": "/mlb/story/_/id/50287898/mlb-tests-restricted-shifts-effort-offense"
     }
   ]
 }
