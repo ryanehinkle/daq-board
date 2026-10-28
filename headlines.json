@@ -1,31 +1,41 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-28T15:23:19Z",
+  "refreshedAt": "2026-10-28T20:25:37Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "Sources: Chiefs sign former Ravens kicker Justin Tucker to practice squad",
-      "href": "/nfl/story/_/id/50307506/sources-chiefs-sign-justin-tucker-practice-squad"
+      "headline": "Winless Chargers sticking with Mike McDaniel as offensive playcaller",
+      "href": "/nfl/story/_/id/50310259/chargers-sticking-mike-mcdaniel-offensive-playcaller"
     },
     {
       "league": "NFL",
-      "headline": "Montez Sweat returns to Bears following 'devastating' 2-game suspension",
-      "href": "/nfl/story/_/id/50301493/montez-sweat-back-bears-devastating-2-game-suspension"
+      "headline": "Pass rusher Jaelan Phillips among four Panthers ruled out for TNF vs. Packers",
+      "href": "/nfl/story/_/id/50309816/pass-rusher-jaelan-phillips-4-panthers-ruled-tnf"
+    },
+    {
+      "league": "MLB",
+      "headline": "Owner Mark Walter says he'll keep Dodgers, 'no matter what'",
+      "href": "/mlb/story/_/id/50309960/owner-mark-walter-says-keep-dodgers-no-matter-what"
     },
     {
       "league": "NFL",
-      "headline": "2026 NFL trade deadline: Ranking the top 25 candidates to move, plus team fits",
-      "href": "/nfl/story/_/id/50278445/2026-nfl-trade-deadline-ranking-top-25-candidates-available"
+      "headline": "Eagles star Saquon Barkley says he was forced to divest Polymarket equity stake",
+      "href": "/nfl/story/_/id/50309777/saquon-barkley-says-was-forced-divest-polymarket-stake"
     },
     {
       "league": "NBA",
-      "headline": "Timberwolves' Anthony Edwards (knee) to miss up to 2 months, sources say",
-      "href": "/nba/story/_/id/50302115/timberwolves-anthony-edwards-miss-2-months-arthroscopic-knee-procedure"
+      "headline": "Sources: Pacers' Tyrese Haliburton (hamstring) to miss time",
+      "href": "/nba/story/_/id/50309485/sources-pacers-tyrese-haliburton-hamstring-miss"
     },
     {
       "league": "NFL",
-      "headline": "Matt LaFleur isn't ruling out imminent practice return for Micah Parsons",
-      "href": "/nfl/story/_/id/50302347/matt-lafleur-hints-possible-practice-return-micah-parsons"
+      "headline": "Sources: Colts' Josh Downs requests trade; Jonathan Taylor hasn't, per coach",
+      "href": "/nfl/story/_/id/50309159/source-wr-downs-requests-trade-rb-taylor-per-coach"
+    },
+    {
+      "league": "NFL",
+      "headline": "NFL trade deadline grades: DeForest Buckner, Quenton Nelson dealt by Colts, more",
+      "href": "/nfl/story/_/id/50043542/2026-trade-deadline-grades-latest-best-worst-deals"
     },
     {
       "league": "NBA",
@@ -38,39 +48,9 @@
       "href": "/mlb/story/_/id/50241025/world-series-game-4-brewers-rays-live-updates-takeaways"
     },
     {
-      "league": "NBA",
-      "headline": "Sources: Knicks assistant coach Chris Jent steps away for personal reasons",
-      "href": "/nba/story/_/id/50302780/knicks-assistant-coach-chris-jent-takes-personal-leave"
-    },
-    {
-      "league": "NFL",
-      "headline": "NFL trade deadline grades: DeForest Buckner, Quenton Nelson dealt by Colts, more",
-      "href": "/nfl/story/_/id/50043542/2026-trade-deadline-grades-latest-best-worst-deals"
-    },
-    {
-      "league": "NFL",
-      "headline": "Buckner, Nelson trades signal Colts' rebuild underway",
-      "href": "/nfl/story/_/id/50302002/colts-deforest-buckner-quenton-nelson-jonathan-taylor"
-    },
-    {
-      "league": "NFL",
-      "headline": "Colts trade DT DeForest Buckner to 49ers in another major move",
-      "href": "/nfl/story/_/id/50301125/colts-trade-de-deforest-buckner-49ers"
-    },
-    {
-      "league": "NFL",
-      "headline": "2026 NFL trade deadline updates: DeForest Buckner, Quenton Nelson on the move",
-      "href": "/nfl/story/_/id/50043471/2026-trade-deadline-updates-latest-news-deals-terms"
-    },
-    {
       "league": "MLB",
       "headline": "Mets' Francisco Lindor wins Roberto Clemente Award in 'full-circle moment'",
       "href": "/mlb/story/_/id/50288401/mets-francisco-lindor-wins-roberto-clemente-award"
-    },
-    {
-      "league": "MLB",
-      "headline": "MLB tests out restricted OF shifts in effort to up offense",
-      "href": "/mlb/story/_/id/50287898/mlb-tests-restricted-shifts-effort-offense"
     }
   ]
 }
