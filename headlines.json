@@ -1,11 +1,51 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-28T20:25:37Z",
+  "refreshedAt": "2026-10-29T00:11:41Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Jets WR Garrett Wilson says he doesn't want to be traded but does want to win",
+      "href": "/nfl/story/_/id/50308919/jets-wr-garrett-wilson-says-want-traded"
+    },
+    {
+      "league": "NBA",
+      "headline": "Mavericks exercise 2027-28 option on Zaccharie Risacher deal",
+      "href": "/nba/story/_/id/50311622/mavericks-exercise-2027-28-option-zaccharie-risacher-deal"
+    },
+    {
+      "league": "NFL",
+      "headline": "Texans put WR Jaylin Noel on IR with expected season-ending turf toe injury",
+      "href": "/nfl/story/_/id/50311414/texans-put-wr-jaylin-noel-ir-turf-toe-injury"
+    },
+    {
+      "league": "NBA",
+      "headline": "Pacers' Tyrese Haliburton (hamstring) out at least 2 weeks",
+      "href": "/nba/story/_/id/50309485/sources-pacers-tyrese-haliburton-hamstring-miss"
+    },
+    {
+      "league": "NFL",
+      "headline": "Brian Thomas Jr. trying to ignore trade talk, 'keep working hard' for Jaguars",
+      "href": "/nfl/story/_/id/50311100/jaguars-brian-thomas-jr-trying-ignore-trade-talk"
+    },
+    {
+      "league": "NBA",
+      "headline": "Timberwolves say Anthony Edwards will be 'good as new' after knee surgery",
+      "href": "/nba/story/_/id/50310964/wolves-say-edwards-good-new-knee-surgery"
+    },
+    {
+      "league": "NBA",
+      "headline": "Lakers rule out Luka Doncic, Ziaire Williams vs. Clippers",
+      "href": "/nba/story/_/id/50310776/lakers-rule-luka-doncic-ziaire-williams-vs-clippers"
+    },
     {
       "league": "NFL",
       "headline": "Winless Chargers sticking with Mike McDaniel as offensive playcaller",
       "href": "/nfl/story/_/id/50310259/chargers-sticking-mike-mcdaniel-offensive-playcaller"
+    },
+    {
+      "league": "NFL",
+      "headline": "Eagles star Saquon Barkley says he was forced to divest Polymarket equity stake",
+      "href": "/nfl/story/_/id/50309777/saquon-barkley-says-was-forced-divest-polymarket-stake"
     },
     {
       "league": "NFL",
@@ -19,16 +59,6 @@
     },
     {
       "league": "NFL",
-      "headline": "Eagles star Saquon Barkley says he was forced to divest Polymarket equity stake",
-      "href": "/nfl/story/_/id/50309777/saquon-barkley-says-was-forced-divest-polymarket-stake"
-    },
-    {
-      "league": "NBA",
-      "headline": "Sources: Pacers' Tyrese Haliburton (hamstring) to miss time",
-      "href": "/nba/story/_/id/50309485/sources-pacers-tyrese-haliburton-hamstring-miss"
-    },
-    {
-      "league": "NFL",
       "headline": "Sources: Colts' Josh Downs requests trade; Jonathan Taylor hasn't, per coach",
       "href": "/nfl/story/_/id/50309159/source-wr-downs-requests-trade-rb-taylor-per-coach"
     },
@@ -38,19 +68,9 @@
       "href": "/nfl/story/_/id/50043542/2026-trade-deadline-grades-latest-best-worst-deals"
     },
     {
-      "league": "NBA",
-      "headline": "Knicks 'focus on little things,' beat Pistons for first win of season",
-      "href": "/nba/story/_/id/50305071/knicks-focus-little-things-earn-first-win-season"
-    },
-    {
       "league": "MLB",
       "headline": "World Series Game 4: Takeaways from Rays' walk-off win",
       "href": "/mlb/story/_/id/50241025/world-series-game-4-brewers-rays-live-updates-takeaways"
-    },
-    {
-      "league": "MLB",
-      "headline": "Mets' Francisco Lindor wins Roberto Clemente Award in 'full-circle moment'",
-      "href": "/mlb/story/_/id/50288401/mets-francisco-lindor-wins-roberto-clemente-award"
     }
   ]
 }
