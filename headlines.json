@@ -1,7 +1,12 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-29T17:36:59Z",
+  "refreshedAt": "2026-10-29T22:00:12Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Jets' Brownlee says he was benched for missing meetings, but 'good' for Sunday",
+      "href": "/nfl/story/_/id/50322007/jets-jarvis-brownlee-says-was-benched-missing-meetings"
+    },
     {
       "league": "NHL",
       "headline": "Sources: Red Wings won't play Dylan Larkin for 'trade-related' reasons",
@@ -13,29 +18,19 @@
       "href": "/nfl/story/_/id/50319153/jeffery-simmons-trade-titans-bears-draft-picks-deadline"
     },
     {
+      "league": "MLB",
+      "headline": "Brewers close out Rays in Game 5 for first World Series title",
+      "href": "/mlb/story/_/id/50314006/brewers-rays-game-5-first-world-series-title"
+    },
+    {
       "league": "NFL",
       "headline": "NFL trade deadline grades: Jeffery Simmons, DeForest Buckner, Quenton Nelson",
       "href": "/nfl/story/_/id/50043542/2026-trade-deadline-grades-latest-best-worst-deals"
     },
     {
       "league": "NFL",
-      "headline": "Bears acquire All-Pro DT Jeffery Simmons in trade with Titans",
-      "href": "/nfl/story/_/id/50318351/sources-bears-trade-all-pro-dt-jeffery-simmons"
-    },
-    {
-      "league": "NFL",
       "headline": "Have teams figured out DeMeco Ryans and the Texans' defense?",
       "href": "/nfl/story/_/id/50308256/what-happened-texans-defense-struggle"
-    },
-    {
-      "league": "NFL",
-      "headline": "2026 NFL trade deadline updates: Jeffery Simmons, Quenton Nelson on the move",
-      "href": "/nfl/story/_/id/50043471/2026-trade-deadline-updates-latest-news-deals-terms"
-    },
-    {
-      "league": "MLB",
-      "headline": "Brewers close out Rays in Game 5 for first World Series title",
-      "href": "/mlb/story/_/id/50314006/brewers-rays-game-5-first-world-series-title"
     },
     {
       "league": "NBA",
