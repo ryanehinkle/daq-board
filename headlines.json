@@ -1,11 +1,41 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-29T11:48:58Z",
+  "refreshedAt": "2026-10-29T17:36:59Z",
   "items": [
     {
-      "league": "NBA",
-      "headline": "Giannis Antetokounmpo, Bam Adebayo lead Heat into win column",
-      "href": "/nba/story/_/id/50313794/giannis-antetokounmpo-bam-adebayo-lead-heat-win-column"
+      "league": "NHL",
+      "headline": "Sources: Red Wings won't play Dylan Larkin for 'trade-related' reasons",
+      "href": "/nhl/story/_/id/50319798/sources-red-wings-play-dylan-larkin-trade-related-reasons"
+    },
+    {
+      "league": "NFL",
+      "headline": "Bears get Jeffery Simmons: Key intel on blockbuster trade",
+      "href": "/nfl/story/_/id/50319153/jeffery-simmons-trade-titans-bears-draft-picks-deadline"
+    },
+    {
+      "league": "NFL",
+      "headline": "NFL trade deadline grades: Jeffery Simmons, DeForest Buckner, Quenton Nelson",
+      "href": "/nfl/story/_/id/50043542/2026-trade-deadline-grades-latest-best-worst-deals"
+    },
+    {
+      "league": "NFL",
+      "headline": "Bears acquire All-Pro DT Jeffery Simmons in trade with Titans",
+      "href": "/nfl/story/_/id/50318351/sources-bears-trade-all-pro-dt-jeffery-simmons"
+    },
+    {
+      "league": "NFL",
+      "headline": "Have teams figured out DeMeco Ryans and the Texans' defense?",
+      "href": "/nfl/story/_/id/50308256/what-happened-texans-defense-struggle"
+    },
+    {
+      "league": "NFL",
+      "headline": "2026 NFL trade deadline updates: Jeffery Simmons, Quenton Nelson on the move",
+      "href": "/nfl/story/_/id/50043471/2026-trade-deadline-updates-latest-news-deals-terms"
+    },
+    {
+      "league": "MLB",
+      "headline": "Brewers close out Rays in Game 5 for first World Series title",
+      "href": "/mlb/story/_/id/50314006/brewers-rays-game-5-first-world-series-title"
     },
     {
       "league": "NBA",
@@ -13,14 +43,9 @@
       "href": "/nba/story/_/id/50314211/nuggets-nikola-jokic-notches-200th-career-triple-double-win-vs-pelicans"
     },
     {
-      "league": "MLB",
-      "headline": "Owner Mark Walter says he'll keep Dodgers, 'no matter what'",
-      "href": "/mlb/story/_/id/50309960/owner-mark-walter-says-keep-dodgers-no-matter-what"
-    },
-    {
-      "league": "MLB",
-      "headline": "Brewers close out Rays in Game 5 for first World Series title",
-      "href": "/mlb/story/_/id/50314006/brewers-rays-game-5-first-world-series-title"
+      "league": "NBA",
+      "headline": "Giannis Antetokounmpo, Bam Adebayo lead Heat into win column",
+      "href": "/nba/story/_/id/50313794/giannis-antetokounmpo-bam-adebayo-lead-heat-win-column"
     },
     {
       "league": "NBA",
@@ -36,41 +61,6 @@
       "league": "MLB",
       "headline": "CC Sabathia, J.J. Watt top social media reaction to Brewers' World Series win",
       "href": "/mlb/story/_/id/50301908/brewers-world-series-winners-reaction"
-    },
-    {
-      "league": "NFL",
-      "headline": "Cardinals' Budda Baker hopes to stay with Arizona at trade deadline",
-      "href": "/nfl/story/_/id/50312624/cardinals-budda-baker-stay-arizona-trade-deadline"
-    },
-    {
-      "league": "NFL",
-      "headline": "Jets WR Garrett Wilson says he doesn't want to be traded but does want to win",
-      "href": "/nfl/story/_/id/50308919/jets-wr-garrett-wilson-says-want-traded"
-    },
-    {
-      "league": "NFL",
-      "headline": "Texans put WR Jaylin Noel on IR with expected season-ending turf toe injury",
-      "href": "/nfl/story/_/id/50311414/texans-put-wr-jaylin-noel-ir-turf-toe-injury"
-    },
-    {
-      "league": "NFL",
-      "headline": "Brian Thomas Jr. trying to ignore trade talk, 'keep working hard' for Jaguars",
-      "href": "/nfl/story/_/id/50311100/jaguars-brian-thomas-jr-trying-ignore-trade-talk"
-    },
-    {
-      "league": "NFL",
-      "headline": "Winless Chargers sticking with Mike McDaniel as offensive playcaller",
-      "href": "/nfl/story/_/id/50310259/chargers-sticking-mike-mcdaniel-offensive-playcaller"
-    },
-    {
-      "league": "NFL",
-      "headline": "Eagles star Saquon Barkley says he was forced to divest Polymarket equity stake",
-      "href": "/nfl/story/_/id/50309777/saquon-barkley-says-was-forced-divest-polymarket-stake"
-    },
-    {
-      "league": "NFL",
-      "headline": "Pass rusher Jaelan Phillips among four Panthers ruled out for TNF vs. Packers",
-      "href": "/nfl/story/_/id/50309816/pass-rusher-jaelan-phillips-4-panthers-ruled-tnf"
     }
   ]
 }
