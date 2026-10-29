@@ -1,11 +1,21 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-29T05:49:48Z",
+  "refreshedAt": "2026-10-29T11:48:58Z",
   "items": [
     {
       "league": "NBA",
-      "headline": "Stephen Curry torches Wolves for 44 as Warriors win 2nd straight after 0-3 start",
-      "href": "/nba/story/_/id/50315043/stephen-curry-torches-wolves-44-warriors-win-2nd-straight"
+      "headline": "Giannis Antetokounmpo, Bam Adebayo lead Heat into win column",
+      "href": "/nba/story/_/id/50313794/giannis-antetokounmpo-bam-adebayo-lead-heat-win-column"
+    },
+    {
+      "league": "NBA",
+      "headline": "Nikola Jokic records 200th career triple-double in Nuggets' win over Pelicans",
+      "href": "/nba/story/_/id/50314211/nuggets-nikola-jokic-notches-200th-career-triple-double-win-vs-pelicans"
+    },
+    {
+      "league": "MLB",
+      "headline": "Owner Mark Walter says he'll keep Dodgers, 'no matter what'",
+      "href": "/mlb/story/_/id/50309960/owner-mark-walter-says-keep-dodgers-no-matter-what"
     },
     {
       "league": "MLB",
@@ -14,8 +24,8 @@
     },
     {
       "league": "NBA",
-      "headline": "Nikola Jokic records 200th career triple-double in Nuggets' win over Pelicans",
-      "href": "/nba/story/_/id/50314211/nuggets-nikola-jokic-notches-200th-career-triple-double-win-vs-pelicans"
+      "headline": "Stephen Curry torches Wolves for 44 as Warriors win 2nd straight after 0-3 start",
+      "href": "/nba/story/_/id/50315043/stephen-curry-torches-wolves-44-warriors-win-2nd-straight"
     },
     {
       "league": "MLB",
@@ -26,11 +36,6 @@
       "league": "MLB",
       "headline": "CC Sabathia, J.J. Watt top social media reaction to Brewers' World Series win",
       "href": "/mlb/story/_/id/50301908/brewers-world-series-winners-reaction"
-    },
-    {
-      "league": "NBA",
-      "headline": "Giannis Antetokounmpo, Bam Adebayo lead Heat into win column",
-      "href": "/nba/story/_/id/50313794/giannis-antetokounmpo-bam-adebayo-lead-heat-win-column"
     },
     {
       "league": "NFL",
@@ -66,11 +71,6 @@
       "league": "NFL",
       "headline": "Pass rusher Jaelan Phillips among four Panthers ruled out for TNF vs. Packers",
       "href": "/nfl/story/_/id/50309816/pass-rusher-jaelan-phillips-4-panthers-ruled-tnf"
-    },
-    {
-      "league": "MLB",
-      "headline": "Owner Mark Walter says he'll keep Dodgers, 'no matter what'",
-      "href": "/mlb/story/_/id/50309960/owner-mark-walter-says-keep-dodgers-no-matter-what"
     }
   ]
 }
