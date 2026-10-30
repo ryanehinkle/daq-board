@@ -1,11 +1,36 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-30T01:51:07Z",
+  "refreshedAt": "2026-10-30T07:48:55Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "Panthers' ailing secondary loses rookie CB Will Lee to injury; return doubtful",
-      "href": "/nfl/story/_/id/50323927/panthers-lee-injures-hamstring-return-doubtful-vs-pakers"
+      "headline": "Packers' Christian Watson returns to play after hospital trip for chest injury",
+      "href": "/nfl/story/_/id/50324081/packers-christian-watson-hospital-chest-injury-panthers"
+    },
+    {
+      "league": "NFL",
+      "headline": "Panthers' Bryce Young says injured knee 'fine' after taking 6 sacks vs. Packers",
+      "href": "/nfl/story/_/id/50325742/panthers-bryce-young-says-knee-fine-loss-packers"
+    },
+    {
+      "league": "NBA",
+      "headline": "Trail Blazers' Ja Morant exits first game vs. Grizzlies with hamstring injury",
+      "href": "/nba/story/_/id/50325662/trail-blazers-ja-morant-exit-grizzlies-hamstring-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Panthers' ailing secondary loses rookie CB Will Lee to injury in first half",
+      "href": "/nfl/story/_/id/50323927/panthers-lee-injures-hamstring-ruled-vs-packers"
+    },
+    {
+      "league": "NHL",
+      "headline": "Red Wings suspend star forward Dylan Larkin as team explores trade options",
+      "href": "/nhl/story/_/id/50322532/red-wings-suspend-dylan-larkin-explore-trade-options"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Bears quarterback Caleb Williams fined again for cleats",
+      "href": "/nfl/story/_/id/50323203/bears-quarterback-caleb-williams-fined-again-cleats"
     },
     {
       "league": "NFL",
@@ -19,16 +44,6 @@
     },
     {
       "league": "NFL",
-      "headline": "Source: Bears quarterback Caleb Williams fined again for cleats",
-      "href": "/nfl/story/_/id/50323203/bears-quarterback-caleb-williams-fined-again-cleats"
-    },
-    {
-      "league": "NHL",
-      "headline": "Red Wings suspend star forward Dylan Larkin as team explores trade options",
-      "href": "/nhl/story/_/id/50322532/red-wings-suspend-dylan-larkin-explore-trade-options"
-    },
-    {
-      "league": "NFL",
       "headline": "Jets' Brownlee says he was benched for missing meetings, but 'good' for Sunday",
       "href": "/nfl/story/_/id/50322007/jets-jarvis-brownlee-says-was-benched-missing-meetings"
     },
@@ -38,29 +53,9 @@
       "href": "/nhl/story/_/id/50319798/sources-red-wings-play-dylan-larkin-trade-related-reasons"
     },
     {
-      "league": "NFL",
-      "headline": "Bears get Jeffery Simmons: Key intel on blockbuster trade",
-      "href": "/nfl/story/_/id/50319153/jeffery-simmons-trade-titans-bears-draft-picks-deadline"
-    },
-    {
       "league": "MLB",
       "headline": "Brewers close out Rays in Game 5 for first World Series title",
       "href": "/mlb/story/_/id/50314006/brewers-rays-game-5-first-world-series-title"
-    },
-    {
-      "league": "NFL",
-      "headline": "NFL trade deadline grades: Jeffery Simmons, DeForest Buckner, Quenton Nelson",
-      "href": "/nfl/story/_/id/50043542/2026-trade-deadline-grades-latest-best-worst-deals"
-    },
-    {
-      "league": "NBA",
-      "headline": "Nikola Jokic records 200th career triple-double in Nuggets' win over Pelicans",
-      "href": "/nba/story/_/id/50314211/nuggets-nikola-jokic-notches-200th-career-triple-double-win-vs-pelicans"
-    },
-    {
-      "league": "NBA",
-      "headline": "Giannis Antetokounmpo, Bam Adebayo lead Heat into win column",
-      "href": "/nba/story/_/id/50313794/giannis-antetokounmpo-bam-adebayo-lead-heat-win-column"
     },
     {
       "league": "NBA",
@@ -69,8 +64,8 @@
     },
     {
       "league": "MLB",
-      "headline": "World Series Game 5: Takeaways as Brewers beat Rays, clinch title",
-      "href": "/mlb/story/_/id/50241136/world-series-game-5-brewers-rays-live-updates-takeaways"
+      "headline": "CC Sabathia, J.J. Watt top social media reaction to Brewers' World Series win",
+      "href": "/mlb/story/_/id/50301908/brewers-world-series-winners-reaction"
     }
   ]
 }
