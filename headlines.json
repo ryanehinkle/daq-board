@@ -1,7 +1,32 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-29T22:00:12Z",
+  "refreshedAt": "2026-10-30T01:51:07Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Panthers' ailing secondary loses rookie CB Will Lee to injury; return doubtful",
+      "href": "/nfl/story/_/id/50323927/panthers-lee-injures-hamstring-return-doubtful-vs-pakers"
+    },
+    {
+      "league": "NFL",
+      "headline": "Jeffery Simmons traded to Bears: Does dealing multiple first-round picks work?",
+      "href": "/nfl/story/_/id/50319184/jeffery-simmons-trade-two-first-round-picks-bears-titans"
+    },
+    {
+      "league": "NBA",
+      "headline": "Knicks' Jose Alvarado (ankle) to miss fourth straight vs. 76ers",
+      "href": "/nba/story/_/id/50323505/knicks-jose-alvarado-ankle-injury-76ers"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Bears quarterback Caleb Williams fined again for cleats",
+      "href": "/nfl/story/_/id/50323203/bears-quarterback-caleb-williams-fined-again-cleats"
+    },
+    {
+      "league": "NHL",
+      "headline": "Red Wings suspend star forward Dylan Larkin as team explores trade options",
+      "href": "/nhl/story/_/id/50322532/red-wings-suspend-dylan-larkin-explore-trade-options"
+    },
     {
       "league": "NFL",
       "headline": "Jets' Brownlee says he was benched for missing meetings, but 'good' for Sunday",
@@ -28,11 +53,6 @@
       "href": "/nfl/story/_/id/50043542/2026-trade-deadline-grades-latest-best-worst-deals"
     },
     {
-      "league": "NFL",
-      "headline": "Have teams figured out DeMeco Ryans and the Texans' defense?",
-      "href": "/nfl/story/_/id/50308256/what-happened-texans-defense-struggle"
-    },
-    {
       "league": "NBA",
       "headline": "Nikola Jokic records 200th career triple-double in Nuggets' win over Pelicans",
       "href": "/nba/story/_/id/50314211/nuggets-nikola-jokic-notches-200th-career-triple-double-win-vs-pelicans"
@@ -51,11 +71,6 @@
       "league": "MLB",
       "headline": "World Series Game 5: Takeaways as Brewers beat Rays, clinch title",
       "href": "/mlb/story/_/id/50241136/world-series-game-5-brewers-rays-live-updates-takeaways"
-    },
-    {
-      "league": "MLB",
-      "headline": "CC Sabathia, J.J. Watt top social media reaction to Brewers' World Series win",
-      "href": "/mlb/story/_/id/50301908/brewers-world-series-winners-reaction"
     }
   ]
 }
