@@ -1,16 +1,36 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-30T07:48:55Z",
+  "refreshedAt": "2026-10-30T19:40:45Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "Packers' Christian Watson returns to play after hospital trip for chest injury",
-      "href": "/nfl/story/_/id/50324081/packers-christian-watson-hospital-chest-injury-panthers"
+      "headline": "Chiefs get Rashee Rice back from injury for Broncos game",
+      "href": "/nfl/story/_/id/50329594/chiefs-get-rashee-rice-back-injury-broncos-game"
     },
     {
       "league": "NFL",
-      "headline": "Panthers' Bryce Young says injured knee 'fine' after taking 6 sacks vs. Packers",
-      "href": "/nfl/story/_/id/50325742/panthers-bryce-young-says-knee-fine-loss-packers"
+      "headline": "Ravens QB Jackson to return for Bills clash, calls ankle pain 'bearable'",
+      "href": "/nfl/story/_/id/50329330/ravens-qb-lamar-jackson-expected-return-vs-bills"
+    },
+    {
+      "league": "NBA",
+      "headline": "Ja Morant out at least 4 weeks with hamstring strain suffered against Grizzlies",
+      "href": "/nba/story/_/id/50329588/ja-morant-least-four-weeks-injury-vs-grizzlies"
+    },
+    {
+      "league": "NFL",
+      "headline": "Cardinals rookie RB Jeremiyah Love (ankle) set to return",
+      "href": "/nfl/story/_/id/50329508/cardinals-rookie-rb-jeremiyah-love-ankle-set-return"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sources: Thunder signing Agbaji to fill roster after Williams, Wallace injuries",
+      "href": "/nba/story/_/id/50329298/sources-thunder-signing-ochai-agbaji-fill-open-roster-spot"
+    },
+    {
+      "league": "MLB",
+      "headline": "Source: Bo Bichette to exercise $42M option to stay with Mets",
+      "href": "/mlb/story/_/id/50329191/sources-bo-bichette-exercise-42m-option-stay-mets"
     },
     {
       "league": "NBA",
@@ -18,54 +38,9 @@
       "href": "/nba/story/_/id/50325662/trail-blazers-ja-morant-exit-grizzlies-hamstring-injury"
     },
     {
-      "league": "NFL",
-      "headline": "Panthers' ailing secondary loses rookie CB Will Lee to injury in first half",
-      "href": "/nfl/story/_/id/50323927/panthers-lee-injures-hamstring-ruled-vs-packers"
-    },
-    {
-      "league": "NHL",
-      "headline": "Red Wings suspend star forward Dylan Larkin as team explores trade options",
-      "href": "/nhl/story/_/id/50322532/red-wings-suspend-dylan-larkin-explore-trade-options"
-    },
-    {
-      "league": "NFL",
-      "headline": "Source: Bears quarterback Caleb Williams fined again for cleats",
-      "href": "/nfl/story/_/id/50323203/bears-quarterback-caleb-williams-fined-again-cleats"
-    },
-    {
-      "league": "NFL",
-      "headline": "Jeffery Simmons traded to Bears: Does dealing multiple first-round picks work?",
-      "href": "/nfl/story/_/id/50319184/jeffery-simmons-trade-two-first-round-picks-bears-titans"
-    },
-    {
       "league": "NBA",
       "headline": "Knicks' Jose Alvarado (ankle) to miss fourth straight vs. 76ers",
       "href": "/nba/story/_/id/50323505/knicks-jose-alvarado-ankle-injury-76ers"
-    },
-    {
-      "league": "NFL",
-      "headline": "Jets' Brownlee says he was benched for missing meetings, but 'good' for Sunday",
-      "href": "/nfl/story/_/id/50322007/jets-jarvis-brownlee-says-was-benched-missing-meetings"
-    },
-    {
-      "league": "NHL",
-      "headline": "Sources: Red Wings won't play Dylan Larkin for 'trade-related' reasons",
-      "href": "/nhl/story/_/id/50319798/sources-red-wings-play-dylan-larkin-trade-related-reasons"
-    },
-    {
-      "league": "MLB",
-      "headline": "Brewers close out Rays in Game 5 for first World Series title",
-      "href": "/mlb/story/_/id/50314006/brewers-rays-game-5-first-world-series-title"
-    },
-    {
-      "league": "NBA",
-      "headline": "Stephen Curry torches Wolves for 44 as Warriors win 2nd straight after 0-3 start",
-      "href": "/nba/story/_/id/50315043/stephen-curry-torches-wolves-44-warriors-win-2nd-straight"
-    },
-    {
-      "league": "MLB",
-      "headline": "CC Sabathia, J.J. Watt top social media reaction to Brewers' World Series win",
-      "href": "/mlb/story/_/id/50301908/brewers-world-series-winners-reaction"
     }
   ]
 }
