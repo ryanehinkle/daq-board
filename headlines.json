@@ -1,16 +1,31 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-30T19:40:45Z",
+  "refreshedAt": "2026-10-30T23:15:29Z",
   "items": [
     {
-      "league": "NFL",
-      "headline": "Chiefs get Rashee Rice back from injury for Broncos game",
-      "href": "/nfl/story/_/id/50329594/chiefs-get-rashee-rice-back-injury-broncos-game"
+      "league": "NBA",
+      "headline": "Philadelphia 76ers star Brown to miss Friday NBA Cup game vs. New York Knicks",
+      "href": "/nba/story/_/id/50331446/76ers-jaylen-brown-friday-nba-cup-game"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sources: Mark Walter, Josh Kushner finalize all terms of $12.5B Lakers sale",
+      "href": "/nba/story/_/id/50331319/sources-mark-walter-josh-kushner-finalize-lakers-sale"
     },
     {
       "league": "NFL",
-      "headline": "Ravens QB Jackson to return for Bills clash, calls ankle pain 'bearable'",
-      "href": "/nfl/story/_/id/50329330/ravens-qb-lamar-jackson-expected-return-vs-bills"
+      "headline": "Colts' Shane Steichen: WR Josh Downs 'ready to go' despite trade request",
+      "href": "/nfl/story/_/id/50331045/colts-steichen-wr-downs-ready-go-trade-demand"
+    },
+    {
+      "league": "NFL",
+      "headline": "Cardinals rookie RB Jeremiyah Love (ankle) set to return",
+      "href": "/nfl/story/_/id/50329508/cardinals-rookie-rb-jeremiyah-love-ankle-set-return"
+    },
+    {
+      "league": "NFL",
+      "headline": "Eagles' Saquon Barkley carries no injury designation for Commanders matchup",
+      "href": "/nfl/story/_/id/50330421/eagles-saquon-barkley-carries-no-injury-designation-commanders-matchup"
     },
     {
       "league": "NBA",
@@ -19,8 +34,13 @@
     },
     {
       "league": "NFL",
-      "headline": "Cardinals rookie RB Jeremiyah Love (ankle) set to return",
-      "href": "/nfl/story/_/id/50329508/cardinals-rookie-rb-jeremiyah-love-ankle-set-return"
+      "headline": "Ravens QB Jackson to return for Bills clash, calls ankle pain 'bearable'",
+      "href": "/nfl/story/_/id/50329330/ravens-qb-lamar-jackson-expected-return-vs-bills"
+    },
+    {
+      "league": "NFL",
+      "headline": "Chiefs get Rashee Rice back from injury for Broncos game",
+      "href": "/nfl/story/_/id/50329594/chiefs-get-rashee-rice-back-injury-broncos-game"
     },
     {
       "league": "NBA",
