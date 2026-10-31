@@ -1,7 +1,37 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-31T14:49:56Z",
+  "refreshedAt": "2026-10-31T18:52:16Z",
   "items": [
+    {
+      "league": "NHL",
+      "headline": "Coach says Nikita Kucherov 'committed' to be with Lightning",
+      "href": "/nhl/story/_/id/50338055/coach-says-nikita-kucherov-committed-lightning"
+    },
+    {
+      "league": "NBA",
+      "headline": "LeBron James, Joel Embiid both out for 76ers vs. Hornets",
+      "href": "/nba/story/_/id/50337638/lebron-james-joel-embiid-76ers-vs-hornets"
+    },
+    {
+      "league": "NFL",
+      "headline": "Patriots rule out A.J. Brown, TreVeyon Henderson vs. Dolphins",
+      "href": "/nfl/story/_/id/50337296/patriots-rule-aj-brown-treveyon-henderson-vs-dolphins"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sources: Thunder no longer signing Ochai Agbaji following Chet Holmgren injury",
+      "href": "/nba/story/_/id/50336717/sources-thunder-no-longer-signing-ochai-agbaji"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Commanders DT Daron Payne suffered season-ending foot injury",
+      "href": "/nfl/story/_/id/50336399/source-commanders-dt-payne-suffered-season-ending-foot-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Colts willing to trade RB Jonathan Taylor, active in talks with teams",
+      "href": "/nfl/story/_/id/50323095/sources-colts-willing-trade-star-rb-jonathan-taylor"
+    },
     {
       "league": "NHL",
       "headline": "Sources: Kucherov requests trade; Lightning have 'no intention' of dealing star",
@@ -11,11 +41,6 @@
       "league": "NFL",
       "headline": "Sources: Packers, Micah Parsons target return for Thanksgiving Eve game vs. Rams",
       "href": "/nfl/story/_/id/50335391/sources-packers-micah-parsons-eye-thanksgiving-eve-return"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Colts willing to trade RB Jonathan Taylor, active in talks with teams",
-      "href": "/nfl/story/_/id/50323095/sources-colts-willing-trade-star-rb-jonathan-taylor"
     },
     {
       "league": "NFL",
@@ -36,11 +61,6 @@
       "league": "NFL",
       "headline": "Sources: Commanders' Daron Payne likely IR-bound after practice injury",
       "href": "/nfl/story/_/id/50331710/sources-commanders-daron-payne-injures-foot-practice"
-    },
-    {
-      "league": "NFL",
-      "headline": "Colts' Shane Steichen: WR Josh Downs 'ready to go' despite trade request",
-      "href": "/nfl/story/_/id/50331045/colts-steichen-wr-downs-ready-go-trade-demand"
     }
   ]
 }
