@@ -1,16 +1,31 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-31T08:46:10Z",
+  "refreshedAt": "2026-10-31T14:49:56Z",
   "items": [
-    {
-      "league": "NHL",
-      "headline": "Ottawa Senators F Hayden Hodgson suspended by NHL's Department of Player Safety",
-      "href": "/nhl/story/_/id/50332490/ottawa-senators-forward-hayden-hodgson-suspended-two-games"
-    },
     {
       "league": "NHL",
       "headline": "Sources: Kucherov requests trade; Lightning have 'no intention' of dealing star",
       "href": "/nhl/story/_/id/50331644/nikita-kucherov-33-requests-trade-lightning"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Packers, Micah Parsons target return for Thanksgiving Eve game vs. Rams",
+      "href": "/nfl/story/_/id/50335391/sources-packers-micah-parsons-eye-thanksgiving-eve-return"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Colts willing to trade RB Jonathan Taylor, active in talks with teams",
+      "href": "/nfl/story/_/id/50323095/sources-colts-willing-trade-star-rb-jonathan-taylor"
+    },
+    {
+      "league": "NFL",
+      "headline": "'No way' that Jets trade star WR Garrett Wilson before deadline, source says",
+      "href": "/nfl/story/_/id/50331651/no-way-jets-trade-garrett-wilson-deadline-source-says"
+    },
+    {
+      "league": "NHL",
+      "headline": "Ottawa Senators F Hayden Hodgson suspended by NHL's Department of Player Safety",
+      "href": "/nhl/story/_/id/50332490/ottawa-senators-forward-hayden-hodgson-suspended-two-games"
     },
     {
       "league": "NFL",
@@ -26,26 +41,6 @@
       "league": "NFL",
       "headline": "Colts' Shane Steichen: WR Josh Downs 'ready to go' despite trade request",
       "href": "/nfl/story/_/id/50331045/colts-steichen-wr-downs-ready-go-trade-demand"
-    },
-    {
-      "league": "NFL",
-      "headline": "Cardinals rookie RB Jeremiyah Love (ankle) set to return",
-      "href": "/nfl/story/_/id/50329508/cardinals-rookie-rb-jeremiyah-love-ankle-set-return"
-    },
-    {
-      "league": "NFL",
-      "headline": "Eagles' Saquon Barkley carries no injury designation for Commanders matchup",
-      "href": "/nfl/story/_/id/50330421/eagles-saquon-barkley-carries-no-injury-designation-commanders-matchup"
-    },
-    {
-      "league": "NFL",
-      "headline": "Ravens QB Jackson to return for Bills clash, calls ankle pain 'bearable'",
-      "href": "/nfl/story/_/id/50329330/ravens-qb-lamar-jackson-expected-return-vs-bills"
-    },
-    {
-      "league": "NFL",
-      "headline": "Chiefs get Rashee Rice back from injury for Broncos game",
-      "href": "/nfl/story/_/id/50329594/chiefs-get-rashee-rice-back-injury-broncos-game"
     }
   ]
 }
