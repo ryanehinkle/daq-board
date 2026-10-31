@@ -1,16 +1,26 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-31T18:52:16Z",
+  "refreshedAt": "2026-10-31T22:03:37Z",
   "items": [
     {
       "league": "NHL",
-      "headline": "Coach says Nikita Kucherov 'committed' to be with Lightning",
-      "href": "/nhl/story/_/id/50338055/coach-says-nikita-kucherov-committed-lightning"
+      "headline": "Islanders' Emil Heineman ejected for hit that injured Oilers' Isaac Howard",
+      "href": "/nhl/story/_/id/50338492/islanders-emil-heineman-ejected-hit-oilers-howard"
     },
     {
-      "league": "NBA",
-      "headline": "LeBron James, Joel Embiid both out for 76ers vs. Hornets",
-      "href": "/nba/story/_/id/50337638/lebron-james-joel-embiid-76ers-vs-hornets"
+      "league": "NFL",
+      "headline": "'No way' that Jets trade star WR Garrett Wilson before deadline, source says",
+      "href": "/nfl/story/_/id/50331651/no-way-jets-trade-garrett-wilson-deadline-source-says"
+    },
+    {
+      "league": "NFL",
+      "headline": "T'Vondre Sweat placed on injured reserve with knee injury",
+      "href": "/nfl/story/_/id/50339066/tvondre-sweat-placed-injured-reserve-knee-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Commanders DT Daron Payne suffered season-ending foot injury",
+      "href": "/nfl/story/_/id/50336399/source-commanders-dt-payne-suffered-season-ending-foot-injury"
     },
     {
       "league": "NFL",
@@ -18,14 +28,14 @@
       "href": "/nfl/story/_/id/50337296/patriots-rule-aj-brown-treveyon-henderson-vs-dolphins"
     },
     {
+      "league": "NHL",
+      "headline": "Coach says Nikita Kucherov 'committed' to be with Lightning",
+      "href": "/nhl/story/_/id/50338055/coach-says-nikita-kucherov-committed-lightning"
+    },
+    {
       "league": "NBA",
       "headline": "Sources: Thunder no longer signing Ochai Agbaji following Chet Holmgren injury",
       "href": "/nba/story/_/id/50336717/sources-thunder-no-longer-signing-ochai-agbaji"
-    },
-    {
-      "league": "NFL",
-      "headline": "Source: Commanders DT Daron Payne suffered season-ending foot injury",
-      "href": "/nfl/story/_/id/50336399/source-commanders-dt-payne-suffered-season-ending-foot-injury"
     },
     {
       "league": "NFL",
@@ -43,11 +53,6 @@
       "href": "/nfl/story/_/id/50335391/sources-packers-micah-parsons-eye-thanksgiving-eve-return"
     },
     {
-      "league": "NFL",
-      "headline": "'No way' that Jets trade star WR Garrett Wilson before deadline, source says",
-      "href": "/nfl/story/_/id/50331651/no-way-jets-trade-garrett-wilson-deadline-source-says"
-    },
-    {
       "league": "NHL",
       "headline": "Ottawa Senators F Hayden Hodgson suspended by NHL's Department of Player Safety",
       "href": "/nhl/story/_/id/50332490/ottawa-senators-forward-hayden-hodgson-suspended-two-games"
@@ -56,11 +61,6 @@
       "league": "NFL",
       "headline": "Falcons' Anterio Thompson says he can't play football due to spinal cord issue",
       "href": "/nfl/story/_/id/50332073/falcons-thompson-play-football-due-spinal-cord-issue"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Commanders' Daron Payne likely IR-bound after practice injury",
-      "href": "/nfl/story/_/id/50331710/sources-commanders-daron-payne-injures-foot-practice"
     }
   ]
 }
