@@ -1,11 +1,41 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-30T23:15:29Z",
+  "refreshedAt": "2026-10-31T02:29:07Z",
   "items": [
     {
       "league": "NBA",
       "headline": "Philadelphia 76ers star Brown to miss Friday NBA Cup game vs. New York Knicks",
       "href": "/nba/story/_/id/50331446/76ers-jaylen-brown-friday-nba-cup-game"
+    },
+    {
+      "league": "NBA",
+      "headline": "Ja Morant out at least 4 weeks with hamstring strain suffered against Grizzlies",
+      "href": "/nba/story/_/id/50329588/ja-morant-least-four-weeks-injury-vs-grizzlies"
+    },
+    {
+      "league": "NHL",
+      "headline": "Ottawa Senators F Hayden Hodgson suspended by NHL's Department of Player Safety",
+      "href": "/nhl/story/_/id/50332490/ottawa-senators-forward-hayden-hodgson-suspended-two-games"
+    },
+    {
+      "league": "NBA",
+      "headline": "Thunder's Chet Holmgren out 8-10 weeks due to patellar tendon tear",
+      "href": "/nba/story/_/id/50332283/thunder-say-chet-holmgren-8-10-weeks-due-knee"
+    },
+    {
+      "league": "NHL",
+      "headline": "Sources: Tampa Bay Lightning star forward Nikita Kucherov, 33, requests trade",
+      "href": "/nhl/story/_/id/50331644/nikita-kucherov-33-requests-trade-lightning"
+    },
+    {
+      "league": "NFL",
+      "headline": "Falcons' Anterio Thompson says he can't play football due to spinal cord issue",
+      "href": "/nfl/story/_/id/50332073/falcons-thompson-play-football-due-spinal-cord-issue"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Commanders' Daron Payne likely IR-bound after practice injury",
+      "href": "/nfl/story/_/id/50331710/sources-commanders-daron-payne-injures-foot-practice"
     },
     {
       "league": "NBA",
@@ -28,11 +58,6 @@
       "href": "/nfl/story/_/id/50330421/eagles-saquon-barkley-carries-no-injury-designation-commanders-matchup"
     },
     {
-      "league": "NBA",
-      "headline": "Ja Morant out at least 4 weeks with hamstring strain suffered against Grizzlies",
-      "href": "/nba/story/_/id/50329588/ja-morant-least-four-weeks-injury-vs-grizzlies"
-    },
-    {
       "league": "NFL",
       "headline": "Ravens QB Jackson to return for Bills clash, calls ankle pain 'bearable'",
       "href": "/nfl/story/_/id/50329330/ravens-qb-lamar-jackson-expected-return-vs-bills"
@@ -43,24 +68,9 @@
       "href": "/nfl/story/_/id/50329594/chiefs-get-rashee-rice-back-injury-broncos-game"
     },
     {
-      "league": "NBA",
-      "headline": "Sources: Thunder signing Agbaji to fill roster after Williams, Wallace injuries",
-      "href": "/nba/story/_/id/50329298/sources-thunder-signing-ochai-agbaji-fill-open-roster-spot"
-    },
-    {
       "league": "MLB",
       "headline": "Source: Bo Bichette to exercise $42M option to stay with Mets",
       "href": "/mlb/story/_/id/50329191/sources-bo-bichette-exercise-42m-option-stay-mets"
-    },
-    {
-      "league": "NBA",
-      "headline": "Trail Blazers' Ja Morant exits first game vs. Grizzlies with hamstring injury",
-      "href": "/nba/story/_/id/50325662/trail-blazers-ja-morant-exit-grizzlies-hamstring-injury"
-    },
-    {
-      "league": "NBA",
-      "headline": "Knicks' Jose Alvarado (ankle) to miss fourth straight vs. 76ers",
-      "href": "/nba/story/_/id/50323505/knicks-jose-alvarado-ankle-injury-76ers"
     }
   ]
 }
