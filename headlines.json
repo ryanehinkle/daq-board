@@ -1,51 +1,31 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-01T19:02:54Z",
+  "refreshedAt": "2026-11-01T22:43:39Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "Ravens' Lamar Jackson out for game with thumb injury suffered on 1st play",
+      "headline": "Source: Jauan Jennings wanted to stay with Vikings amid 49ers trade talks",
+      "href": "/nfl/story/_/id/50350048/source-jennings-wanted-stay-vikings-amid-49ers-talks"
+    },
+    {
+      "league": "NFL",
+      "headline": "Lions linebacker Jack Campbell placed on backboard, carted off vs. Vikings",
+      "href": "/nfl/story/_/id/50350934/lions-linebacker-jack-campbell-placed-backboard-carted-off"
+    },
+    {
+      "league": "NFL",
+      "headline": "Ravens' Lamar Jackson needs thumb surgery, will be placed on IR",
       "href": "/nfl/story/_/id/50349558/ravens-lamar-jackson-rest-game-thumb-injury"
     },
     {
-      "league": "NFL",
-      "headline": "Sources: Bears, Titans used Myles Garrett deal as framework for Simmons trade",
-      "href": "/nfl/story/_/id/50343678/bears-trade-jeffery-simmons-based-myles-garrett-deal"
-    },
-    {
-      "league": "NFL",
-      "headline": "Bears QB Caleb Williams won't 'spat' custom cleats out of principle, source says",
-      "href": "/nfl/story/_/id/50343312/source-caleb-williams-spat-cleats-principle"
+      "league": "NBA",
+      "headline": "Spurs' Victor Wembanyama notches 43 points on career-high 34 shots in win",
+      "href": "/nba/story/_/id/50344505/spurs-victor-wembanyama-notches-43-points-career-best-34-shots-win"
     },
     {
       "league": "NBA",
       "headline": "Jalen Brunson joins Harry Styles on stage to cap Styles' MSG residency",
       "href": "/nba/story/_/id/50344218/jalen-brunson-harry-styles-madison-square-garden"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Ray Lewis delivered intense Friday speech to struggling Ravens team",
-      "href": "/nfl/story/_/id/50348012/sources-ray-lewis-delivered-intense-speech-ravens"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Raiders not planning on trading Maxx Crosby, who wants to stay",
-      "href": "/nfl/story/_/id/50335308/raiders-not-planning-trading-maxx-crosby-sources-say"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Saquon Barkley won't be traded by deadline despite Eagles' struggles",
-      "href": "/nfl/story/_/id/50336880/sources-eagles-trade-star-rb-saquon-barkley"
-    },
-    {
-      "league": "NFL",
-      "headline": "Will usually active Jets play or pass before trade deadline?",
-      "href": "/nfl/story/_/id/50329135/jets-trade-deadline-rumors-allen-mcdonald-brownlee"
-    },
-    {
-      "league": "NBA",
-      "headline": "Spurs' Victor Wembanyama notches 43 points on career-best 34 shots in win",
-      "href": "/nba/story/_/id/50344505/spurs-victor-wembanyama-notches-43-points-career-best-43-shots-win"
     },
     {
       "league": "NBA",
