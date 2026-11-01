@@ -1,11 +1,16 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-10-31T22:03:37Z",
+  "refreshedAt": "2026-11-01T01:02:17Z",
   "items": [
     {
-      "league": "NHL",
-      "headline": "Islanders' Emil Heineman ejected for hit that injured Oilers' Isaac Howard",
-      "href": "/nhl/story/_/id/50338492/islanders-emil-heineman-ejected-hit-oilers-howard"
+      "league": "NBA",
+      "headline": "Victor Wembanyama's Halloween costume trend returns with 'The Witcher' look",
+      "href": "/nba/story/_/id/46775071/victor-wembanyama-halloween-costume-arrivals-years"
+    },
+    {
+      "league": "NFL",
+      "headline": "Derwin James placed on injured reserve after hamstring rehab setback",
+      "href": "/nfl/story/_/id/50340504/chargers-safety-james-hamstring-placed-injured-reserve"
     },
     {
       "league": "NFL",
@@ -56,11 +61,6 @@
       "league": "NHL",
       "headline": "Ottawa Senators F Hayden Hodgson suspended by NHL's Department of Player Safety",
       "href": "/nhl/story/_/id/50332490/ottawa-senators-forward-hayden-hodgson-suspended-two-games"
-    },
-    {
-      "league": "NFL",
-      "headline": "Falcons' Anterio Thompson says he can't play football due to spinal cord issue",
-      "href": "/nfl/story/_/id/50332073/falcons-thompson-play-football-due-spinal-cord-issue"
     }
   ]
 }
