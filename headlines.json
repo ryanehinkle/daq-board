@@ -1,7 +1,17 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-01T01:02:17Z",
+  "refreshedAt": "2026-11-01T07:25:28Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Spurs' Victor Wembanyama notches 43 points on career-best 34 shots in win",
+      "href": "/nba/story/_/id/50344505/spurs-victor-wembanyama-notches-43-points-career-best-43-shots-win"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Colts willing to trade RB Jonathan Taylor, active in talks with teams",
+      "href": "/nfl/story/_/id/50323095/sources-colts-willing-trade-star-rb-jonathan-taylor"
+    },
     {
       "league": "NBA",
       "headline": "Victor Wembanyama's Halloween costume trend returns with 'The Witcher' look",
@@ -44,23 +54,8 @@
     },
     {
       "league": "NFL",
-      "headline": "Sources: Colts willing to trade RB Jonathan Taylor, active in talks with teams",
-      "href": "/nfl/story/_/id/50323095/sources-colts-willing-trade-star-rb-jonathan-taylor"
-    },
-    {
-      "league": "NHL",
-      "headline": "Sources: Kucherov requests trade; Lightning have 'no intention' of dealing star",
-      "href": "/nhl/story/_/id/50331644/nikita-kucherov-33-requests-trade-lightning"
-    },
-    {
-      "league": "NFL",
       "headline": "Sources: Packers, Micah Parsons target return for Thanksgiving Eve game vs. Rams",
       "href": "/nfl/story/_/id/50335391/sources-packers-micah-parsons-eye-thanksgiving-eve-return"
-    },
-    {
-      "league": "NHL",
-      "headline": "Ottawa Senators F Hayden Hodgson suspended by NHL's Department of Player Safety",
-      "href": "/nhl/story/_/id/50332490/ottawa-senators-forward-hayden-hodgson-suspended-two-games"
     }
   ]
 }
