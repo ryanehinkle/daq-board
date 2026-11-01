@@ -1,16 +1,36 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-01T07:25:28Z",
+  "refreshedAt": "2026-11-01T14:25:23Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Bears QB Caleb Williams won't 'spat' custom cleats out of principle, source says",
+      "href": "/nfl/story/_/id/50343312/source-caleb-williams-spat-cleats-principle"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Bears, Titans used Myles Garrett deal as framework for Simmons trade",
+      "href": "/nfl/story/_/id/50343678/bears-trade-jeffery-simmons-based-myles-garrett-deal"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Saquon Barkley won't be traded by deadline despite Eagles' struggles",
+      "href": "/nfl/story/_/id/50336880/sources-eagles-trade-star-rb-saquon-barkley"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Raiders not planning on trading Maxx Crosby, who wants to stay",
+      "href": "/nfl/story/_/id/50335308/raiders-not-planning-trading-maxx-crosby-sources-say"
+    },
+    {
+      "league": "NFL",
+      "headline": "Will usually active Jets play or pass before trade deadline?",
+      "href": "/nfl/story/_/id/50329135/jets-trade-deadline-rumors-allen-mcdonald-brownlee"
+    },
     {
       "league": "NBA",
       "headline": "Spurs' Victor Wembanyama notches 43 points on career-best 34 shots in win",
       "href": "/nba/story/_/id/50344505/spurs-victor-wembanyama-notches-43-points-career-best-43-shots-win"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Colts willing to trade RB Jonathan Taylor, active in talks with teams",
-      "href": "/nfl/story/_/id/50323095/sources-colts-willing-trade-star-rb-jonathan-taylor"
     },
     {
       "league": "NBA",
@@ -21,11 +41,6 @@
       "league": "NFL",
       "headline": "Derwin James placed on injured reserve after hamstring rehab setback",
       "href": "/nfl/story/_/id/50340504/chargers-safety-james-hamstring-placed-injured-reserve"
-    },
-    {
-      "league": "NFL",
-      "headline": "'No way' that Jets trade star WR Garrett Wilson before deadline, source says",
-      "href": "/nfl/story/_/id/50331651/no-way-jets-trade-garrett-wilson-deadline-source-says"
     },
     {
       "league": "NFL",
@@ -43,19 +58,9 @@
       "href": "/nfl/story/_/id/50337296/patriots-rule-aj-brown-treveyon-henderson-vs-dolphins"
     },
     {
-      "league": "NHL",
-      "headline": "Coach says Nikita Kucherov 'committed' to be with Lightning",
-      "href": "/nhl/story/_/id/50338055/coach-says-nikita-kucherov-committed-lightning"
-    },
-    {
       "league": "NBA",
       "headline": "Sources: Thunder no longer signing Ochai Agbaji following Chet Holmgren injury",
       "href": "/nba/story/_/id/50336717/sources-thunder-no-longer-signing-ochai-agbaji"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Packers, Micah Parsons target return for Thanksgiving Eve game vs. Rams",
-      "href": "/nfl/story/_/id/50335391/sources-packers-micah-parsons-eye-thanksgiving-eve-return"
     }
   ]
 }
