@@ -1,26 +1,31 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-02T01:52:04Z",
+  "refreshedAt": "2026-11-02T08:36:39Z",
   "items": [
     {
-      "league": "NFL",
-      "headline": "Jerry Jones backs Brian Schottenheimer, says Cowboys let coach down in loss",
-      "href": "/nfl/story/_/id/50353004/jones-backs-schottenheimer-says-cowboys-let-coach-down"
+      "league": "MLB",
+      "headline": "Jerry Koosman, who got final out in Miracle Mets' World Series win, dies at 83",
+      "href": "/mlb/story/_/id/50356322/jerry-koosman-dies-83"
     },
     {
       "league": "NBA",
-      "headline": "Jalen Brunson joins Harry Styles on stage to cap Styles' MSG residency",
-      "href": "/nba/story/_/id/50344218/jalen-brunson-harry-styles-madison-square-garden"
+      "headline": "Hawks' Flemings suspended for elbowing Pelicans' McGowens in head",
+      "href": "/nba/story/_/id/50354476/hawks-flemings-suspended-elbow-head-pelicans-mcgowens"
     },
     {
-      "league": "NFL",
-      "headline": "Steelers roll by Browns, say Jared Verse 'should have his kept mouth shut'",
-      "href": "/nfl/story/_/id/50352885/steelers-say-browns-verse-kept-mouth-shut"
+      "league": "NBA",
+      "headline": "Thunder decline option for oft-injured ex-lottery pick Nikola Topic",
+      "href": "/nba/story/_/id/50354448/thunder-decline-option-ex-lottery-pick-nikola-topic"
     },
     {
       "league": "NFL",
       "headline": "Cardinals' LaFleur noncommittal on QB after Minshew replaces Brissett in win",
       "href": "/nfl/story/_/id/50353468/cardinals-mike-lafleur-noncommittal-starting-qb-gardner-minshew-replaces-jacoby-brissett-win"
+    },
+    {
+      "league": "NBA",
+      "headline": "Jalen Brunson joins Harry Styles on stage to cap Styles' MSG residency",
+      "href": "/nba/story/_/id/50344218/jalen-brunson-harry-styles-madison-square-garden"
     },
     {
       "league": "NHL",
@@ -31,16 +36,6 @@
       "league": "NFL",
       "headline": "Ja'Marr Chase's 'competitiveness' comes out at right time in Bengals' OT win",
       "href": "/nfl/story/_/id/50353331/frustrated-chase-spikes-helmet-helping-bengals-win"
-    },
-    {
-      "league": "NBA",
-      "headline": "Spurs' Victor Wembanyama notches 43 points on career-high 34 shots in win",
-      "href": "/nba/story/_/id/50344505/spurs-victor-wembanyama-notches-43-points-career-best-34-shots-win"
-    },
-    {
-      "league": "NBA",
-      "headline": "Victor Wembanyama's Halloween costume trend returns with 'The Witcher' look",
-      "href": "/nba/story/_/id/46775071/victor-wembanyama-halloween-costume-arrivals-years"
     }
   ]
 }
