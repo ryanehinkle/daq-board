@@ -1,7 +1,42 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-02T08:36:39Z",
+  "refreshedAt": "2026-11-02T18:49:22Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Source: Buccaneers pass rusher Yaya Diaby has Grade 2 MCL sprain",
+      "href": "/nfl/story/_/id/50359458/source-buccaneers-yaya-diaby-grade-2-mcl-sprain"
+    },
+    {
+      "league": "NFL",
+      "headline": "2026 NFL trade deadline updates: Jeffery Simmons, Quenton Nelson on the move",
+      "href": "/nfl/story/_/id/50043471/2026-trade-deadline-updates-latest-news-deals-terms"
+    },
+    {
+      "league": "NFL",
+      "headline": "Saints fire run-game coordinator after Paris flop",
+      "href": "/nfl/story/_/id/50358473/sources-saints-fire-run-game-coordinator-paris-flop"
+    },
+    {
+      "league": "NFL",
+      "headline": "Jets' Aaron Glenn says he's not worried about job security amid tough start",
+      "href": "/nfl/story/_/id/50359102/jets-aaron-glenn-says-not-worried-job-security"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sizing up wild NFL Week 8: Lamar Jackson's injury, Bucs' win, Cowboys' collapse",
+      "href": "/nfl/story/_/id/50349483/week-8-barnwell-lamar-bengals-cowboys-buccaneers-chiefs"
+    },
+    {
+      "league": "NFL",
+      "headline": "Jaguars DT DaVon Hamilton likely out for season with torn quad, sources say",
+      "href": "/nfl/story/_/id/50358564/sources-jaguars-dt-hamilton-torn-quad-likely-season"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: Cubs decline $7.5M option for pitcher Colin Rea",
+      "href": "/mlb/story/_/id/50358485/sources-cubs-decline-75m-option-pitcher-colin-rea"
+    },
     {
       "league": "MLB",
       "headline": "Jerry Koosman, who got final out in Miracle Mets' World Series win, dies at 83",
@@ -18,11 +53,6 @@
       "href": "/nba/story/_/id/50354448/thunder-decline-option-ex-lottery-pick-nikola-topic"
     },
     {
-      "league": "NFL",
-      "headline": "Cardinals' LaFleur noncommittal on QB after Minshew replaces Brissett in win",
-      "href": "/nfl/story/_/id/50353468/cardinals-mike-lafleur-noncommittal-starting-qb-gardner-minshew-replaces-jacoby-brissett-win"
-    },
-    {
       "league": "NBA",
       "headline": "Jalen Brunson joins Harry Styles on stage to cap Styles' MSG residency",
       "href": "/nba/story/_/id/50344218/jalen-brunson-harry-styles-madison-square-garden"
@@ -31,11 +61,6 @@
       "league": "NHL",
       "headline": "Who comes out ahead in Wright-Wood trade? Grading the Predators, Kraken",
       "href": "/nhl/story/_/id/50054705/nhl-2026-27-season-trade-grades-deals-report-cards-top-players-prospects-biggest-deals"
-    },
-    {
-      "league": "NFL",
-      "headline": "Ja'Marr Chase's 'competitiveness' comes out at right time in Bengals' OT win",
-      "href": "/nfl/story/_/id/50353331/frustrated-chase-spikes-helmet-helping-bengals-win"
     }
   ]
 }
