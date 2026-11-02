@@ -1,31 +1,41 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-01T22:43:39Z",
+  "refreshedAt": "2026-11-02T01:52:04Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "Source: Jauan Jennings wanted to stay with Vikings amid 49ers trade talks",
-      "href": "/nfl/story/_/id/50350048/source-jennings-wanted-stay-vikings-amid-49ers-talks"
-    },
-    {
-      "league": "NFL",
-      "headline": "Lions linebacker Jack Campbell placed on backboard, carted off vs. Vikings",
-      "href": "/nfl/story/_/id/50350934/lions-linebacker-jack-campbell-placed-backboard-carted-off"
-    },
-    {
-      "league": "NFL",
-      "headline": "Ravens' Lamar Jackson needs thumb surgery, will be placed on IR",
-      "href": "/nfl/story/_/id/50349558/ravens-lamar-jackson-rest-game-thumb-injury"
-    },
-    {
-      "league": "NBA",
-      "headline": "Spurs' Victor Wembanyama notches 43 points on career-high 34 shots in win",
-      "href": "/nba/story/_/id/50344505/spurs-victor-wembanyama-notches-43-points-career-best-34-shots-win"
+      "headline": "Jerry Jones backs Brian Schottenheimer, says Cowboys let coach down in loss",
+      "href": "/nfl/story/_/id/50353004/jones-backs-schottenheimer-says-cowboys-let-coach-down"
     },
     {
       "league": "NBA",
       "headline": "Jalen Brunson joins Harry Styles on stage to cap Styles' MSG residency",
       "href": "/nba/story/_/id/50344218/jalen-brunson-harry-styles-madison-square-garden"
+    },
+    {
+      "league": "NFL",
+      "headline": "Steelers roll by Browns, say Jared Verse 'should have his kept mouth shut'",
+      "href": "/nfl/story/_/id/50352885/steelers-say-browns-verse-kept-mouth-shut"
+    },
+    {
+      "league": "NFL",
+      "headline": "Cardinals' LaFleur noncommittal on QB after Minshew replaces Brissett in win",
+      "href": "/nfl/story/_/id/50353468/cardinals-mike-lafleur-noncommittal-starting-qb-gardner-minshew-replaces-jacoby-brissett-win"
+    },
+    {
+      "league": "NHL",
+      "headline": "Who comes out ahead in Wright-Wood trade? Grading the Predators, Kraken",
+      "href": "/nhl/story/_/id/50054705/nhl-2026-27-season-trade-grades-deals-report-cards-top-players-prospects-biggest-deals"
+    },
+    {
+      "league": "NFL",
+      "headline": "Ja'Marr Chase's 'competitiveness' comes out at right time in Bengals' OT win",
+      "href": "/nfl/story/_/id/50353331/frustrated-chase-spikes-helmet-helping-bengals-win"
+    },
+    {
+      "league": "NBA",
+      "headline": "Spurs' Victor Wembanyama notches 43 points on career-high 34 shots in win",
+      "href": "/nba/story/_/id/50344505/spurs-victor-wembanyama-notches-43-points-career-best-34-shots-win"
     },
     {
       "league": "NBA",
