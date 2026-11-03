@@ -1,7 +1,12 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-03T01:21:07Z",
+  "refreshedAt": "2026-11-03T08:03:24Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Draymond Green ejected after scuffle with Suns as Warriors rally for win",
+      "href": "/nba/story/_/id/50365914/warriors-draymond-green-ejected-scuffle-suns"
+    },
     {
       "league": "NFL",
       "headline": "Harbaugh reached out on Simmons trade, says Giants 'open for any call'",
@@ -11,11 +16,6 @@
       "league": "NFL",
       "headline": "Myles Garrett will return to practice this week for Los Angeles Rams",
       "href": "/nfl/story/_/id/50361646/garrett-return-practice-week-rams-mcvay-says"
-    },
-    {
-      "league": "NBA",
-      "headline": "Coby White returns for Hornets, Kon Knueppel 'right around the corner'",
-      "href": "/nba/story/_/id/50362034/coby-white-returns-hornets-kon-knueppel-right-corner"
     },
     {
       "league": "NFL",
@@ -38,11 +38,6 @@
       "href": "/nfl/story/_/id/50360681/brandon-aiyuk-hires-drew-rosenhaus-agent-eyes-return-nfl"
     },
     {
-      "league": "NBA",
-      "headline": "Thunder to retire Russell Westbrook's No. 0",
-      "href": "/nba/story/_/id/50360248/thunder-retire-russell-westbrook-no-0"
-    },
-    {
       "league": "NFL",
       "headline": "Lions LB Jack Campbell still in hospital, but signs positive",
       "href": "/nfl/story/_/id/50360680/lions-lb-jack-campbell-hospital-signs-positive"
@@ -59,8 +54,8 @@
     },
     {
       "league": "NFL",
-      "headline": "Source: Buccaneers pass rusher Yaya Diaby has Grade 2 MCL sprain",
-      "href": "/nfl/story/_/id/50359458/source-buccaneers-yaya-diaby-grade-2-mcl-sprain"
+      "headline": "2026 NFL trade deadline updates: Jeffery Simmons, Quenton Nelson on the move",
+      "href": "/nfl/story/_/id/50043471/2026-trade-deadline-updates-latest-news-deals-terms"
     },
     {
       "league": "MLB",
@@ -68,9 +63,9 @@
       "href": "/mlb/story/_/id/50358485/sources-cubs-decline-75m-option-pitcher-colin-rea"
     },
     {
-      "league": "NHL",
-      "headline": "Who comes out ahead in Wright-Wood trade? Grading the Predators, Kraken",
-      "href": "/nhl/story/_/id/50054705/nhl-2026-27-season-trade-grades-deals-report-cards-top-players-prospects-biggest-deals"
+      "league": "MLB",
+      "headline": "Jerry Koosman, who got final out in Miracle Mets' World Series win, dies at 83",
+      "href": "/mlb/story/_/id/50356322/jerry-koosman-dies-83"
     }
   ]
 }
