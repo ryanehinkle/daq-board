@@ -1,61 +1,71 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-02T18:49:22Z",
+  "refreshedAt": "2026-11-03T01:21:07Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Harbaugh reached out on Simmons trade, says Giants 'open for any call'",
+      "href": "/nfl/story/_/id/50361915/harbaugh-reached-simmons-giants-open-call"
+    },
+    {
+      "league": "NFL",
+      "headline": "Myles Garrett will return to practice this week for Los Angeles Rams",
+      "href": "/nfl/story/_/id/50361646/garrett-return-practice-week-rams-mcvay-says"
+    },
+    {
+      "league": "NBA",
+      "headline": "Coby White returns for Hornets, Kon Knueppel 'right around the corner'",
+      "href": "/nba/story/_/id/50362034/coby-white-returns-hornets-kon-knueppel-right-corner"
+    },
+    {
+      "league": "NFL",
+      "headline": "Cardinals' Mike LaFleur: Jeremiyah Love's injury to 'new portion' of his ankle",
+      "href": "/nfl/story/_/id/50361618/cardinals-lafleur-love-injury-new-portion-ankle"
+    },
+    {
+      "league": "MLB",
+      "headline": "Rangers CF Evan Carter has hip surgery, likely to miss start of season",
+      "href": "/mlb/story/_/id/50361175/rangers-cf-carter-hip-surgery-likely-miss-start-season"
+    },
+    {
+      "league": "NFL",
+      "headline": "Chiefs' Reid says he didn't bench OL Suamataia as punishment",
+      "href": "/nfl/story/_/id/50360808/chiefs-reid-says-bench-ol-suamataia-punishment"
+    },
+    {
+      "league": "NFL",
+      "headline": "Brandon Aiyuk hires Drew Rosenhaus as agent, eyes return to NFL",
+      "href": "/nfl/story/_/id/50360681/brandon-aiyuk-hires-drew-rosenhaus-agent-eyes-return-nfl"
+    },
+    {
+      "league": "NBA",
+      "headline": "Thunder to retire Russell Westbrook's No. 0",
+      "href": "/nba/story/_/id/50360248/thunder-retire-russell-westbrook-no-0"
+    },
+    {
+      "league": "NFL",
+      "headline": "Lions LB Jack Campbell still in hospital, but signs positive",
+      "href": "/nfl/story/_/id/50360680/lions-lb-jack-campbell-hospital-signs-positive"
+    },
+    {
+      "league": "NHL",
+      "headline": "Lightning star Nikita Kucherov says trade request not about money",
+      "href": "/nhl/story/_/id/50360065/lightning-star-nikita-kucherov-says-trade-request-not-money"
+    },
+    {
+      "league": "NFL",
+      "headline": "Bengals defensive end Cashius Howell out indefinitely after wrist surgery",
+      "href": "/nfl/story/_/id/50360179/bengals-cashius-howell-indefinitely-wrist-surgery"
+    },
     {
       "league": "NFL",
       "headline": "Source: Buccaneers pass rusher Yaya Diaby has Grade 2 MCL sprain",
       "href": "/nfl/story/_/id/50359458/source-buccaneers-yaya-diaby-grade-2-mcl-sprain"
     },
     {
-      "league": "NFL",
-      "headline": "2026 NFL trade deadline updates: Jeffery Simmons, Quenton Nelson on the move",
-      "href": "/nfl/story/_/id/50043471/2026-trade-deadline-updates-latest-news-deals-terms"
-    },
-    {
-      "league": "NFL",
-      "headline": "Saints fire run-game coordinator after Paris flop",
-      "href": "/nfl/story/_/id/50358473/sources-saints-fire-run-game-coordinator-paris-flop"
-    },
-    {
-      "league": "NFL",
-      "headline": "Jets' Aaron Glenn says he's not worried about job security amid tough start",
-      "href": "/nfl/story/_/id/50359102/jets-aaron-glenn-says-not-worried-job-security"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sizing up wild NFL Week 8: Lamar Jackson's injury, Bucs' win, Cowboys' collapse",
-      "href": "/nfl/story/_/id/50349483/week-8-barnwell-lamar-bengals-cowboys-buccaneers-chiefs"
-    },
-    {
-      "league": "NFL",
-      "headline": "Jaguars DT DaVon Hamilton likely out for season with torn quad, sources say",
-      "href": "/nfl/story/_/id/50358564/sources-jaguars-dt-hamilton-torn-quad-likely-season"
-    },
-    {
       "league": "MLB",
       "headline": "Sources: Cubs decline $7.5M option for pitcher Colin Rea",
       "href": "/mlb/story/_/id/50358485/sources-cubs-decline-75m-option-pitcher-colin-rea"
-    },
-    {
-      "league": "MLB",
-      "headline": "Jerry Koosman, who got final out in Miracle Mets' World Series win, dies at 83",
-      "href": "/mlb/story/_/id/50356322/jerry-koosman-dies-83"
-    },
-    {
-      "league": "NBA",
-      "headline": "Hawks' Flemings suspended for elbowing Pelicans' McGowens in head",
-      "href": "/nba/story/_/id/50354476/hawks-flemings-suspended-elbow-head-pelicans-mcgowens"
-    },
-    {
-      "league": "NBA",
-      "headline": "Thunder decline option for oft-injured ex-lottery pick Nikola Topic",
-      "href": "/nba/story/_/id/50354448/thunder-decline-option-ex-lottery-pick-nikola-topic"
-    },
-    {
-      "league": "NBA",
-      "headline": "Jalen Brunson joins Harry Styles on stage to cap Styles' MSG residency",
-      "href": "/nba/story/_/id/50344218/jalen-brunson-harry-styles-madison-square-garden"
     },
     {
       "league": "NHL",
