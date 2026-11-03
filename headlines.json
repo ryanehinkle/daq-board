@@ -1,26 +1,31 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-03T08:03:24Z",
+  "refreshedAt": "2026-11-03T16:07:23Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Seven things Solak thinks for NFL Week 9: Bucs atop NFC South? RB trades coming?",
+      "href": "/nfl/story/_/id/50355612/week-9-seven-things-solak-thinks-trades-standings"
+    },
+    {
+      "league": "NFL",
+      "headline": "2026 NFL trade deadline updates: Jeffery Simmons, Quenton Nelson on the move",
+      "href": "/nfl/story/_/id/50043471/2026-trade-deadline-updates-latest-news-deals-terms"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sources: Injury-plagued Thunder agree to 2-year deal with veteran Dalen Terry",
+      "href": "/nba/story/_/id/50368707/sources-thunder-agree-2-year-deal-dalen-terry"
+    },
+    {
+      "league": "NBA",
+      "headline": "NBA Contract Year All-Stars: 12 playing for a payday -- and what each might get",
+      "href": "/nba/story/_/id/50359904/ty-jerome-vanvleet-mitchell-contract-predictions"
+    },
     {
       "league": "NBA",
       "headline": "Draymond Green ejected after scuffle with Suns as Warriors rally for win",
       "href": "/nba/story/_/id/50365914/warriors-draymond-green-ejected-scuffle-suns"
-    },
-    {
-      "league": "NFL",
-      "headline": "Harbaugh reached out on Simmons trade, says Giants 'open for any call'",
-      "href": "/nfl/story/_/id/50361915/harbaugh-reached-simmons-giants-open-call"
-    },
-    {
-      "league": "NFL",
-      "headline": "Myles Garrett will return to practice this week for Los Angeles Rams",
-      "href": "/nfl/story/_/id/50361646/garrett-return-practice-week-rams-mcvay-says"
-    },
-    {
-      "league": "NFL",
-      "headline": "Cardinals' Mike LaFleur: Jeremiyah Love's injury to 'new portion' of his ankle",
-      "href": "/nfl/story/_/id/50361618/cardinals-lafleur-love-injury-new-portion-ankle"
     },
     {
       "league": "MLB",
@@ -28,34 +33,9 @@
       "href": "/mlb/story/_/id/50361175/rangers-cf-carter-hip-surgery-likely-miss-start-season"
     },
     {
-      "league": "NFL",
-      "headline": "Chiefs' Reid says he didn't bench OL Suamataia as punishment",
-      "href": "/nfl/story/_/id/50360808/chiefs-reid-says-bench-ol-suamataia-punishment"
-    },
-    {
-      "league": "NFL",
-      "headline": "Brandon Aiyuk hires Drew Rosenhaus as agent, eyes return to NFL",
-      "href": "/nfl/story/_/id/50360681/brandon-aiyuk-hires-drew-rosenhaus-agent-eyes-return-nfl"
-    },
-    {
-      "league": "NFL",
-      "headline": "Lions LB Jack Campbell still in hospital, but signs positive",
-      "href": "/nfl/story/_/id/50360680/lions-lb-jack-campbell-hospital-signs-positive"
-    },
-    {
       "league": "NHL",
       "headline": "Lightning star Nikita Kucherov says trade request not about money",
       "href": "/nhl/story/_/id/50360065/lightning-star-nikita-kucherov-says-trade-request-not-money"
-    },
-    {
-      "league": "NFL",
-      "headline": "Bengals defensive end Cashius Howell out indefinitely after wrist surgery",
-      "href": "/nfl/story/_/id/50360179/bengals-cashius-howell-indefinitely-wrist-surgery"
-    },
-    {
-      "league": "NFL",
-      "headline": "2026 NFL trade deadline updates: Jeffery Simmons, Quenton Nelson on the move",
-      "href": "/nfl/story/_/id/50043471/2026-trade-deadline-updates-latest-news-deals-terms"
     },
     {
       "league": "MLB",
