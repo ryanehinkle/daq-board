@@ -1,10 +1,40 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-04T08:03:38Z",
+  "refreshedAt": "2026-11-04T16:12:48Z",
   "items": [
     {
+      "league": "NBA",
+      "headline": "Warriors withholding payments to Porzingis, sources say",
+      "href": "/nba/story/_/id/50379460/warriors-not-making-payments-porzingis-sources-say"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sources: Injury-plagued Thunder agree to 2-year deal with veteran Dalen Terry",
+      "href": "/nba/story/_/id/50368707/sources-thunder-agree-2-year-deal-dalen-terry"
+    },
+    {
+      "league": "NFL",
+      "headline": "2026 NFL trade deadline: Players to watch, buzz and goals for all 32 teams",
+      "href": "/nfl/story/_/id/50370030/trade-deadline-team-preview-goals-buzz-players-deals-2026"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Commanders lose another DL with Kinlaw out for season after knee surgery",
+      "href": "/nfl/story/_/id/50378427/source-commanders-javon-kinlaw-knee-surgery-season"
+    },
+    {
+      "league": "NFL",
+      "headline": "Aaron Glenn says Breece Hall is Jets' starter despite Braelon Allen's emergence",
+      "href": "/nfl/story/_/id/50360481/jets-breece-hall-starter-braelon-allen"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Ravens QB Huntley (turf toe) to miss rest of 2026 season",
+      "href": "/nfl/story/_/id/50378134/sources-ravens-qb-tyler-snoop-huntley-season"
+    },
+    {
       "league": "NHL",
-      "headline": "Jets beat Canadiens in OT with latest 4-goal comeback in NHL history",
+      "headline": "Jets wipe out Canadiens in OT with record-setting comeback",
       "href": "/nhl/story/_/id/50375586/jets-beat-canadiens-ot-latest-four-goal-comeback-nhl-history"
     },
     {
@@ -13,24 +43,9 @@
       "href": "/mlb/story/_/id/50376245/former-mlb-star-mark-teixeira-wins-us-house-seat-texas"
     },
     {
-      "league": "NHL",
-      "headline": "Which NHL coaches have the most wins in history?",
-      "href": "/nhl/story/_/id/48431082/which-nhl-coaches-most-wins-history"
-    },
-    {
-      "league": "NHL",
-      "headline": "Back on home ice after trade request, Kucherov has two assists in Lightning win",
-      "href": "/nhl/story/_/id/50375394/back-home-ice-kucherov-two-assists-lightning-win"
-    },
-    {
       "league": "NBA",
       "headline": "Raptors' Kawhi Leonard completes knee treatment, begins 'return to play process'",
       "href": "/nba/story/_/id/50373620/kawhi-leonard-finishes-knee-treatment-begins-return-process"
-    },
-    {
-      "league": "NFL",
-      "headline": "Rookie Joe Fagnano to start Thursday night vs. Jaguars, Jesse Minter says",
-      "href": "/nfl/story/_/id/50371730/rookie-joe-fagnano-start-thursday-night-vs-jaguars"
     },
     {
       "league": "NFL",
@@ -43,34 +58,19 @@
       "href": "/nfl/story/_/id/50372281/giants-cb-greg-newsome-ii-agree-3-year-46m-extension"
     },
     {
-      "league": "NFL",
-      "headline": "Bills release C.J. Gardner-Johnson after one-game spitting suspension",
-      "href": "/nfl/story/_/id/50372292/bills-release-safety-cj-gardner-johnson"
+      "league": "NHL",
+      "headline": "Which NHL coaches have the most wins in history?",
+      "href": "/nhl/story/_/id/48431082/which-nhl-coaches-most-wins-history"
     },
     {
-      "league": "NFL",
-      "headline": "Source: Colts, Adetomiwa Adebawore agree to 2-year, $35M extension",
-      "href": "/nfl/story/_/id/50371976/source-colts-adetomiwa-adebawore-reach-2-year-35m-deal"
-    },
-    {
-      "league": "NFL",
-      "headline": "Josh Allen-produced short doc on Buffalo storm gets release date, trailer",
-      "href": "/nfl/story/_/id/50370431/buffalo-miracle-hbo-trailer-josh-allen"
+      "league": "NHL",
+      "headline": "Back on home ice after trade request, Kucherov has two assists in Lightning win",
+      "href": "/nhl/story/_/id/50375394/back-home-ice-kucherov-two-assists-lightning-win"
     },
     {
       "league": "MLB",
       "headline": "Brewers manager Pat Murphy says he regrets anti-Yankees comments to Jake Bauers",
       "href": "/mlb/story/_/id/50371866/brewers-pat-murphy-says-regrets-anti-yankees-comments"
-    },
-    {
-      "league": "NFL",
-      "headline": "Cardinals RB Jeremiyah Love placed on IR, out 4-5 weeks with high ankle sprain",
-      "href": "/nfl/story/_/id/50370763/sources-cards-jeremiyah-love-headed-ir-4-5-weeks"
-    },
-    {
-      "league": "NBA",
-      "headline": "NBA Contract Year All-Stars: 12 playing for a payday -- and what each might get",
-      "href": "/nba/story/_/id/50359904/ty-jerome-vanvleet-mitchell-contract-predictions"
     }
   ]
 }
