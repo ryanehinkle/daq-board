@@ -1,41 +1,61 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-04T16:12:48Z",
+  "refreshedAt": "2026-11-04T21:54:22Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Lions' Jack Campbell has full movement in lower body after neck injury",
+      "href": "/nfl/story/_/id/50380067/lions-lb-campbell-full-movement-lower-body-neck-injury"
+    },
+    {
+      "league": "MLB",
+      "headline": "Albert Pujols to interview for Astros' managerial job, sources say",
+      "href": "/mlb/story/_/id/50381841/sources-albert-pujols-interview-astros-managerial-job"
+    },
+    {
+      "league": "NFL",
+      "headline": "Colts' Shane Steichen defends Jonathan Taylor usage, says RB will keep role",
+      "href": "/nfl/story/_/id/50381853/shane-steichen-defends-colts-jonathan-taylor-usage-trade"
+    },
+    {
+      "league": "NFL",
+      "headline": "Coach: Seahawks QB Sam Darnold ruled out with quad injury, is week-to-week",
+      "href": "/nfl/story/_/id/50380713/seahawks-qb-sam-darnold-ruled-quad-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Ravens finalizing trade with Cardinals for QB Jacoby Brissett",
+      "href": "/nfl/story/_/id/50381318/sources-ravens-finalizing-trade-cardinals-qb-brissett"
+    },
     {
       "league": "NBA",
       "headline": "Warriors withholding payments to Porzingis, sources say",
       "href": "/nba/story/_/id/50379460/warriors-not-making-payments-porzingis-sources-say"
     },
     {
+      "league": "NFL",
+      "headline": "2026 NFL trade deadline updates: Jacoby Brissett, Jeffery Simmons on the move",
+      "href": "/nfl/story/_/id/50043471/2026-trade-deadline-updates-latest-news-deals-terms"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Slumping Eagles turn to Joe Milton as starting QB vs. Giants",
+      "href": "/nfl/story/_/id/50380724/sources-eagles-turn-joe-milton-starting-qb-vs-giants"
+    },
+    {
       "league": "NBA",
-      "headline": "Sources: Injury-plagued Thunder agree to 2-year deal with veteran Dalen Terry",
-      "href": "/nba/story/_/id/50368707/sources-thunder-agree-2-year-deal-dalen-terry"
+      "headline": "NBA Contract Year All-Stars: 12 playing for a payday -- and what each might get",
+      "href": "/nba/story/_/id/50359904/ty-jerome-vanvleet-mitchell-contract-predictions"
     },
     {
       "league": "NFL",
-      "headline": "2026 NFL trade deadline: Players to watch, buzz and goals for all 32 teams",
-      "href": "/nfl/story/_/id/50370030/trade-deadline-team-preview-goals-buzz-players-deals-2026"
+      "headline": "Jets' Garrett Wilson in concussion protocol, Breece Hall trending toward return",
+      "href": "/nfl/story/_/id/50380113/jets-wr-wilson-protocol-rb-hall-trending-return"
     },
     {
-      "league": "NFL",
-      "headline": "Source: Commanders lose another DL with Kinlaw out for season after knee surgery",
-      "href": "/nfl/story/_/id/50378427/source-commanders-javon-kinlaw-knee-surgery-season"
-    },
-    {
-      "league": "NFL",
-      "headline": "Aaron Glenn says Breece Hall is Jets' starter despite Braelon Allen's emergence",
-      "href": "/nfl/story/_/id/50360481/jets-breece-hall-starter-braelon-allen"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Ravens QB Huntley (turf toe) to miss rest of 2026 season",
-      "href": "/nfl/story/_/id/50378134/sources-ravens-qb-tyler-snoop-huntley-season"
-    },
-    {
-      "league": "NHL",
-      "headline": "Jets wipe out Canadiens in OT with record-setting comeback",
-      "href": "/nhl/story/_/id/50375586/jets-beat-canadiens-ot-latest-four-goal-comeback-nhl-history"
+      "league": "NBA",
+      "headline": "Warriors owner Joe Lacob ecstatic with early Yaxel Lendeborg returns",
+      "href": "/nba/story/_/id/50380187/joe-lacob-thinks-warriors-nailed-drafting-yaxel-lendeborg"
     },
     {
       "league": "MLB",
@@ -43,34 +63,14 @@
       "href": "/mlb/story/_/id/50376245/former-mlb-star-mark-teixeira-wins-us-house-seat-texas"
     },
     {
-      "league": "NBA",
-      "headline": "Raptors' Kawhi Leonard completes knee treatment, begins 'return to play process'",
-      "href": "/nba/story/_/id/50373620/kawhi-leonard-finishes-knee-treatment-begins-return-process"
-    },
-    {
-      "league": "NFL",
-      "headline": "Saints release veteran kicker Daniel Carlson after he posted 2nd-worst FG% in NFL",
-      "href": "/nfl/story/_/id/50372284/saints-release-veteran-kicker-daniel-carlson-7-games"
-    },
-    {
-      "league": "NFL",
-      "headline": "Giants, CB Greg Newsome II agree to 3-year, $46M extension",
-      "href": "/nfl/story/_/id/50372281/giants-cb-greg-newsome-ii-agree-3-year-46m-extension"
+      "league": "NHL",
+      "headline": "Jets wipe out Canadiens in OT with record-setting comeback",
+      "href": "/nhl/story/_/id/50375586/jets-beat-canadiens-ot-latest-four-goal-comeback-nhl-history"
     },
     {
       "league": "NHL",
       "headline": "Which NHL coaches have the most wins in history?",
       "href": "/nhl/story/_/id/48431082/which-nhl-coaches-most-wins-history"
-    },
-    {
-      "league": "NHL",
-      "headline": "Back on home ice after trade request, Kucherov has two assists in Lightning win",
-      "href": "/nhl/story/_/id/50375394/back-home-ice-kucherov-two-assists-lightning-win"
-    },
-    {
-      "league": "MLB",
-      "headline": "Brewers manager Pat Murphy says he regrets anti-Yankees comments to Jake Bauers",
-      "href": "/mlb/story/_/id/50371866/brewers-pat-murphy-says-regrets-anti-yankees-comments"
     }
   ]
 }
