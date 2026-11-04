@@ -1,21 +1,46 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-03T21:44:52Z",
+  "refreshedAt": "2026-11-04T01:42:04Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Raptors' Kawhi Leonard completes knee treatment, begins 'return to play process'",
+      "href": "/nba/story/_/id/50373620/kawhi-leonard-finishes-knee-treatment-begins-return-process"
+    },
+    {
+      "league": "NFL",
+      "headline": "Rookie Joe Fagnano to start Thursday night vs. Jaguars, Jesse Minter says",
+      "href": "/nfl/story/_/id/50371730/rookie-joe-fagnano-start-thursday-night-vs-jaguars"
+    },
+    {
+      "league": "NFL",
+      "headline": "Saints release veteran kicker Daniel Carlson after he posted 2nd-worst FG% in NFL",
+      "href": "/nfl/story/_/id/50372284/saints-release-veteran-kicker-daniel-carlson-7-games"
+    },
+    {
+      "league": "NFL",
+      "headline": "Giants, CB Greg Newsome II agree to 3-year, $46M extension",
+      "href": "/nfl/story/_/id/50372281/giants-cb-greg-newsome-ii-agree-3-year-46m-extension"
+    },
+    {
+      "league": "NFL",
+      "headline": "Bills release C.J. Gardner-Johnson after one-game spitting suspension",
+      "href": "/nfl/story/_/id/50372292/bills-release-safety-cj-gardner-johnson"
+    },
     {
       "league": "NFL",
       "headline": "Source: Colts, Adetomiwa Adebawore agree to 2-year, $35M extension",
       "href": "/nfl/story/_/id/50371976/source-colts-adetomiwa-adebawore-reach-2-year-35m-deal"
     },
     {
+      "league": "NFL",
+      "headline": "Josh Allen-produced short doc on Buffalo storm gets release date, trailer",
+      "href": "/nfl/story/_/id/50370431/buffalo-miracle-hbo-trailer-josh-allen"
+    },
+    {
       "league": "MLB",
       "headline": "Brewers manager Pat Murphy says he regrets anti-Yankees comments to Jake Bauers",
       "href": "/mlb/story/_/id/50371866/brewers-pat-murphy-says-regrets-anti-yankees-comments"
-    },
-    {
-      "league": "NFL",
-      "headline": "Rookie Joe Fagnano to start Thursday night vs. Jaguars, Jesse Minter says",
-      "href": "/nfl/story/_/id/50371730/rookie-joe-fagnano-start-thursday-night-vs-jaguars"
     },
     {
       "league": "NFL",
@@ -46,16 +71,6 @@
       "league": "NHL",
       "headline": "Lightning star Nikita Kucherov says trade request not about money",
       "href": "/nhl/story/_/id/50360065/lightning-star-nikita-kucherov-says-trade-request-not-money"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Cubs decline $7.5M option for pitcher Colin Rea",
-      "href": "/mlb/story/_/id/50358485/sources-cubs-decline-75m-option-pitcher-colin-rea"
-    },
-    {
-      "league": "MLB",
-      "headline": "Jerry Koosman, who got final out in Miracle Mets' World Series win, dies at 83",
-      "href": "/mlb/story/_/id/50356322/jerry-koosman-dies-83"
     }
   ]
 }
