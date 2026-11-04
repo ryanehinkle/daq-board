@@ -1,7 +1,27 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-04T01:42:04Z",
+  "refreshedAt": "2026-11-04T08:03:38Z",
   "items": [
+    {
+      "league": "NHL",
+      "headline": "Jets beat Canadiens in OT with latest 4-goal comeback in NHL history",
+      "href": "/nhl/story/_/id/50375586/jets-beat-canadiens-ot-latest-four-goal-comeback-nhl-history"
+    },
+    {
+      "league": "MLB",
+      "headline": "Former MLB star Mark Teixeira wins U.S. House seat in Texas",
+      "href": "/mlb/story/_/id/50376245/former-mlb-star-mark-teixeira-wins-us-house-seat-texas"
+    },
+    {
+      "league": "NHL",
+      "headline": "Which NHL coaches have the most wins in history?",
+      "href": "/nhl/story/_/id/48431082/which-nhl-coaches-most-wins-history"
+    },
+    {
+      "league": "NHL",
+      "headline": "Back on home ice after trade request, Kucherov has two assists in Lightning win",
+      "href": "/nhl/story/_/id/50375394/back-home-ice-kucherov-two-assists-lightning-win"
+    },
     {
       "league": "NBA",
       "headline": "Raptors' Kawhi Leonard completes knee treatment, begins 'return to play process'",
@@ -51,26 +71,6 @@
       "league": "NBA",
       "headline": "NBA Contract Year All-Stars: 12 playing for a payday -- and what each might get",
       "href": "/nba/story/_/id/50359904/ty-jerome-vanvleet-mitchell-contract-predictions"
-    },
-    {
-      "league": "MLB",
-      "headline": "Mariners hire Jason Kanzler as manager to replace fired Dan Wilson",
-      "href": "/mlb/story/_/id/50369972/mariners-hire-kanzler-manager-replace-fired-wilson"
-    },
-    {
-      "league": "NBA",
-      "headline": "Sources: Injury-plagued Thunder agree to 2-year deal with veteran Dalen Terry",
-      "href": "/nba/story/_/id/50368707/sources-thunder-agree-2-year-deal-dalen-terry"
-    },
-    {
-      "league": "MLB",
-      "headline": "Rangers CF Evan Carter has hip surgery, likely to miss start of season",
-      "href": "/mlb/story/_/id/50361175/rangers-cf-carter-hip-surgery-likely-miss-start-season"
-    },
-    {
-      "league": "NHL",
-      "headline": "Lightning star Nikita Kucherov says trade request not about money",
-      "href": "/nhl/story/_/id/50360065/lightning-star-nikita-kucherov-says-trade-request-not-money"
     }
   ]
 }
