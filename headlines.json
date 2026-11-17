@@ -1,11 +1,16 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-17T03:14:12Z",
+  "refreshedAt": "2026-11-17T11:59:02Z",
   "items": [
     {
-      "league": "NBA",
-      "headline": "Heat star Bam Adebayo exits win over Rockets early with hip tightness",
-      "href": "/nba/story/_/id/50507278/heat-star-bam-adebayo-exits-win-early-hip-tightness"
+      "league": "NFL",
+      "headline": "Kyle Hamilton says Ravens 'disgracing' standards after losing to 0-8 Chargers",
+      "href": "/nfl/story/_/id/50508744/kyle-hamilton-says-ravens-disgracing-standards-loss-previously-winless-chargers"
+    },
+    {
+      "league": "NFL",
+      "headline": "Chargers relieved after beating Ravens for first win of season",
+      "href": "/nfl/story/_/id/50508438/chargers-relieved-beating-ravens-first-win-season"
     },
     {
       "league": "NFL",
@@ -16,11 +21,6 @@
       "league": "NFL",
       "headline": "Rams center Coleman Shelton out 4-6 weeks with hamstring injury",
       "href": "/nfl/story/_/id/50506869/rams-coleman-shelton-4-6-weeks-hamstring-injury"
-    },
-    {
-      "league": "NBA",
-      "headline": "Lakers rule Austin Reaves, Walker Kessler out vs. Hornets",
-      "href": "/nba/story/_/id/50506501/lakers-rule-austin-reaves-walker-kessler-vs-hornets"
     },
     {
       "league": "NFL",
