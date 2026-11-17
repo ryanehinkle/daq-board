@@ -1,31 +1,31 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-17T11:59:02Z",
+  "refreshedAt": "2026-11-17T20:45:30Z",
   "items": [
     {
-      "league": "NFL",
-      "headline": "Kyle Hamilton says Ravens 'disgracing' standards after losing to 0-8 Chargers",
-      "href": "/nfl/story/_/id/50508744/kyle-hamilton-says-ravens-disgracing-standards-loss-previously-winless-chargers"
+      "league": "NHL",
+      "headline": "Devils' Mantha expected to miss a month, Kovacevic out 4-6 weeks",
+      "href": "/nhl/story/_/id/50512716/devils-mantha-expected-miss-month-kovacevic-4-6-weeks"
+    },
+    {
+      "league": "MLB",
+      "headline": "2026-27 MLB free agency, trade grades: Offseason analysis",
+      "href": "/mlb/story/_/id/50473334/2026-27-offseason-free-agency-trade-grades"
+    },
+    {
+      "league": "NBA",
+      "headline": "Pistons' Duncan Robinson (quad), Ron Holland II (knee) out vs. Spurs",
+      "href": "/nba/story/_/id/50512067/pistons-robinson-quad-holland-knee-tuesday-vs-spurs"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: White Sox, Dustin May reach 3-year, $52.5M contract",
+      "href": "/mlb/story/_/id/50511537/source-white-sox-dustin-reach-3-year-525m-contract"
     },
     {
       "league": "NFL",
-      "headline": "Chargers relieved after beating Ravens for first win of season",
-      "href": "/nfl/story/_/id/50508438/chargers-relieved-beating-ravens-first-win-season"
-    },
-    {
-      "league": "NFL",
-      "headline": "49ers WR Mike Evans' Achilles tendinitis injury explained",
-      "href": "/nfl/story/_/id/50502440/san-francisco-49ers-mike-evans-achilles-tendinitis-injury-recovery"
-    },
-    {
-      "league": "NFL",
-      "headline": "Rams center Coleman Shelton out 4-6 weeks with hamstring injury",
-      "href": "/nfl/story/_/id/50506869/rams-coleman-shelton-4-6-weeks-hamstring-injury"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Jets QB Geno Smith avoided major ankle injury, testing shows",
-      "href": "/nfl/story/_/id/50506147/jets-qb-geno-smith-avoided-major-ankle-injury"
+      "headline": "How Vikings got Kirk Cousins ready to win on short notice",
+      "href": "/nfl/story/_/id/50511159/vikings-kirk-cousins-trade-beat-packers"
     },
     {
       "league": "MLB",
@@ -33,39 +33,9 @@
       "href": "/mlb/story/_/id/50505544/diamondbacks-jordan-lawlar-had-elbow-surgery-expected-ready-regular-season"
     },
     {
-      "league": "NFL",
-      "headline": "Bears RB Kyle Monangai says he's 'on track' to return Sunday against Saints",
-      "href": "/nfl/story/_/id/50505407/bears-rb-kyle-monangai-says-track-return-sunday"
-    },
-    {
-      "league": "NFL",
-      "headline": "Drake Maye ankle injury: Is the Patriots' season over? Can Tommy DeVito step up?",
-      "href": "/nfl/story/_/id/50503981/drake-maye-ankle-injury-patriots-tommy-devito-stats"
-    },
-    {
-      "league": "NFL",
-      "headline": "Packers' Matt LaFleur still plans on Micah Parsons to return on Thanksgiving Eve",
-      "href": "/nfl/story/_/id/50504228/lafleur-plans-parsons-return-thanksgiving-eve"
-    },
-    {
-      "league": "NFL",
-      "headline": "Seahawks' Mike Macdonald 'optimistic' QB Sam Darnold returns after bye week",
-      "href": "/nfl/story/_/id/50504531/seahawks-macdonald-optimisitic-qb-darnold-plays-bye-week"
-    },
-    {
-      "league": "NFL",
-      "headline": "Vikings WR Jordan Addison needs thumb surgery, is candidate for IR",
-      "href": "/nfl/story/_/id/50503437/vikings-wr-jordan-addison-needs-thumb-surgery"
-    },
-    {
       "league": "NHL",
       "headline": "NHL Tonight: Who wins Canadiens-Rangers, Canucks-Mammoth?",
       "href": "/nhl/story/_/id/50491639/nhl-2026-27-tonight-games-schedule-matchups-stats-top-players-betting"
-    },
-    {
-      "league": "NHL",
-      "headline": "Which NHL coaches have the most wins in history?",
-      "href": "/nhl/story/_/id/48431082/which-nhl-coaches-most-wins-history"
     },
     {
       "league": "MLB",
