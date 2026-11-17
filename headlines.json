@@ -1,7 +1,42 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-16T20:48:02Z",
+  "refreshedAt": "2026-11-17T03:14:12Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Heat star Bam Adebayo exits win over Rockets early with hip tightness",
+      "href": "/nba/story/_/id/50507278/heat-star-bam-adebayo-exits-win-early-hip-tightness"
+    },
+    {
+      "league": "NFL",
+      "headline": "49ers WR Mike Evans' Achilles tendinitis injury explained",
+      "href": "/nfl/story/_/id/50502440/san-francisco-49ers-mike-evans-achilles-tendinitis-injury-recovery"
+    },
+    {
+      "league": "NFL",
+      "headline": "Rams center Coleman Shelton out 4-6 weeks with hamstring injury",
+      "href": "/nfl/story/_/id/50506869/rams-coleman-shelton-4-6-weeks-hamstring-injury"
+    },
+    {
+      "league": "NBA",
+      "headline": "Lakers rule Austin Reaves, Walker Kessler out vs. Hornets",
+      "href": "/nba/story/_/id/50506501/lakers-rule-austin-reaves-walker-kessler-vs-hornets"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Jets QB Geno Smith avoided major ankle injury, testing shows",
+      "href": "/nfl/story/_/id/50506147/jets-qb-geno-smith-avoided-major-ankle-injury"
+    },
+    {
+      "league": "MLB",
+      "headline": "D-backs say Jordan Lawlar had elbow surgery, expect OF to be ready for season",
+      "href": "/mlb/story/_/id/50505544/diamondbacks-jordan-lawlar-had-elbow-surgery-expected-ready-regular-season"
+    },
+    {
+      "league": "NFL",
+      "headline": "Bears RB Kyle Monangai says he's 'on track' to return Sunday against Saints",
+      "href": "/nfl/story/_/id/50505407/bears-rb-kyle-monangai-says-track-return-sunday"
+    },
     {
       "league": "NFL",
       "headline": "Drake Maye ankle injury: Is the Patriots' season over? Can Tommy DeVito step up?",
@@ -9,48 +44,18 @@
     },
     {
       "league": "NFL",
-      "headline": "Packers' Matt LaFleur still plans on Micah Parsons to return on Thanksgiving eve",
+      "headline": "Packers' Matt LaFleur still plans on Micah Parsons to return on Thanksgiving Eve",
       "href": "/nfl/story/_/id/50504228/lafleur-plans-parsons-return-thanksgiving-eve"
+    },
+    {
+      "league": "NFL",
+      "headline": "Seahawks' Mike Macdonald 'optimistic' QB Sam Darnold returns after bye week",
+      "href": "/nfl/story/_/id/50504531/seahawks-macdonald-optimisitic-qb-darnold-plays-bye-week"
     },
     {
       "league": "NFL",
       "headline": "Vikings WR Jordan Addison needs thumb surgery, is candidate for IR",
       "href": "/nfl/story/_/id/50503437/vikings-wr-jordan-addison-needs-thumb-surgery"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Lions' Aidan Hutchinson out for season with knee injury",
-      "href": "/nfl/story/_/id/50501291/sources-aidan-hutchinson-season-torn-acl"
-    },
-    {
-      "league": "NBA",
-      "headline": "76ers star LeBron James ruled out vs. Nets due to lower back management",
-      "href": "/nba/story/_/id/50503255/lebron-james-ruled-vs-nets-due-lower-back-management"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Cowboys RG Tyler Booker, CB DaRon Bland have high ankle sprains",
-      "href": "/nfl/story/_/id/50502772/sources-cowboys-rg-booker-cb-bland-high-ankle-sprains"
-    },
-    {
-      "league": "NBA",
-      "headline": "Grizzlies' GG Jackson to miss time with left foot fracture",
-      "href": "/nba/story/_/id/50502739/grizzlies-gg-jackson-miss-left-foot-fracture"
-    },
-    {
-      "league": "NFL",
-      "headline": "Geno Smith remains Jets' QB1 despite ankle injury, coach Aaron Glenn says",
-      "href": "/nfl/story/_/id/50502082/geno-smith-remains-jets-qb1-injury-aaron-glenn-says"
-    },
-    {
-      "league": "NBA",
-      "headline": "NBA transaction glossary: Trade, free agency, extension, CBA terms to know",
-      "href": "/nba/story/_/id/50458796/trades-free-agency-draft-apron-cba"
-    },
-    {
-      "league": "NFL",
-      "headline": "Raiders TE Brock Bowers avoids major ankle injury, source says",
-      "href": "/nfl/story/_/id/50501232/raiders-te-brock-bowers-avoids-major-ankle-injury-source-says"
     },
     {
       "league": "NHL",
@@ -66,11 +71,6 @@
       "league": "MLB",
       "headline": "Tim Hill, Yankees agree to 1-year, $2.25M deal, sources say",
       "href": "/mlb/story/_/id/50492078/tim-hill-yankees-agree-1-year-225m-deal-sources-say"
-    },
-    {
-      "league": "MLB",
-      "headline": "Angels, catcher Tyler Heineman avoid arbitration with 1-year contract",
-      "href": "/mlb/story/_/id/50477559/angels-tyler-heineman-avoid-arbitration-1-year-deal"
     }
   ]
 }
