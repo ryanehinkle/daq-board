@@ -1,16 +1,36 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-18T02:37:32Z",
+  "refreshedAt": "2026-11-18T10:42:43Z",
   "items": [
     {
-      "league": "NBA",
-      "headline": "Trail Blazers rule star Deni Avdija out vs. Timberwolves with sore foot",
-      "href": "/nba/story/_/id/50515349/blazers-rule-star-deni-avdija-vs-wolves-sore-foot"
+      "league": "NHL",
+      "headline": "Blackhawks' Connor Bedard exits with upper-body injury, set for testing",
+      "href": "/nhl/story/_/id/50517080/blackhawks-connor-bedard-exits-win-injury"
     },
     {
       "league": "NBA",
       "headline": "Miami Heat unveil 'A Night in Vice City' court, activities ahead of GTA VI release",
       "href": "/nba/story/_/id/50085674/miami-heat-night-vice-city-game"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Cardinals' Gardner Minshew has surgery to repair right UCL",
+      "href": "/nfl/story/_/id/50517561/source-cardinals-qb-gardner-minshew-surgery-repair-right-ucl"
+    },
+    {
+      "league": "NHL",
+      "headline": "Which NHL coaches have the most wins in history?",
+      "href": "/nhl/story/_/id/48431082/which-nhl-coaches-most-wins-history"
+    },
+    {
+      "league": "MLB",
+      "headline": "Jake Bauers says city of Boston figured into decision to sign with Red Sox",
+      "href": "/mlb/story/_/id/50516766/red-sox-introduce-free-agent-signing-jake-bauers"
+    },
+    {
+      "league": "NBA",
+      "headline": "Trail Blazers rule star Deni Avdija out vs. Timberwolves with sore foot",
+      "href": "/nba/story/_/id/50515349/blazers-rule-star-deni-avdija-vs-wolves-sore-foot"
     },
     {
       "league": "NBA",
@@ -51,21 +71,6 @@
       "league": "NBA",
       "headline": "Pistons' Duncan Robinson (quad), Ron Holland II (knee) out vs. Spurs",
       "href": "/nba/story/_/id/50512067/pistons-robinson-quad-holland-knee-tuesday-vs-spurs"
-    },
-    {
-      "league": "MLB",
-      "headline": "D-backs say Jordan Lawlar had elbow surgery, expect OF to be ready for season",
-      "href": "/mlb/story/_/id/50505544/diamondbacks-jordan-lawlar-had-elbow-surgery-expected-ready-regular-season"
-    },
-    {
-      "league": "NHL",
-      "headline": "NHL Tonight: Who wins Canadiens-Rangers, Canucks-Mammoth?",
-      "href": "/nhl/story/_/id/50491639/nhl-2026-27-tonight-games-schedule-matchups-stats-top-players-betting"
-    },
-    {
-      "league": "MLB",
-      "headline": "Tim Hill, Yankees agree to 1-year, $2.25M deal, sources say",
-      "href": "/mlb/story/_/id/50492078/tim-hill-yankees-agree-1-year-225m-deal-sources-say"
     }
   ]
 }
