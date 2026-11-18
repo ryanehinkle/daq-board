@@ -1,26 +1,51 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-18T10:42:43Z",
+  "refreshedAt": "2026-11-18T19:06:29Z",
   "items": [
     {
+      "league": "NFL",
+      "headline": "Sources: Brandon Aiyuk contacted Jayden Daniels to mend friendship with star QB",
+      "href": "/nfl/story/_/id/50522814/sources-brandon-aiyuk-mended-friendship-jayden-daniels"
+    },
+    {
       "league": "NHL",
-      "headline": "Blackhawks' Connor Bedard exits with upper-body injury, set for testing",
-      "href": "/nhl/story/_/id/50517080/blackhawks-connor-bedard-exits-win-injury"
+      "headline": "Blackhawks star Connor Bedard awaiting test results on injured shoulder",
+      "href": "/nhl/story/_/id/50522884/connor-bedard-awaiting-test-results-injured-shoulder"
+    },
+    {
+      "league": "MLB",
+      "headline": "2026-27 MLB free agency, trade grades: Offseason analysis",
+      "href": "/mlb/story/_/id/50473334/2026-27-offseason-free-agency-trade-grades"
+    },
+    {
+      "league": "MLB",
+      "headline": "Royals send Maikel Garcia to Mariners in six-player trade",
+      "href": "/mlb/story/_/id/50521866/sources-royals-trade-maikel-garcia-mariners-miller"
+    },
+    {
+      "league": "NFL",
+      "headline": "Jaguars rule starting center Robert Hainsey (knee) out for Giants game",
+      "href": "/nfl/story/_/id/50522085/jaguars-rule-center-robert-hainsey-knee-giants-game"
+    },
+    {
+      "league": "NHL",
+      "headline": "Boston College to retire late Johnny Gaudreau's No. 13 jersey",
+      "href": "/nhl/story/_/id/50521835/boston-college-retire-late-johnny-gaudreau-no-13"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: Mets favorite to sign Tarik Skubal as teams ramp up pursuit of FA ace",
+      "href": "/mlb/story/_/id/50521652/sources-mets-final-teams-bidding-tarik-skubal"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Steelers G Mason McCormick avoided fracture, won't need ankle surgery",
+      "href": "/nfl/story/_/id/50519701/sources-steelers-g-mccormick-need-surgery-ankle"
     },
     {
       "league": "NBA",
       "headline": "Miami Heat unveil 'A Night in Vice City' court, activities ahead of GTA VI release",
       "href": "/nba/story/_/id/50085674/miami-heat-night-vice-city-game"
-    },
-    {
-      "league": "NFL",
-      "headline": "Source: Cardinals' Gardner Minshew has surgery to repair right UCL",
-      "href": "/nfl/story/_/id/50517561/source-cardinals-qb-gardner-minshew-surgery-repair-right-ucl"
-    },
-    {
-      "league": "NHL",
-      "headline": "Which NHL coaches have the most wins in history?",
-      "href": "/nhl/story/_/id/48431082/which-nhl-coaches-most-wins-history"
     },
     {
       "league": "MLB",
@@ -34,23 +59,8 @@
     },
     {
       "league": "NBA",
-      "headline": "76ers' Jaylen Brown (hamstring) to miss Wednesday's game vs. Magic",
-      "href": "/nba/story/_/id/50514320/76ers-brown-hamstring-miss-wednesday-game-vs-magic"
-    },
-    {
-      "league": "NBA",
       "headline": "Raptors say Kawhi Leonard progressing but out at least another week",
       "href": "/nba/story/_/id/50514496/raptors-kawhi-leonard-progressing-another-week"
-    },
-    {
-      "league": "NFL",
-      "headline": "Titans put WR Wan'Dale Robinson on IR due to ankle injury",
-      "href": "/nfl/story/_/id/50513594/titans-put-wr-wandale-robinson-ankle-ir"
-    },
-    {
-      "league": "NFL",
-      "headline": "Source: Jordan Phillips latest Dolphins DT to suffer season-ending injury",
-      "href": "/nfl/story/_/id/50513896/source-dolphins-jordan-phillips-miss-rest-season"
     },
     {
       "league": "MLB",
@@ -58,19 +68,9 @@
       "href": "/mlb/story/_/id/50511537/source-white-sox-dustin-reach-3-year-525m-contract"
     },
     {
-      "league": "NHL",
-      "headline": "Devils' Mantha expected to miss a month, Kovacevic out 4-6 weeks",
-      "href": "/nhl/story/_/id/50512716/devils-mantha-expected-miss-month-kovacevic-4-6-weeks"
-    },
-    {
       "league": "MLB",
-      "headline": "2026-27 MLB free agency, trade grades: Offseason analysis",
-      "href": "/mlb/story/_/id/50473334/2026-27-offseason-free-agency-trade-grades"
-    },
-    {
-      "league": "NBA",
-      "headline": "Pistons' Duncan Robinson (quad), Ron Holland II (knee) out vs. Spurs",
-      "href": "/nba/story/_/id/50512067/pistons-robinson-quad-holland-knee-tuesday-vs-spurs"
+      "headline": "D-backs say Jordan Lawlar had elbow surgery, expect OF to be ready for season",
+      "href": "/mlb/story/_/id/50505544/diamondbacks-jordan-lawlar-had-elbow-surgery-expected-ready-regular-season"
     }
   ]
 }
