@@ -1,7 +1,42 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-17T20:45:30Z",
+  "refreshedAt": "2026-11-18T02:37:32Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Trail Blazers rule star Deni Avdija out vs. Timberwolves with sore foot",
+      "href": "/nba/story/_/id/50515349/blazers-rule-star-deni-avdija-vs-wolves-sore-foot"
+    },
+    {
+      "league": "NBA",
+      "headline": "Miami Heat unveil 'A Night in Vice City' court, activities ahead of GTA VI release",
+      "href": "/nba/story/_/id/50085674/miami-heat-night-vice-city-game"
+    },
+    {
+      "league": "NBA",
+      "headline": "76ers' Jaylen Brown (hamstring) to miss Wednesday's game vs. Magic",
+      "href": "/nba/story/_/id/50514320/76ers-brown-hamstring-miss-wednesday-game-vs-magic"
+    },
+    {
+      "league": "NBA",
+      "headline": "Raptors say Kawhi Leonard progressing but out at least another week",
+      "href": "/nba/story/_/id/50514496/raptors-kawhi-leonard-progressing-another-week"
+    },
+    {
+      "league": "NFL",
+      "headline": "Titans put WR Wan'Dale Robinson on IR due to ankle injury",
+      "href": "/nfl/story/_/id/50513594/titans-put-wr-wandale-robinson-ankle-ir"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Jordan Phillips latest Dolphins DT to suffer season-ending injury",
+      "href": "/nfl/story/_/id/50513896/source-dolphins-jordan-phillips-miss-rest-season"
+    },
+    {
+      "league": "MLB",
+      "headline": "White Sox, pitcher Dustin May reach 3-year, $52.5M contract",
+      "href": "/mlb/story/_/id/50511537/source-white-sox-dustin-reach-3-year-525m-contract"
+    },
     {
       "league": "NHL",
       "headline": "Devils' Mantha expected to miss a month, Kovacevic out 4-6 weeks",
@@ -16,16 +51,6 @@
       "league": "NBA",
       "headline": "Pistons' Duncan Robinson (quad), Ron Holland II (knee) out vs. Spurs",
       "href": "/nba/story/_/id/50512067/pistons-robinson-quad-holland-knee-tuesday-vs-spurs"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: White Sox, Dustin May reach 3-year, $52.5M contract",
-      "href": "/mlb/story/_/id/50511537/source-white-sox-dustin-reach-3-year-525m-contract"
-    },
-    {
-      "league": "NFL",
-      "headline": "How Vikings got Kirk Cousins ready to win on short notice",
-      "href": "/nfl/story/_/id/50511159/vikings-kirk-cousins-trade-beat-packers"
     },
     {
       "league": "MLB",
