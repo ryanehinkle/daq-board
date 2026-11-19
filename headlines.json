@@ -1,21 +1,16 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-19T01:08:20Z",
+  "refreshedAt": "2026-11-19T08:45:11Z",
   "items": [
     {
-      "league": "NBA",
-      "headline": "Spurs rule Dylan Harper out with hip soreness after slip on court",
-      "href": "/nba/story/_/id/50525196/spurs-rule-harper-hip-soreness-slip-court"
+      "league": "MLB",
+      "headline": "Rob Manfred says MLB owners won't compromise on salary cap",
+      "href": "/mlb/story/_/id/50523785/rob-manfred-says-mlb-owners-compromise-salary-cap"
     },
     {
       "league": "MLB",
       "headline": "2026-27 MLB free agency, trade grades: Offseason analysis",
       "href": "/mlb/story/_/id/50473334/2026-27-offseason-free-agency-trade-grades"
-    },
-    {
-      "league": "MLB",
-      "headline": "Rob Manfred says MLB owners won't compromise on salary cap",
-      "href": "/mlb/story/_/id/50523785/rob-manfred-says-mlb-owners-compromise-salary-cap"
     },
     {
       "league": "NFL",
@@ -68,9 +63,14 @@
       "href": "/nfl/story/_/id/50522814/sources-brandon-aiyuk-mended-friendship-jayden-daniels"
     },
     {
-      "league": "NBA",
-      "headline": "Miami Heat unveil 'A Night in Vice City' court, activities ahead of GTA VI release",
-      "href": "/nba/story/_/id/50085674/miami-heat-night-vice-city-game"
+      "league": "NFL",
+      "headline": "Jaguars rule starting center Robert Hainsey (knee) out for Giants game",
+      "href": "/nfl/story/_/id/50522085/jaguars-rule-center-robert-hainsey-knee-giants-game"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: Mets favorite to sign Tarik Skubal as teams ramp up pursuit of FA ace",
+      "href": "/mlb/story/_/id/50521652/sources-mets-final-teams-bidding-tarik-skubal"
     }
   ]
 }
