@@ -1,16 +1,11 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-18T19:06:29Z",
+  "refreshedAt": "2026-11-19T01:08:20Z",
   "items": [
     {
-      "league": "NFL",
-      "headline": "Sources: Brandon Aiyuk contacted Jayden Daniels to mend friendship with star QB",
-      "href": "/nfl/story/_/id/50522814/sources-brandon-aiyuk-mended-friendship-jayden-daniels"
-    },
-    {
-      "league": "NHL",
-      "headline": "Blackhawks star Connor Bedard awaiting test results on injured shoulder",
-      "href": "/nhl/story/_/id/50522884/connor-bedard-awaiting-test-results-injured-shoulder"
+      "league": "NBA",
+      "headline": "Spurs rule Dylan Harper out with hip soreness after slip on court",
+      "href": "/nba/story/_/id/50525196/spurs-rule-harper-hip-soreness-slip-court"
     },
     {
       "league": "MLB",
@@ -19,13 +14,43 @@
     },
     {
       "league": "MLB",
+      "headline": "Rob Manfred says MLB owners won't compromise on salary cap",
+      "href": "/mlb/story/_/id/50523785/rob-manfred-says-mlb-owners-compromise-salary-cap"
+    },
+    {
+      "league": "NFL",
+      "headline": "TNF: Texans rule out DE Hunter, RB Marks; Colts rule out CB Ward, starting OTs",
+      "href": "/nfl/story/_/id/50524890/texans-rule-hunter-marks-colts-rule-ward-starting-ots"
+    },
+    {
+      "league": "NFL",
+      "headline": "Giants RB Cam Skattebo to nix backflips in wake of Aidan Hutchinson's injury",
+      "href": "/nfl/story/_/id/50524576/rb-skattebo-nix-backflips-wake-hutchinson-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Panthers secondary set for boost with return of CB Mike Jackson",
+      "href": "/nfl/story/_/id/50524458/panthers-cb-mike-jackson-set-return-sunday-vs-ravens"
+    },
+    {
+      "league": "MLB",
+      "headline": "Red Sox acquire catcher Nick Fortes in trade with Rays",
+      "href": "/mlb/story/_/id/50523687/red-sox-acquire-catcher-nick-fortes-trade-rays"
+    },
+    {
+      "league": "MLB",
+      "headline": "Twins reunite with veteran right-hander Sonny Gray on two-year deal",
+      "href": "/mlb/story/_/id/50523817/twins-sign-veteran-right-hander-sonny-gray-two-year-deal"
+    },
+    {
+      "league": "MLB",
       "headline": "Royals send Maikel Garcia to Mariners in six-player trade",
       "href": "/mlb/story/_/id/50521866/sources-royals-trade-maikel-garcia-mariners-miller"
     },
     {
       "league": "NFL",
-      "headline": "Jaguars rule starting center Robert Hainsey (knee) out for Giants game",
-      "href": "/nfl/story/_/id/50522085/jaguars-rule-center-robert-hainsey-knee-giants-game"
+      "headline": "Titans WR Wan'Dale Robinson out for season with ankle injury",
+      "href": "/nfl/story/_/id/50523261/titans-wr-wandale-robinson-season-ankle-injury"
     },
     {
       "league": "NHL",
@@ -33,44 +58,19 @@
       "href": "/nhl/story/_/id/50521835/boston-college-retire-late-johnny-gaudreau-no-13"
     },
     {
-      "league": "MLB",
-      "headline": "Sources: Mets favorite to sign Tarik Skubal as teams ramp up pursuit of FA ace",
-      "href": "/mlb/story/_/id/50521652/sources-mets-final-teams-bidding-tarik-skubal"
+      "league": "NHL",
+      "headline": "Blackhawks star Connor Bedard awaiting test results on injured shoulder",
+      "href": "/nhl/story/_/id/50522884/connor-bedard-awaiting-test-results-injured-shoulder"
     },
     {
       "league": "NFL",
-      "headline": "Sources: Steelers G Mason McCormick avoided fracture, won't need ankle surgery",
-      "href": "/nfl/story/_/id/50519701/sources-steelers-g-mccormick-need-surgery-ankle"
+      "headline": "Sources: Brandon Aiyuk contacted Jayden Daniels to mend friendship with star QB",
+      "href": "/nfl/story/_/id/50522814/sources-brandon-aiyuk-mended-friendship-jayden-daniels"
     },
     {
       "league": "NBA",
       "headline": "Miami Heat unveil 'A Night in Vice City' court, activities ahead of GTA VI release",
       "href": "/nba/story/_/id/50085674/miami-heat-night-vice-city-game"
-    },
-    {
-      "league": "MLB",
-      "headline": "Jake Bauers says city of Boston figured into decision to sign with Red Sox",
-      "href": "/mlb/story/_/id/50516766/red-sox-introduce-free-agent-signing-jake-bauers"
-    },
-    {
-      "league": "NBA",
-      "headline": "Trail Blazers rule star Deni Avdija out vs. Timberwolves with sore foot",
-      "href": "/nba/story/_/id/50515349/blazers-rule-star-deni-avdija-vs-wolves-sore-foot"
-    },
-    {
-      "league": "NBA",
-      "headline": "Raptors say Kawhi Leonard progressing but out at least another week",
-      "href": "/nba/story/_/id/50514496/raptors-kawhi-leonard-progressing-another-week"
-    },
-    {
-      "league": "MLB",
-      "headline": "White Sox, pitcher Dustin May reach 3-year, $52.5M contract",
-      "href": "/mlb/story/_/id/50511537/source-white-sox-dustin-reach-3-year-525m-contract"
-    },
-    {
-      "league": "MLB",
-      "headline": "D-backs say Jordan Lawlar had elbow surgery, expect OF to be ready for season",
-      "href": "/mlb/story/_/id/50505544/diamondbacks-jordan-lawlar-had-elbow-surgery-expected-ready-regular-season"
     }
   ]
 }
