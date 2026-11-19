@@ -1,21 +1,31 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-19T17:43:02Z",
+  "refreshedAt": "2026-11-19T23:52:52Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "Ravens send CB Humphrey home, say he'll be inactive after his 'criminals' comment",
-      "href": "/nfl/story/_/id/50532199/ravens-send-marlon-humphrey-home-say-inactive"
+      "headline": "Saints, Justin Reid 'working through' potential release",
+      "href": "/nfl/story/_/id/50534340/saints-justin-reid-working-potential-release"
+    },
+    {
+      "league": "NFL",
+      "headline": "Bucs QB Baker Mayfield hopes to play Sunday despite foot injury: 'I feel ready'",
+      "href": "/nfl/story/_/id/50533151/buccaneers-baker-mayfield-hopes-play-foot-injury"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sources: Spurs' Dylan Harper out 1-3 weeks with hip strain",
+      "href": "/nba/story/_/id/50533303/sources-spurs-dylan-harper-1-3-weeks-hip-strain"
+    },
+    {
+      "league": "NBA",
+      "headline": "Timberwolves' Edwards has 'no clue' on when he will return",
+      "href": "/nba/story/_/id/50532808/timberwolves-edwards-no-clue-return"
     },
     {
       "league": "MLB",
       "headline": "Sources: Mets favorite to sign Tarik Skubal as teams ramp up pursuit of FA ace",
       "href": "/mlb/story/_/id/50521652/sources-mets-final-teams-bidding-tarik-skubal"
-    },
-    {
-      "league": "NFL",
-      "headline": "Texans DE Hunter, RB Marks to miss TNF; Colts rule out CB Ward, starting OTs",
-      "href": "/nfl/story/_/id/50524890/texans-rule-hunter-marks-colts-rule-ward-starting-ots"
     },
     {
       "league": "MLB",
@@ -26,16 +36,6 @@
       "league": "MLB",
       "headline": "2026-27 MLB free agency, trade grades: Offseason analysis",
       "href": "/mlb/story/_/id/50473334/2026-27-offseason-free-agency-trade-grades"
-    },
-    {
-      "league": "NFL",
-      "headline": "Giants RB Cam Skattebo to nix backflips in wake of Aidan Hutchinson's injury",
-      "href": "/nfl/story/_/id/50524576/rb-skattebo-nix-backflips-wake-hutchinson-injury"
-    },
-    {
-      "league": "NFL",
-      "headline": "Panthers secondary set for boost with return of CB Mike Jackson",
-      "href": "/nfl/story/_/id/50524458/panthers-cb-mike-jackson-set-return-sunday-vs-ravens"
     },
     {
       "league": "MLB",
