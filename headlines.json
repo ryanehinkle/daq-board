@@ -1,21 +1,46 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-19T23:52:52Z",
+  "refreshedAt": "2026-11-20T05:01:55Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "C.J. Stroud, defense star as Texans get critical win over Colts on TNF",
+      "href": "/nfl/story/_/id/50536733/texans-colts-thursday-night-football-cj-stroud-defense"
+    },
+    {
+      "league": "NFL",
+      "headline": "Bears' Jeffery Simmons says knee injury a non-issue, expects to play vs. Saints",
+      "href": "/nfl/story/_/id/50535411/bears-jeffery-simmons-says-knee-fine-expects-play-vs-saints"
+    },
+    {
+      "league": "MLB",
+      "headline": "Source: Mets reach 3-year, $12 million deal with Darwinzon Hernandez",
+      "href": "/mlb/story/_/id/50536986/mets-reach-3-year-deal-reliever-darwinzon-hernandez"
+    },
+    {
+      "league": "MLB",
+      "headline": "2026-27 MLB free agency, trade grades: Offseason analysis",
+      "href": "/mlb/story/_/id/50473334/2026-27-offseason-free-agency-trade-grades"
+    },
+    {
+      "league": "NFL",
+      "headline": "Texans lose Chris Braswell to serious-looking knee injury",
+      "href": "/nfl/story/_/id/50536083/texans-lose-chris-braswell-serious-looking-knee-injury"
+    },
     {
       "league": "NFL",
       "headline": "Saints, Justin Reid 'working through' potential release",
       "href": "/nfl/story/_/id/50534340/saints-justin-reid-working-potential-release"
     },
     {
-      "league": "NFL",
-      "headline": "Bucs QB Baker Mayfield hopes to play Sunday despite foot injury: 'I feel ready'",
-      "href": "/nfl/story/_/id/50533151/buccaneers-baker-mayfield-hopes-play-foot-injury"
-    },
-    {
       "league": "NBA",
       "headline": "Sources: Spurs' Dylan Harper out 1-3 weeks with hip strain",
       "href": "/nba/story/_/id/50533303/sources-spurs-dylan-harper-1-3-weeks-hip-strain"
+    },
+    {
+      "league": "NFL",
+      "headline": "Bucs QB Baker Mayfield hopes to play Sunday despite foot injury: 'I feel ready'",
+      "href": "/nfl/story/_/id/50533151/buccaneers-baker-mayfield-hopes-play-foot-injury"
     },
     {
       "league": "NBA",
@@ -34,11 +59,6 @@
     },
     {
       "league": "MLB",
-      "headline": "2026-27 MLB free agency, trade grades: Offseason analysis",
-      "href": "/mlb/story/_/id/50473334/2026-27-offseason-free-agency-trade-grades"
-    },
-    {
-      "league": "MLB",
       "headline": "Red Sox acquire catcher Nick Fortes in trade with Rays",
       "href": "/mlb/story/_/id/50523687/red-sox-acquire-catcher-nick-fortes-trade-rays"
     },
@@ -51,26 +71,6 @@
       "league": "MLB",
       "headline": "Royals send Maikel Garcia to Mariners in six-player trade",
       "href": "/mlb/story/_/id/50521866/sources-royals-trade-maikel-garcia-mariners-miller"
-    },
-    {
-      "league": "NHL",
-      "headline": "Boston College to retire late Johnny Gaudreau's No. 13 jersey",
-      "href": "/nhl/story/_/id/50521835/boston-college-retire-late-johnny-gaudreau-no-13"
-    },
-    {
-      "league": "NHL",
-      "headline": "Blackhawks star Connor Bedard awaiting test results on injured shoulder",
-      "href": "/nhl/story/_/id/50522884/connor-bedard-awaiting-test-results-injured-shoulder"
-    },
-    {
-      "league": "MLB",
-      "headline": "Jake Bauers says city of Boston figured into decision to sign with Red Sox",
-      "href": "/mlb/story/_/id/50516766/red-sox-introduce-free-agent-signing-jake-bauers"
-    },
-    {
-      "league": "MLB",
-      "headline": "White Sox, pitcher Dustin May reach 3-year, $52.5M contract",
-      "href": "/mlb/story/_/id/50511537/source-white-sox-dustin-reach-3-year-525m-contract"
     }
   ]
 }
