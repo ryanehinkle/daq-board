@@ -1,21 +1,41 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-20T05:01:55Z",
+  "refreshedAt": "2026-11-20T13:56:32Z",
   "items": [
     {
-      "league": "NFL",
-      "headline": "C.J. Stroud, defense star as Texans get critical win over Colts on TNF",
-      "href": "/nfl/story/_/id/50536733/texans-colts-thursday-night-football-cj-stroud-defense"
-    },
-    {
-      "league": "NFL",
-      "headline": "Bears' Jeffery Simmons says knee injury a non-issue, expects to play vs. Saints",
-      "href": "/nfl/story/_/id/50535411/bears-jeffery-simmons-says-knee-fine-expects-play-vs-saints"
-    },
-    {
       "league": "MLB",
-      "headline": "Source: Mets reach 3-year, $12 million deal with Darwinzon Hernandez",
-      "href": "/mlb/story/_/id/50536986/mets-reach-3-year-deal-reliever-darwinzon-hernandez"
+      "headline": "Sources: Jonathan Loáisiga returning to Yankees on 2-year deal",
+      "href": "/mlb/story/_/id/50540563/sources-jonathan-loaisiga-returning-yankees-2-year-deal"
+    },
+    {
+      "league": "NBA",
+      "headline": "Windhorst and MacMahon: League execs, scouts examine nine rookie starts",
+      "href": "/nba/story/_/id/50534111/rookies-dybantsa-peterson-boozer-acuff-yaxel"
+    },
+    {
+      "league": "NFL",
+      "headline": "NFL offseason free agent and trade acquisitions that have and have not worked",
+      "href": "/nfl/story/_/id/50525533/2026-offseason-change-scenery-fits-players-new-teams"
+    },
+    {
+      "league": "NFL",
+      "headline": "Titans defense crumbling post-Jeffery Simmons, Amani Hooker trades",
+      "href": "/nfl/story/_/id/50523033/titans-defense-post-jeffery-simmons-amani-hooker-trades"
+    },
+    {
+      "league": "NBA",
+      "headline": "Lillard scores 33 in return to Milwaukee, lifts Blazers past Bucks",
+      "href": "/nba/story/_/id/50538526/lillard-scores-33-return-milwaukee-lifts-blazers-bucks"
+    },
+    {
+      "league": "NBA",
+      "headline": "Spurs' Victor Wembanyama says new-look 'shunk' done because of blister on hand",
+      "href": "/nba/story/_/id/50538594/spurs-victor-wembanyama-shunk-done-due-blister"
+    },
+    {
+      "league": "NHL",
+      "headline": "Which NHL coaches have the most wins in history?",
+      "href": "/nhl/story/_/id/48431082/which-nhl-coaches-most-wins-history"
     },
     {
       "league": "MLB",
@@ -29,18 +49,18 @@
     },
     {
       "league": "NFL",
-      "headline": "Saints, Justin Reid 'working through' potential release",
-      "href": "/nfl/story/_/id/50534340/saints-justin-reid-working-potential-release"
+      "headline": "C.J. Stroud, defense star as Texans get critical win over Colts on TNF",
+      "href": "/nfl/story/_/id/50536733/texans-colts-thursday-night-football-cj-stroud-defense"
+    },
+    {
+      "league": "MLB",
+      "headline": "Source: Mets reach 3-year, $12 million deal with Darwinzon Hernandez",
+      "href": "/mlb/story/_/id/50536986/mets-reach-3-year-deal-reliever-darwinzon-hernandez"
     },
     {
       "league": "NBA",
       "headline": "Sources: Spurs' Dylan Harper out 1-3 weeks with hip strain",
       "href": "/nba/story/_/id/50533303/sources-spurs-dylan-harper-1-3-weeks-hip-strain"
-    },
-    {
-      "league": "NFL",
-      "headline": "Bucs QB Baker Mayfield hopes to play Sunday despite foot injury: 'I feel ready'",
-      "href": "/nfl/story/_/id/50533151/buccaneers-baker-mayfield-hopes-play-foot-injury"
     },
     {
       "league": "NBA",
@@ -51,26 +71,6 @@
       "league": "MLB",
       "headline": "Sources: Mets favorite to sign Tarik Skubal as teams ramp up pursuit of FA ace",
       "href": "/mlb/story/_/id/50521652/sources-mets-final-teams-bidding-tarik-skubal"
-    },
-    {
-      "league": "MLB",
-      "headline": "Rob Manfred says MLB owners won't compromise on salary cap",
-      "href": "/mlb/story/_/id/50523785/rob-manfred-says-mlb-owners-compromise-salary-cap"
-    },
-    {
-      "league": "MLB",
-      "headline": "Red Sox acquire catcher Nick Fortes in trade with Rays",
-      "href": "/mlb/story/_/id/50523687/red-sox-acquire-catcher-nick-fortes-trade-rays"
-    },
-    {
-      "league": "MLB",
-      "headline": "Twins reunite with veteran right-hander Sonny Gray on two-year deal",
-      "href": "/mlb/story/_/id/50523817/twins-sign-veteran-right-hander-sonny-gray-two-year-deal"
-    },
-    {
-      "league": "MLB",
-      "headline": "Royals send Maikel Garcia to Mariners in six-player trade",
-      "href": "/mlb/story/_/id/50521866/sources-royals-trade-maikel-garcia-mariners-miller"
     }
   ]
 }
