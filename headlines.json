@@ -1,7 +1,37 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-20T21:42:05Z",
+  "refreshedAt": "2026-11-21T02:51:20Z",
   "items": [
+    {
+      "league": "MLB",
+      "headline": "Gavin Sheets returns to Padres with $11 million, 3-year deal",
+      "href": "/mlb/story/_/id/50545784/gavin-sheets-returns-san-diego-padres-11-million-3-year-deal"
+    },
+    {
+      "league": "MLB",
+      "headline": "Dodgers acquire infielder Royce Lewis in trade with Twins",
+      "href": "/mlb/story/_/id/50544410/sources-dodgers-acquire-royce-lewis-trade-twins"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: Tigers, Troy Melton reach 6-year, $46.5M extension",
+      "href": "/mlb/story/_/id/50543664/sources-tigers-troy-melton-reach-6-year-465m-extension"
+    },
+    {
+      "league": "NFL",
+      "headline": "Drake Maye ankle injury: Is the Patriots' season over? Can Tommy DeVito step up?",
+      "href": "/nfl/story/_/id/50503981/drake-maye-ankle-injury-patriots-tommy-devito-stats"
+    },
+    {
+      "league": "NFL",
+      "headline": "Justin Reid posts Saints farewell as team releases safety",
+      "href": "/nfl/story/_/id/50543025/justin-reid-posts-saints-farewell-team-works-release"
+    },
+    {
+      "league": "NFL",
+      "headline": "Ravens rule out DT Nnamdi Madubuike (hamstring) vs Panthers",
+      "href": "/nfl/story/_/id/50542891/ravens-rule-dt-nnamdi-madubuike-hamstring-vs-panthers"
+    },
     {
       "league": "NBA",
       "headline": "Sources: Brandon Ingram (Achilles) expected to Clippers debut vs. Rockets",
@@ -9,18 +39,8 @@
     },
     {
       "league": "NFL",
-      "headline": "Justin Reid posts Saints farewell as team works through release",
-      "href": "/nfl/story/_/id/50543025/justin-reid-posts-saints-farewell-team-works-release"
-    },
-    {
-      "league": "NFL",
       "headline": "Chiefs' Kenneth Walker III, two linemen out vs. Cardinals",
       "href": "/nfl/story/_/id/50543014/chiefs-expect-kenneth-walker-iii-vs-cardinals"
-    },
-    {
-      "league": "NFL",
-      "headline": "Ravens rule out DT Nnamdi Madubuike (hamstring) vs Panthers",
-      "href": "/nfl/story/_/id/50542891/ravens-rule-dt-nnamdi-madubuike-hamstring-vs-panthers"
     },
     {
       "league": "NFL",
@@ -43,29 +63,9 @@
       "href": "/mlb/story/_/id/50542241/shohei-ohtani-extends-new-balance-rest-playing-career"
     },
     {
-      "league": "NFL",
-      "headline": "Rams' Puka Nacua has MCL surgery, likely done for regular season",
-      "href": "/nfl/story/_/id/50542028/rams-puka-nacua-needs-mcl-surgery-likely-done-season"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Jonathan Loáisiga returning to Yankees on 2-year deal",
-      "href": "/mlb/story/_/id/50540563/sources-jonathan-loaisiga-returning-yankees-2-year-deal"
-    },
-    {
-      "league": "MLB",
-      "headline": "2026-27 MLB free agency, trade grades: Offseason analysis",
-      "href": "/mlb/story/_/id/50473334/2026-27-offseason-free-agency-trade-grades"
-    },
-    {
       "league": "NBA",
       "headline": "Windhorst and MacMahon: League execs, scouts examine nine rookie starts",
       "href": "/nba/story/_/id/50534111/rookies-dybantsa-peterson-boozer-acuff-yaxel"
-    },
-    {
-      "league": "NBA",
-      "headline": "Lillard scores 33 in return to Milwaukee, lifts Blazers past Bucks",
-      "href": "/nba/story/_/id/50538526/lillard-scores-33-return-milwaukee-lifts-blazers-bucks"
     },
     {
       "league": "NHL",
