@@ -1,16 +1,26 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-21T17:41:04Z",
+  "refreshedAt": "2026-11-21T22:25:15Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Cardinals rule out rookie Carson Beck, turn to 40-year-old Josh Johnson vs. Chiefs",
+      "href": "/nfl/story/_/id/50553035/cardinals-downgrade-qb-carson-beck-josh-johnson-set-start"
+    },
+    {
+      "league": "MLB",
+      "headline": "Mets, A.J. Ewing reach 8-year, $95M extension, sources say",
+      "href": "/mlb/story/_/id/50552088/mets-aj-ewing-reach-8-year-95m-extension-sources-say"
+    },
+    {
+      "league": "MLB",
+      "headline": "Gavin Sheets returns to Padres with 3-year, $11 million deal",
+      "href": "/mlb/story/_/id/50545784/gavin-sheets-returns-san-diego-padres-11-million-3-year-deal"
+    },
     {
       "league": "NFL",
       "headline": "Carmelo Anthony calls out Ravens' Humphrey over Baltimore 'criminals' remark",
       "href": "/nfl/story/_/id/50548223/carmelo-anthony-calls-ravens-humphrey-baltimore-remark"
-    },
-    {
-      "league": "MLB",
-      "headline": "Gavin Sheets returns to Padres with $11 million, 3-year deal",
-      "href": "/mlb/story/_/id/50545784/gavin-sheets-returns-san-diego-padres-11-million-3-year-deal"
     },
     {
       "league": "MLB",
@@ -26,11 +36,6 @@
       "league": "NFL",
       "headline": "Drake Maye ankle injury: Is the Patriots' season over? Can Tommy DeVito step up?",
       "href": "/nfl/story/_/id/50503981/drake-maye-ankle-injury-patriots-tommy-devito-stats"
-    },
-    {
-      "league": "NFL",
-      "headline": "Justin Reid posts Saints farewell as team releases safety",
-      "href": "/nfl/story/_/id/50543025/justin-reid-posts-saints-farewell-team-works-release"
     },
     {
       "league": "MLB",
@@ -66,11 +71,6 @@
       "league": "MLB",
       "headline": "Sources: Mets favorite to sign Tarik Skubal as teams ramp up pursuit of FA ace",
       "href": "/mlb/story/_/id/50521652/sources-mets-final-teams-bidding-tarik-skubal"
-    },
-    {
-      "league": "MLB",
-      "headline": "Rob Manfred says MLB owners won't compromise on salary cap",
-      "href": "/mlb/story/_/id/50523785/rob-manfred-says-mlb-owners-compromise-salary-cap"
     }
   ]
 }
