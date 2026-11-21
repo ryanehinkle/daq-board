@@ -1,7 +1,12 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-21T02:51:20Z",
+  "refreshedAt": "2026-11-21T10:21:51Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Carmelo Anthony calls out Ravens' Humphrey over Baltimore 'criminals' remark",
+      "href": "/nfl/story/_/id/50548223/carmelo-anthony-calls-ravens-humphrey-baltimore-remark"
+    },
     {
       "league": "MLB",
       "headline": "Gavin Sheets returns to Padres with $11 million, 3-year deal",
@@ -61,11 +66,6 @@
       "league": "MLB",
       "headline": "Shohei Ohtani extends deal with New Balance for remainder of playing career",
       "href": "/mlb/story/_/id/50542241/shohei-ohtani-extends-new-balance-rest-playing-career"
-    },
-    {
-      "league": "NBA",
-      "headline": "Windhorst and MacMahon: League execs, scouts examine nine rookie starts",
-      "href": "/nba/story/_/id/50534111/rookies-dybantsa-peterson-boozer-acuff-yaxel"
     },
     {
       "league": "NHL",
