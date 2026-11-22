@@ -1,7 +1,17 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-22T02:29:14Z",
+  "refreshedAt": "2026-11-22T10:10:34Z",
   "items": [
+    {
+      "league": "NHL",
+      "headline": "Which NHL coaches have the most wins in history?",
+      "href": "/nhl/story/_/id/48431082/which-nhl-coaches-most-wins-history"
+    },
+    {
+      "league": "NHL",
+      "headline": "Ducks' Leo Carlsson leaves with upper-body injury after collision",
+      "href": "/nhl/story/_/id/50558867/ducks-leo-carlsson-leaves-upper-body-injury-collision"
+    },
     {
       "league": "NFL",
       "headline": "Sources: Rams' Puka Nacua out 4-5 months after knee surgery, will miss playoffs",
@@ -11,11 +21,6 @@
       "league": "NHL",
       "headline": "Blackhawks star Connor Bedard elects to have shoulder surgery",
       "href": "/nhl/story/_/id/50556771/blackhawks-connor-bedard-elects-shoulder-surgery"
-    },
-    {
-      "league": "NHL",
-      "headline": "Avs' Nathan MacKinnon now out 12 weeks after injury timeline extended",
-      "href": "/nhl/story/_/id/50555187/avs-nathan-mackinnon-now-12-weeks-injury-line-extended"
     },
     {
       "league": "NFL",
@@ -66,11 +71,6 @@
       "league": "MLB",
       "headline": "Sources: Jonathan Loáisiga returning to Yankees on 2-year deal",
       "href": "/mlb/story/_/id/50540563/sources-jonathan-loaisiga-returning-yankees-2-year-deal"
-    },
-    {
-      "league": "MLB",
-      "headline": "2026-27 MLB free agency, trade grades: Offseason analysis",
-      "href": "/mlb/story/_/id/50473334/2026-27-offseason-free-agency-trade-grades"
     }
   ]
 }
