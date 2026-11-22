@@ -1,16 +1,41 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-22T17:49:24Z",
+  "refreshedAt": "2026-11-22T22:51:39Z",
   "items": [
     {
-      "league": "NFL",
-      "headline": "Sources: Bucs' Baker Mayfield has plantar fasciitis, determined to keep playing",
-      "href": "/nfl/story/_/id/50550285/sources-buccaneers-qb-baker-mayfield-plantar-fasciitis"
+      "league": "MLB",
+      "headline": "Sources: Mets, Skubal agree to record 9-year, $450M contract",
+      "href": "/mlb/story/_/id/50565674/sources-mets-skubal-agree-9-year-450m-contract"
     },
     {
-      "league": "NFL",
-      "headline": "Sources: Colts shut down Alec Pierce for season, plan for WR's return in 2027",
-      "href": "/nfl/story/_/id/50551004/sources-colts-shutting-alec-pierce-rest-season"
+      "league": "MLB",
+      "headline": "Tarik Skubal to Mets: Grading record $450 million contract",
+      "href": "/mlb/story/_/id/50521081/tarik-skubal-new-york-mets-grade-record-contract"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: Luis Gil agrees to deal with Tigers after Yankees nontender",
+      "href": "/mlb/story/_/id/50565569/sources-free-agent-luis-gil-agrees-deal-tigers"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sources: Free agent Gabe Vincent, Kings finalizing deal",
+      "href": "/nba/story/_/id/50564924/sources-free-agent-gabe-vincent-kings-finalizing-deal"
+    },
+    {
+      "league": "NHL",
+      "headline": "Blackhawks' Wyatt Kaiser suspended 3 games for illegal check",
+      "href": "/nhl/story/_/id/50563989/blackhawks-wyatt-kaiser-suspended-3-games-illegal-check"
+    },
+    {
+      "league": "NBA",
+      "headline": "Bulls G Norman Powell sidelined by mild hamstring injury",
+      "href": "/nba/story/_/id/50564049/bulls-g-norman-powell-sidelined-mild-hamstring-injury"
+    },
+    {
+      "league": "NHL",
+      "headline": "Ducks' Leo Carlsson leaves with upper-body injury after collision",
+      "href": "/nhl/story/_/id/50558867/ducks-leo-carlsson-leaves-upper-body-injury-collision"
     },
     {
       "league": "NFL",
@@ -21,21 +46,6 @@
       "league": "NHL",
       "headline": "Which NHL coaches have the most wins in history?",
       "href": "/nhl/story/_/id/48431082/which-nhl-coaches-most-wins-history"
-    },
-    {
-      "league": "NHL",
-      "headline": "Ducks' Leo Carlsson leaves with upper-body injury after collision",
-      "href": "/nhl/story/_/id/50558867/ducks-leo-carlsson-leaves-upper-body-injury-collision"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Rams' Puka Nacua out 4-5 months after knee surgery, will miss playoffs",
-      "href": "/nfl/story/_/id/50556613/sources-rams-puka-nacua-4-5-months-knee-surgery"
-    },
-    {
-      "league": "NFL",
-      "headline": "Cardinals rule out rookie Carson Beck, turn to 40-year-old Josh Johnson vs. Chiefs",
-      "href": "/nfl/story/_/id/50553035/cardinals-downgrade-qb-carson-beck-josh-johnson-set-start"
     },
     {
       "league": "MLB",
@@ -61,16 +71,6 @@
       "league": "MLB",
       "headline": "Rockies All-Star Hunter Goodman expected back for spring after shoulder surgery",
       "href": "/mlb/story/_/id/50541754/rockies-goodman-expected-back-spring-shoulder-surgery"
-    },
-    {
-      "league": "MLB",
-      "headline": "Shohei Ohtani extends deal with New Balance for remainder of playing career",
-      "href": "/mlb/story/_/id/50542241/shohei-ohtani-extends-new-balance-rest-playing-career"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Jonathan Loáisiga returning to Yankees on 2-year deal",
-      "href": "/mlb/story/_/id/50540563/sources-jonathan-loaisiga-returning-yankees-2-year-deal"
     }
   ]
 }
