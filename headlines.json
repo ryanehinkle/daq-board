@@ -1,7 +1,22 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-22T10:10:34Z",
+  "refreshedAt": "2026-11-22T17:49:24Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Sources: Bucs' Baker Mayfield has plantar fasciitis, determined to keep playing",
+      "href": "/nfl/story/_/id/50550285/sources-buccaneers-qb-baker-mayfield-plantar-fasciitis"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Colts shut down Alec Pierce for season, plan for WR's return in 2027",
+      "href": "/nfl/story/_/id/50551004/sources-colts-shutting-alec-pierce-rest-season"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Ex-Colts QB Daniel Jones likely to wait before signing with new team",
+      "href": "/nfl/story/_/id/50557657/sources-daniel-jones-likely-wait-joining-new-team"
+    },
     {
       "league": "NHL",
       "headline": "Which NHL coaches have the most wins in history?",
@@ -16,11 +31,6 @@
       "league": "NFL",
       "headline": "Sources: Rams' Puka Nacua out 4-5 months after knee surgery, will miss playoffs",
       "href": "/nfl/story/_/id/50556613/sources-rams-puka-nacua-4-5-months-knee-surgery"
-    },
-    {
-      "league": "NHL",
-      "headline": "Blackhawks star Connor Bedard elects to have shoulder surgery",
-      "href": "/nhl/story/_/id/50556771/blackhawks-connor-bedard-elects-shoulder-surgery"
     },
     {
       "league": "NFL",
@@ -38,11 +48,6 @@
       "href": "/mlb/story/_/id/50545784/gavin-sheets-returns-san-diego-padres-11-million-3-year-deal"
     },
     {
-      "league": "NFL",
-      "headline": "Carmelo Anthony calls out Ravens' Humphrey over Baltimore 'criminals' remark",
-      "href": "/nfl/story/_/id/50548223/carmelo-anthony-calls-ravens-humphrey-baltimore-remark"
-    },
-    {
       "league": "MLB",
       "headline": "Dodgers acquire infielder Royce Lewis in trade with Twins",
       "href": "/mlb/story/_/id/50544410/sources-dodgers-acquire-royce-lewis-trade-twins"
@@ -51,11 +56,6 @@
       "league": "MLB",
       "headline": "Sources: Tigers, Troy Melton reach 6-year, $46.5M extension",
       "href": "/mlb/story/_/id/50543664/sources-tigers-troy-melton-reach-6-year-465m-extension"
-    },
-    {
-      "league": "NFL",
-      "headline": "Drake Maye ankle injury: Is the Patriots' season over? Can Tommy DeVito step up?",
-      "href": "/nfl/story/_/id/50503981/drake-maye-ankle-injury-patriots-tommy-devito-stats"
     },
     {
       "league": "MLB",
