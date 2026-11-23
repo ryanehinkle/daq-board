@@ -1,16 +1,51 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-23T03:19:35Z",
+  "refreshedAt": "2026-11-23T13:16:20Z",
   "items": [
+    {
+      "league": "MLB",
+      "headline": "What Tarik Skubal's massive deal means for Mets, suitors, all of MLB",
+      "href": "/mlb/story/_/id/50521569/tarik-skubal-mets-record-contract-impact-dodgers"
+    },
+    {
+      "league": "MLB",
+      "headline": "Tarik Skubal to Mets: Grading record $450 million contract",
+      "href": "/mlb/story/_/id/50521081/tarik-skubal-new-york-mets-grade-record-contract"
+    },
     {
       "league": "NHL",
       "headline": "Dylan Larkin, who requested to be traded by Detroit, dealt to Montreal",
       "href": "/nhl/story/_/id/50568711/red-wings-trade-star-forward-dylan-larkin-canadiens"
     },
     {
+      "league": "NBA",
+      "headline": "Draymond Green swats back at online critics, fuels Warriors' win over Celtics",
+      "href": "/nba/story/_/id/50570668/vocal-green-defensive-stop-buzzer-fuels-warriors-win"
+    },
+    {
       "league": "NFL",
-      "headline": "49ers' Colton McKivitz exits game vs. Vikings with lower leg injury",
+      "headline": "49ers' Brock Purdy beats Vikings blitz, hears 'MVP' chants in Mexico City",
+      "href": "/nfl/story/_/id/50571034/49ers-brock-purdy-beats-vikings-blitz-hears-mvp-chants-mexico-city"
+    },
+    {
+      "league": "NFL",
+      "headline": "49ers' Colton McKivitz suffers season-ending ankle injury",
       "href": "/nfl/story/_/id/50568995/49ers-colton-mckivitz-exits-game-vs-vikings-injuring-lower-leg"
+    },
+    {
+      "league": "NHL",
+      "headline": "Who comes out ahead in Dylan Larkin blockbuster? Grading the Red Wings, Canadiens",
+      "href": "/nhl/story/_/id/50054705/nhl-2026-27-season-trade-grades-deals-report-cards-top-players-prospects-biggest-deals"
+    },
+    {
+      "league": "NFL",
+      "headline": "49ers make bold statement with blowout win over Vikings, keep NFC's No. 1 seed",
+      "href": "/nfl/story/_/id/50525677/49ers-beat-vikings-sunday-night-football-mexico-city-kittle"
+    },
+    {
+      "league": "NFL",
+      "headline": "NFL says no-TD call for WR Parker Washington in Jaguars' loss was correct",
+      "href": "/nfl/story/_/id/50569248/nfl-no-td-call-jaguars-parker-washington-was-correct"
     },
     {
       "league": "MLB",
@@ -21,16 +56,6 @@
       "league": "NBA",
       "headline": "Klay Thompson blows out shoe in Heat's win over Thunder",
       "href": "/nba/story/_/id/50567550/klay-thompson-blows-shoe-heat-thunder"
-    },
-    {
-      "league": "MLB",
-      "headline": "What Tarik Skubal's massive deal means for Mets, suitors, all of MLB",
-      "href": "/mlb/story/_/id/50521569/tarik-skubal-mets-record-contract-impact-dodgers"
-    },
-    {
-      "league": "NFL",
-      "headline": "Jeffery Simmons matches career high with 3 sacks in Bears' win",
-      "href": "/nfl/story/_/id/50567207/jeffery-simmons-matches-career-high-3-sacks-bears-win"
     },
     {
       "league": "NHL",
@@ -44,33 +69,8 @@
     },
     {
       "league": "MLB",
-      "headline": "Tarik Skubal to Mets: Grading record $450 million contract",
-      "href": "/mlb/story/_/id/50521081/tarik-skubal-new-york-mets-grade-record-contract"
-    },
-    {
-      "league": "MLB",
       "headline": "Sources: Luis Gil agrees to deal with Tigers after Yankees nontender",
       "href": "/mlb/story/_/id/50565569/sources-free-agent-luis-gil-agrees-deal-tigers"
-    },
-    {
-      "league": "NBA",
-      "headline": "Sources: Free agent Gabe Vincent, Kings finalizing deal",
-      "href": "/nba/story/_/id/50564924/sources-free-agent-gabe-vincent-kings-finalizing-deal"
-    },
-    {
-      "league": "NHL",
-      "headline": "Blackhawks' Wyatt Kaiser suspended 3 games for illegal check",
-      "href": "/nhl/story/_/id/50563989/blackhawks-wyatt-kaiser-suspended-3-games-illegal-check"
-    },
-    {
-      "league": "NHL",
-      "headline": "Ducks' Leo Carlsson leaves with upper-body injury after collision",
-      "href": "/nhl/story/_/id/50558867/ducks-leo-carlsson-leaves-upper-body-injury-collision"
-    },
-    {
-      "league": "MLB",
-      "headline": "Mets, A.J. Ewing reach 8-year, $95M extension, sources say",
-      "href": "/mlb/story/_/id/50552088/mets-aj-ewing-reach-8-year-95m-extension-sources-say"
     }
   ]
 }
