@@ -1,11 +1,46 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-22T22:51:39Z",
+  "refreshedAt": "2026-11-23T03:19:35Z",
   "items": [
+    {
+      "league": "NHL",
+      "headline": "Dylan Larkin, who requested to be traded by Detroit, dealt to Montreal",
+      "href": "/nhl/story/_/id/50568711/red-wings-trade-star-forward-dylan-larkin-canadiens"
+    },
+    {
+      "league": "NFL",
+      "headline": "49ers' Colton McKivitz exits game vs. Vikings with lower leg injury",
+      "href": "/nfl/story/_/id/50568995/49ers-colton-mckivitz-exits-game-vs-vikings-injuring-lower-leg"
+    },
     {
       "league": "MLB",
       "headline": "Sources: Mets, Skubal agree to record 9-year, $450M contract",
       "href": "/mlb/story/_/id/50565674/sources-mets-skubal-agree-9-year-450m-contract"
+    },
+    {
+      "league": "NBA",
+      "headline": "Klay Thompson blows out shoe in Heat's win over Thunder",
+      "href": "/nba/story/_/id/50567550/klay-thompson-blows-shoe-heat-thunder"
+    },
+    {
+      "league": "MLB",
+      "headline": "What Tarik Skubal's massive deal means for Mets, suitors, all of MLB",
+      "href": "/mlb/story/_/id/50521569/tarik-skubal-mets-record-contract-impact-dodgers"
+    },
+    {
+      "league": "NFL",
+      "headline": "Jeffery Simmons matches career high with 3 sacks in Bears' win",
+      "href": "/nfl/story/_/id/50567207/jeffery-simmons-matches-career-high-3-sacks-bears-win"
+    },
+    {
+      "league": "NHL",
+      "headline": "Which NHL coaches have the most wins in history?",
+      "href": "/nhl/story/_/id/48431082/which-nhl-coaches-most-wins-history"
+    },
+    {
+      "league": "NBA",
+      "headline": "Bulls G Norman Powell sidelined by mild hamstring injury",
+      "href": "/nba/story/_/id/50564049/bulls-g-norman-powell-sidelined-mild-hamstring-injury"
     },
     {
       "league": "MLB",
@@ -28,49 +63,14 @@
       "href": "/nhl/story/_/id/50563989/blackhawks-wyatt-kaiser-suspended-3-games-illegal-check"
     },
     {
-      "league": "NBA",
-      "headline": "Bulls G Norman Powell sidelined by mild hamstring injury",
-      "href": "/nba/story/_/id/50564049/bulls-g-norman-powell-sidelined-mild-hamstring-injury"
-    },
-    {
       "league": "NHL",
       "headline": "Ducks' Leo Carlsson leaves with upper-body injury after collision",
       "href": "/nhl/story/_/id/50558867/ducks-leo-carlsson-leaves-upper-body-injury-collision"
     },
     {
-      "league": "NFL",
-      "headline": "Sources: Ex-Colts QB Daniel Jones likely to wait before signing with new team",
-      "href": "/nfl/story/_/id/50557657/sources-daniel-jones-likely-wait-joining-new-team"
-    },
-    {
-      "league": "NHL",
-      "headline": "Which NHL coaches have the most wins in history?",
-      "href": "/nhl/story/_/id/48431082/which-nhl-coaches-most-wins-history"
-    },
-    {
       "league": "MLB",
       "headline": "Mets, A.J. Ewing reach 8-year, $95M extension, sources say",
       "href": "/mlb/story/_/id/50552088/mets-aj-ewing-reach-8-year-95m-extension-sources-say"
-    },
-    {
-      "league": "MLB",
-      "headline": "Gavin Sheets returns to Padres with 3-year, $11 million deal",
-      "href": "/mlb/story/_/id/50545784/gavin-sheets-returns-san-diego-padres-11-million-3-year-deal"
-    },
-    {
-      "league": "MLB",
-      "headline": "Dodgers acquire infielder Royce Lewis in trade with Twins",
-      "href": "/mlb/story/_/id/50544410/sources-dodgers-acquire-royce-lewis-trade-twins"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Tigers, Troy Melton reach 6-year, $46.5M extension",
-      "href": "/mlb/story/_/id/50543664/sources-tigers-troy-melton-reach-6-year-465m-extension"
-    },
-    {
-      "league": "MLB",
-      "headline": "Rockies All-Star Hunter Goodman expected back for spring after shoulder surgery",
-      "href": "/mlb/story/_/id/50541754/rockies-goodman-expected-back-spring-shoulder-surgery"
     }
   ]
 }
