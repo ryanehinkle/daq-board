@@ -1,11 +1,66 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-24T10:49:16Z",
+  "refreshedAt": "2026-11-24T20:53:42Z",
   "items": [
     {
       "league": "MLB",
-      "headline": "Sources: Trevor Rogers, Cubs reach 5-year, $120M free agent deal",
-      "href": "/mlb/story/_/id/50579432/sources-free-agent-trevor-rogers-cubs-reach-5-year-deal"
+      "headline": "MLB drops contract escrow provision in salary cap proposal",
+      "href": "/mlb/story/_/id/50584880/mlb-drops-contract-escrow-provision-salary-cap-proposal"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: Japanese righty Kaima Taira, Blue Jays agree to 5-year, $80M deal",
+      "href": "/mlb/story/_/id/50585003/sources-kaima-taira-blue-jays-agree-5-year-80m-deal"
+    },
+    {
+      "league": "NFL",
+      "headline": "Source: Ravens cut punt returner LaJohntay Wester after his two muffs in loss",
+      "href": "/nfl/story/_/id/50585397/source-ravens-cut-punt-returner-wester-two-muffs-loss"
+    },
+    {
+      "league": "MLB",
+      "headline": "2026-27 MLB free agency, trade grades: Offseason analysis",
+      "href": "/mlb/story/_/id/50473334/2026-27-offseason-free-agency-trade-grades"
+    },
+    {
+      "league": "MLB",
+      "headline": "Luis Ortiz's wife urged Guardians pitcher to 'delete the evidence,' texts say",
+      "href": "/mlb/story/_/id/50584679/luis-ortiz-wife-text-messages-trial-evidence"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: Freddy Peralta stays in AL East, gets $125M deal to top Orioles rotation",
+      "href": "/mlb/story/_/id/50583512/sources-freddy-peralta-orioles-5-years-125-million"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: Cubs agree to 6-year, $120M deal with Japan's Teruaki Sato",
+      "href": "/mlb/story/_/id/50583163/sources-cubs-teruaki-sato-reach-6-year-120m-deal"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: Tigers, Ha-Seong Kim agree to 1-year, $5M contract",
+      "href": "/mlb/story/_/id/50584756/sources-tigers-ha-seong-kim-agree-1-year-5m-contract"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: Guardians, lefty Kris Bubic agree to one-year, $17.5M deal",
+      "href": "/mlb/story/_/id/50583426/sources-guardians-lefty-kris-bubic-agree-one-year-deal"
+    },
+    {
+      "league": "MLB",
+      "headline": "One trade ESPN experts would make before MLB lockout",
+      "href": "/mlb/story/_/id/50541491/offseason-trades-lockout-red-sox-yankees"
+    },
+    {
+      "league": "NHL",
+      "headline": "Lightning forward Conor Geekie out 4-5 months after undergoing shoulder surgery",
+      "href": "/nhl/story/_/id/50583955/lightning-conor-geekie-4-5-months-shoulder-surgery"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sources: Wolves' Donte DiVincenzo eyes New Year's for season debut",
+      "href": "/nba/story/_/id/50584000/wolves-dante-divincenzo-cleared-basketball-activities"
     },
     {
       "league": "NBA",
@@ -16,61 +71,6 @@
       "league": "NHL",
       "headline": "Which NHL coaches have the most wins in history?",
       "href": "/nhl/story/_/id/48431082/which-nhl-coaches-most-wins-history"
-    },
-    {
-      "league": "NHL",
-      "headline": "Gavin McKenna scores go-ahead goal as Maple Leafs win for first time in November",
-      "href": "/nhl/story/_/id/50579902/gavin-mckenna-scores-go-ahead-goal-maple-leafs-end-9-game-skid"
-    },
-    {
-      "league": "NFL",
-      "headline": "Commanders building momentum, halt Bengals' 5-game win streak",
-      "href": "/nfl/story/_/id/50573995/2026-nfl-week-11-washington-commanders-cincinnati-bengals"
-    },
-    {
-      "league": "NHL",
-      "headline": "Blackhawks' Connor Bedard has shoulder surgery, out approximately 4 months",
-      "href": "/nhl/story/_/id/50578959/blackhawks-connor-bedard-right-shoulder-surgery"
-    },
-    {
-      "league": "NBA",
-      "headline": "76ers' Joel Embiid (illness) sits out loss to Trail Blazers",
-      "href": "/nba/story/_/id/50577428/76ers-rule-joel-embiid-vs-trail-blazers-illness"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Packers' Micah Parsons cleared to make season debut Wednesday vs. Rams",
-      "href": "/nfl/story/_/id/50577301/sources-packers-micah-parsons-cleared-return-wednesday"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Royals sign LHP Caleb Thielbar to 1-year, $3.25 million contract",
-      "href": "/mlb/story/_/id/50578048/royals-sign-pitcher-caleb-thielbar-1-year-contract"
-    },
-    {
-      "league": "NFL",
-      "headline": "Commanders RB Jacory Croskey-Merritt activated from IR ahead of MNF",
-      "href": "/nfl/story/_/id/50576561/commanders-rb-jacory-croskey-merritt-activated-ir"
-    },
-    {
-      "league": "NFL",
-      "headline": "Cardinals fire DC Nick Rallis; Teryl Austin takes over on interim basis",
-      "href": "/nfl/story/_/id/50575938/cardinals-fire-defensive-coordinator-nick-rallis-sources-say"
-    },
-    {
-      "league": "NFL",
-      "headline": "49ers release WR Brandon Aiyuk with roster exemption ending",
-      "href": "/nfl/story/_/id/50575346/sources-49ers-releasing-wr-brandon-aiyuk"
-    },
-    {
-      "league": "NFL",
-      "headline": "Giants' Greg Newsome out 'multiple weeks' with ankle sprain",
-      "href": "/nfl/story/_/id/50576454/giants-greg-newsome-multiple-weeks-ankle-sprain"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Giants DC Dennard Wilson interviews for HC job at alma mater Maryland",
-      "href": "/nfl/story/_/id/50575838/sources-giants-dennard-wilson-interviews-maryland-job"
     }
   ]
 }
