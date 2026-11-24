@@ -1,76 +1,76 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-23T13:16:20Z",
+  "refreshedAt": "2026-11-24T01:00:21Z",
   "items": [
     {
       "league": "MLB",
-      "headline": "What Tarik Skubal's massive deal means for Mets, suitors, all of MLB",
-      "href": "/mlb/story/_/id/50521569/tarik-skubal-mets-record-contract-impact-dodgers"
+      "headline": "Sources: Royals sign LHP Caleb Thielbar to 1-year, $3.25 million contract",
+      "href": "/mlb/story/_/id/50578048/royals-sign-pitcher-caleb-thielbar-1-year-contract"
+    },
+    {
+      "league": "NBA",
+      "headline": "76ers rule out Joel Embiid (illness) for game vs. Trail Blazers",
+      "href": "/nba/story/_/id/50577428/76ers-rule-joel-embiid-vs-trail-blazers-illness"
+    },
+    {
+      "league": "NFL",
+      "headline": "Commanders RB Jacory Croskey-Merritt activated from IR ahead of MNF",
+      "href": "/nfl/story/_/id/50576561/commanders-rb-jacory-croskey-merritt-activated-ir"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Packers' Micah Parsons cleared to make season debut Wednesday vs. Rams",
+      "href": "/nfl/story/_/id/50577301/sources-packers-micah-parsons-cleared-return-wednesday"
+    },
+    {
+      "league": "NFL",
+      "headline": "Cardinals fire DC Nick Rallis; Teryl Austin takes over on interim basis",
+      "href": "/nfl/story/_/id/50575938/cardinals-fire-defensive-coordinator-nick-rallis-sources-say"
+    },
+    {
+      "league": "NFL",
+      "headline": "49ers release WR Brandon Aiyuk with roster exemption ending",
+      "href": "/nfl/story/_/id/50575346/sources-49ers-releasing-wr-brandon-aiyuk"
+    },
+    {
+      "league": "NFL",
+      "headline": "Giants' Greg Newsome out 'multiple weeks' with ankle sprain",
+      "href": "/nfl/story/_/id/50576454/giants-greg-newsome-multiple-weeks-ankle-sprain"
+    },
+    {
+      "league": "NBA",
+      "headline": "Veteran guard Gabe Vincent signs deal with Kings",
+      "href": "/nba/story/_/id/50564924/sources-free-agent-gabe-vincent-kings-finalizing-deal"
+    },
+    {
+      "league": "NFL",
+      "headline": "Steelers' Metcalf denies trying to poke DeJean in eye; WR won't be suspended",
+      "href": "/nfl/story/_/id/50573989/steelers-metcalf-denies-trying-poke-eagles-dejean-eye"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Giants DC Dennard Wilson interviews for HC job at alma mater Maryland",
+      "href": "/nfl/story/_/id/50575838/sources-giants-dennard-wilson-interviews-maryland-job"
     },
     {
       "league": "MLB",
-      "headline": "Tarik Skubal to Mets: Grading record $450 million contract",
-      "href": "/mlb/story/_/id/50521081/tarik-skubal-new-york-mets-grade-record-contract"
+      "headline": "Sources: Yankees agree to 1-year, $4M deal with reliever Suter",
+      "href": "/mlb/story/_/id/50576087/yankees-agree-1-year-4m-deal-reliever-suter"
+    },
+    {
+      "league": "NFL",
+      "headline": "Rams TE Terrance Ferguson needs season-ending ankle surgery, Sean McVay says",
+      "href": "/nfl/story/_/id/50575889/rams-te-terrance-ferguson-needs-season-ending-ankle-surgery"
+    },
+    {
+      "league": "NHL",
+      "headline": "Capitals re-sign defenseman Jack St. Ivany to 2-year, $2.35M deal",
+      "href": "/nhl/story/_/id/50574271/capitals-re-sign-defenseman-jack-st-ivany-two-year-deal"
     },
     {
       "league": "NHL",
       "headline": "Dylan Larkin, who requested to be traded by Detroit, dealt to Montreal",
       "href": "/nhl/story/_/id/50568711/red-wings-trade-star-forward-dylan-larkin-canadiens"
-    },
-    {
-      "league": "NBA",
-      "headline": "Draymond Green swats back at online critics, fuels Warriors' win over Celtics",
-      "href": "/nba/story/_/id/50570668/vocal-green-defensive-stop-buzzer-fuels-warriors-win"
-    },
-    {
-      "league": "NFL",
-      "headline": "49ers' Brock Purdy beats Vikings blitz, hears 'MVP' chants in Mexico City",
-      "href": "/nfl/story/_/id/50571034/49ers-brock-purdy-beats-vikings-blitz-hears-mvp-chants-mexico-city"
-    },
-    {
-      "league": "NFL",
-      "headline": "49ers' Colton McKivitz suffers season-ending ankle injury",
-      "href": "/nfl/story/_/id/50568995/49ers-colton-mckivitz-exits-game-vs-vikings-injuring-lower-leg"
-    },
-    {
-      "league": "NHL",
-      "headline": "Who comes out ahead in Dylan Larkin blockbuster? Grading the Red Wings, Canadiens",
-      "href": "/nhl/story/_/id/50054705/nhl-2026-27-season-trade-grades-deals-report-cards-top-players-prospects-biggest-deals"
-    },
-    {
-      "league": "NFL",
-      "headline": "49ers make bold statement with blowout win over Vikings, keep NFC's No. 1 seed",
-      "href": "/nfl/story/_/id/50525677/49ers-beat-vikings-sunday-night-football-mexico-city-kittle"
-    },
-    {
-      "league": "NFL",
-      "headline": "NFL says no-TD call for WR Parker Washington in Jaguars' loss was correct",
-      "href": "/nfl/story/_/id/50569248/nfl-no-td-call-jaguars-parker-washington-was-correct"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Mets, Skubal agree to record 9-year, $450M contract",
-      "href": "/mlb/story/_/id/50565674/sources-mets-skubal-agree-9-year-450m-contract"
-    },
-    {
-      "league": "NBA",
-      "headline": "Klay Thompson blows out shoe in Heat's win over Thunder",
-      "href": "/nba/story/_/id/50567550/klay-thompson-blows-shoe-heat-thunder"
-    },
-    {
-      "league": "NHL",
-      "headline": "Which NHL coaches have the most wins in history?",
-      "href": "/nhl/story/_/id/48431082/which-nhl-coaches-most-wins-history"
-    },
-    {
-      "league": "NBA",
-      "headline": "Bulls G Norman Powell sidelined by mild hamstring injury",
-      "href": "/nba/story/_/id/50564049/bulls-g-norman-powell-sidelined-mild-hamstring-injury"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Luis Gil agrees to deal with Tigers after Yankees nontender",
-      "href": "/mlb/story/_/id/50565569/sources-free-agent-luis-gil-agrees-deal-tigers"
     }
   ]
 }
