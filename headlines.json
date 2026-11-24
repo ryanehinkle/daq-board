@@ -1,26 +1,56 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-24T01:00:21Z",
+  "refreshedAt": "2026-11-24T10:49:16Z",
   "items": [
+    {
+      "league": "MLB",
+      "headline": "Sources: Trevor Rogers, Cubs reach 5-year, $120M free agent deal",
+      "href": "/mlb/story/_/id/50579432/sources-free-agent-trevor-rogers-cubs-reach-5-year-deal"
+    },
+    {
+      "league": "NBA",
+      "headline": "Spurs rule Victor Wembanyama, De'Aaron Fox out 90 minutes before win over Kings",
+      "href": "/nba/story/_/id/50578664/spurs-victor-wembanyama-deaaron-fox-kings"
+    },
+    {
+      "league": "NHL",
+      "headline": "Which NHL coaches have the most wins in history?",
+      "href": "/nhl/story/_/id/48431082/which-nhl-coaches-most-wins-history"
+    },
+    {
+      "league": "NHL",
+      "headline": "Gavin McKenna scores go-ahead goal as Maple Leafs win for first time in November",
+      "href": "/nhl/story/_/id/50579902/gavin-mckenna-scores-go-ahead-goal-maple-leafs-end-9-game-skid"
+    },
+    {
+      "league": "NFL",
+      "headline": "Commanders building momentum, halt Bengals' 5-game win streak",
+      "href": "/nfl/story/_/id/50573995/2026-nfl-week-11-washington-commanders-cincinnati-bengals"
+    },
+    {
+      "league": "NHL",
+      "headline": "Blackhawks' Connor Bedard has shoulder surgery, out approximately 4 months",
+      "href": "/nhl/story/_/id/50578959/blackhawks-connor-bedard-right-shoulder-surgery"
+    },
+    {
+      "league": "NBA",
+      "headline": "76ers' Joel Embiid (illness) sits out loss to Trail Blazers",
+      "href": "/nba/story/_/id/50577428/76ers-rule-joel-embiid-vs-trail-blazers-illness"
+    },
+    {
+      "league": "NFL",
+      "headline": "Sources: Packers' Micah Parsons cleared to make season debut Wednesday vs. Rams",
+      "href": "/nfl/story/_/id/50577301/sources-packers-micah-parsons-cleared-return-wednesday"
+    },
     {
       "league": "MLB",
       "headline": "Sources: Royals sign LHP Caleb Thielbar to 1-year, $3.25 million contract",
       "href": "/mlb/story/_/id/50578048/royals-sign-pitcher-caleb-thielbar-1-year-contract"
     },
     {
-      "league": "NBA",
-      "headline": "76ers rule out Joel Embiid (illness) for game vs. Trail Blazers",
-      "href": "/nba/story/_/id/50577428/76ers-rule-joel-embiid-vs-trail-blazers-illness"
-    },
-    {
       "league": "NFL",
       "headline": "Commanders RB Jacory Croskey-Merritt activated from IR ahead of MNF",
       "href": "/nfl/story/_/id/50576561/commanders-rb-jacory-croskey-merritt-activated-ir"
-    },
-    {
-      "league": "NFL",
-      "headline": "Sources: Packers' Micah Parsons cleared to make season debut Wednesday vs. Rams",
-      "href": "/nfl/story/_/id/50577301/sources-packers-micah-parsons-cleared-return-wednesday"
     },
     {
       "league": "NFL",
@@ -38,39 +68,9 @@
       "href": "/nfl/story/_/id/50576454/giants-greg-newsome-multiple-weeks-ankle-sprain"
     },
     {
-      "league": "NBA",
-      "headline": "Veteran guard Gabe Vincent signs deal with Kings",
-      "href": "/nba/story/_/id/50564924/sources-free-agent-gabe-vincent-kings-finalizing-deal"
-    },
-    {
-      "league": "NFL",
-      "headline": "Steelers' Metcalf denies trying to poke DeJean in eye; WR won't be suspended",
-      "href": "/nfl/story/_/id/50573989/steelers-metcalf-denies-trying-poke-eagles-dejean-eye"
-    },
-    {
       "league": "NFL",
       "headline": "Sources: Giants DC Dennard Wilson interviews for HC job at alma mater Maryland",
       "href": "/nfl/story/_/id/50575838/sources-giants-dennard-wilson-interviews-maryland-job"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Yankees agree to 1-year, $4M deal with reliever Suter",
-      "href": "/mlb/story/_/id/50576087/yankees-agree-1-year-4m-deal-reliever-suter"
-    },
-    {
-      "league": "NFL",
-      "headline": "Rams TE Terrance Ferguson needs season-ending ankle surgery, Sean McVay says",
-      "href": "/nfl/story/_/id/50575889/rams-te-terrance-ferguson-needs-season-ending-ankle-surgery"
-    },
-    {
-      "league": "NHL",
-      "headline": "Capitals re-sign defenseman Jack St. Ivany to 2-year, $2.35M deal",
-      "href": "/nhl/story/_/id/50574271/capitals-re-sign-defenseman-jack-st-ivany-two-year-deal"
-    },
-    {
-      "league": "NHL",
-      "headline": "Dylan Larkin, who requested to be traded by Detroit, dealt to Montreal",
-      "href": "/nhl/story/_/id/50568711/red-wings-trade-star-forward-dylan-larkin-canadiens"
     }
   ]
 }
