@@ -1,76 +1,76 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-25T13:51:57Z",
+  "refreshedAt": "2026-11-25T22:51:20Z",
   "items": [
     {
-      "league": "NBA",
-      "headline": "Jalen Duren to begin rehab assignment in next step to return from injury",
-      "href": "/nba/story/_/id/50586890/jalen-duren-begin-rehab-assignment-next-step-return-injury"
-    },
-    {
-      "league": "NBA",
-      "headline": "Sources: Wolves' Donte DiVincenzo eyes New Year's for season debut",
-      "href": "/nba/story/_/id/50584000/wolves-dante-divincenzo-cleared-basketball-activities"
+      "league": "NFL",
+      "headline": "Sources: Mike McCarthy has Steelers' full support after Aaron Rodgers interview",
+      "href": "/nfl/story/_/id/50597534/sources-mike-mccarthy-steelers-full-support"
     },
     {
       "league": "NBA",
-      "headline": "Kawhi Leonard's return from knee swelling still at least week away",
-      "href": "/nba/story/_/id/50587249/kawhi-leonard-return-knee-swelling-least-week-away"
+      "headline": "Austin Reaves rejoins Lakers for full practice, no call yet on facing Spurs",
+      "href": "/nba/story/_/id/50597465/austin-reaves-rejoins-lakers-full-practice-tbd-face-spurs"
     },
     {
       "league": "NFL",
-      "headline": "How will Packers use Micah Parsons in return from torn ACL?",
-      "href": "/nfl/story/_/id/50582759/micah-parsons-packers-acl-return-snap-count-rams"
+      "headline": "Colts' Alec Pierce: 'Definitely a chance' to return from heel injury this season",
+      "href": "/nfl/story/_/id/50597055/colts-alec-pierce-heel-injury-hopeful-return-season"
     },
     {
       "league": "NFL",
-      "headline": "Brandon Aiyuk scheduled for visit Wednesday with Commanders, agent says",
-      "href": "/nfl/story/_/id/50586505/brandon-aiyuk-scheduled-visit-wednesday-commanders"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Reds catcher Tyler Stephenson staying on 3-year, $30 million deal",
-      "href": "/mlb/story/_/id/50589047/reds-c-tyler-stephenson-staying-30-million-3-year-deal"
+      "headline": "Bears rule out Gordon for second straight game due to shoulder injury",
+      "href": "/nfl/story/_/id/50597032/bears-rule-gordon-high-stakes-game-detroit"
     },
     {
       "league": "NFL",
-      "headline": "Can Vikings' offense win when the defense doesn't dominate?",
-      "href": "/nfl/story/_/id/50584512/minnesota-vikings-kirk-cousins-flores-defense"
+      "headline": "Vikings' Cousins says fiery demeanor part of leadership",
+      "href": "/nfl/story/_/id/50596866/vikings-cousins-says-fiery-demeanor-part-leadership"
     },
     {
       "league": "MLB",
-      "headline": "2026-27 MLB free agency, trade grades: Offseason analysis",
-      "href": "/mlb/story/_/id/50473334/2026-27-offseason-free-agency-trade-grades"
+      "headline": "Sources: Yankees turn to former foe for bench coach, ex-O's coach Hyde",
+      "href": "/mlb/story/_/id/50595004/sources-yankees-hire-ex-o-manager-brandon-hyde-bench-coach"
     },
     {
       "league": "NFL",
-      "headline": "Broncos' Sean Payton: J.K. Dobbins suspended one game for detrimental conduct",
-      "href": "/nfl/story/_/id/50586087/broncos-payton-says-rb-dobbins-suspended-one-game"
+      "headline": "49ers QB Brock Purdy has ankle injury, won't practice Wednesday",
+      "href": "/nfl/story/_/id/50596930/49ers-brock-purdy-ankle-injury-practice-wednesday"
+    },
+    {
+      "league": "NBA",
+      "headline": "76ers' Joel Embiid out vs. Heat, misses second straight game due to illness",
+      "href": "/nba/story/_/id/50596747/76ers-star-joel-embiid-vs-heat-due-illness"
+    },
+    {
+      "league": "NFL",
+      "headline": "Aaron Rodgers' timeline with Packers, ending in trade to Jets",
+      "href": "/nfl/story/_/id/31433043/from-holdout-concession-how-aaron-rodgers-green-bay-packers-got-here"
+    },
+    {
+      "league": "NHL",
+      "headline": "Cale Makar rejoining Avalanche lineup after 'fluke' injury",
+      "href": "/nhl/story/_/id/50596079/avalanche-defenseman-cale-makar-returns-3-game-absence"
+    },
+    {
+      "league": "NBA",
+      "headline": "Ex-Bucks guard Kevin Porter Jr. finalizing 2-year deal to join Magic, agent says",
+      "href": "/nba/story/_/id/50595534/agent-kevin-porter-jr-finalizing-2-year-deal-magic"
     },
     {
       "league": "MLB",
-      "headline": "Sources: White Sox, OF Tyrone Taylor agree to 2-year, $17 million deal",
-      "href": "/mlb/story/_/id/50587577/white-sox-tyrone-taylor-agree-2-year-17-million-deal"
+      "headline": "Free agent Alec Bohm reaches 2-year deal with Royals, reports say",
+      "href": "/mlb/story/_/id/50594322/reports-free-agent-alec-bohm-reaches-2-year-royals"
     },
     {
       "league": "MLB",
-      "headline": "Luis Ortiz's wife urged Guardians pitcher to 'delete the evidence,' texts say",
-      "href": "/mlb/story/_/id/50584679/luis-ortiz-wife-text-messages-trial-evidence"
-    },
-    {
-      "league": "MLB",
-      "headline": "Scott Servais joins Rockies as senior director of baseball operations",
-      "href": "/mlb/story/_/id/50587110/scott-servais-joins-rockies-senior-director-baseball-operations"
+      "headline": "Paul Goldschmidt says time with Yankees prepared him for expectations Mets face",
+      "href": "/mlb/story/_/id/50594977/paul-goldschmidt-happy-reunite-andy-green-mets"
     },
     {
       "league": "NHL",
       "headline": "Lightning forward Conor Geekie out 4-5 months after undergoing shoulder surgery",
       "href": "/nhl/story/_/id/50583955/lightning-conor-geekie-4-5-months-shoulder-surgery"
-    },
-    {
-      "league": "NHL",
-      "headline": "Which NHL coaches have the most wins in history?",
-      "href": "/nhl/story/_/id/48431082/which-nhl-coaches-most-wins-history"
     }
   ]
 }
