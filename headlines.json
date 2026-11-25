@@ -1,11 +1,41 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-25T03:54:44Z",
+  "refreshedAt": "2026-11-25T13:51:57Z",
   "items": [
     {
+      "league": "NBA",
+      "headline": "Jalen Duren to begin rehab assignment in next step to return from injury",
+      "href": "/nba/story/_/id/50586890/jalen-duren-begin-rehab-assignment-next-step-return-injury"
+    },
+    {
+      "league": "NBA",
+      "headline": "Sources: Wolves' Donte DiVincenzo eyes New Year's for season debut",
+      "href": "/nba/story/_/id/50584000/wolves-dante-divincenzo-cleared-basketball-activities"
+    },
+    {
+      "league": "NBA",
+      "headline": "Kawhi Leonard's return from knee swelling still at least week away",
+      "href": "/nba/story/_/id/50587249/kawhi-leonard-return-knee-swelling-least-week-away"
+    },
+    {
+      "league": "NFL",
+      "headline": "How will Packers use Micah Parsons in return from torn ACL?",
+      "href": "/nfl/story/_/id/50582759/micah-parsons-packers-acl-return-snap-count-rams"
+    },
+    {
+      "league": "NFL",
+      "headline": "Brandon Aiyuk scheduled for visit Wednesday with Commanders, agent says",
+      "href": "/nfl/story/_/id/50586505/brandon-aiyuk-scheduled-visit-wednesday-commanders"
+    },
+    {
       "league": "MLB",
-      "headline": "Sources: Reds catcher Tyler Stephenson staying on $30 million, 3-year deal",
+      "headline": "Sources: Reds catcher Tyler Stephenson staying on 3-year, $30 million deal",
       "href": "/mlb/story/_/id/50589047/reds-c-tyler-stephenson-staying-30-million-3-year-deal"
+    },
+    {
+      "league": "NFL",
+      "headline": "Can Vikings' offense win when the defense doesn't dominate?",
+      "href": "/nfl/story/_/id/50584512/minnesota-vikings-kirk-cousins-flores-defense"
     },
     {
       "league": "MLB",
@@ -23,44 +53,14 @@
       "href": "/mlb/story/_/id/50587577/white-sox-tyrone-taylor-agree-2-year-17-million-deal"
     },
     {
-      "league": "NBA",
-      "headline": "Jalen Duren to begin rehab assignment in next step to return from injury",
-      "href": "/nba/story/_/id/50586890/jalen-duren-begin-rehab-assignment-next-step-return-injury"
-    },
-    {
       "league": "MLB",
       "headline": "Luis Ortiz's wife urged Guardians pitcher to 'delete the evidence,' texts say",
       "href": "/mlb/story/_/id/50584679/luis-ortiz-wife-text-messages-trial-evidence"
     },
     {
-      "league": "NBA",
-      "headline": "Kawhi Leonard's return from knee swelling still at least week away",
-      "href": "/nba/story/_/id/50587249/kawhi-leonard-return-knee-swelling-least-week-away"
-    },
-    {
       "league": "MLB",
       "headline": "Scott Servais joins Rockies as senior director of baseball operations",
       "href": "/mlb/story/_/id/50587110/scott-servais-joins-rockies-senior-director-baseball-operations"
-    },
-    {
-      "league": "NFL",
-      "headline": "Brandon Aiyuk scheduled for visit Wednesday with Commanders, agent says",
-      "href": "/nfl/story/_/id/50586505/brandon-aiyuk-scheduled-visit-wednesday-commanders"
-    },
-    {
-      "league": "MLB",
-      "headline": "MLB drops contract escrow provision in salary cap proposal",
-      "href": "/mlb/story/_/id/50584880/mlb-drops-contract-escrow-provision-salary-cap-proposal"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Japanese righty Kaima Taira, Blue Jays agree to 5-year, $80M deal",
-      "href": "/mlb/story/_/id/50585003/sources-kaima-taira-blue-jays-agree-5-year-80m-deal"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Freddy Peralta stays in AL East, gets $125M deal to top Orioles rotation",
-      "href": "/mlb/story/_/id/50583512/sources-freddy-peralta-orioles-5-years-125-million"
     },
     {
       "league": "NHL",
