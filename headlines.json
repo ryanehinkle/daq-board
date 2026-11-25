@@ -1,7 +1,52 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-24T20:53:42Z",
+  "refreshedAt": "2026-11-25T03:54:44Z",
   "items": [
+    {
+      "league": "MLB",
+      "headline": "Sources: Reds catcher Tyler Stephenson staying on $30 million, 3-year deal",
+      "href": "/mlb/story/_/id/50589047/reds-c-tyler-stephenson-staying-30-million-3-year-deal"
+    },
+    {
+      "league": "MLB",
+      "headline": "2026-27 MLB free agency, trade grades: Offseason analysis",
+      "href": "/mlb/story/_/id/50473334/2026-27-offseason-free-agency-trade-grades"
+    },
+    {
+      "league": "NFL",
+      "headline": "Broncos' Sean Payton: J.K. Dobbins suspended one game for detrimental conduct",
+      "href": "/nfl/story/_/id/50586087/broncos-payton-says-rb-dobbins-suspended-one-game"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: White Sox, OF Tyrone Taylor agree to 2-year, $17 million deal",
+      "href": "/mlb/story/_/id/50587577/white-sox-tyrone-taylor-agree-2-year-17-million-deal"
+    },
+    {
+      "league": "NBA",
+      "headline": "Jalen Duren to begin rehab assignment in next step to return from injury",
+      "href": "/nba/story/_/id/50586890/jalen-duren-begin-rehab-assignment-next-step-return-injury"
+    },
+    {
+      "league": "MLB",
+      "headline": "Luis Ortiz's wife urged Guardians pitcher to 'delete the evidence,' texts say",
+      "href": "/mlb/story/_/id/50584679/luis-ortiz-wife-text-messages-trial-evidence"
+    },
+    {
+      "league": "NBA",
+      "headline": "Kawhi Leonard's return from knee swelling still at least week away",
+      "href": "/nba/story/_/id/50587249/kawhi-leonard-return-knee-swelling-least-week-away"
+    },
+    {
+      "league": "MLB",
+      "headline": "Scott Servais joins Rockies as senior director of baseball operations",
+      "href": "/mlb/story/_/id/50587110/scott-servais-joins-rockies-senior-director-baseball-operations"
+    },
+    {
+      "league": "NFL",
+      "headline": "Brandon Aiyuk scheduled for visit Wednesday with Commanders, agent says",
+      "href": "/nfl/story/_/id/50586505/brandon-aiyuk-scheduled-visit-wednesday-commanders"
+    },
     {
       "league": "MLB",
       "headline": "MLB drops contract escrow provision in salary cap proposal",
@@ -13,59 +58,14 @@
       "href": "/mlb/story/_/id/50585003/sources-kaima-taira-blue-jays-agree-5-year-80m-deal"
     },
     {
-      "league": "NFL",
-      "headline": "Source: Ravens cut punt returner LaJohntay Wester after his two muffs in loss",
-      "href": "/nfl/story/_/id/50585397/source-ravens-cut-punt-returner-wester-two-muffs-loss"
-    },
-    {
-      "league": "MLB",
-      "headline": "2026-27 MLB free agency, trade grades: Offseason analysis",
-      "href": "/mlb/story/_/id/50473334/2026-27-offseason-free-agency-trade-grades"
-    },
-    {
-      "league": "MLB",
-      "headline": "Luis Ortiz's wife urged Guardians pitcher to 'delete the evidence,' texts say",
-      "href": "/mlb/story/_/id/50584679/luis-ortiz-wife-text-messages-trial-evidence"
-    },
-    {
       "league": "MLB",
       "headline": "Sources: Freddy Peralta stays in AL East, gets $125M deal to top Orioles rotation",
       "href": "/mlb/story/_/id/50583512/sources-freddy-peralta-orioles-5-years-125-million"
     },
     {
-      "league": "MLB",
-      "headline": "Sources: Cubs agree to 6-year, $120M deal with Japan's Teruaki Sato",
-      "href": "/mlb/story/_/id/50583163/sources-cubs-teruaki-sato-reach-6-year-120m-deal"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Tigers, Ha-Seong Kim agree to 1-year, $5M contract",
-      "href": "/mlb/story/_/id/50584756/sources-tigers-ha-seong-kim-agree-1-year-5m-contract"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Guardians, lefty Kris Bubic agree to one-year, $17.5M deal",
-      "href": "/mlb/story/_/id/50583426/sources-guardians-lefty-kris-bubic-agree-one-year-deal"
-    },
-    {
-      "league": "MLB",
-      "headline": "One trade ESPN experts would make before MLB lockout",
-      "href": "/mlb/story/_/id/50541491/offseason-trades-lockout-red-sox-yankees"
-    },
-    {
       "league": "NHL",
       "headline": "Lightning forward Conor Geekie out 4-5 months after undergoing shoulder surgery",
       "href": "/nhl/story/_/id/50583955/lightning-conor-geekie-4-5-months-shoulder-surgery"
-    },
-    {
-      "league": "NBA",
-      "headline": "Sources: Wolves' Donte DiVincenzo eyes New Year's for season debut",
-      "href": "/nba/story/_/id/50584000/wolves-dante-divincenzo-cleared-basketball-activities"
-    },
-    {
-      "league": "NBA",
-      "headline": "Spurs rule Victor Wembanyama, De'Aaron Fox out 90 minutes before win over Kings",
-      "href": "/nba/story/_/id/50578664/spurs-victor-wembanyama-deaaron-fox-kings"
     },
     {
       "league": "NHL",
