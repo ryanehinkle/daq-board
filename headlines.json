@@ -1,16 +1,61 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-25T22:51:20Z",
+  "refreshedAt": "2026-11-26T04:33:36Z",
   "items": [
+    {
+      "league": "MLB",
+      "headline": "2026-27 MLB free agency, trade grades: Offseason analysis",
+      "href": "/mlb/story/_/id/50473334/2026-27-offseason-free-agency-trade-grades"
+    },
+    {
+      "league": "NHL",
+      "headline": "Aleksander Barkov, Brad Marchand return for Panthers in win vs. Senators",
+      "href": "/nhl/story/_/id/50594065/aleksander-barkov-brad-marchand-returning-vs-senators"
+    },
+    {
+      "league": "NBA",
+      "headline": "Ex-Bucks guard Kevin Porter Jr. signs with Magic",
+      "href": "/nba/story/_/id/50595534/agent-kevin-porter-jr-finalizing-2-year-deal-magic"
+    },
     {
       "league": "NFL",
       "headline": "Sources: Mike McCarthy has Steelers' full support after Aaron Rodgers interview",
       "href": "/nfl/story/_/id/50597534/sources-mike-mccarthy-steelers-full-support"
     },
     {
+      "league": "MLB",
+      "headline": "Sources: Rockies agree to deals with David Peterson, Patrick Sandoval",
+      "href": "/mlb/story/_/id/50599272/sources-rockies-agree-2-year-32m-deal-lhp-peterson"
+    },
+    {
       "league": "NBA",
-      "headline": "Austin Reaves rejoins Lakers for full practice, no call yet on facing Spurs",
-      "href": "/nba/story/_/id/50597465/austin-reaves-rejoins-lakers-full-practice-tbd-face-spurs"
+      "headline": "Knicks assistant coach Chris Jent returns to team",
+      "href": "/nba/story/_/id/50600508/knicks-assistant-coach-chris-jent-returns-team"
+    },
+    {
+      "league": "MLB",
+      "headline": "Foster Griffin agrees to 3-year, $48 million deal to stay with Guardians",
+      "href": "/mlb/story/_/id/50600391/foster-griffin-agrees-3-year-48-million-deal-stay-guardians"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: Orioles to bring Luis Robert Jr. back on 1-year, $12M deal",
+      "href": "/mlb/story/_/id/50599469/sources-orioles-luis-robert-jr-agree-1-year-12m-deal"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: Free agent Kevin Gausman, Tigers reach 1-year, $25M deal",
+      "href": "/mlb/story/_/id/50599090/sources-free-agent-kevin-gausman-tigers-reach-deal"
+    },
+    {
+      "league": "MLB",
+      "headline": "Dodgers' Ben Casparius has Tommy John surgery",
+      "href": "/mlb/story/_/id/50599246/dodgers-ben-casparius-tommy-john-surgery"
+    },
+    {
+      "league": "MLB",
+      "headline": "Source: Marlins agree to 1-year deal with catcher Gary Sanchez",
+      "href": "/mlb/story/_/id/50598771/source-marlins-agree-one-year-deal-gary-sanchez"
     },
     {
       "league": "NFL",
@@ -18,59 +63,14 @@
       "href": "/nfl/story/_/id/50597055/colts-alec-pierce-heel-injury-hopeful-return-season"
     },
     {
-      "league": "NFL",
-      "headline": "Bears rule out Gordon for second straight game due to shoulder injury",
-      "href": "/nfl/story/_/id/50597032/bears-rule-gordon-high-stakes-game-detroit"
-    },
-    {
-      "league": "NFL",
-      "headline": "Vikings' Cousins says fiery demeanor part of leadership",
-      "href": "/nfl/story/_/id/50596866/vikings-cousins-says-fiery-demeanor-part-leadership"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Yankees turn to former foe for bench coach, ex-O's coach Hyde",
-      "href": "/mlb/story/_/id/50595004/sources-yankees-hire-ex-o-manager-brandon-hyde-bench-coach"
-    },
-    {
-      "league": "NFL",
-      "headline": "49ers QB Brock Purdy has ankle injury, won't practice Wednesday",
-      "href": "/nfl/story/_/id/50596930/49ers-brock-purdy-ankle-injury-practice-wednesday"
-    },
-    {
       "league": "NBA",
-      "headline": "76ers' Joel Embiid out vs. Heat, misses second straight game due to illness",
-      "href": "/nba/story/_/id/50596747/76ers-star-joel-embiid-vs-heat-due-illness"
-    },
-    {
-      "league": "NFL",
-      "headline": "Aaron Rodgers' timeline with Packers, ending in trade to Jets",
-      "href": "/nfl/story/_/id/31433043/from-holdout-concession-how-aaron-rodgers-green-bay-packers-got-here"
+      "headline": "Austin Reaves rejoins Lakers for full practice, no call yet on facing Spurs",
+      "href": "/nba/story/_/id/50597465/austin-reaves-rejoins-lakers-full-practice-tbd-face-spurs"
     },
     {
       "league": "NHL",
       "headline": "Cale Makar rejoining Avalanche lineup after 'fluke' injury",
       "href": "/nhl/story/_/id/50596079/avalanche-defenseman-cale-makar-returns-3-game-absence"
-    },
-    {
-      "league": "NBA",
-      "headline": "Ex-Bucks guard Kevin Porter Jr. finalizing 2-year deal to join Magic, agent says",
-      "href": "/nba/story/_/id/50595534/agent-kevin-porter-jr-finalizing-2-year-deal-magic"
-    },
-    {
-      "league": "MLB",
-      "headline": "Free agent Alec Bohm reaches 2-year deal with Royals, reports say",
-      "href": "/mlb/story/_/id/50594322/reports-free-agent-alec-bohm-reaches-2-year-royals"
-    },
-    {
-      "league": "MLB",
-      "headline": "Paul Goldschmidt says time with Yankees prepared him for expectations Mets face",
-      "href": "/mlb/story/_/id/50594977/paul-goldschmidt-happy-reunite-andy-green-mets"
-    },
-    {
-      "league": "NHL",
-      "headline": "Lightning forward Conor Geekie out 4-5 months after undergoing shoulder surgery",
-      "href": "/nhl/story/_/id/50583955/lightning-conor-geekie-4-5-months-shoulder-surgery"
     }
   ]
 }
