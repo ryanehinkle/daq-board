@@ -1,11 +1,46 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-26T14:22:14Z",
+  "refreshedAt": "2026-11-26T23:07:51Z",
   "items": [
+    {
+      "league": "NBA",
+      "headline": "Jaylen Brown out against Pacers; Joel Embiid (illness) questionable",
+      "href": "/nba/story/_/id/50606614/76ers-jaylen-brown-hamstring-friday-pacers"
+    },
+    {
+      "league": "NFL",
+      "headline": "Steelers activate Michael Pittman Jr. off IR, sign Max Hurleman to active roster",
+      "href": "/nfl/story/_/id/50606063/steelers-activate-michael-pittman-jr-ir-sign-max-hurleman-active-roster-practice-squad"
+    },
+    {
+      "league": "NFL",
+      "headline": "Caleb Williams' late TD to Rome Odunze gives Bears dramatic win over Lions",
+      "href": "/nfl/story/_/id/50605750/jahmyr-gibbs-lions-caleb-williams-bears-thanksgiving-game"
+    },
+    {
+      "league": "NFL",
+      "headline": "Bears TE Colston Loveland exits win over Lions with knee injury",
+      "href": "/nfl/story/_/id/50605365/bears-colston-loveland-ruled-vs-lions-knee-injury"
+    },
+    {
+      "league": "NHL",
+      "headline": "Devils defenseman Brenden Dillon suspended 4 games for illegal hit to the head",
+      "href": "/nhl/story/_/id/50605811/devils-brenden-dillon-suspended-4-games-illegal-hit"
+    },
     {
       "league": "MLB",
       "headline": "Reports: Foster Griffin agrees to 3-year, $48M deal to stay with Guardians",
       "href": "/mlb/story/_/id/50600391/foster-griffin-agrees-3-year-48-million-deal-stay-guardians"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: Rockies agree to deals with David Peterson, Patrick Sandoval",
+      "href": "/mlb/story/_/id/50599272/sources-rockies-agree-2-year-32m-deal-lhp-peterson"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: Twins, reliever Kevin Ginkel agree to 2-year, $18 million deal",
+      "href": "/mlb/story/_/id/50602024/twins-kevin-ginkel-agree-2-year-18-million-deal"
     },
     {
       "league": "NHL",
@@ -14,18 +49,8 @@
     },
     {
       "league": "MLB",
-      "headline": "Sources: Twins, reliever Kevin Ginkel agree to 2-year, $18 million deal",
-      "href": "/mlb/story/_/id/50602024/twins-kevin-ginkel-agree-2-year-18-million-deal"
-    },
-    {
-      "league": "MLB",
       "headline": "2026-27 MLB free agency, trade grades: Offseason analysis",
       "href": "/mlb/story/_/id/50473334/2026-27-offseason-free-agency-trade-grades"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Rockies agree to deals with David Peterson, Patrick Sandoval",
-      "href": "/mlb/story/_/id/50599272/sources-rockies-agree-2-year-32m-deal-lhp-peterson"
     },
     {
       "league": "MLB",
@@ -46,31 +71,6 @@
       "league": "MLB",
       "headline": "Source: Marlins agree to 1-year deal with catcher Gary Sanchez",
       "href": "/mlb/story/_/id/50598771/source-marlins-agree-one-year-deal-gary-sanchez"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Yankees turn to former foe for bench coach, ex-O's coach Hyde",
-      "href": "/mlb/story/_/id/50595004/sources-yankees-hire-ex-o-manager-brandon-hyde-bench-coach"
-    },
-    {
-      "league": "MLB",
-      "headline": "Free agent Alec Bohm reaches 2-year deal with Royals, reports say",
-      "href": "/mlb/story/_/id/50594322/reports-free-agent-alec-bohm-reaches-2-year-royals"
-    },
-    {
-      "league": "MLB",
-      "headline": "Paul Goldschmidt says time with Yankees prepared him for expectations Mets face",
-      "href": "/mlb/story/_/id/50594977/paul-goldschmidt-happy-reunite-andy-green-mets"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Reds catcher Tyler Stephenson staying on 3-year, $30 million deal",
-      "href": "/mlb/story/_/id/50589047/reds-c-tyler-stephenson-staying-30-million-3-year-deal"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: White Sox, OF Tyrone Taylor agree to 2-year, $17 million deal",
-      "href": "/mlb/story/_/id/50587577/white-sox-tyrone-taylor-agree-2-year-17-million-deal"
     }
   ]
 }
