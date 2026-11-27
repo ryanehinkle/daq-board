@@ -1,7 +1,22 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-26T23:07:51Z",
+  "refreshedAt": "2026-11-27T04:59:26Z",
   "items": [
+    {
+      "league": "NFL",
+      "headline": "Bears TE Colston Loveland exits win over Lions with knee injury",
+      "href": "/nfl/story/_/id/50605365/bears-colston-loveland-ruled-vs-lions-knee-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Eagles' Cooper DeJean leaves win at Cowboys because of concussion",
+      "href": "/nfl/story/_/id/50606739/eagles-cooper-dejean-concussion-leaves-game-cowboys"
+    },
+    {
+      "league": "NFL",
+      "headline": "Caleb Williams' late TD to Rome Odunze gives Bears dramatic win over Lions",
+      "href": "/nfl/story/_/id/50605750/jahmyr-gibbs-lions-caleb-williams-bears-thanksgiving-game"
+    },
     {
       "league": "NBA",
       "headline": "Jaylen Brown out against Pacers; Joel Embiid (illness) questionable",
@@ -11,16 +26,6 @@
       "league": "NFL",
       "headline": "Steelers activate Michael Pittman Jr. off IR, sign Max Hurleman to active roster",
       "href": "/nfl/story/_/id/50606063/steelers-activate-michael-pittman-jr-ir-sign-max-hurleman-active-roster-practice-squad"
-    },
-    {
-      "league": "NFL",
-      "headline": "Caleb Williams' late TD to Rome Odunze gives Bears dramatic win over Lions",
-      "href": "/nfl/story/_/id/50605750/jahmyr-gibbs-lions-caleb-williams-bears-thanksgiving-game"
-    },
-    {
-      "league": "NFL",
-      "headline": "Bears TE Colston Loveland exits win over Lions with knee injury",
-      "href": "/nfl/story/_/id/50605365/bears-colston-loveland-ruled-vs-lions-knee-injury"
     },
     {
       "league": "NHL",
@@ -66,11 +71,6 @@
       "league": "MLB",
       "headline": "Dodgers' Ben Casparius has Tommy John surgery",
       "href": "/mlb/story/_/id/50599246/dodgers-ben-casparius-tommy-john-surgery"
-    },
-    {
-      "league": "MLB",
-      "headline": "Source: Marlins agree to 1-year deal with catcher Gary Sanchez",
-      "href": "/mlb/story/_/id/50598771/source-marlins-agree-one-year-deal-gary-sanchez"
     }
   ]
 }
