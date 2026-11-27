@@ -1,36 +1,21 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-27T14:53:33Z",
+  "refreshedAt": "2026-11-27T23:08:01Z",
   "items": [
     {
-      "league": "NBA",
-      "headline": "Jaylen Brown out against Pacers; Joel Embiid (illness) questionable",
-      "href": "/nba/story/_/id/50606614/76ers-jaylen-brown-hamstring-friday-pacers"
+      "league": "NFL",
+      "headline": "Steelers rally after tumultuous week to grab key Black Friday win over Broncos",
+      "href": "/nfl/story/_/id/50599095/steelers-beat-broncos-black-friday-two-defensive-touchdowns"
     },
     {
       "league": "NHL",
-      "headline": "Devils defenseman Brenden Dillon suspended 4 games for illegal hit to the head",
-      "href": "/nhl/story/_/id/50605811/devils-brenden-dillon-suspended-4-games-illegal-hit"
+      "headline": "Short-handed Chicago Blackhawks place Patrick Kane, 38, on injured reserve",
+      "href": "/nhl/story/_/id/50615550/chicago-blackhawks-place-patrick-kane-injured-reserve"
     },
     {
-      "league": "MLB",
-      "headline": "Reports: Foster Griffin agrees to 3-year, $48M deal to stay with Guardians",
-      "href": "/mlb/story/_/id/50600391/foster-griffin-agrees-3-year-48-million-deal-stay-guardians"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Rockies agree to deals with David Peterson, Patrick Sandoval",
-      "href": "/mlb/story/_/id/50599272/sources-rockies-agree-2-year-32m-deal-lhp-peterson"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Twins, reliever Kevin Ginkel agree to 2-year, $18 million deal",
-      "href": "/mlb/story/_/id/50602024/twins-kevin-ginkel-agree-2-year-18-million-deal"
-    },
-    {
-      "league": "NHL",
-      "headline": "Which NHL coaches have the most wins in history?",
-      "href": "/nhl/story/_/id/48431082/which-nhl-coaches-most-wins-history"
+      "league": "NFL",
+      "headline": "Sources: Bears' Colston Loveland awaiting second opinion on knee",
+      "href": "/nfl/story/_/id/50612564/sources-bears-expected-place-te-colston-loveland-knee-ir"
     },
     {
       "league": "MLB",
@@ -38,39 +23,54 @@
       "href": "/mlb/story/_/id/50473334/2026-27-offseason-free-agency-trade-grades"
     },
     {
-      "league": "MLB",
-      "headline": "Sources: Orioles to bring Luis Robert Jr. back on 1-year, $12M deal",
-      "href": "/mlb/story/_/id/50599469/sources-orioles-luis-robert-jr-agree-1-year-12m-deal"
+      "league": "NFL",
+      "headline": "Bengals WR Tee Higgins dealing with 'sore' hamstring, says coach Zac Taylor",
+      "href": "/nfl/story/_/id/50614804/bengals-wr-higgins-dealing-sore-hamstring-says-taylor"
+    },
+    {
+      "league": "NFL",
+      "headline": "Brian Schottenheimer says Jerry Jones shares 'in our disappointment'",
+      "href": "/nfl/story/_/id/50614763/schottenheimer-says-jones-shares-our-disappointment"
+    },
+    {
+      "league": "NFL",
+      "headline": "Saints rule TE Juwan Johnson out vs. Bengals; TE Noah Fant questionable",
+      "href": "/nfl/story/_/id/50613922/saints-rule-te-johnson-vs-bengals-te-fant-questionable"
     },
     {
       "league": "MLB",
-      "headline": "Sources: Free agent Kevin Gausman, Tigers reach 1-year, $25M deal",
-      "href": "/mlb/story/_/id/50599090/sources-free-agent-kevin-gausman-tigers-reach-deal"
+      "headline": "Sources: Blue Jays, Jazz Chisholm Jr. reach agreement on 1-year deal",
+      "href": "/mlb/story/_/id/50614637/toronto-blue-jays-jazz-chisholm-jr-reach-1-year-deal"
+    },
+    {
+      "league": "NFL",
+      "headline": "Ravens' Marlon Humphrey to return to lineup; role uncertain",
+      "href": "/nfl/story/_/id/50614218/ravens-marlon-humphrey-return-lineup-role-uncertain"
     },
     {
       "league": "MLB",
-      "headline": "Dodgers' Ben Casparius has Tommy John surgery",
-      "href": "/mlb/story/_/id/50599246/dodgers-ben-casparius-tommy-john-surgery"
+      "headline": "Cubs finalize contracts with P Trevor Rogers, OF Teruaki Sato",
+      "href": "/mlb/story/_/id/50614117/cubs-finalize-deals-p-trevor-rogers-teruaki-sato"
     },
     {
-      "league": "MLB",
-      "headline": "Source: Marlins agree to 1-year deal with catcher Gary Sanchez",
-      "href": "/mlb/story/_/id/50598771/source-marlins-agree-one-year-deal-gary-sanchez"
+      "league": "NFL",
+      "headline": "Jaguars' Parker Washington, Bhayshul Tuten both out Sunday",
+      "href": "/nfl/story/_/id/50612050/jaguars-wr-parker-washington-shoulder-week-week"
     },
     {
-      "league": "MLB",
-      "headline": "Sources: Yankees turn to former foe for bench coach, ex-O's coach Hyde",
-      "href": "/mlb/story/_/id/50595004/sources-yankees-hire-ex-o-manager-brandon-hyde-bench-coach"
+      "league": "NBA",
+      "headline": "Timberwolves downgrade star LaMelo Ball to out with ankle sprain",
+      "href": "/nba/story/_/id/50613102/timberwolves-downgrade-lamelo-ball-ankle-sprain"
     },
     {
-      "league": "MLB",
-      "headline": "Free agent Alec Bohm reaches 2-year deal with Royals, reports say",
-      "href": "/mlb/story/_/id/50594322/reports-free-agent-alec-bohm-reaches-2-year-royals"
+      "league": "NHL",
+      "headline": "Islanders forward Kyle Palmieri (ACL, meniscus) out 6-8 months",
+      "href": "/nhl/story/_/id/50612273/islanders-kyle-palmieri-acl-meniscus-6-8-months"
     },
     {
-      "league": "MLB",
-      "headline": "Paul Goldschmidt says time with Yankees prepared him for expectations Mets face",
-      "href": "/mlb/story/_/id/50594977/paul-goldschmidt-happy-reunite-andy-green-mets"
+      "league": "NBA",
+      "headline": "Jaylen Brown out against Pacers; Joel Embiid (illness) questionable",
+      "href": "/nba/story/_/id/50606614/76ers-jaylen-brown-hamstring-friday-pacers"
     }
   ]
 }
