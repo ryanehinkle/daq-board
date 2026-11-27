@@ -1,31 +1,11 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-27T04:59:26Z",
+  "refreshedAt": "2026-11-27T14:53:33Z",
   "items": [
-    {
-      "league": "NFL",
-      "headline": "Bears TE Colston Loveland exits win over Lions with knee injury",
-      "href": "/nfl/story/_/id/50605365/bears-colston-loveland-ruled-vs-lions-knee-injury"
-    },
-    {
-      "league": "NFL",
-      "headline": "Eagles' Cooper DeJean leaves win at Cowboys because of concussion",
-      "href": "/nfl/story/_/id/50606739/eagles-cooper-dejean-concussion-leaves-game-cowboys"
-    },
-    {
-      "league": "NFL",
-      "headline": "Caleb Williams' late TD to Rome Odunze gives Bears dramatic win over Lions",
-      "href": "/nfl/story/_/id/50605750/jahmyr-gibbs-lions-caleb-williams-bears-thanksgiving-game"
-    },
     {
       "league": "NBA",
       "headline": "Jaylen Brown out against Pacers; Joel Embiid (illness) questionable",
       "href": "/nba/story/_/id/50606614/76ers-jaylen-brown-hamstring-friday-pacers"
-    },
-    {
-      "league": "NFL",
-      "headline": "Steelers activate Michael Pittman Jr. off IR, sign Max Hurleman to active roster",
-      "href": "/nfl/story/_/id/50606063/steelers-activate-michael-pittman-jr-ir-sign-max-hurleman-active-roster-practice-squad"
     },
     {
       "league": "NHL",
@@ -71,6 +51,26 @@
       "league": "MLB",
       "headline": "Dodgers' Ben Casparius has Tommy John surgery",
       "href": "/mlb/story/_/id/50599246/dodgers-ben-casparius-tommy-john-surgery"
+    },
+    {
+      "league": "MLB",
+      "headline": "Source: Marlins agree to 1-year deal with catcher Gary Sanchez",
+      "href": "/mlb/story/_/id/50598771/source-marlins-agree-one-year-deal-gary-sanchez"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: Yankees turn to former foe for bench coach, ex-O's coach Hyde",
+      "href": "/mlb/story/_/id/50595004/sources-yankees-hire-ex-o-manager-brandon-hyde-bench-coach"
+    },
+    {
+      "league": "MLB",
+      "headline": "Free agent Alec Bohm reaches 2-year deal with Royals, reports say",
+      "href": "/mlb/story/_/id/50594322/reports-free-agent-alec-bohm-reaches-2-year-royals"
+    },
+    {
+      "league": "MLB",
+      "headline": "Paul Goldschmidt says time with Yankees prepared him for expectations Mets face",
+      "href": "/mlb/story/_/id/50594977/paul-goldschmidt-happy-reunite-andy-green-mets"
     }
   ]
 }
