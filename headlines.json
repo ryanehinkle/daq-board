@@ -1,11 +1,21 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-28T04:43:14Z",
+  "refreshedAt": "2026-11-28T13:40:17Z",
   "items": [
     {
       "league": "NFL",
       "headline": "Singled out in NFL officiating video, Bears' Simmons draws false-start ire from Lions",
       "href": "/nfl/story/_/id/50618212/singled-nfl-officiating-video-bears-simmons-draws-false-start-ire-lions"
+    },
+    {
+      "league": "NFL",
+      "headline": "Five unsung heroes of the Bears' 6-game win streak",
+      "href": "/nfl/story/_/id/50616158/bears-win-streak-tj-edwards-dillon-thieneman"
+    },
+    {
+      "league": "NBA",
+      "headline": "Source: Sixers' Joel Embiid, LeBron James, Jaylen Brown all out against Rockets",
+      "href": "/nba/story/_/id/50619298/source-sixers-joel-embiid-lebron-james-jaylen-brown-all-rockets"
     },
     {
       "league": "NFL",
@@ -18,11 +28,6 @@
       "href": "/mlb/story/_/id/50618251/cubs-agree-terms-japanese-pitcher-hiromi-itoh"
     },
     {
-      "league": "NBA",
-      "headline": "Golden State Warriors rule Steph Curry out for next 3 games with oblique injury",
-      "href": "/nba/story/_/id/50616740/golden-state-warriors-rule-steph-curry-next-3-games"
-    },
-    {
       "league": "MLB",
       "headline": "Reports: Diamondbacks, RHP Kona Takahashi reach 1-year, $3 million deal",
       "href": "/mlb/story/_/id/50616551/diamondbacks-kona-takahashi-reach-1-year-deal"
@@ -31,16 +36,6 @@
       "league": "MLB",
       "headline": "Pirates trade C Henry Davis to Diamondbacks, sources say",
       "href": "/mlb/story/_/id/50613350/pirates-trade-c-henry-davis-diamondbacks-sources-say"
-    },
-    {
-      "league": "NHL",
-      "headline": "Short-handed Chicago Blackhawks place Patrick Kane, 38, on injured reserve",
-      "href": "/nhl/story/_/id/50615550/chicago-blackhawks-place-patrick-kane-injured-reserve"
-    },
-    {
-      "league": "NBA",
-      "headline": "MRI on 76ers star Jaylen Brown's left hamstring showed no new injury",
-      "href": "/nba/story/_/id/50616033/mri-76ers-star-brown-hamstring-showed-no-new-injury"
     },
     {
       "league": "NFL",
@@ -71,6 +66,11 @@
       "league": "NFL",
       "headline": "Saints rule TE Juwan Johnson out vs. Bengals; TE Noah Fant questionable",
       "href": "/nfl/story/_/id/50613922/saints-rule-te-johnson-vs-bengals-te-fant-questionable"
+    },
+    {
+      "league": "MLB",
+      "headline": "Sources: Blue Jays, Jazz Chisholm Jr. reach agreement on 1-year deal",
+      "href": "/mlb/story/_/id/50614637/toronto-blue-jays-jazz-chisholm-jr-reach-1-year-deal"
     }
   ]
 }
