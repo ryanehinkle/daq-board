@@ -1,16 +1,51 @@
 {
   "source": "ESPN league news feeds",
-  "refreshedAt": "2026-11-27T23:08:01Z",
+  "refreshedAt": "2026-11-28T04:43:14Z",
   "items": [
     {
       "league": "NFL",
-      "headline": "Steelers rally after tumultuous week to grab key Black Friday win over Broncos",
-      "href": "/nfl/story/_/id/50599095/steelers-beat-broncos-black-friday-two-defensive-touchdowns"
+      "headline": "Singled out in NFL officiating video, Bears' Simmons draws false-start ire from Lions",
+      "href": "/nfl/story/_/id/50618212/singled-nfl-officiating-video-bears-simmons-draws-false-start-ire-lions"
+    },
+    {
+      "league": "NFL",
+      "headline": "Bo Nix, after one of his worst games for Broncos, says 'I let the team down'",
+      "href": "/nfl/story/_/id/50617060/qb-bo-nix-says-let-team-broncos-routed-steelers"
+    },
+    {
+      "league": "MLB",
+      "headline": "Source: Cubs agree to terms with Japanese pitcher Hiromi Itoh",
+      "href": "/mlb/story/_/id/50618251/cubs-agree-terms-japanese-pitcher-hiromi-itoh"
+    },
+    {
+      "league": "NBA",
+      "headline": "Golden State Warriors rule Steph Curry out for next 3 games with oblique injury",
+      "href": "/nba/story/_/id/50616740/golden-state-warriors-rule-steph-curry-next-3-games"
+    },
+    {
+      "league": "MLB",
+      "headline": "Reports: Diamondbacks, RHP Kona Takahashi reach 1-year, $3 million deal",
+      "href": "/mlb/story/_/id/50616551/diamondbacks-kona-takahashi-reach-1-year-deal"
+    },
+    {
+      "league": "MLB",
+      "headline": "Pirates trade C Henry Davis to Diamondbacks, sources say",
+      "href": "/mlb/story/_/id/50613350/pirates-trade-c-henry-davis-diamondbacks-sources-say"
     },
     {
       "league": "NHL",
       "headline": "Short-handed Chicago Blackhawks place Patrick Kane, 38, on injured reserve",
       "href": "/nhl/story/_/id/50615550/chicago-blackhawks-place-patrick-kane-injured-reserve"
+    },
+    {
+      "league": "NBA",
+      "headline": "MRI on 76ers star Jaylen Brown's left hamstring showed no new injury",
+      "href": "/nba/story/_/id/50616033/mri-76ers-star-brown-hamstring-showed-no-new-injury"
+    },
+    {
+      "league": "NFL",
+      "headline": "Steelers rally after tumultuous week to grab key Black Friday win over Broncos",
+      "href": "/nfl/story/_/id/50599095/steelers-beat-broncos-black-friday-two-defensive-touchdowns"
     },
     {
       "league": "NFL",
@@ -36,41 +71,6 @@
       "league": "NFL",
       "headline": "Saints rule TE Juwan Johnson out vs. Bengals; TE Noah Fant questionable",
       "href": "/nfl/story/_/id/50613922/saints-rule-te-johnson-vs-bengals-te-fant-questionable"
-    },
-    {
-      "league": "MLB",
-      "headline": "Sources: Blue Jays, Jazz Chisholm Jr. reach agreement on 1-year deal",
-      "href": "/mlb/story/_/id/50614637/toronto-blue-jays-jazz-chisholm-jr-reach-1-year-deal"
-    },
-    {
-      "league": "NFL",
-      "headline": "Ravens' Marlon Humphrey to return to lineup; role uncertain",
-      "href": "/nfl/story/_/id/50614218/ravens-marlon-humphrey-return-lineup-role-uncertain"
-    },
-    {
-      "league": "MLB",
-      "headline": "Cubs finalize contracts with P Trevor Rogers, OF Teruaki Sato",
-      "href": "/mlb/story/_/id/50614117/cubs-finalize-deals-p-trevor-rogers-teruaki-sato"
-    },
-    {
-      "league": "NFL",
-      "headline": "Jaguars' Parker Washington, Bhayshul Tuten both out Sunday",
-      "href": "/nfl/story/_/id/50612050/jaguars-wr-parker-washington-shoulder-week-week"
-    },
-    {
-      "league": "NBA",
-      "headline": "Timberwolves downgrade star LaMelo Ball to out with ankle sprain",
-      "href": "/nba/story/_/id/50613102/timberwolves-downgrade-lamelo-ball-ankle-sprain"
-    },
-    {
-      "league": "NHL",
-      "headline": "Islanders forward Kyle Palmieri (ACL, meniscus) out 6-8 months",
-      "href": "/nhl/story/_/id/50612273/islanders-kyle-palmieri-acl-meniscus-6-8-months"
-    },
-    {
-      "league": "NBA",
-      "headline": "Jaylen Brown out against Pacers; Joel Embiid (illness) questionable",
-      "href": "/nba/story/_/id/50606614/76ers-jaylen-brown-hamstring-friday-pacers"
     }
   ]
 }
